@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Seena Shop — Integrative Health Centre Lisbon</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--sage:#5a7a62;--sage-light:#7daa86;--sage-deep:#3d5843;--cream:#f7f4ef;--cream-dark:#ede9e1;--stone:#c8bfb0;--text:#2a2520;--text-mid:#6b6259;--text-soft:#9b9088;--white:#ffffff;--wa:#25D366}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text);min-height:100vh}
+nav{background:var(--sage-deep);padding:0 48px;display:flex;align-items:center;justify-content:space-between;height:64px;position:sticky;top:0;z-index:100}
+.nav-logo-icon{height:38px;width:auto;flex-shrink:0}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:400;color:#fff;letter-spacing:.04em;text-decoration:none;display:flex;align-items:center;gap:9px}
+.nav-links{display:flex;gap:32px;list-style:none}
+.nav-links a{color:rgba(255,255,255,.7);text-decoration:none;font-size:13px;letter-spacing:.06em;text-transform:uppercase;transition:color .2s}
+.nav-links a:hover,.nav-links a.active{color:#fff}
+.nav-book{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);color:#fff;padding:8px 20px;border-radius:40px;font-size:12px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;transition:background .2s}
+.nav-book:hover{background:rgba(255,255,255,.25)}
+.shop-hero{background:var(--sage-deep);color:#fff;padding:56px 48px 64px;position:relative;overflow:hidden}
+.shop-hero::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:48px;background:var(--cream);clip-path:ellipse(55% 100% at 50% 100%)}
+.hero-label{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--sage-light);margin-bottom:12px}
+.hero-title{font-family:'Cormorant Garamond',serif;font-size:52px;font-weight:300;line-height:1.1;margin-bottom:16px}
+.hero-title em{font-style:italic}
+.hero-sub{max-width:520px;font-size:14px;font-weight:300;line-height:1.7;color:rgba(255,255,255,.7)}
+.hero-badges{display:flex;gap:10px;margin-top:28px;flex-wrap:wrap}
+.hero-badge{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);padding:6px 14px;border-radius:40px;font-size:12px;color:rgba(255,255,255,.8);font-weight:300}
+main{max-width:1200px;margin:0 auto;padding:48px 48px 80px}
+.order-note{background:#fff;border:1px solid var(--cream-dark);border-radius:12px;padding:16px 20px;display:flex;align-items:center;gap:12px;margin-bottom:40px;font-size:13px;color:var(--text-mid);line-height:1.5}
+.wa-icon{width:36px;height:36px;background:var(--wa);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.wa-icon svg{width:18px;height:18px;fill:#fff}
+.order-note strong{color:var(--text);font-weight:500}
+.order-note a{color:var(--sage);font-weight:500;text-decoration:none}
+.order-note a:hover{text-decoration:underline}
+.filter-section{margin-bottom:36px}
+.filter-label{font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--text-soft);margin-bottom:12px}
+.filter-pills{display:flex;flex-wrap:wrap;gap:8px}
+.filter-pill{padding:7px 16px;border-radius:40px;border:1px solid var(--stone);background:#fff;font-size:13px;color:var(--text-mid);cursor:pointer;transition:all .18s;font-family:'DM Sans',sans-serif}
+.filter-pill:hover{border-color:var(--sage);color:var(--sage)}
+.filter-pill.active{background:var(--sage-deep);border-color:var(--sage-deep);color:#fff;font-weight:500}
+.brand-section{margin-bottom:56px}
+.brand-section.hidden{display:none}
+.brand-header{display:flex;align-items:flex-end;gap:20px;margin-bottom:20px;padding-bottom:16px;border-bottom:1px solid var(--cream-dark)}
+.brand-name{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:400;color:var(--text);white-space:nowrap}
+.brand-desc{font-size:13px;color:var(--text-soft);font-weight:300;line-height:1.5;flex:1;max-width:460px}
+.product-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:16px}
+.product-card{background:#fff;border:1px solid var(--cream-dark);border-radius:14px;overflow:hidden;cursor:pointer;transition:transform .22s,box-shadow .22s,border-color .22s;display:flex;flex-direction:column}
+.product-card:hover{transform:translateY(-3px);box-shadow:0 12px 32px rgba(61,88,67,.1);border-color:var(--stone)}
+.card-image{aspect-ratio:1;background:var(--cream);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.card-image img{width:100%;height:100%;object-fit:cover;display:block}
+.modal-img img{width:100%;height:100%;object-fit:contain;display:block;border-radius:20px 0 0 0}
+.card-ph{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px}
+.card-ph .ico{width:44px;height:44px;background:var(--cream-dark);border-radius:50%;display:flex;align-items:center;justify-content:center}
+.card-ph .ico svg{width:20px;height:20px;opacity:.35}
+.card-tag{position:absolute;top:10px;left:10px;background:var(--sage-deep);color:#fff;font-size:9px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;padding:3px 8px;border-radius:20px;opacity:.85}
+.card-body{padding:14px 16px 16px;flex:1;display:flex;flex-direction:column}
+.card-name{font-size:13px;font-weight:500;line-height:1.4;color:var(--text);margin-bottom:4px}
+.card-tagline{font-size:11.5px;color:var(--text-soft);font-weight:300;line-height:1.4;margin-bottom:12px;flex:1}
+.card-footer{display:flex;align-items:center;justify-content:space-between;margin-top:auto}
+.card-price{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:500;color:var(--sage-deep)}
+.card-btn{background:var(--sage);color:#fff;border:none;padding:7px 14px;border-radius:30px;font-size:12px;font-weight:500;cursor:pointer;transition:background .18s;font-family:'DM Sans',sans-serif}
+.card-btn:hover{background:var(--sage-deep)}
+.modal-overlay{position:fixed;inset:0;background:rgba(30,25,20,.55);z-index:500;display:none;align-items:center;justify-content:center;padding:24px;backdrop-filter:blur(3px)}
+.modal-overlay.open{display:flex}
+.modal{background:#fff;border-radius:20px;max-width:800px;width:100%;max-height:90vh;overflow-y:auto;position:relative;animation:mIn .28s cubic-bezier(.34,1.4,.64,1)}
+@keyframes mIn{from{opacity:0;transform:scale(.94) translateY(16px)}to{opacity:1;transform:scale(1) translateY(0)}}
+.modal-close{position:absolute;top:16px;right:16px;width:36px;height:36px;background:var(--cream);border:none;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:10;transition:background .18s}
+.modal-close:hover{background:var(--cream-dark)}
+.modal-close svg{width:14px;height:14px}
+.modal-top{display:grid;grid-template-columns:1fr 1fr}
+.modal-img{background:var(--cream);aspect-ratio:1;border-radius:20px 0 0 0;display:flex;align-items:center;justify-content:center;min-height:260px}
+.modal-img svg{width:56px;height:56px;opacity:.15}
+.modal-info{padding:36px 32px 28px}
+.modal-brand{font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--sage);margin-bottom:8px}
+.modal-name{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:400;line-height:1.15;color:var(--text);margin-bottom:14px}
+.modal-desc{font-size:13.5px;font-weight:300;line-height:1.7;color:var(--text-mid);margin-bottom:22px}
+.modal-price{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:500;color:var(--sage-deep);margin-bottom:18px}
+.modal-cta{display:flex;align-items:center;gap:10px;background:var(--wa);color:#fff;border:none;padding:13px 22px;border-radius:40px;font-size:14px;font-weight:500;cursor:pointer;width:100%;justify-content:center;font-family:'DM Sans',sans-serif;text-decoration:none;transition:background .18s}
+.modal-cta:hover{background:#1fa855}
+.modal-cta svg{width:18px;height:18px;fill:#fff}
+.modal-tabs{border-top:1px solid var(--cream-dark)}
+.tab-heads{display:flex;border-bottom:1px solid var(--cream-dark);padding:0 32px}
+.tab-h{padding:14px 0;margin-right:28px;font-size:12px;font-weight:500;letter-spacing:.07em;text-transform:uppercase;color:var(--text-soft);cursor:pointer;border-bottom:2px solid transparent;transition:color .18s,border-color .18s;background:none;border-left:none;border-right:none;border-top:none;font-family:'DM Sans',sans-serif}
+.tab-h.active{color:var(--sage-deep);border-bottom-color:var(--sage)}
+.tab-c{padding:22px 32px 30px;display:none;font-size:13.5px;font-weight:300;line-height:1.7;color:var(--text-mid)}
+.tab-c.active{display:block}
+.shop-cta{background:var(--sage-deep);border-radius:16px;padding:44px 48px;display:flex;align-items:center;justify-content:space-between;gap:32px;margin-top:16px}
+.shop-cta h3{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:400;color:#fff;margin-bottom:8px}
+.shop-cta p{font-size:14px;font-weight:300;color:rgba(255,255,255,.65);max-width:400px;line-height:1.6}
+.wa-btn{display:flex;align-items:center;gap:10px;background:var(--wa);color:#fff;padding:14px 28px;border-radius:40px;font-size:14px;font-weight:500;cursor:pointer;white-space:nowrap;font-family:'DM Sans',sans-serif;text-decoration:none;transition:background .18s;flex-shrink:0}
+.wa-btn:hover{background:#1fa855}
+.wa-btn svg{width:18px;height:18px;fill:#fff}
+.modal::-webkit-scrollbar{width:4px}
+.modal::-webkit-scrollbar-thumb{background:var(--stone);border-radius:2px}
+@media(max-width:768px){nav{padding:0 20px}.nav-links{display:none}main{padding:32px 20px 60px}.shop-hero{padding:40px 20px 52px}.hero-title{font-size:36px}.modal-top{grid-template-columns:1fr}.modal-img{border-radius:20px 20px 0 0;min-height:180px}.shop-cta{flex-direction:column;padding:32px 20px}}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="seena-home_11.html" class="nav-logo"><img src="logos/icon-dark.png" alt="" class="nav-logo-icon"></a>
+  <ul class="nav-links">
+    <li><a href="seena-services.html">Services</a></li>
+    <li><a href="seena-specialists.html">Specialists</a></li>
+    <li><a href="seena-about.html">About</a></li>
+    <li><a href="seena-learn.html">Learn</a></li>
+    <li><a href="#" class="active">Shop</a></li>
+  </ul>
+  <a href="https://wa.me/351924353219" class="nav-book">Book Appointment</a>
+</nav>
+
+<div class="shop-hero">
+  <div class="hero-label">Seena Shop</div>
+  <h1 class="hero-title">Products we <em>trust</em><br>and recommend</h1>
+  <p class="hero-sub">Every product is personally selected by our specialists — tested, verified, and aligned with our integrative philosophy. No fillers, no shortcuts.</p>
+  <div class="hero-badges">
+    <span class="hero-badge">✓ Lab-tested supplements</span>
+    <span class="hero-badge">✓ Natural skincare</span>
+    <span class="hero-badge">✓ Herbal teas & adaptogens</span>
+    <span class="hero-badge">✓ Circadian wellness tools</span>
+  </div>
+</div>
+
+<main>
+
+<div class="order-note">
+  <div class="wa-icon"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></div>
+  <div><strong>How to order:</strong> Browse below, then <a href="https://wa.me/351924353219">message us on WhatsApp</a> with your selection. We arrange pickup at the centre or delivery within Lisbon. <strong>Delivery costs are covered by the client.</strong></div>
+</div>
+
+<div class="filter-section">
+  <div class="filter-label">Filter by brand</div>
+  <div class="filter-pills">
+    <button class="filter-pill active" onclick="filterBrand('all',this)">All products</button>
+    <button class="filter-pill" onclick="filterBrand('augment',this)">Augment Life</button>
+    <button class="filter-pill" onclick="filterBrand('oxxyo3',this)">OXXYO3</button>
+    <button class="filter-pill" onclick="filterBrand('hawa',this)">Hawa Pharma</button>
+    <button class="filter-pill" onclick="filterBrand('tallow',this)">Pure Tallow</button>
+    <button class="filter-pill" onclick="filterBrand('redlight',this)">Red Light</button>
+    <button class="filter-pill" onclick="filterBrand('altai',this)">Altai Code Tea</button>
+  </div>
+</div>
+
+<!-- AUGMENT LIFE -->
+<div class="brand-section" data-brand="augment">
+  <div class="brand-header">
+    <div class="brand-name">Augment Life</div>
+    <div class="brand-desc">German precision supplements — every batch independently lab-tested with a Certificate of Analysis. Natural, bioavailable, zero fillers.</div>
+  </div>
+  <div class="product-grid" id="grid-augment">
+  </div>
+</div>
+
+<!-- OXXYO3 -->
+<div class="brand-section" data-brand="oxxyo3">
+  <div class="brand-header">
+    <div class="brand-name">OXXYO3</div>
+    <div class="brand-desc">Ozone-infused olive oil formulas from Portugal — clean, natural, gentle. Supports digestive comfort, immunity, and the body's internal harmony.</div>
+  </div>
+  <div class="product-grid" id="grid-oxxyo3"></div>
+</div>
+
+<!-- HAWA -->
+<div class="brand-section" data-brand="hawa">
+  <div class="brand-header">
+    <div class="brand-name">Hawa Pharma</div>
+    <div class="brand-desc">Natural wellness formulas blending herbs, active nutrients, and traditional wisdom. Clean, effective, thoughtfully crafted for daily use.</div>
+  </div>
+  <div class="product-grid" id="grid-hawa"></div>
+</div>
+
+<!-- PURE TALLOW -->
+<div class="brand-section" data-brand="tallow">
+  <div class="brand-header">
+    <div class="brand-name">Pure Tallow</div>
+    <div class="brand-desc">Portuguese natural skincare based on beef tallow — a lipid profile remarkably similar to human skin. Deep nourishment, no endocrine-disrupting ingredients.</div>
+  </div>
+  <div class="product-grid" id="grid-tallow"></div>
+</div>
+
+<!-- RED LIGHT -->
+<div class="brand-section" data-brand="redlight">
+  <div class="brand-header">
+    <div class="brand-name">Red Light</div>
+    <div class="brand-desc">After sunset, light matters. Soft red light doesn't suppress melatonin — supporting natural rest, recovery, and healthy circadian rhythms.</div>
+  </div>
+  <div class="product-grid" id="grid-redlight"></div>
+</div>
+
+<!-- ALTAI CODE TEA -->
+<div class="brand-section" data-brand="altai">
+  <div class="brand-header">
+    <div class="brand-name">Altai Code Tea</div>
+    <div class="brand-desc">Wild-harvested herbal teas from the Altai region — caffeine-gentle, beautifully blended, each with a distinct mood and purpose.</div>
+  </div>
+  <div class="product-grid" id="grid-altai"></div>
+</div>
+
+<div class="shop-cta">
+  <div>
+    <h3>Ready to order?</h3>
+    <p>Message us on WhatsApp with your selection. We'll confirm availability and arrange pickup or delivery in Lisbon.</p>
+  </div>
+  <a href="https://wa.me/351924353219" class="wa-btn">
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    Order on WhatsApp
+  </a>
+</div>
+
+</main>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="overlay" onclick="closeOnOverlay(event)">
+  <div class="modal" id="modal">
+    <button class="modal-close" onclick="closeModal()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+    <div class="modal-top">
+      <div class="modal-img" id="mImg">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8"><path d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"/></svg>
+      </div>
+      <div class="modal-info">
+        <div class="modal-brand" id="mBrand"></div>
+        <h2 class="modal-name" id="mName"></h2>
+        <p class="modal-desc" id="mDesc"></p>
+        <div class="modal-price" id="mPrice"></div>
+        <a id="mCta" class="modal-cta" href="#" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Order via WhatsApp
+        </a>
+      </div>
+    </div>
+    <div class="modal-tabs">
+      <div class="tab-heads">
+        <button class="tab-h active" onclick="switchTab(this,'ti')">Ingredients</button>
+        <button class="tab-h" onclick="switchTab(this,'ta')">Allergens</button>
+        <button class="tab-h" onclick="switchTab(this,'ts')">Storage</button>
+      </div>
+      <div class="tab-c active" id="ti"></div>
+      <div class="tab-c" id="ta"></div>
+      <div class="tab-c" id="ts"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+const WA = 'https://wa.me/351924353219';
+const SVG_SUPP = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"/></svg>`;
+const SVG_HEART = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>`;
+const SVG_BULB = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>`;
+const SVG_TEA = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M3 10h18M3 14h18m-9-4v8m-7 0h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>`;
+const SVG_SKIN = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M12 6v6m0 0v6m0-6h6m-6 0H6"/></svg>`;
+const SVG_SET = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>`;
+
+const products = {
+  augment: [
+    {name:'Creatine Monohydrate Powder',tag:'Performance & recovery · 250g / 500g',price:'€18 – €30',desc:'Pure creatine without additives that enhances physical performance, speeds up muscle recovery after workouts, and supports energy and concentration.',ing:'Pure creatine monohydrate powder. 250g or 500g. No additives.',al:'No allergens. Suitable for vegetarians.',st:'Store in a cool dry place. Seal tightly after opening.',icon:'supp',imgKey:'creatine'},
+    {name:'Collagen Peptides Type II',tag:'Skin elasticity & joint health',price:'€36',desc:'Type II bovine collagen with hyaluronic acid — pure hydrolyzed collagen that supports skin elasticity and joint health. Easily absorbed, no unnecessary additives.',ing:'Hydrolysed bovine collagen peptides type II, hyaluronic acid. Pure powder.',al:'Bovine (contains collagen). No gluten, no soy.',st:'Store in a cool dry place. Use within 3 months of opening.',icon:'supp',imgKey:'collagen'},
+    {name:'Quercetin Dihydrate',tag:'Immune support & antioxidant',price:'€13',desc:'A natural antioxidant that supports the immune system and reduces inflammation. May help with allergic reactions.',ing:'Pure quercetin dihydrate in highly bioavailable form.',al:'No allergens. Suitable for vegetarians and vegans.',st:'Store away from heat and moisture.',icon:'supp',imgKey:'quercetin'},
+    {name:'Curcumin',tag:'Anti-inflammatory & joint support',price:'€15',desc:'A scientifically proven anti-inflammatory and antioxidant compound that supports joint health and protects cells from oxidative stress.',ing:'High-potency curcumin extract. Enhanced bioavailability formula.',al:'No allergens. Suitable for vegetarians and vegans.',st:'Store away from heat and moisture.',icon:'supp',imgKey:'curcumin'},
+    {name:'Berberine',tag:'Blood sugar & metabolic support',price:'€25',desc:'A natural compound scientifically proven to help support normal blood sugar levels and healthy metabolism.',ing:'Pure berberine HCl. High-grade extract.',al:'No allergens. Suitable for vegetarians and vegans.',st:'Store in a cool dry place.',icon:'supp',imgKey:'berberine'},
+    {name:'L-Theanine',tag:'Calm focus without drowsiness',price:'€27',desc:'A natural amino acid from green tea — scientifically proven to reduce stress and promote relaxation without drowsiness, while supporting concentration and cognitive function.',ing:'Pure L-theanine from green tea extract.',al:'No allergens. Suitable for vegetarians and vegans.',st:'Store away from heat and moisture.',icon:'supp',imgKey:'ltheanine'},
+    {name:'Magnesium Glycinate',tag:'Muscles, nerves & sleep quality',price:'€17',desc:'An easily absorbable form of magnesium — scientifically proven to support the normal function of muscles, the nervous system, and the cardiovascular system.',ing:'Magnesium in glycinate form — highest bioavailability, gentle on digestion.',al:'No allergens. Suitable for vegetarians and vegans.',st:'Store in a cool dry place.',icon:'supp',imgKey:'magnesium'},
+    {name:'D-Mannose',tag:'Urinary tract health',price:'€24',desc:'A natural sugar scientifically proven to support urinary tract health and reduce the risk of bacterial infections.',ing:'Pure D-mannose powder. No additives.',al:'No allergens. Suitable for vegetarians and vegans.',st:'Store in a cool dry place.',icon:'supp',imgKey:'dmannose'},
+    {name:'Vitamin D3 + K2',tag:'Immunity, bones & calcium balance',price:'€26',desc:'A highly effective combination: Vitamin D3 supports immunity and bone health, while K2 in MK-7 form directs calcium to the bones where it belongs.',ing:'Vitamin D3 (cholecalciferol) + Vitamin K2 (MK-7 form). Highly bioavailable.',al:'No major allergens. Suitable for vegetarians.',st:'Store away from light and moisture.',icon:'supp',imgKey:'vitamind3k2'},
+    {name:'Ashwagandha',tag:'Stress resilience & energy',price:'€12',desc:'A natural adaptogenic herb scientifically proven to reduce stress, support emotional balance, and enhance the body\'s energy and stamina.',ing:'Standardised ashwagandha root extract (KSM-66® equivalent).',al:'No allergens. Suitable for vegetarians and vegans.',st:'Store in a cool dry place.',icon:'supp',imgKey:'ashwagandha'},
+    {name:'Serenity+',tag:'Emotional balance & calm',price:'€24',desc:'A natural herbal formula designed to support emotional balance, reduce stress, and promote relaxation without causing drowsiness.',ing:'Proprietary blend of natural herbs and adaptogens for calm and balance.',al:'No allergens. Suitable for vegetarians and vegans.',st:'Store in a cool dry place.',icon:'supp',imgKey:'serenityplus'},
+  ],
+  oxxyo3: [
+    {name:'Gastro Syrup',tag:'Digestive & stomach lining support',price:'€27',desc:'An ozonated olive oil syrup blended with natural herbal extracts. Supports gastric mucosal health, promotes comfortable digestion, and protects the stomach lining with gentle antioxidant support.',ing:'Ozonated olive oil, natural herbal extracts. Syrup form.',al:'Contains olive oil. Consult your specialist if you have known sensitivities.',st:'Store in a cool dark place. Use within 3 months of opening.',icon:'bulb',imgKey:'oxxyo3_gastro'},
+    {name:'Ampoules',tag:'Antioxidant support with zinc',price:'€45',desc:'Ozonated olive oil ampoules enriched with zinc. Provides potent antioxidant support and strengthens the body\'s natural defence mechanisms.',ing:'Ozonated olive oil, zinc. Single-dose ampoule format.',al:'Contains olive oil.',st:'Store away from light and heat.',icon:'bulb',imgKey:'oxxyo3_ampoules'},
+    {name:'Oral Spray',tag:'Throat comfort & immune vitality',price:'€19',desc:'An oral spray with ozonated olive oil, propolis, echinacea, licorice, marshmallow root, and thyme. Supports comfort in the mouth and throat while promoting overall vitality.',ing:'Ozonated olive oil, propolis, echinacea, licorice root, marshmallow root, thyme.',al:'Contains propolis (bee product). Not suitable for bee product allergies.',st:'Store upright in a cool dry place.',icon:'bulb',imgKey:'oxxyo3_spray'},
+    {name:'Capsules',tag:'Immune & cellular protection',price:'€44',desc:'Antioxidant support capsules formulated with olive extract and ozonated molecules, enriched with zinc to support the immune system and protect cells from oxidative stress.',ing:'Olive extract, ozonated molecules, zinc. Capsule form.',al:'Contains olive derivatives.',st:'Store in a cool dark place.',icon:'bulb',imgKey:'oxxyo3_capsules'},
+  ],
+  hawa: [
+    {name:'Digest',tag:'Digestive comfort & enzyme support',price:'€19',desc:'An herbal and enzyme-based supplement designed to support digestion and comfortable nutrient absorption. Formulated with fennel, cardamom, gentian, and digestive enzymes — helps maintain lightness after meals.',ing:'Fennel extract, cardamom extract, gentian (bitter) extract, digestive enzymes blend.',al:'Consult a specialist if you have known plant sensitivities.',st:'Store in a cool dry place below 25°C.',icon:'heart',imgKey:'hawa_digest'},
+    {name:'Vitamin C',tag:'Immune support · Alkaline form',price:'€20',desc:'Vitamin C in alkaline form — supports the immune system, provides powerful antioxidant benefits, aids in iron absorption, and promotes healthy skin.',ing:'Vitamin C (ascorbate, alkaline form). Gentle on the stomach.',al:'No major allergens.',st:'Store in a cool dry place.',icon:'heart',imgKey:'hawa_vitc'},
+    {name:'Vitamin D3',tag:'Bones, immunity & calcium absorption',price:'€15',desc:'Active form Vitamin D3 — supports bone and muscle health while strengthening the immune system. Aids in calcium and phosphorus absorption for overall vitality.',ing:'Vitamin D3 (cholecalciferol) in active form.',al:'No major allergens.',st:'Store in a cool dry place.',icon:'heart',imgKey:'hawa_vitd3'},
+    {name:'Stress',tag:'Stress resilience & energy formula',price:'€26',desc:'A powerful formula combining Serenzo (Citrus sinensis extract), ashwagandha, tulsi, GABA, and coriander — designed to support stress resilience, energy levels, and overall vitality.',ing:'Serenzo® (Citrus sinensis extract), ashwagandha, tulsi (holy basil), GABA, coriander extract.',al:'Contains citrus. Consult your specialist if you have sensitivities.',st:'Store in a cool dry place.',icon:'heart',imgKey:'hawa_stress'},
+    {name:'Flu',tag:'Immune defence formula',price:'€16',desc:'Herbal immune support with elderberry, acerola, propolis, and echinacea — vital support during cold and flu season.',ing:'Elderberry extract, acerola, propolis, echinacea extract.',al:'Contains propolis (bee product). Not suitable for bee allergies.',st:'Store in a cool dry place.',icon:'heart',imgKey:'hawa_flu'},
+    {name:'Diur',tag:'Natural fluid balance support',price:'€19',desc:'A gentle herbal formula with horsetail, hibiscus, and pilosella — supports the body\'s natural fluid balance and helps reduce water retention.',ing:'Horsetail extract, hibiscus extract, pilosella extract.',al:'No major allergens. Consult your specialist if pregnant.',st:'Store in a cool dry place.',icon:'heart',imgKey:'hawa_diur'},
+  ],
+  tallow: [
+    {name:'Tallow Lip Balm',tag:'Deep nourishment · 2 ingredients only',price:'€14',desc:'A natural lip balm made from just two ingredients: tallow (rendered, purified beef fat rich in vitamins A, D, E, and K) and organic beeswax. Deeply nourishes and protects the lips — no synthetic additives or fragrances.',ing:'Rendered beef tallow (rich in vitamins A, D, E, K), organic beeswax. That\'s it.',al:'Contains beeswax (bee product). Contains beef derivatives.',st:'Keep away from heat. Slight natural variation between batches is normal.',icon:'skin',imgKey:'tallow_lipbalm'},
+    {name:'Tallow Deo Stick',tag:'Natural deodorant · Aluminum-free',price:'€18',desc:'A natural deodorant made from rendered beef tallow, baking soda, arrowroot, and jojoba oil. Neutralizes odor without blocking sweating. Aluminum-free, synthetic fragrance-free, hormone-disrupting ingredient-free.',ing:'Beef tallow, baking soda, arrowroot powder, jojoba oil.',al:'Contains beef derivatives. No synthetic fragrances.',st:'Keep in a cool place. May soften in heat — normal for a tallow product.',icon:'skin',imgKey:'tallow_deo'},
+  ],
+  redlight: [
+    {name:'Mini Red Clip-On Lamp',tag:'Sleep-safe night reading light',price:'€17',desc:'A small rechargeable clip-on lamp with soft red light — perfect for reading or night feeds without disturbing sleep. Supports natural melatonin production and healthy circadian rhythms. Adjustable brightness, clips to book, bed, or crib.',ing:'Rechargeable clip-on lamp. Red light spectrum only. Adjustable brightness.',al:'Not a medical device.',st:'Charge fully before first use. Keep away from water.',icon:'bulb',imgKey:'redlight_clipon'},
+    {name:'Red LED Night Light',tag:'Motion sensor · Melatonin-safe',price:'€19.50',desc:'Soft red light with motion sensor — turns on automatically in bathrooms and hallways at night. No blue spectrum means no melatonin suppression, supporting healthy circadian rhythm and easier sleep.',ing:'Red LED, built-in motion sensor. Plug-in. For bathroom or hallway use.',al:'Not a medical device.',st:'Plug into standard EU socket. Motion sensor range approx. 3 metres.',icon:'bulb',imgKey:'redlight_night'},
+  ],
+  altai: [
+    {name:'Forest Harmony',tag:'Calm & immune balance',price:'€14',desc:'A blend of herbs that help create a sense of calm and inner balance while gently supporting the immune system.',ing:'Kuril tea (Potentilla), lemon balm, mint.',al:'No known allergens. Naturally caffeine-gentle.',st:'Store in a cool dry place, away from strong odours.',icon:'tea',imgKey:'altai_forest'},
+    {name:'Summer Sigh',tag:'Relaxation · Strawberry notes',price:'€15',desc:'A gentle blend providing relaxation and rejuvenation, with light fruity notes of strawberry.',ing:'Kuril tea, thyme, strawberry leaves, dried strawberries.',al:'No known allergens. Naturally caffeine-gentle.',st:'Store in a cool dry place, away from strong odours.',icon:'tea',imgKey:'altai_summer'},
+    {name:'Whisper of the Meadow',tag:'Gentle calming · Refreshing aroma',price:'€12',desc:'A herbal blend valued for its gentle calming effects and refreshing aroma.',ing:'Chamomile, ziziphora, lemongrass, lemon peel.',al:'No known allergens. Naturally caffeine-gentle.',st:'Store in a cool dry place, away from strong odours.',icon:'tea',imgKey:'altai_whisper'},
+    {name:'Glow of the Sunset',tag:'Vitamin-rich · Immune support',price:'€14',desc:'A vitamin-rich blend traditionally used to support overall health and gently strengthen the immune system.',ing:'Linden flowers, rose hips, orange peel, raspberry leaves, nettle, blackcurrant leaves.',al:'No known allergens. Naturally caffeine-gentle.',st:'Store in a cool dry place, away from strong odours.',icon:'tea',imgKey:'altai_glow'},
+    {name:'Misty Morning',tag:'Calm & cardiovascular harmony',price:'€12',desc:'Hawthorn helps to calm and gently relax the body while supporting cardiovascular health.',ing:'Fermented Ivan tea, hawthorn.',al:'No known allergens. Naturally caffeine-gentle.',st:'Store in a cool dry place, away from strong odours.',icon:'tea',imgKey:'altai_misty'},
+    {name:'Berry Dew',tag:'Wild strawberry antioxidant blend',price:'€15',desc:'Wild strawberries give this tea a gentle fruity flavour and serve as a natural source of antioxidants.',ing:'Fermented Ivan tea, dried wild strawberries.',al:'No known allergens. Naturally caffeine-gentle.',st:'Store in a cool dry place, away from strong odours.',icon:'tea',imgKey:'altai_berry'},
+    {name:'Secret of the Wind',tag:'Vitality & digestive comfort',price:'€15',desc:'A blend combining herbs that support vitality, reduce fatigue, and promote comfortable digestion.',ing:'Kuril tea, blackcurrant leaves, lemon balm, rosemary, chamomile.',al:'No known allergens. Naturally caffeine-gentle.',st:'Store in a cool dry place, away from strong odours.',icon:'tea',imgKey:'altai_secret'},
+    {name:'Scarlet Dawn',tag:'Cranberry & antioxidant blend',price:'€14',desc:'Cranberries add a refreshing tartness and serve as a natural source of antioxidants.',ing:'Fermented Ivan tea with cranberries.',al:'No known allergens. Naturally caffeine-gentle.',st:'Store in a cool dry place, away from strong odours.',icon:'tea',imgKey:'altai_scarlet'},
+    {name:'Mini Set: Energy',tag:'4 teas · 30g each · Gift-ready',price:'€18',desc:'A curated 30g tasting set including Berry Dew, Whisper of the Meadow, Summer Sigh, and Scarlet Dawn. Perfect for gifting or exploring the range.',ing:'Berry Dew (30g), Whisper of the Meadow (30g), Summer Sigh (30g), Scarlet Dawn (30g).',al:'No known allergens.',st:'Store in a cool dry place.',icon:'set',setLabel:'4 teas',imgKey:'altai_set_energy'},
+    {name:'Mini Set: Energy & Balance',tag:'Full collection · 8 teas · 30g each',price:'€30',desc:'The complete Altai Code collection — all 8 teas in a curated 30g mini set. A perfect introduction to the full range or a thoughtful gift.',ing:'Berry Dew, Whisper of the Meadow, Summer Sigh, Scarlet Dawn, Misty Morning, Forest Harmony, Secret of the Wind, Glow of the Sunset — 30g each.',al:'No known allergens.',st:'Store in a cool dry place.',icon:'set',setLabel:'8 teas',imgKey:'altai_set_enbal'},
+    {name:'Mini Set: Balance',tag:'4 calming teas · 30g each',price:'€17',desc:'A calming 30g tasting set including Misty Morning, Forest Harmony, Secret of the Wind, and Glow of the Sunset.',ing:'Misty Morning (30g), Forest Harmony (30g), Secret of the Wind (30g), Glow of the Sunset (30g).',al:'No known allergens.',st:'Store in a cool dry place.',icon:'set',setLabel:'4 teas',imgKey:'altai_set_balance'},
+  ]
+};
+
+const iconMap = {supp:SVG_SUPP, heart:SVG_HEART, bulb:SVG_BULB, tea:SVG_TEA, skin:SVG_SKIN, set:SVG_SET};
+const brandMap = {augment:'Augment Life', oxxyo3:'OXXYO3', hawa:'Hawa Pharma', tallow:'Pure Tallow', redlight:'Red Light', altai:'Altai Code Tea'};
+
+function buildCard(p, brand) {
+  const isSet = p.icon === 'set';
+  const imgBg = isSet ? 'background:linear-gradient(135deg,#e8f0ea,#d4e6d8)' : '';
+  const setLabel = p.setLabel ? `<span style="font-size:10px;color:var(--sage-deep);font-weight:500;margin-top:4px">${p.setLabel}</span>` : '';
+  const tagLabel = isSet ? 'Gift Set' : brandMap[brand];
+  const escaped = JSON.stringify(p).replace(/'/g,"&#39;");
+  const imgContent = p.imgKey
+    ? `<img src="product_images/${p.imgKey}.png" alt="${p.name}" loading="lazy">${setLabel}`
+    : `<div class="card-ph"><div class="ico">${iconMap[p.icon]||SVG_SUPP}</div>${setLabel}</div>`;
+  return `<div class="product-card" onclick='openModal(${escaped},"${brand}")'>
+    <div class="card-image" style="${imgBg}">
+      ${imgContent}
+      <span class="card-tag">${tagLabel}</span>
+    </div>
+    <div class="card-body">
+      <div class="card-name">${p.name}</div>
+      <div class="card-tagline">${p.tag}</div>
+      <div class="card-footer">
+        <span class="card-price">${p.price}</span>
+        <button class="card-btn">View</button>
+      </div>
+    </div>
+  </div>`;
+}
+
+Object.keys(products).forEach(brand => {
+  const grid = document.getElementById('grid-' + brand);
+  if (grid) grid.innerHTML = products[brand].map(p => buildCard(p, brand)).join('');
+});
+
+function openModal(p, brand) {
+  document.getElementById('mImg').innerHTML = p.imgKey
+    ? `<img src="product_images/${p.imgKey}.png" alt="${p.name}">`
+    : `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8"><path d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"/></svg>`;
+  document.getElementById('mBrand').textContent = brandMap[brand] || brand;
+  document.getElementById('mName').textContent = p.name;
+  document.getElementById('mDesc').textContent = p.desc;
+  document.getElementById('mPrice').textContent = p.price;
+  document.getElementById('ti').textContent = p.ing;
+  document.getElementById('ta').textContent = p.al;
+  document.getElementById('ts').textContent = p.st;
+  const msg = encodeURIComponent(`Hi! I'd like to order: ${p.name} (${p.price}). Could you confirm availability and delivery options?`);
+  document.getElementById('mCta').href = `${WA}?text=${msg}`;
+  document.querySelectorAll('.tab-h').forEach(h=>h.classList.remove('active'));
+  document.querySelectorAll('.tab-c').forEach(c=>c.classList.remove('active'));
+  document.querySelectorAll('.tab-h')[0].classList.add('active');
+  document.getElementById('ti').classList.add('active');
+  document.getElementById('overlay').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+
+function closeModal(){document.getElementById('overlay').classList.remove('open');document.body.style.overflow='';}
+function closeOnOverlay(e){if(e.target===document.getElementById('overlay'))closeModal();}
+function switchTab(btn,id){document.querySelectorAll('.tab-h').forEach(h=>h.classList.remove('active'));document.querySelectorAll('.tab-c').forEach(c=>c.classList.remove('active'));btn.classList.add('active');document.getElementById(id).classList.add('active');}
+function filterBrand(brand,btn){document.querySelectorAll('.filter-pill').forEach(p=>p.classList.remove('active'));btn.classList.add('active');document.querySelectorAll('.brand-section').forEach(s=>{s.classList.toggle('hidden',brand!=='all'&&s.dataset.brand!==brand);});}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();});
+</script>
+</body>
+</html>

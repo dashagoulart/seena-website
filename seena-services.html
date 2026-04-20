@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Services — Seena Integrative Health Centre</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --sage:#3d5843;--sage-mid:#4a6b52;--sage-deep:#2e4535;
+  --sage-light:rgba(125,170,134,.13);--sage-pale:rgba(125,170,134,.07);
+  --cream:#f7f4ef;--cream-dark:#ede9e1;--stone:#c8bfb0;
+  --text:#1a1a1a;--text-soft:#6b6560;--text-muted:#9e9890;
+}
+body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text)}
+
+/* ── NAV ── */
+.site-nav{position:sticky;top:0;z-index:100;background:rgba(247,244,239,.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--cream-dark);padding:0 56px;height:64px;display:flex;align-items:center;justify-content:space-between}
+.nav-logo-icon{height:38px;width:auto;flex-shrink:0}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:400;color:var(--sage);letter-spacing:.04em;text-decoration:none;display:flex;align-items:center;gap:9px}
+.nav-links{display:flex;gap:32px;list-style:none}
+.nav-links a{color:var(--text-soft);text-decoration:none;font-size:11.5px;font-weight:400;letter-spacing:.1em;text-transform:uppercase;transition:color .2s}
+.nav-links a:hover,.nav-links a.active{color:var(--sage)}
+.nav-cta{background:var(--sage);color:#fff;padding:9px 22px;border-radius:40px;font-size:11.5px;font-weight:500;letter-spacing:.07em;text-transform:uppercase;text-decoration:none;transition:background .2s}
+.nav-cta:hover{background:var(--sage-deep)}
+
+/* ── HERO ── */
+.page-hero{background:linear-gradient(160deg,var(--sage-deep) 0%,var(--sage) 50%,var(--sage-mid) 100%);padding:80px 56px 80px;position:relative;overflow:hidden}
+.page-hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:100px;background:linear-gradient(to top,var(--cream) 0%,transparent 100%)}
+.page-hero-inner{max-width:1240px;margin:0 auto;position:relative;z-index:1}
+.page-eyebrow{font-size:10.5px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:rgba(125,170,134,.9);margin-bottom:18px;display:flex;align-items:center;gap:12px}
+.page-eyebrow::before{content:'';width:24px;height:1px;background:rgba(125,170,134,.7)}
+.page-hero h1{font-family:'Cormorant Garamond',serif;font-size:64px;font-weight:300;line-height:1.05;color:#fff;letter-spacing:-.02em;margin-bottom:20px}
+.page-hero h1 em{font-style:italic;color:rgba(255,255,255,.8)}
+.page-hero p{font-size:15px;font-weight:300;line-height:1.75;color:rgba(255,255,255,.6);max-width:560px}
+
+/* ── CATEGORY NAV ── */
+.cat-nav{background:#fff;border-bottom:1px solid var(--cream-dark);position:sticky;top:64px;z-index:90;padding:0 56px}
+.cat-nav-inner{max-width:1240px;margin:0 auto;display:flex;gap:0;overflow-x:auto;scrollbar-width:none}
+.cat-nav-inner::-webkit-scrollbar{display:none}
+.cat-pill{display:flex;align-items:center;gap:7px;padding:16px 22px;font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);text-decoration:none;border-bottom:2px solid transparent;white-space:nowrap;transition:color .2s,border-color .2s;cursor:pointer}
+.cat-pill:hover{color:var(--sage)}
+.cat-pill.active{color:var(--sage);border-bottom-color:var(--sage)}
+.cat-pill svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:1.5;flex-shrink:0}
+
+/* ── MAIN ── */
+main{max-width:1240px;margin:0 auto;padding:64px 56px 96px}
+
+/* ── SECTION ── */
+.service-section{margin-bottom:80px}
+.section-header{margin-bottom:36px;padding-bottom:20px;border-bottom:1px solid var(--cream-dark);display:flex;align-items:flex-end;justify-content:space-between;gap:24px}
+.section-title-group{}
+.section-eyebrow{font-size:10px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--sage);margin-bottom:8px}
+.section-title{font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:300;color:var(--text);line-height:1.1}
+.section-note{font-size:12.5px;font-weight:300;color:var(--text-muted);max-width:420px;text-align:right;line-height:1.6}
+
+/* ── GRID ── */
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.services-grid.cols-2{grid-template-columns:repeat(2,1fr)}
+
+/* ── SERVICE CARD ── */
+.service-card{background:#fff;border:1px solid var(--cream-dark);border-radius:14px;padding:24px;cursor:pointer;transition:transform .2s,box-shadow .2s,border-color .2s;display:flex;flex-direction:column;gap:0}
+.service-card:hover{transform:translateY(-3px);box-shadow:0 12px 32px rgba(61,88,67,.09);border-color:var(--stone)}
+.card-icon{width:40px;height:40px;background:var(--sage-light);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:16px;flex-shrink:0}
+.card-icon svg{width:18px;height:18px;stroke:var(--sage);fill:none;stroke-width:1.5}
+.card-name{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:400;line-height:1.2;color:var(--text);margin-bottom:10px}
+.card-desc{font-size:12.5px;font-weight:300;line-height:1.65;color:var(--text-soft);flex:1;margin-bottom:18px}
+.card-footer{display:flex;align-items:center;justify-content:space-between;margin-top:auto;gap:12px}
+.card-price{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:400;color:var(--sage-deep)}
+.card-price-note{font-size:10.5px;font-weight:300;color:var(--text-muted);line-height:1.4}
+.card-book{background:var(--sage);color:#fff;padding:8px 18px;border-radius:40px;font-size:11px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;flex-shrink:0;transition:background .2s}
+.card-book:hover{background:var(--sage-deep)}
+.included-badge{display:inline-flex;align-items:center;gap:5px;font-size:10px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--sage);background:var(--sage-light);padding:5px 10px;border-radius:20px}
+.included-badge svg{width:11px;height:11px;stroke:var(--sage);fill:none;stroke-width:2}
+
+/* Ozone card accent */
+.service-card.ozone .card-icon{background:rgba(100,160,220,.1)}
+.service-card.ozone .card-icon svg{stroke:#4a90b8}
+.service-card.ozone .card-price{color:#3a7498}
+
+/* Children card accent */
+.service-card.children .card-icon{background:rgba(180,140,200,.1)}
+.service-card.children .card-icon svg{stroke:#8c6aaa}
+.service-card.children .card-price{color:#7a5a9a}
+
+/* ── MODAL ── */
+.modal-overlay{display:none;position:fixed;inset:0;z-index:200;background:rgba(20,30,22,.6);backdrop-filter:blur(6px);align-items:center;justify-content:center;padding:24px}
+.modal-overlay.open{display:flex}
+.modal{background:#fff;border-radius:20px;max-width:600px;width:100%;max-height:88vh;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 32px 80px rgba(0,0,0,.22);position:relative}
+.modal-close{position:absolute;top:16px;right:16px;width:34px;height:34px;border-radius:50%;background:rgba(0,0,0,.06);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s}
+.modal-close:hover{background:rgba(0,0,0,.12)}
+.modal-close svg{width:15px;height:15px}
+.modal-accent{height:6px;background:linear-gradient(90deg,var(--sage-deep),var(--sage-mid));flex-shrink:0}
+.modal-accent.ozone{background:linear-gradient(90deg,#2d6a8f,#4a90b8)}
+.modal-accent.children{background:linear-gradient(90deg,#6a4a8a,#9c7ab8)}
+.modal-content{padding:32px 36px 28px;overflow-y:auto;flex:1}
+.modal-cat{font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--sage);margin-bottom:10px}
+.modal-name{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:300;line-height:1.15;color:var(--text);margin-bottom:20px}
+.modal-desc{font-size:14px;font-weight:300;line-height:1.8;color:var(--text-soft);margin-bottom:24px;white-space:pre-line}
+.modal-pricing{background:var(--sage-pale);border-radius:12px;padding:18px 20px;margin-bottom:24px}
+.modal-pricing-title{font-size:10px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--text-muted);margin-bottom:12px}
+.price-row{display:flex;align-items:center;justify-content:space-between;padding:6px 0;border-bottom:1px solid rgba(0,0,0,.05)}
+.price-row:last-child{border-bottom:none;padding-bottom:0}
+.price-label{font-size:12.5px;font-weight:300;color:var(--text-soft)}
+.price-val{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:400;color:var(--sage-deep)}
+.modal-footer-btns{padding:20px 36px 28px;border-top:1px solid var(--cream-dark);display:flex;gap:12px;flex-shrink:0}
+.modal-btn-book{flex:1;display:inline-flex;align-items:center;justify-content:center;background:var(--sage);color:#fff;padding:13px 24px;border-radius:40px;font-size:12.5px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;transition:background .2s}
+.modal-btn-book:hover{background:var(--sage-deep)}
+.modal-btn-close{display:inline-flex;align-items:center;justify-content:center;background:transparent;border:1px solid var(--cream-dark);color:var(--text-soft);padding:13px 24px;border-radius:40px;font-size:12.5px;font-weight:400;cursor:pointer;font-family:'DM Sans',sans-serif;transition:border-color .2s}
+.modal-btn-close:hover{border-color:var(--stone)}
+
+/* ── OZONE INTRO BANNER ── */
+.ozone-intro{background:linear-gradient(135deg,#2d6a8f 0%,#3d8aaf 100%);border-radius:16px;padding:32px 36px;margin-bottom:28px;color:#fff;display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center}
+.ozone-intro h3{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:300;margin-bottom:8px}
+.ozone-intro p{font-size:13px;font-weight:300;line-height:1.7;color:rgba(255,255,255,.75);max-width:560px}
+.ozone-intro-note{font-size:11px;font-weight:300;color:rgba(255,255,255,.5);line-height:1.6;text-align:right;min-width:160px}
+
+/* ── FOOTER ── */
+footer{background:var(--sage-deep);color:rgba(255,255,255,.45);padding:48px 56px;display:flex;align-items:center;justify-content:space-between;font-size:12px;font-weight:300;letter-spacing:.04em}
+.footer-logo{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:400;color:#fff;letter-spacing:.04em}
+.footer-links{display:flex;gap:28px}
+.footer-links a{color:rgba(255,255,255,.4);text-decoration:none;font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;transition:color .2s}
+.footer-links a:hover{color:rgba(255,255,255,.8)}
+
+@media(max-width:960px){.services-grid{grid-template-columns:repeat(2,1fr)}.services-grid.cols-2{grid-template-columns:1fr}}
+@media(max-width:640px){.services-grid,.services-grid.cols-2{grid-template-columns:1fr}.page-hero h1{font-size:44px}.site-nav,.page-hero,main,footer{padding-left:20px;padding-right:20px}.cat-nav{padding:0 20px}.section-header{flex-direction:column;align-items:flex-start}.section-note{text-align:left}.ozone-intro{grid-template-columns:1fr}}
+
+/* ── SPECIALIST CHIPS ── */
+.card-specialists{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
+.specialist-chip{display:inline-flex;align-items:center;gap:5px;font-size:10.5px;font-weight:400;color:var(--sage-deep);background:var(--sage-light);padding:4px 10px;border-radius:20px;text-decoration:none;transition:background .2s}
+.specialist-chip:hover{background:rgba(125,170,134,.25)}
+.specialist-chip svg{width:11px;height:11px;stroke:var(--sage);fill:none;stroke-width:1.5;flex-shrink:0}
+.modal-specialists{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}
+.modal-specialist-chip{display:inline-flex;align-items:center;gap:6px;font-size:11.5px;font-weight:400;color:var(--sage-deep);background:var(--sage-light);padding:6px 14px;border-radius:20px;text-decoration:none;transition:background .2s}
+.modal-specialist-chip:hover{background:rgba(125,170,134,.25)}
+.modal-specialist-chip svg{width:13px;height:13px;stroke:var(--sage);fill:none;stroke-width:1.5}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="site-nav">
+  <a href="seena-home_11.html" class="nav-logo"><img src="logos/icon-dark.png" alt="" class="nav-logo-icon"></a>
+  <ul class="nav-links">
+    <li><a href="seena-services.html" class="active">Services</a></li>
+    <li><a href="seena-specialists.html">Specialists</a></li>
+    <li><a href="seena-about.html">About</a></li>
+    <li><a href="seena-learn.html">Learn</a></li>
+    <li><a href="seena-shop.html">Shop</a></li>
+  </ul>
+  <a href="https://wa.me/351924353219" class="nav-cta">Book Appointment</a>
+</nav>
+
+<!-- HERO -->
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <div class="page-eyebrow">Integrative Health Centre · Lisbon</div>
+    <h1>Our <em>services</em></h1>
+    <p>A full spectrum of integrative health services — from medical consultations and manual therapies to ozone treatments and advanced equipment — all under one roof, guided by one plan.</p>
+  </div>
+</section>
+
+<!-- CATEGORY NAV -->
+<div class="cat-nav">
+  <div class="cat-nav-inner">
+    <a class="cat-pill active" href="#consultations">
+      <svg viewBox="0 0 24 24"><path d="M9 12h6M9 16h6M17 21H7a2 2 0 01-2-2V5a2 2 0 012-2h7l5 5v11a2 2 0 01-2 2z"/></svg>
+      Consultations
+    </a>
+    <a class="cat-pill" href="#therapies">
+      <svg viewBox="0 0 24 24"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2"/><path d="M12 8v4l3 3"/></svg>
+      Therapies
+    </a>
+    <a class="cat-pill" href="#ozone">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1l2.1-2.1M17 7l2.1-2.1"/></svg>
+      Ozone Therapy
+    </a>
+    <a class="cat-pill" href="#equipment">
+      <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+      Equipment
+    </a>
+    <a class="cat-pill" href="#children">
+      <svg viewBox="0 0 24 24"><path d="M12 2a4 4 0 100 8 4 4 0 000-8zM4 20a8 8 0 0116 0"/></svg>
+      Children's Health
+    </a>
+  </div>
+</div>
+
+<main>
+
+  <!-- ══ CONSULTATIONS ══ -->
+  <section class="service-section" id="consultations">
+    <div class="section-header">
+      <div class="section-title-group">
+        <div class="section-eyebrow">Medical</div>
+        <h2 class="section-title">Consultations</h2>
+      </div>
+      <p class="section-note">All medical services are supervised by a licensed physician and tailored to your health history and goals.</p>
+    </div>
+    <div class="services-grid" id="grid-consultations"></div>
+  </section>
+
+  <!-- ══ THERAPIES ══ -->
+  <section class="service-section" id="therapies">
+    <div class="section-header">
+      <div class="section-title-group">
+        <div class="section-eyebrow">Hands-on</div>
+        <h2 class="section-title">Therapies</h2>
+      </div>
+      <p class="section-note">Manual, movement, and mind-body therapies for pain, recovery, and long-term wellbeing.</p>
+    </div>
+    <div class="services-grid" id="grid-therapies"></div>
+  </section>
+
+  <!-- ══ OZONE ══ -->
+  <section class="service-section" id="ozone">
+    <div class="section-header">
+      <div class="section-title-group">
+        <div class="section-eyebrow">Advanced Treatment</div>
+        <h2 class="section-title">Ozone Therapy</h2>
+      </div>
+    </div>
+    <div class="ozone-intro">
+      <div>
+        <h3>What is ozone therapy?</h3>
+        <p>A medical treatment using controlled medical ozone (O₃) — a form of oxygen — to improve oxygen delivery, reduce inflammation, and support the immune system. Applied intravenously, rectally, intramuscularly, or locally depending on the doctor's recommendation.</p>
+      </div>
+      <div class="ozone-intro-note">Every patient sees<br>the doctor first to ensure<br>the therapy is safe and<br>right for their condition.</div>
+    </div>
+    <div class="services-grid" id="grid-ozone"></div>
+  </section>
+
+  <!-- ══ EQUIPMENT ══ -->
+  <section class="service-section" id="equipment">
+    <div class="section-header">
+      <div class="section-title-group">
+        <div class="section-eyebrow">Technology</div>
+        <h2 class="section-title">Equipment & Technology</h2>
+      </div>
+      <p class="section-note">Modern diagnostic and therapeutic equipment used as part of an integrated recovery plan.</p>
+    </div>
+    <div class="services-grid" id="grid-equipment"></div>
+  </section>
+
+  <!-- ══ CHILDREN ══ -->
+  <section class="service-section" id="children">
+    <div class="section-header">
+      <div class="section-title-group">
+        <div class="section-eyebrow">Sazonova School × Seena</div>
+        <h2 class="section-title">Children's Health</h2>
+      </div>
+      <p class="section-note">Products developed in collaboration with Alyona Sazonova to support natural, healthy child development from birth.</p>
+    </div>
+    <div class="services-grid cols-2" id="grid-children"></div>
+  </section>
+
+</main>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="overlay" onclick="closeOnOverlay(event)">
+  <div class="modal" id="modal">
+    <button class="modal-close" onclick="closeModal()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+    <div class="modal-accent" id="mAccent"></div>
+    <div class="modal-content">
+      <div class="modal-cat" id="mCat"></div>
+      <h2 class="modal-name" id="mName"></h2>
+      <div class="modal-specialists" id="mSpecialists"></div>
+      <p class="modal-desc" id="mDesc"></p>
+      <div class="modal-pricing" id="mPricing"></div>
+    </div>
+    <div class="modal-footer-btns">
+      <a id="mBook" class="modal-btn-book" href="https://wa.me/351924353219" target="_blank">Book Appointment</a>
+      <button class="modal-btn-close" onclick="closeModal()">Close</button>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-logo"><img src="logos/icon-dark.png" alt="" class="nav-logo-icon" style="height:26px;opacity:.7">Seena</span>
+  <div class="footer-links">
+    <a href="seena-services.html">Services</a>
+    <a href="seena-specialists.html">Specialists</a>
+    <a href="seena-shop.html">Shop</a>
+    <a href="https://wa.me/351924353219" target="_blank">Contact</a>
+  </div>
+  <span>© 2025 Seena Integrative Health Centre · Lisbon</span>
+</footer>
+
+<script>
+// ── ICONS ──
+const ICON_CONSULT = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12h6M9 16h6M17 21H7a2 2 0 01-2-2V5a2 2 0 012-2h7l5 5v11a2 2 0 01-2 2z"/></svg>`;
+const ICON_NUTRITION = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2a7 7 0 017 7c0 5-7 13-7 13S5 14 5 9a7 7 0 017-7z"/><circle cx="12" cy="9" r="2.5"/></svg>`;
+const ICON_ACUPUNCTURE = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2v20M8 6l4-4 4 4M7 10h10"/></svg>`;
+const ICON_KINESIO = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="5" r="2"/><path d="M12 7v6l-3 4m3-4l3 4M9 13H7m10 0h-2"/></svg>`;
+const ICON_MANUAL = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 11V6a2 2 0 00-4 0v5M14 11V4a2 2 0 00-4 0v7M10 11V6a2 2 0 00-4 0v5M6 11v3a6 6 0 0012 0v-3"/></svg>`;
+const ICON_NATURE = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22V12M12 12C12 6 6 3 3 3c0 6 3 9 9 9zM12 12c0-6 6-9 9-9-1 6-4 9-9 9"/></svg>`;
+const ICON_CHILD = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2a4 4 0 100 8 4 4 0 000-8zM4 20a8 8 0 0116 0"/></svg>`;
+const ICON_TRE = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>`;
+const ICON_MASSAGE = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>`;
+const ICON_BREATH = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M8 14s1.5 2 4 2 4-2 4-2M9 9h.01M15 9h.01"/></svg>`;
+const ICON_OZONE = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1l2.1-2.1M17 7l2.1-2.1"/></svg>`;
+const ICON_IV = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 6h8M8 12h8M8 18h8M3 6l3-3 3 3M21 6v12a2 2 0 01-2 2H5a2 2 0 01-2-2V6"/></svg>`;
+const ICON_JOINT = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16h.01"/></svg>`;
+const ICON_EMS = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>`;
+const ICON_THERMAL = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 14.76V3.5a2.5 2.5 0 00-5 0v11.26a4.5 4.5 0 105 0z"/></svg>`;
+const ICON_SHOCK = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 12h4l3-9 4 18 3-9h4"/></svg>`;
+const ICON_PRESS = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>`;
+const ICON_POUF = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>`;
+const ICON_SWADDLE = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M3 9h18M3 15h18"/></svg>`;
+
+// ── DATA ──
+const services = {
+  consultations: [
+    {
+      icon: ICON_CONSULT,
+      name: 'Integrative Physician Consultation',
+      specialists: [{"name": "Dr. Vadim Fasiy", "key": "vadim"}, {"name": "Dr. Nataliia Polishchuk", "key": "natalia"}],
+      cat: 'Consultations',
+      desc: 'A medical consultation focused on enhancing quality of life, optimizing hormonal balance, identifying and correcting deficiencies, and supporting energy and sleep.',
+      pricing: [
+        {label: 'First consultation', price: '€110'},
+        {label: 'Follow-up sessions', price: '€100'},
+      ]
+    },
+    {
+      icon: ICON_NUTRITION,
+      name: 'Integrative Nutritionist Consultation',
+      specialists: [{"name": "Dr. Nataliia Polishchuk", "key": "natalia"}],
+      cat: 'Consultations',
+      desc: 'The doctor and nutritionist collaborate to develop a personalized nutrition and recovery plan tailored to your lab results, symptoms, and lifestyle.',
+      pricing: [
+        {label: 'Consultation', price: '€80'},
+      ]
+    },
+    {
+      icon: ICON_ACUPUNCTURE,
+      name: 'Medical Acupuncture',
+      specialists: [{"name": "Dr. Vadim Fasiy", "key": "vadim"}],
+      cat: 'Consultations',
+      desc: 'Medical acupuncture focused on pain relief, muscle relaxation, restoring bodily balance, and activating the body\'s natural healing processes.',
+      pricing: [
+        {label: 'First session', price: '€95'},
+        {label: 'Follow-up sessions', price: '€90'},
+      ]
+    },
+  ],
+  therapies: [
+    {
+      icon: ICON_KINESIO,
+      name: 'Kinesiology',
+      specialists: [{"name": "Maxim Steshenko", "key": "maxim"}],
+      cat: 'Therapies',
+      desc: 'Functional kinesiology focused on assessing and correcting movement dysfunctions, optimizing muscle and joint function, and preventing imbalances in the body.',
+      pricing: [
+        {label: 'First session', price: '€100'},
+        {label: 'Follow-up sessions', price: '€80'},
+      ]
+    },
+    {
+      icon: ICON_MANUAL,
+      name: 'Lifebreath Manual Therapy',
+      specialists: [{"name": "Vladislava Artemenko", "key": "vladislava"}],
+      cat: 'Therapies',
+      desc: 'A patented proprietary method developed by a surgeon, PhD, and osteopathic physician. Deep work with the fascia and the body\'s structural balance, aimed at reducing pain, relieving tension, and restoring proper biomechanics.',
+      pricing: [
+        {label: 'First session', price: '€150'},
+        {label: 'Follow-up sessions', price: '€100'},
+      ]
+    },
+    {
+      icon: ICON_NATURE,
+      name: 'Naturopathy',
+      specialists: [{"name": "Joana Patr\u00edcia Teixeira Mateus", "key": "joana"}],
+      cat: 'Therapies',
+      desc: 'A holistic approach to natural body support, offering personalized assessments, lifestyle and nutrition guidance, along with auriculotherapy and bioresonance techniques to gently address functional imbalances and promote overall balance.',
+      pricing: [
+        {label: 'Consultation', price: '€65'},
+      ]
+    },
+    {
+      icon: ICON_CHILD,
+      name: 'Pediatric Rehabilitation',
+      specialists: [{"name": "Alyona Sazonova", "key": "alyona-s"}],
+      cat: 'Therapies',
+      desc: 'Providing support for children with posture problems, flat feet, and movement or muscle imbalances, using a personalized approach based on their age and developmental stage.',
+      pricing: [
+        {label: 'Session', price: '€90'},
+      ]
+    },
+    {
+      icon: ICON_TRE,
+      name: 'TRE — Tension Release Exercises',
+      specialists: [{"name": "Teresa Ranieri", "key": "teresa"}],
+      cat: 'Therapies',
+      desc: 'A clinical technique that releases deep muscle tension by activating the body\'s natural neuromuscular tremors, helping to reduce chronic stress, rebalance the nervous system, and ease psycho-emotional strain.',
+      pricing: [
+        {label: 'Session', price: '€65'},
+      ]
+    },
+    {
+      icon: ICON_MASSAGE,
+      name: 'Therapeutic Massage',
+      specialists: [{"name": "Irina Bukharbaeva", "key": "irina"}],
+      cat: 'Therapies',
+      desc: 'Therapeutic soft tissue treatments designed to alleviate pain, release muscle tension, and restore mobility. Our specialists train at the LifeBreath Osteopathic School to deliver deeper, more precise, and highly effective massage therapy.',
+      pricing: [
+        {label: 'Session', price: '€80'},
+      ]
+    },
+    {
+      icon: ICON_BREATH,
+      name: 'Functional Breathing — Buteyko Method',
+      specialists: [{"name": "Alyona Tenitski", "key": "alyona-t"}],
+      cat: 'Therapies',
+      desc: 'A clinical technique designed to restore proper breathing patterns and normalize lung function, enhancing tissue oxygenation, reducing anxiety and hyperventilation, and supporting overall respiratory well-being.',
+      pricing: [
+        {label: 'Single session', price: '€60'},
+        {label: 'Pack of 5 sessions', price: '€249'},
+      ]
+    },
+  ],
+  ozone: [
+    {
+      icon: ICON_CONSULT,
+      name: 'Ozone Therapy Consultation',
+      specialists: [{"name": "Dr. Vadim Fasiy", "key": "vadim"}],
+      cat: 'Ozone Therapy',
+      type: 'ozone',
+      desc: 'A thorough consultation reviewing your lab results, medical examinations, and history — including any chronic conditions — to design a personalized ozone therapy plan with the ideal course length and exact dosage.\n\nEvery patient sees the doctor first to ensure the therapy is safe and suitable for their condition.',
+      pricing: [
+        {label: 'First consultation', price: '€110'},
+        {label: 'Follow-up consultation', price: '€100'},
+      ]
+    },
+    {
+      icon: ICON_IV,
+      name: 'Intravenous Ozone (Major Autohemotherapy)',
+      specialists: [{"name": "Dr. Vadim Fasiy", "key": "vadim"}],
+      cat: 'Ozone Therapy',
+      type: 'ozone',
+      desc: 'A procedure in which ozone is introduced into the blood (50–200 ml drawn, mixed with ozone, then reinfused) to improve tissue oxygenation, strengthen immunity, boost energy, and support overall health. Has a systemic, whole-body effect.',
+      pricing: [
+        {label: 'Single session', price: '€100'},
+        {label: 'Pack of 5', price: '€450'},
+        {label: 'Pack of 10', price: '€900'},
+      ]
+    },
+    {
+      icon: ICON_OZONE,
+      name: 'Intramuscular Ozone (Minor Autohemotherapy)',
+      specialists: [{"name": "Dr. Vadim Fasiy", "key": "vadim"}],
+      cat: 'Ozone Therapy',
+      type: 'ozone',
+      desc: 'A small amount of blood (5–10 ml) is mixed with ozone and injected into a muscle to enhance circulation, speed up recovery, decrease inflammation, and maintain overall body vitality. Often used to stimulate the immune system.',
+      pricing: [
+        {label: 'Single session', price: '€80'},
+        {label: 'Pack of 5', price: '€360'},
+        {label: 'Pack of 10', price: '€700'},
+      ]
+    },
+    {
+      icon: ICON_JOINT,
+      name: 'Intra-Articular Ozone',
+      specialists: [{"name": "Dr. Vadim Fasiy", "key": "vadim"}],
+      cat: 'Ozone Therapy',
+      type: 'ozone',
+      desc: 'Medical ozone is injected directly into a joint (such as the knee or shoulder) to reduce inflammation, relieve pain, improve mobility, and support musculoskeletal health.',
+      pricing: [
+        {label: 'Session', price: '€110'},
+      ]
+    },
+    {
+      icon: ICON_OZONE,
+      name: 'Rectal Ozone (Insufflation)',
+      specialists: [{"name": "Dr. Vadim Fasiy", "key": "vadim"}],
+      cat: 'Ozone Therapy',
+      type: 'ozone',
+      desc: 'Ozone gas is gently introduced into the rectum to enhance blood oxygenation, boost the immune system, promote detoxification, and support overall well-being. A simple, non-invasive alternative to IV ozone therapy.',
+      pricing: [
+        {label: 'Session', price: '€50'},
+      ]
+    },
+    {
+      icon: ICON_OZONE,
+      name: 'Auricular Ozone Therapy',
+      specialists: [{"name": "Dr. Vadim Fasiy", "key": "vadim"}],
+      cat: 'Ozone Therapy',
+      type: 'ozone',
+      desc: 'Ozone is gently applied into the ear canal to improve microcirculation, strengthen immunity, and support the health of the ears and upper respiratory tract.',
+      pricing: [
+        {label: 'Session', price: '€40'},
+      ]
+    },
+    {
+      icon: ICON_OZONE,
+      name: 'Topical Ozone (External)',
+      specialists: [{"name": "Dr. Vadim Fasiy", "key": "vadim"}],
+      cat: 'Ozone Therapy',
+      type: 'ozone',
+      desc: 'Ozone is applied locally to the skin to speed up healing, decrease inflammation, regenerate tissues, and enhance overall skin health.',
+      pricing: [
+        {label: 'Session', price: '€100'},
+      ]
+    },
+    {
+      icon: ICON_OZONE,
+      name: 'Bag Ozone Therapy',
+      specialists: [{"name": "Dr. Vadim Fasiy", "key": "vadim"}],
+      cat: 'Ozone Therapy',
+      type: 'ozone',
+      desc: 'A limb (arm or leg) is placed in a sealed bag, and medical ozone gas is pumped inside to improve circulation, reduce inflammation, support healing, and fight infections in the treated area.',
+      pricing: [
+        {label: 'Session', price: '€100'},
+      ]
+    },
+    {
+      icon: ICON_ACUPUNCTURE,
+      name: 'Ozone Acupuncture',
+      specialists: [{"name": "Dr. Vadim Fasiy", "key": "vadim"}],
+      cat: 'Ozone Therapy',
+      type: 'ozone',
+      desc: 'Combines acupuncture principles with local administration of an oxygen–ozone mixture into trigger points. Reduces pain and inflammation, promotes muscle relaxation, improves microcirculation, and stimulates tissue regeneration.',
+      pricing: [
+        {label: 'Session', price: '€80'},
+      ]
+    },
+    {
+      icon: ICON_OZONE,
+      name: 'Intravaginal Ozone Therapy',
+      specialists: [{"name": "Dr. Vadim Fasiy", "key": "vadim"}],
+      cat: 'Ozone Therapy',
+      type: 'ozone',
+      desc: 'An oxygen–ozone mixture is used for local treatment of the vaginal mucosa. Helps restore normal vaginal microflora and is used in the management of bacterial vaginosis, candidiasis, and chronic inflammatory conditions of the pelvic organs.',
+      pricing: [
+        {label: 'Session', price: '€70'},
+      ]
+    },
+    {
+      icon: ICON_OZONE,
+      name: 'Localized Lipolysis (Anti-Cellulite)',
+      specialists: [{"name": "Dr. Vadim Fasiy", "key": "vadim"}],
+      cat: 'Ozone Therapy',
+      type: 'ozone',
+      desc: 'A technique targeting external fat deposits to reduce them and diminish cellulite. Improves body contours, decreases fat accumulation, and enhances skin firmness, providing an aesthetic and circulatory benefit.',
+      pricing: [
+        {label: 'Session', price: '€80'},
+      ]
+    },
+    {
+      icon: ICON_OZONE,
+      name: 'Ozone Therapy for Chronic Interstitial Cystitis',
+      specialists: [{"name": "Dr. Vadim Fasiy", "key": "vadim"}],
+      cat: 'Ozone Therapy',
+      type: 'ozone',
+      desc: 'Local administration of an oxygen–ozone mixture into the bladder or surrounding tissues to reduce inflammation and pain. Improves microcirculation, stimulates tissue regeneration, decreases spasms, and enhances quality of life for patients with chronic bladder inflammation.',
+      pricing: [
+        {label: 'Session', price: '€100'},
+      ]
+    },
+  ],
+  equipment: [
+    {
+      icon: ICON_EMS,
+      name: 'EMS Body Sculpt / EMS Chair',
+      specialists: [{"name": "Maxim Steshenko", "key": "maxim"}],
+      cat: 'Equipment',
+      desc: 'High-intensity electromagnetic muscle stimulation for deep muscle strengthening. Used to improve muscle tone, support postpartum recovery, strengthen the pelvic floor muscles, and enhance overall muscle function without placing stress on the joints.',
+      included: 'Included with Kinesiology & Massage',
+      pricing: []
+    },
+    {
+      icon: ICON_SHOCK,
+      name: 'Shockwave Therapy',
+      specialists: [{"name": "Maxim Steshenko", "key": "maxim"}],
+      cat: 'Equipment',
+      desc: 'A hardware-based treatment using acoustic waves to stimulate blood circulation and the body\'s natural tissue regeneration. Used for chronic muscle and tendon pain, overuse injuries, fasciitis, and restricted mobility — often combined with kinesiology.',
+      included: 'Included with Kinesiology',
+      pricing: []
+    },
+    {
+      icon: ICON_PRESS,
+      name: 'Pressotherapy',
+      specialists: [{"name": "Maxim Steshenko", "key": "maxim"}],
+      cat: 'Equipment',
+      desc: 'A device-assisted lymphatic drainage treatment using controlled pressure. Reduces swelling, improves venous and lymphatic outflow, relieves heaviness in the legs, and supports the body\'s recovery processes.',
+      included: 'Included with Kinesiology & Massage',
+      pricing: []
+    },
+    {
+      icon: ICON_EMS,
+      name: 'TENS',
+      specialists: [{"name": "Maxim Steshenko", "key": "maxim"}],
+      cat: 'Equipment',
+      desc: 'Transcutaneous electrical nerve stimulation used to reduce pain and relax muscles. Applied for both acute and chronic pain, muscle spasms, and tension. Combined with kinesiology for quicker pain relief and improved movement function.',
+      included: 'Included with Kinesiology',
+      pricing: []
+    },
+    {
+      icon: ICON_THERMAL,
+      name: 'Thermal Chamber (Thermography)',
+      specialists: [{"name": "Maxim Steshenko", "key": "maxim"}],
+      cat: 'Equipment',
+      desc: 'Thermal imaging diagnostics that visualize areas with increased or decreased heat radiation in the body. Helps identify inflammatory processes, circulatory disorders, and functional asymmetries — used as an additional tool for objective assessment.',
+      pricing: [
+        {label: 'Session', price: '€80'},
+      ]
+    },
+  ],
+  children: [
+    {
+      icon: ICON_POUF,
+      name: 'Nova Sense Baby Pouf',
+      specialists: [{"name": "Alyona Sazonova", "key": "alyona-s"}],
+      cat: "Children's Health",
+      type: 'children',
+      desc: 'Creates a cozy, womb-like environment for children from birth up to 3–5 years. Its soft, enveloping shape gently supports the body, providing a sense of safety and comfort similar to being in the mother\'s womb.\n\nHelps the child relax, relieves tension, promotes calm breathing, and supports body awareness, coordination, and early sensory integration. Lightweight, portable, and easy to care for.',
+      pricing: [
+        {label: 'Nova Sense Pouf', price: '€150'},
+      ]
+    },
+    {
+      icon: ICON_SWADDLE,
+      name: 'Physiological Swaddles',
+      specialists: [{"name": "Alyona Sazonova", "key": "alyona-s"}],
+      cat: "Children's Health",
+      type: 'children',
+      desc: 'A soft, cozy wrap that holds the upper body while allowing the hips and legs to move freely. Supports proper spinal alignment, encourages self-soothing, and adapts as the child grows, offering safe, comfortable, and calming swaddling.',
+      pricing: [
+        {label: 'Standard size', price: '€20'},
+        {label: 'Large size', price: '€25'},
+      ]
+    },
+  ]
+};
+
+// ── BUILD CARDS ──
+function buildCard(s, idx, section) {
+  const isIncluded = s.included;
+  const mainPrice = s.pricing.length ? s.pricing[0].price : null;
+  const priceHtml = isIncluded
+    ? `<span class="included-badge"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>${s.included}</span>`
+    : mainPrice
+      ? `<div><div class="card-price">${mainPrice}</div>${s.pricing.length > 1 ? `<div class="card-price-note">+ pack options available</div>` : ''}</div>`
+      : '';
+
+  const bookHtml = isIncluded ? '' : `<a class="card-book" href="https://wa.me/351924353219?text=${encodeURIComponent('Hi! I\'d like to book: '+s.name+'. Could you confirm availability?')}" target="_blank" onclick="event.stopPropagation()">Book</a>`;
+
+  const specChips = (s.specialists||[]).map(sp =>
+    `<a class="specialist-chip" href="seena-specialists.html#${sp.key}" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>${sp.name}</a>`
+  ).join('');
+  const specRow = specChips ? `<div class="card-specialists">${specChips}</div>` : '';
+  return `<div class="service-card${s.type ? ' '+s.type : ''}" onclick="openModal('${section}',${idx})">
+    <div class="card-icon">${s.icon}</div>
+    <div class="card-name">${s.name}</div>
+    <p class="card-desc">${s.desc.split('\n')[0]}</p>
+    ${specRow}
+    <div class="card-footer">${priceHtml}${bookHtml}</div>
+  </div>`;
+}
+
+Object.keys(services).forEach(section => {
+  const grid = document.getElementById('grid-' + section);
+  if (grid) grid.innerHTML = services[section].map((s,i) => buildCard(s,i,section)).join('');
+});
+
+// ── MODAL ──
+function openModal(section, idx) {
+  const s = services[section][idx];
+  const type = s.type || 'default';
+  document.getElementById('mAccent').className = 'modal-accent' + (type !== 'default' ? ' '+type : '');
+  document.getElementById('mCat').textContent = s.cat;
+  document.getElementById('mName').textContent = s.name;
+  document.getElementById('mDesc').textContent = s.desc;
+  const modalSpecs = (s.specialists||[]).map(sp =>
+    `<a class="modal-specialist-chip" href="seena-specialists.html#${sp.key}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>${sp.name}</a>`
+  ).join('');
+  const specContainer = document.getElementById('mSpecialists');
+  if(specContainer) specContainer.innerHTML = modalSpecs;
+
+  const pricingEl = document.getElementById('mPricing');
+  if (s.included) {
+    pricingEl.innerHTML = `<div class="modal-pricing-title">Pricing</div><div class="price-row"><span class="price-label">${s.included}</span></div>`;
+  } else if (s.pricing.length) {
+    pricingEl.innerHTML = `<div class="modal-pricing-title">Pricing</div>` +
+      s.pricing.map(p => `<div class="price-row"><span class="price-label">${p.label}</span><span class="price-val">${p.price}</span></div>`).join('');
+  } else {
+    pricingEl.innerHTML = '';
+  }
+
+  const msg = encodeURIComponent(`Hi! I'd like to book: ${s.name}. Could you confirm availability?`);
+  document.getElementById('mBook').href = `https://wa.me/351924353219?text=${msg}`;
+  document.getElementById('overlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  document.getElementById('overlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function closeOnOverlay(e) {
+  if (e.target === document.getElementById('overlay')) closeModal();
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+// ── CATEGORY NAV HIGHLIGHT ──
+const pills = document.querySelectorAll('.cat-pill');
+const sections = document.querySelectorAll('.service-section');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const id = entry.target.id;
+      pills.forEach(p => {
+        p.classList.toggle('active', p.getAttribute('href') === '#'+id);
+      });
+    }
+  });
+}, {rootMargin:'-30% 0px -60% 0px'});
+sections.forEach(s => observer.observe(s));
+</script>
+</body>
+</html>

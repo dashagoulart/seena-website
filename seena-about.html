@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us — Seena Integrative Health Centre</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --sage:#5a7a62;--sage-deep:#3d5843;--sage-mid:#4a6b52;
+  --sage-pale:#edf2ee;--sage-light:rgba(125,170,134,.9);
+  --cream:#f7f4ef;--cream-dark:#ede9e1;--stone:#c8bfb0;
+  --text:#2a2520;--text-mid:#6b6259;--text-soft:#9b9088;
+  --white:#ffffff;
+}
+body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text)}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  background:var(--sage-deep);
+  padding:0 48px;height:64px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:400;color:#fff;letter-spacing:.04em;text-decoration:none}
+.nav-links{display:flex;gap:32px;list-style:none}
+.nav-links a{color:rgba(255,255,255,.65);text-decoration:none;font-size:11.5px;font-weight:400;letter-spacing:.1em;text-transform:uppercase;transition:color .2s}
+.nav-links a:hover,.nav-links a.active{color:#fff}
+.nav-cta{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);color:#fff;padding:9px 22px;border-radius:40px;font-size:11.5px;font-weight:500;letter-spacing:.07em;text-transform:uppercase;text-decoration:none}
+
+/* ── HERO — simple, editorial ── */
+.hero{
+  background:linear-gradient(160deg,#2e4535 0%,#3d5843 40%,#4a6b52 70%,#2e4535 100%);
+  padding:160px 56px 96px;
+  position:relative;overflow:hidden;
+}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 60% 80% at 75% 40%,rgba(125,170,134,.18) 0%,transparent 70%),
+    radial-gradient(ellipse 40% 60% at 20% 70%,rgba(90,122,98,.25) 0%,transparent 60%);
+}
+.hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:120px;background:linear-gradient(to top,var(--cream) 0%,transparent 100%)}
+.hero-inner{max-width:860px;margin:0 auto;position:relative;z-index:1;text-align:center}
+.hero-eyebrow{font-size:10.5px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--sage-light);margin-bottom:24px}
+.hero h1{font-family:'Cormorant Garamond',serif;font-size:64px;font-weight:300;line-height:1.08;color:#fff;letter-spacing:-.02em;margin-bottom:28px}
+.hero h1 em{font-style:italic;color:rgba(255,255,255,.8)}
+.hero-sub{font-size:17px;font-weight:300;line-height:1.8;color:rgba(255,255,255,.6);max-width:560px;margin:0 auto}
+
+/* ── SECTION HELPERS ── */
+main{max-width:1200px;margin:0 auto;padding:80px 48px 0}
+.section-label{font-size:10.5px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--sage);margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.section-label::before{content:'';width:20px;height:1px;background:var(--sage)}
+
+/* ── STORY — asymmetric editorial layout ── */
+.story{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;margin-bottom:96px}
+.story-h2{font-family:'Cormorant Garamond',serif;font-size:44px;font-weight:300;line-height:1.12;color:var(--text);margin-bottom:28px}
+.story-h2 em{font-style:italic;color:var(--sage)}
+.story p{font-size:15px;font-weight:300;line-height:1.85;color:var(--text-mid);margin-bottom:18px}
+.story p:last-child{margin-bottom:0}
+
+/* ── APPROACH — horizontal, no pillars, just clear statements ── */
+.approach{
+  background:var(--white);border-radius:20px;border:1px solid var(--cream-dark);
+  padding:56px 64px;margin-bottom:80px;
+  display:grid;grid-template-columns:280px 1fr;gap:64px;align-items:start;
+}
+.approach-left{}
+.approach-h2{font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:300;line-height:1.15;color:var(--text);margin-bottom:12px}
+.approach-h2 em{font-style:italic;color:var(--sage)}
+.approach-note{font-size:13px;font-weight:300;color:var(--text-soft);line-height:1.6}
+.approach-items{display:flex;flex-direction:column;gap:0}
+.approach-item{
+  display:grid;grid-template-columns:56px 1fr;gap:20px;
+  padding:24px 0;border-bottom:1px solid var(--cream-dark);
+  align-items:start;
+}
+.approach-item:first-child{border-top:1px solid var(--cream-dark)}
+.approach-num{font-family:'Cormorant Garamond',serif;font-size:13px;font-weight:400;color:var(--stone);letter-spacing:.1em;padding-top:3px}
+.approach-num::before{content:'0'}
+.approach-item-title{font-size:15px;font-weight:500;color:var(--text);margin-bottom:6px}
+.approach-item-desc{font-size:13px;font-weight:300;color:var(--text-mid);line-height:1.65}
+
+/* ── QUOTE ── */
+.quote{
+  background:var(--sage-deep);border-radius:20px;
+  padding:64px 72px;margin-bottom:80px;text-align:center;
+  position:relative;overflow:hidden;
+}
+.quote::before{content:'';position:absolute;right:-40px;top:-40px;width:240px;height:240px;border-radius:50%;background:rgba(255,255,255,.03)}
+.quote-mark{font-family:'Cormorant Garamond',serif;font-size:72px;font-weight:300;color:rgba(255,255,255,.12);line-height:.6;display:block;margin-bottom:12px}
+.quote-text{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:300;font-style:italic;color:#fff;line-height:1.5;max-width:720px;margin:0 auto 24px}
+.quote-attr{font-size:11px;font-weight:400;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.35)}
+
+/* ── WHAT SETS APART — icon list ── */
+.diff{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;margin-bottom:80px}
+.diff-h2{font-family:'Cormorant Garamond',serif;font-size:44px;font-weight:300;line-height:1.12;color:var(--text);margin-bottom:16px}
+.diff-h2 em{font-style:italic;color:var(--sage)}
+.diff-sub{font-size:14px;font-weight:300;color:var(--text-mid);line-height:1.7}
+.diff-items{display:flex;flex-direction:column;gap:24px}
+.diff-item{display:flex;gap:16px;align-items:flex-start}
+.diff-icon{width:36px;height:36px;background:var(--sage-pale);border-radius:9px;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px}
+.diff-icon svg{width:16px;height:16px;stroke:var(--sage-deep);fill:none;stroke-width:1.5}
+.diff-item-title{font-size:14px;font-weight:500;color:var(--text);margin-bottom:4px}
+.diff-item-desc{font-size:13px;font-weight:300;color:var(--text-mid);line-height:1.6}
+
+/* ── LOCATION ── */
+.location{
+  background:var(--white);border:1px solid var(--cream-dark);border-radius:16px;
+  padding:36px 44px;display:flex;align-items:center;justify-content:space-between;
+  gap:40px;margin-bottom:80px;
+}
+.loc-info{}
+.loc-label{font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--text-soft);margin-bottom:8px}
+.loc-name{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:400;color:var(--text);margin-bottom:4px}
+.loc-addr{font-size:13px;font-weight:300;color:var(--text-mid)}
+.loc-hours{}
+.loc-hours span{font-size:13px;font-weight:300;color:var(--text-mid);display:block;margin-top:4px}
+.loc-hours strong{font-weight:500;color:var(--text)}
+.loc-actions{display:flex;flex-direction:column;gap:10px;flex-shrink:0}
+.btn-dir{display:inline-flex;align-items:center;gap:8px;background:var(--sage);color:#fff;padding:12px 24px;border-radius:40px;font-size:12px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;transition:background .2s}
+.btn-dir:hover{background:var(--sage-deep)}
+.btn-dir svg{width:14px;height:14px;stroke:#fff;fill:none;stroke-width:1.5}
+.btn-wa{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--cream-dark);color:var(--text-mid);padding:12px 24px;border-radius:40px;font-size:12px;text-decoration:none;transition:border-color .2s}
+.btn-wa:hover{border-color:var(--stone)}
+
+/* ── CTA CARDS ── */
+.cta-cards{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:96px}
+.cta-card{border-radius:16px;padding:36px;display:flex;flex-direction:column;justify-content:space-between;min-height:200px;text-decoration:none;transition:transform .2s,box-shadow .2s}
+.cta-card:hover{transform:translateY(-3px);box-shadow:0 16px 40px rgba(61,88,67,.1)}
+.cta-card.dark{background:var(--sage-deep)}
+.cta-card.light{background:var(--white);border:1px solid var(--cream-dark)}
+.cta-label{font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;margin-bottom:10px}
+.cta-card.dark .cta-label{color:rgba(125,170,134,.8)}
+.cta-card.light .cta-label{color:var(--sage)}
+.cta-title{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:300;line-height:1.15}
+.cta-card.dark .cta-title{color:#fff}
+.cta-card.light .cta-title{color:var(--text)}
+.cta-arrow{font-size:20px;align-self:flex-end;margin-top:auto}
+.cta-card.dark .cta-arrow{color:rgba(255,255,255,.35)}
+.cta-card.light .cta-arrow{color:var(--sage)}
+
+/* ── FOOTER ── */
+footer{background:var(--sage-deep);padding:48px;color:rgba(255,255,255,.5)}
+.footer-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px}
+.footer-logo{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:400;color:#fff}
+.footer-links{display:flex;gap:24px}
+.footer-links a{color:rgba(255,255,255,.4);text-decoration:none;font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;transition:color .2s}
+.footer-links a:hover{color:rgba(255,255,255,.8)}
+.footer-copy{font-size:11px;font-weight:300}
+
+/* ── RESPONSIVE ── */
+@media(max-width:960px){
+  .hero{padding:140px 20px 72px}
+  .hero h1{font-size:44px}
+  main{padding:56px 20px 0}
+  .story,.diff{grid-template-columns:1fr;gap:40px}
+  .approach{grid-template-columns:1fr;padding:36px 28px}
+  .location{flex-direction:column;align-items:flex-start;padding:28px 24px}
+  .cta-cards{grid-template-columns:1fr}
+  footer{padding:40px 20px}
+  .footer-inner{flex-direction:column;align-items:flex-start}
+  .quote{padding:40px 28px}
+  .quote-text{font-size:24px}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="seena-home_11.html" class="nav-logo">Seena</a>
+  <ul class="nav-links">
+    <li><a href="seena-services.html">Services</a></li>
+    <li><a href="seena-specialists.html">Specialists</a></li>
+    <li><a href="seena-about.html" class="active">About</a></li>
+    <li><a href="seena-learn.html">Learn</a></li>
+    <li><a href="seena-shop.html">Shop</a></li>
+  </ul>
+  <a href="https://wa.me/351924353219" class="nav-cta">Book Appointment</a>
+</nav>
+
+<!-- HERO — simple centered -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">About Seena</div>
+    <h1>Healing is not just<br>the absence of <em>symptoms</em></h1>
+    <p class="hero-sub">Seena was built on a simple belief — that lasting health comes from understanding the whole person, not just treating what hurts.</p>
+  </div>
+</section>
+
+<main>
+
+  <!-- STORY -->
+  <section class="story">
+    <div>
+      <div class="section-label">Our story</div>
+      <h2 class="story-h2">Where Western science meets <em>Eastern wisdom</em></h2>
+    </div>
+    <div>
+      <p>Seena Integrative Health Centre was founded in Lisbon with a clear purpose: to create a space where medicine and natural therapies work together — not alongside each other, but as a unified plan for each patient.</p>
+      <p>We saw too many people moving between specialists who didn't communicate, receiving treatments that addressed symptoms but not causes. Seena was built to be the answer to that fragmentation.</p>
+      <p>Today our team includes medical doctors, kinesiologists, naturopaths, breathing coaches, massage therapists, and mind-body practitioners — all working from the same patient picture, with the same goal: long-term wellbeing, not short-term relief.</p>
+    </div>
+  </section>
+
+  <!-- APPROACH — replaces pillars, links to homepage pillars -->
+  <section class="approach">
+    <div class="approach-left">
+      <div class="section-label">Our method</div>
+      <h2 class="approach-h2">Science meets <em>tradition</em></h2>
+      <p class="approach-note">Every treatment plan at Seena follows the same structured framework — regardless of which service you come in for.</p>
+    </div>
+    <div class="approach-items">
+      <div class="approach-item">
+        <div class="approach-num">1</div>
+        <div>
+          <div class="approach-item-title">Assess with precision</div>
+          <div class="approach-item-desc">Medical-grade diagnostics and functional assessments — before any treatment begins, we understand the full picture.</div>
+        </div>
+      </div>
+      <div class="approach-item">
+        <div class="approach-num">2</div>
+        <div>
+          <div class="approach-item-title">Integrate disciplines</div>
+          <div class="approach-item-desc">Your care plan may combine medical and therapeutic services — acupuncture with naturopathy, massage with kinesiology. One plan, not isolated sessions.</div>
+        </div>
+      </div>
+      <div class="approach-item">
+        <div class="approach-num">3</div>
+        <div>
+          <div class="approach-item-title">Track and adapt</div>
+          <div class="approach-item-desc">Regular check-ins, progress reviews, and plan adjustments. We stay with you as your health evolves — the relationship doesn't end after one visit.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUOTE -->
+  <section class="quote">
+    <span class="quote-mark">"</span>
+    <p class="quote-text">We treat people, not symptoms — and we build every plan around the full picture, not just the reason someone walked in.</p>
+    <span class="quote-attr">The Seena approach</span>
+  </section>
+
+  <!-- WHAT SETS US APART -->
+  <section class="diff">
+    <div>
+      <div class="section-label">Why Seena</div>
+      <h2 class="diff-h2">One centre.<br><em>One plan.</em><br>Every discipline.</h2>
+      <p class="diff-sub">Most clinics are collections of independent therapists sharing a building. Seena is a system.</p>
+    </div>
+    <div class="diff-items">
+      <div class="diff-item">
+        <div class="diff-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div>
+        <div>
+          <div class="diff-item-title">Multidisciplinary team, one file</div>
+          <div class="diff-item-desc">All your practitioners see the same patient history. No repeating yourself. No contradictory advice.</div>
+        </div>
+      </div>
+      <div class="diff-item">
+        <div class="diff-icon"><svg viewBox="0 0 24 24"><path d="M9 12h6M9 16h6M17 21H7a2 2 0 01-2-2V5a2 2 0 012-2h7l5 5v11a2 2 0 01-2 2z"/></svg></div>
+        <div>
+          <div class="diff-item-title">Clear plan from day one</div>
+          <div class="diff-item-desc">After your first assessment you leave knowing which services, in what order, with what goals. No ambiguity.</div>
+        </div>
+      </div>
+      <div class="diff-item">
+        <div class="diff-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div>
+        <div>
+          <div class="diff-item-title">Long-term relationship</div>
+          <div class="diff-item-desc">We track progress, adjust the plan, and stay with you beyond the initial issue. One session is never the end.</div>
+        </div>
+      </div>
+      <div class="diff-item">
+        <div class="diff-icon"><svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg></div>
+        <div>
+          <div class="diff-item-title">Medically supervised</div>
+          <div class="diff-item-desc">All medical services are supervised by a licensed doctor. Evidence first, always.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCATION -->
+  <div class="location">
+    <div class="loc-info">
+      <div class="loc-label">Find us</div>
+      <div class="loc-name">Seena Integrative Health Centre</div>
+      <div class="loc-addr">Rua das Musas 13A, Parque das Nações · Lisbon, Portugal</div>
+    </div>
+    <div class="loc-hours">
+      <div class="loc-label">Hours</div>
+      <span><strong>Mon – Sat</strong> &nbsp;10:00 – 13:00 &nbsp;·&nbsp; 14:00 – 18:00</span>
+      <span>+351 924 353 219 &nbsp;·&nbsp; @seenacentre</span>
+    </div>
+    <div class="loc-actions">
+      <a href="https://www.google.com/maps/place/Seena+Integrative+Health+Centre" target="_blank" class="btn-dir">
+        <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+        Get directions
+      </a>
+      <a href="https://wa.me/351924353219" target="_blank" class="btn-wa">WhatsApp us</a>
+    </div>
+  </div>
+
+  <!-- CTA CARDS -->
+  <div class="cta-cards">
+    <a href="seena-specialists.html" class="cta-card dark">
+      <div>
+        <div class="cta-label">Our people</div>
+        <div class="cta-title">Meet the specialists behind the care</div>
+      </div>
+      <div class="cta-arrow">→</div>
+    </a>
+    <a href="seena-services.html" class="cta-card light">
+      <div>
+        <div class="cta-label">What we offer</div>
+        <div class="cta-title">Explore all services & treatments</div>
+      </div>
+      <div class="cta-arrow">→</div>
+    </a>
+  </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <span class="footer-logo">Seena</span>
+    <div class="footer-links">
+      <a href="seena-services.html">Services</a>
+      <a href="seena-specialists.html">Specialists</a>
+      <a href="seena-about.html">About</a>
+      <a href="seena-shop.html">Shop</a>
+      <a href="https://wa.me/351924353219">Contact</a>
+    </div>
+    <span class="footer-copy">© 2026 Seena Integrative Health Centre · Lisbon</span>
+  </div>
+</footer>
+
+</body>
+</html>

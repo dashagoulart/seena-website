@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Specialists — Seena Integrative Health Centre</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+:root{
+  --sage:#3d5843;
+  --sage-mid:#4a6b52;
+  --sage-light:rgba(125,170,134,.15);
+  --sage-deep:#2e4535;
+  --cream:#f7f4ef;
+  --cream-dark:#ede9e1;
+  --stone:#c8bfb0;
+  --text:#1a1a1a;
+  --text-soft:#6b6560;
+  --text-muted:#9e9890;
+}
+
+body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text)}
+
+/* ── NAV ── */
+.site-nav{
+  position:sticky;top:0;z-index:100;
+  background:rgba(247,244,239,.95);backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--cream-dark);
+  padding:0 56px;height:64px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.nav-logo-icon{height:38px;width:auto;flex-shrink:0}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:400;color:var(--sage);letter-spacing:.04em;text-decoration:none;display:flex;align-items:center;gap:9px}
+.nav-links{display:flex;gap:32px;list-style:none}
+.nav-links a{color:var(--text-soft);text-decoration:none;font-size:11.5px;font-weight:400;letter-spacing:.1em;text-transform:uppercase;transition:color .2s}
+.nav-links a:hover,.nav-links a.active{color:var(--sage)}
+.nav-cta{background:var(--sage);color:#fff;padding:9px 22px;border-radius:40px;font-size:11.5px;font-weight:500;letter-spacing:.07em;text-transform:uppercase;text-decoration:none;transition:background .2s}
+.nav-cta:hover{background:var(--sage-deep)}
+
+/* ── HERO BANNER ── */
+.page-hero{
+  background:linear-gradient(160deg,var(--sage-deep) 0%,var(--sage) 50%,var(--sage-mid) 100%);
+  padding:80px 56px 72px;
+  position:relative;overflow:hidden;
+}
+.page-hero::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:100px;
+  background:linear-gradient(to top,var(--cream) 0%,transparent 100%);
+}
+.page-hero-inner{max-width:1240px;margin:0 auto;position:relative;z-index:1}
+.page-eyebrow{font-size:10.5px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:rgba(125,170,134,.9);margin-bottom:18px;display:flex;align-items:center;gap:12px}
+.page-eyebrow::before{content:'';width:24px;height:1px;background:rgba(125,170,134,.7)}
+.page-hero h1{font-family:'Cormorant Garamond',serif;font-size:64px;font-weight:300;line-height:1.05;color:#fff;letter-spacing:-.02em;margin-bottom:20px}
+.page-hero h1 em{font-style:italic;color:rgba(255,255,255,.8)}
+.page-hero p{font-size:15px;font-weight:300;line-height:1.75;color:rgba(255,255,255,.6);max-width:520px}
+
+/* ── MAIN ── */
+main{max-width:1240px;margin:0 auto;padding:64px 56px 96px}
+
+/* ── GRID ── */
+.specialists-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:28px;
+}
+
+/* ── CARD ── */
+.specialist-card{
+  background:#fff;
+  border:1px solid var(--cream-dark);
+  border-radius:16px;
+  overflow:hidden;
+  cursor:pointer;
+  transition:transform .22s,box-shadow .22s,border-color .22s;
+  display:flex;flex-direction:column;
+}
+.specialist-card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 16px 40px rgba(61,88,67,.1);
+  border-color:var(--stone);
+}
+
+.card-photo{
+  aspect-ratio:4/3;
+  overflow:hidden;
+  background:var(--sage-deep);
+  position:relative;
+}
+.card-photo img{
+  width:100%;height:100%;
+  object-fit:cover;object-position:top center;
+  display:block;
+  transition:transform .4s ease;
+  filter:brightness(.92) contrast(1.04);
+}
+.specialist-card:hover .card-photo img{
+  transform:scale(1.04);
+}
+
+/* dark overlay at bottom of photo for text legibility */
+.card-photo::after{
+  content:'';
+  position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(30,45,35,.55) 0%,transparent 50%);
+  pointer-events:none;
+}
+
+.card-body{
+  padding:20px 22px 22px;
+  flex:1;display:flex;flex-direction:column;
+}
+.card-role{
+  font-size:10px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--sage);margin-bottom:8px;
+}
+.card-name{
+  font-family:'Cormorant Garamond',serif;
+  font-size:22px;font-weight:400;line-height:1.15;
+  color:var(--text);margin-bottom:10px;
+}
+.card-summary{
+  font-size:12.5px;font-weight:300;line-height:1.65;
+  color:var(--text-soft);
+  flex:1;margin-bottom:18px;
+}
+.card-langs{
+  display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px;
+}
+.lang-tag{
+  font-size:10px;font-weight:500;letter-spacing:.06em;
+  background:var(--sage-light);color:var(--sage-deep);
+  padding:3px 9px;border-radius:20px;
+}
+.card-actions{
+  display:flex;gap:10px;
+}
+.btn-learn{
+  flex:1;
+  background:transparent;border:1px solid var(--sage);
+  color:var(--sage);
+  padding:10px 0;border-radius:40px;
+  font-size:11.5px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;
+  cursor:pointer;transition:background .2s,color .2s;font-family:'DM Sans',sans-serif;
+}
+.btn-learn:hover{background:var(--sage);color:#fff}
+.btn-book{
+  flex:1;
+  background:var(--sage);color:#fff;
+  border:1px solid var(--sage);
+  padding:10px 0;border-radius:40px;
+  font-size:11.5px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;
+  text-decoration:none;text-align:center;
+  transition:background .2s;
+}
+.btn-book:hover{background:var(--sage-deep);border-color:var(--sage-deep)}
+
+/* ── MODAL ── */
+.modal-overlay{
+  display:none;position:fixed;inset:0;z-index:200;
+  background:rgba(20,30,22,.65);backdrop-filter:blur(6px);
+  align-items:center;justify-content:center;padding:24px;
+}
+.modal-overlay.open{display:flex}
+.modal{
+  background:#fff;border-radius:20px;
+  max-width:860px;width:100%;
+  max-height:90vh;overflow:hidden;
+  display:flex;flex-direction:column;
+  box-shadow:0 32px 80px rgba(0,0,0,.25);
+  position:relative;
+}
+.modal-close{
+  position:absolute;top:16px;right:16px;z-index:10;
+  width:36px;height:36px;border-radius:50%;
+  background:rgba(0,0,0,.06);border:none;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;transition:background .2s;
+}
+.modal-close:hover{background:rgba(0,0,0,.12)}
+.modal-close svg{width:16px;height:16px}
+
+.modal-top{
+  display:grid;grid-template-columns:280px 1fr;
+  flex-shrink:0;
+}
+.modal-photo{
+  height:340px;overflow:hidden;background:var(--sage-deep);
+  border-radius:20px 0 0 0;
+}
+.modal-photo img{
+  width:100%;height:100%;
+  object-fit:cover;object-position:top center;
+  filter:brightness(.92) contrast(1.04);
+}
+
+.modal-header{
+  padding:36px 36px 28px;
+  border-bottom:1px solid var(--cream-dark);
+  display:flex;flex-direction:column;justify-content:flex-end;
+}
+.modal-role{
+  font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--sage);margin-bottom:10px;
+}
+.modal-name{
+  font-family:'Cormorant Garamond',serif;
+  font-size:32px;font-weight:300;line-height:1.1;
+  color:var(--text);margin-bottom:16px;
+}
+.modal-langs{display:flex;gap:6px;flex-wrap:wrap}
+.modal-licence{
+  margin-top:10px;
+  font-size:10.5px;color:var(--text-muted);font-weight:300;
+}
+
+.modal-body{
+  padding:28px 36px 36px;
+  overflow-y:auto;
+  flex:1;
+}
+.modal-bio{
+  font-size:14px;font-weight:300;line-height:1.8;
+  color:var(--text-soft);
+  white-space:pre-line;
+}
+
+.modal-footer{
+  padding:20px 36px 28px;
+  border-top:1px solid var(--cream-dark);
+  display:flex;gap:12px;flex-shrink:0;
+}
+.modal-btn-book{
+  display:inline-flex;align-items:center;justify-content:center;
+  background:var(--sage);color:#fff;
+  padding:13px 32px;border-radius:40px;
+  font-size:13px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;
+  text-decoration:none;transition:background .2s;
+}
+.modal-btn-book:hover{background:var(--sage-deep)}
+.modal-btn-close{
+  display:inline-flex;align-items:center;justify-content:center;
+  background:transparent;border:1px solid var(--cream-dark);color:var(--text-soft);
+  padding:13px 32px;border-radius:40px;
+  font-size:13px;font-weight:400;letter-spacing:.04em;
+  cursor:pointer;font-family:'DM Sans',sans-serif;transition:border-color .2s;
+}
+.modal-btn-close:hover{border-color:var(--stone)}
+
+/* ── FOOTER ── */
+footer{
+  background:var(--sage-deep);color:rgba(255,255,255,.45);
+  padding:48px 56px;
+  display:flex;align-items:center;justify-content:space-between;
+  font-size:12px;font-weight:300;letter-spacing:.04em;
+}
+.footer-logo{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:400;color:#fff;letter-spacing:.04em}
+.footer-links{display:flex;gap:28px}
+.footer-links a{color:rgba(255,255,255,.4);text-decoration:none;font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;transition:color .2s}
+.footer-links a:hover{color:rgba(255,255,255,.8)}
+
+@media(max-width:900px){
+  .specialists-grid{grid-template-columns:repeat(2,1fr)}
+  .modal-top{grid-template-columns:1fr}
+  .modal-photo{height:220px;border-radius:20px 20px 0 0}
+  .site-nav,.page-hero,.main-wrap,footer{padding-left:24px;padding-right:24px}
+  main{padding:40px 24px 72px}
+}
+@media(max-width:600px){
+  .specialists-grid{grid-template-columns:1fr}
+  .page-hero h1{font-size:44px}
+}
+
+/* ── SERVICE CHIPS ── */
+.card-services{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:14px}
+.service-chip{display:inline-flex;align-items:center;gap:4px;font-size:10.5px;font-weight:400;color:var(--sage-deep);background:var(--sage-light);padding:3px 9px;border-radius:20px;text-decoration:none;transition:background .2s}
+.service-chip:hover{background:rgba(125,170,134,.25)}
+.service-chip svg{width:10px;height:10px;stroke:var(--sage);fill:none;stroke-width:1.5;flex-shrink:0}
+.modal-services{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:18px}
+.modal-service-chip{display:inline-flex;align-items:center;gap:5px;font-size:11.5px;color:var(--sage-deep);background:var(--sage-light);padding:5px 12px;border-radius:20px;text-decoration:none;transition:background .2s}
+.modal-service-chip:hover{background:rgba(125,170,134,.25)}
+.modal-service-chip svg{width:12px;height:12px;stroke:var(--sage);fill:none;stroke-width:1.5}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="site-nav">
+  <a href="seena-home_11.html" class="nav-logo"><img src="logos/icon-dark.png" alt="" class="nav-logo-icon"></a>
+  <ul class="nav-links">
+    <li><a href="seena-services.html">Services</a></li>
+    <li><a href="seena-specialists.html" class="active">Specialists</a></li>
+    <li><a href="seena-about.html">About</a></li>
+    <li><a href="seena-learn.html">Learn</a></li>
+    <li><a href="seena-shop.html">Shop</a></li>
+  </ul>
+  <a href="https://wa.me/351924353219" class="nav-cta">Book Appointment</a>
+</nav>
+
+<!-- HERO -->
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <div class="page-eyebrow">Integrative Health Centre · Lisbon</div>
+    <h1>Meet our<br><em>specialists</em></h1>
+    <p>A multidisciplinary team of licensed practitioners — from medical doctors to movement therapists — working together under one roof to support your health in full.</p>
+  </div>
+</section>
+
+<!-- GRID -->
+<main>
+  <div class="specialists-grid" id="grid"></div>
+</main>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="overlay" onclick="closeOnOverlay(event)">
+  <div class="modal" id="modal">
+    <button class="modal-close" onclick="closeModal()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    </button>
+    <div class="modal-top">
+      <div class="modal-photo" id="mPhoto"></div>
+      <div class="modal-header">
+        <div class="modal-role" id="mRole"></div>
+        <h2 class="modal-name" id="mName"></h2>
+        <div class="modal-langs" id="mLangs"></div>
+        <div class="modal-licence" id="mLicence"></div>
+      </div>
+    </div>
+    <div class="modal-body">
+      <div class="modal-services" id="mServices"></div>
+      <p class="modal-bio" id="mBio"></p>
+    </div>
+    <div class="modal-footer">
+      <a id="mBook" class="modal-btn-book" href="https://wa.me/351924353219" target="_blank">Book Appointment</a>
+      <button class="modal-btn-close" onclick="closeModal()">Close</button>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-logo"><img src="logos/icon-dark.png" alt="" class="nav-logo-icon" style="height:26px;opacity:.7">Seena</span>
+  <div class="footer-links">
+    <a href="seena-services.html">Services</a>
+    <a href="seena-specialists.html">Specialists</a>
+    <a href="seena-shop.html">Shop</a>
+    <a href="https://wa.me/351924353219" target="_blank">Contact</a>
+  </div>
+  <span>© 2025 Seena Integrative Health Centre · Lisbon</span>
+</footer>
+
+<script>
+const specialists = [
+  {
+    img: 'specialist_images/vadim.jpg',
+    services: [{"name": "Integrative Physician", "section": "consultations"}, {"name": "Medical Acupuncture", "section": "consultations"}, {"name": "Ozone Therapy", "section": "ozone"}],
+    name: 'Dr. Vadim Fasiy',
+    role: 'General Medicine · Medical Acupuncture · Urology',
+    langs: ['PT','EN','RU','UA'],
+    licence: 'Medical License: CP-45593',
+    summary: 'Doctor with 27 years of clinical experience combining holistic medicine, internal medicine, urology-andrology, and medical neurofunctional electroacupuncture. Founder and clinical director of his own clinic in Parque das Nações.',
+    bio: `Doctor with 27 years of clinical experience whose work combines holistic medicine, internal medicine, urology-andrology, and medical neurofunctional electroacupuncture. His current focus includes conservative treatment of prostate conditions and the development of specialised prostate treatment protocols using neurofunctional electroacupuncture.
+
+He graduated from the Bukovinian State Medical Academy and completed a urology internship at Vinnytsia Pirogov State Medical University. In the early 2000s he validated his diploma in Portugal and went on to work in both public and private healthcare settings, including CUF Descobertas, Lusíadas, NephroCare, and DaVita.
+
+He completed a Master's degree in Medical Neurofunctional Electroacupuncture in 2014 and practised at Hospital Lusíadas and a private clinic in Parque das Nações. From 2012 to 2024 he worked as an emergency doctor at CUF Descobertas. He currently works mainly with hemodialysis clinics (DaVita) and is also the founder and clinical director of his own clinic in Parque das Nações, Lisbon. In Portugal, he describes his specialty as Internal Medicine, applying a holistic approach to patients across multiple pathologies.`
+  },
+  {
+    img: 'specialist_images/natalia.jpg',
+    services: [{"name": "Integrative Physician", "section": "consultations"}, {"name": "Integrative Nutrition", "section": "consultations"}],
+    name: 'Dr. Nataliia Polishchuk',
+    role: 'MD · Internal Medicine · Integrative Doctor',
+    langs: ['PT','EN','RU','UA'],
+    licence: 'Medical License: CP-43489',
+    summary: 'Physician in internal medicine with 25+ years of clinical experience. Specialises in hormonal health, metabolic disorders, cardiovascular risk, perimenopause, and preventive care — integrating evidence-based and functional medicine principles.',
+    bio: `Physician in internal medicine with more than 25 years of clinical experience and medical practice in Portugal since 2003. Dr. Polishchuk takes a comprehensive, systems-based approach to diagnosis, prevention, and treatment, allowing her to see the patient as a whole and coordinate care across different conditions and specialists when necessary.
+
+Her areas of focus include cardiovascular risk prevention, arterial hypertension, diabetes and metabolic dysfunction, thyroid disorders, hormonal imbalances, menstrual irregularities, PMS, perimenopause, menopause, sleep disorders, and vitamin deficiency states.
+
+She combines evidence-based medicine with integrative and functional medicine principles, including personalised recommendations on nutrition, lifestyle, and hormonal regulation, with the goal of preventing chronic disease, extending active longevity, and improving quality of life. She regularly completes international educational programs to keep her practice current, safe, and scientifically grounded.`
+  },
+  {
+    img: 'specialist_images/maxim.jpg',
+    services: [{"name": "Kinesiology", "section": "therapies"}, {"name": "Shockwave Therapy", "section": "equipment"}, {"name": "EMS Body Sculpt", "section": "equipment"}, {"name": "Pressotherapy", "section": "equipment"}],
+    name: 'Maxim Steshenko',
+    role: 'Kinesiologist · Osteopath · Clinical Physiologist',
+    langs: [],
+    licence: '',
+    summary: 'Clinical physiologist, kinesiologist, and osteopath specialising in the root causes of musculoskeletal pain. Builds tailored recovery plans combining kinesiology assessment, osteopathy, shock wave therapy, and manual techniques.',
+    bio: `Clinical physiologist, kinesiologist, and osteopath who specialises in identifying the root causes of musculoskeletal pain and helping the body return to balance, strength, posture, and mobility.
+
+Maxim graduated from the Escola Superior de Saúde de Coimbra with a degree in Clinical Physiology. His approach starts with kinesiology muscle testing to detect imbalances and dysfunctions, then builds a tailored treatment plan that may include osteopathy-based techniques, shock wave therapy, cupping, electrical stimulation, and gentle manual therapies.
+
+Patients value his clear clinical reasoning, attentive listening, and personalised recovery plans.`
+  },
+  {
+    img: 'specialist_images/vladislava.png',
+    services: [{"name": "Lifebreath Manual Therapy", "section": "therapies"}],
+    name: 'Vladislava Artemenko',
+    role: 'Founder, Lifebreath® Method · PhD Orthopedics',
+    langs: [],
+    licence: '',
+    summary: 'Surgeon with a PhD in Orthopedics & Traumatology and founder of the Lifebreath® Method. After over a decade in surgical practice, she pioneered an osteopathy-based approach centred on the body\'s innate intelligence and has trained practitioners since 2019.',
+    bio: `Founder and lead practitioner of the Lifebreath® Method. Vladislava combines deep medical training with an osteopathy-based therapeutic philosophy centred on perception, touch, clinical observation, and the body's innate intelligence.
+
+After more than a decade in orthopaedics and traumatology, including surgical practice and a PhD focused on preserving limb function, she fully shifted to osteopathy-based work in 2011. She has worked with thousands of patients, trained future practitioners since 2019, and founded the Lifebreath School of Osteopathy in 2020.
+
+Her broader background includes medical education at Bogomolets National Medical University, work at the Institute of Orthopedics and Traumatology and the Institute of Gerontology in Ukraine, and later clinical practice in Portugal.`
+  },
+  {
+    img: 'specialist_images/alyona_s.jpg',
+    services: [{"name": "Pediatric Rehabilitation", "section": "therapies"}, {"name": "Children's Health", "section": "children"}],
+    name: 'Alyona Sazonova',
+    role: 'Pediatric Rehabilitation · Early Childhood Development',
+    langs: [],
+    licence: '',
+    summary: 'Pediatric rehabilitation specialist focused on infant and child development. Helps parents understand and support each developmental stage with clinical clarity — from newborn care through orthopaedic rehabilitation and osteopathic treatment for children.',
+    bio: `Pediatric rehabilitation specialist with a strong therapeutic focus on infant and child development, helping parents understand their child's needs and support each developmental stage with clarity and confidence.
+
+Alyona graduated with distinction in 1999 from Dnipropetrovsk Basic Medical School No. 1 in Ukraine, qualifying as an obstetrician and beginning her professional path in maternal and newborn care.
+
+She later expanded her expertise through advanced training in pediatric rehabilitation, orthopaedic rehabilitation for children, osteopathic treatment for children at the East European School of Osteopathy, and physical development support for children from birth.`
+  },
+  {
+    img: 'specialist_images/irina.jpg',
+    services: [{"name": "Therapeutic Massage", "section": "therapies"}],
+    name: 'Irina Bukharbaeva',
+    role: 'Therapeutic Massage · Complementary Medicine',
+    langs: [],
+    licence: '',
+    summary: 'Certified massage therapist with 7+ years of experience in evidence-based manual therapies. Addresses both acute and chronic conditions by combining medical knowledge with individualised care to relieve pain, restore mobility, and support healing.',
+    bio: `Therapeutic Massage Specialist and Complementary Medicine Specialist focused on restoring balance, relieving pain, improving mobility, and supporting the body's healing capacity through evidence-based manual therapies.
+
+Irina studied Complementary Medicine with a specialisation in Advanced Medical Massage, including orthopaedics, physiopathology, resuscitation, sports massage, medical massage, classic Swedish massage, anatomy, and physiology. She also holds certification as a Spa Therapist from the Wingate Institute in Israel.
+
+Her work addresses both acute and chronic conditions, combining medical knowledge with attentive, individualised care.`
+  },
+  {
+    img: 'specialist_images/joana.png',
+    services: [{"name": "Naturopathy", "section": "therapies"}],
+    name: 'Joana Patrícia Teixeira Mateus',
+    role: 'Licensed Naturopath · Integrative Pharmacist',
+    langs: ['PT','EN'],
+    licence: 'Naturopath: C-002847 · Pharmacist: 16736',
+    summary: 'Licensed naturopath and integrative pharmacist bridging modern pharmacy and natural medicine. Specialises in burnout, stress, and anxiety with a holistic, root-cause approach that combines scientific rigour with personalised guidance.',
+    bio: `Joana bridges modern pharmacy and natural medicine through a holistic and compassionate clinical approach, with a special focus on burnout, stress, anxiety, and restoring long-term balance and vitality.
+
+Graduating in Pharmaceutical Sciences in 2007 and practising as a licensed pharmacist since 2009, she later completed a degree in Naturopathy at the Instituto Português de Naturologia. Her training also includes homeopathy, kinesiotherapy, reflexology, biofeedback, phytotherapy, and therapeutic massage.
+
+She works with diverse patients and families, combining scientific rigour with root-cause exploration and personalised guidance.`
+  },
+  {
+    img: 'specialist_images/alyona_t.jpeg',
+    services: [{"name": "Functional Breathing", "section": "therapies"}],
+    name: 'Alyona Tenitski',
+    role: 'Functional Breath Coach · Buteyko Method',
+    langs: [],
+    licence: '',
+    summary: 'Certified Functional Breath Coach and Yoga Instructor certified in the Buteyko Breathing Method under Patrick McKeown. Helps clients of all ages improve breathing efficiency, energy, and resilience through a practical, body-based approach.',
+    bio: `Certified Functional Breath Coach and Yoga Instructor with a background in movement, body mechanics, and wellbeing. Her work focuses on helping clients improve breathing efficiency, energy, resilience, and everyday health through a practical, body-based approach.
+
+Alyona began her journey in Estonia as a gymnast and later built a wellness business in London for 15 years. She is certified in the Buteyko Breathing Method under Patrick McKeown and works with clients of different ages and health profiles, from asthma sufferers to athletes.
+
+Her methodology blends functional breathing, mindful movement, and self-practice.`
+  },
+  {
+    img: 'specialist_images/teresa.jpg',
+    services: [{"name": "TRE \u2014 Tension Release", "section": "therapies"}],
+    name: 'Teresa Ranieri',
+    role: 'Mindfulness Practitioner · TRE® Certified',
+    langs: [],
+    licence: '',
+    summary: 'Mindfulness practitioner and certified TRE® provider specialising in stress, burnout, trauma recovery, and post-traumatic growth. Holds a Master\'s from Bangor University and has taught at Nova University Lisbon.',
+    bio: `Mindfulness practitioner and TRE® method practitioner specialising in stress, burnout, trauma recovery, and post-traumatic growth. Teresa combines scientific knowledge with a compassionate and highly structured approach to help people reconnect with themselves and build sustainable healing practices.
+
+She holds a Master's degree in Teaching Mindfulness-Based Interventions from Bangor University (UK) and is certified in TRE® (Tension & Trauma Releasing Exercises). Teresa has taught mindfulness practices in higher education, including regular classes at Nova University in Lisbon.
+
+She was part of the therapeutic team at New Life Portugal from 2022 to 2024, supporting individuals through mindfulness sessions, psychoeducational workshops, retreats, and one-to-one work focused on grief, menopause, communication, relapse prevention, and personal growth.`
+  }
+];
+
+function buildCard(s, idx) {
+  const langs = s.langs.length
+    ? s.langs.map(l => `<span class="lang-tag">${l}</span>`).join('')
+    : '';
+  const langsRow = s.langs.length ? `<div class="card-langs">${langs}</div>` : '';
+  const svcChips = (s.services||[]).map(sv =>
+    `<a class="service-chip" href="seena-services.html#${sv.section}" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24"><path d="M9 12h6M9 16h6M17 21H7a2 2 0 01-2-2V5a2 2 0 012-2h7l5 5v11a2 2 0 01-2 2z"/></svg>${sv.name}</a>`
+  ).join('');
+  const svcRow = svcChips ? `<div class="card-services">${svcChips}</div>` : '';
+  return `
+  <div class="specialist-card" onclick="openModal(${idx})">
+    <div class="card-photo">
+      <img src="${s.img}" alt="${s.name}" loading="lazy">
+    </div>
+    <div class="card-body">
+      <div class="card-role">${s.role}</div>
+      <div class="card-name">${s.name}</div>
+      <p class="card-summary">${s.summary}</p>
+      ${svcRow}
+      ${langsRow}
+      <div class="card-actions">
+        <button class="btn-learn" onclick="event.stopPropagation();openModal(${idx})">Learn More</button>
+        <a class="btn-book" href="https://wa.me/351924353219" target="_blank" onclick="event.stopPropagation()">Book</a>
+      </div>
+    </div>
+  </div>`;
+}
+
+document.getElementById('grid').innerHTML = specialists.map((s,i) => buildCard(s,i)).join('');
+
+function openModal(idx) {
+  const s = specialists[idx];
+  document.getElementById('mPhoto').innerHTML = `<img src="${s.img}" alt="${s.name}">`;
+  document.getElementById('mRole').textContent = s.role;
+  document.getElementById('mName').textContent = s.name;
+  document.getElementById('mBio').textContent = s.bio;
+  const modalSvcs = (s.services||[]).map(sv =>
+    `<a class="modal-service-chip" href="seena-services.html#${sv.section}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12h6M9 16h6M17 21H7a2 2 0 01-2-2V5a2 2 0 012-2h7l5 5v11a2 2 0 01-2 2z"/></svg>${sv.name}</a>`
+  ).join('');
+  const mSvc = document.getElementById('mServices');
+  if(mSvc) mSvc.innerHTML = modalSvcs;
+  document.getElementById('mLangs').innerHTML = s.langs.map(l => `<span class="lang-tag">${l}</span>`).join('');
+  document.getElementById('mLicence').textContent = s.licence;
+  const msg = encodeURIComponent(`Hi! I'd like to book an appointment with ${s.name}. Could you confirm availability?`);
+  document.getElementById('mBook').href = `https://wa.me/351924353219?text=${msg}`;
+  document.getElementById('overlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  document.getElementById('overlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function closeOnOverlay(e) {
+  if (e.target === document.getElementById('overlay')) closeModal();
+}
+
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+// ── HASH-BASED AUTO-OPEN (from services page links) ──
+const hashMap = {
+  'vadim': 0, 'natalia': 1, 'maxim': 2, 'vladislava': 3,
+  'alyona-s': 4, 'irina': 5, 'joana': 6, 'alyona-t': 7, 'teresa': 8
+};
+function openFromHash() {
+  const hash = window.location.hash.slice(1);
+  if (hash && hashMap[hash] !== undefined) {
+    const idx = hashMap[hash];
+    openModal(idx);
+    setTimeout(() => {
+      const cards = document.querySelectorAll('.specialist-card');
+      if (cards[idx]) cards[idx].scrollIntoView({behavior:'smooth', block:'center'});
+    }, 100);
+  }
+}
+window.addEventListener('DOMContentLoaded', openFromHash);
+window.addEventListener('hashchange', () => { closeModal(); setTimeout(openFromHash, 50); });
+
+</script>
+</body>
+</html>

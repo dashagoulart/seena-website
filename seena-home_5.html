@@ -1,0 +1,1104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Seena Integrative Health Centre — Lisbon</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sage:#5a7a62;--sage-light:#7daa86;--sage-deep:#3d5843;--sage-pale:#edf2ee;
+  --cream:#f7f4ef;--cream-dark:#ede9e1;--stone:#c8bfb0;
+  --text:#2a2520;--text-mid:#6b6259;--text-soft:#9b9088;
+  --white:#ffffff;--wa:#25D366;
+  --section-pad: 96px 48px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text);overflow-x:hidden}
+
+/* ── NAV ── */
+nav {
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  padding:0 48px;height:68px;
+  display:flex;align-items:center;justify-content:space-between;
+  transition:background .35s,box-shadow .35s;
+}
+nav.scrolled{background:var(--sage-deep);box-shadow:0 2px 24px rgba(0,0,0,.18)}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:400;color:#fff;letter-spacing:.04em;text-decoration:none}
+.nav-links{display:flex;gap:32px;list-style:none}
+.nav-links a{color:rgba(255,255,255,.75);text-decoration:none;font-size:12px;font-weight:400;letter-spacing:.08em;text-transform:uppercase;transition:color .2s}
+.nav-links a:hover{color:#fff}
+.nav-cta{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.35);color:#fff;padding:9px 22px;border-radius:40px;font-size:12px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;transition:background .2s}
+.nav-cta:hover{background:rgba(255,255,255,.28)}
+
+/* ── HERO ── */
+.hero {
+  position:relative;min-height:100vh;max-height:860px;
+  display:flex;align-items:center;
+  overflow:hidden;
+  background:var(--sage-deep);
+}
+.hero-bg {
+  position:absolute;inset:0;
+  background:linear-gradient(160deg,#283d2e 0%,#344d3a 45%,#3d5843 100%);
+}
+/* Organic botanical shapes */
+.hero-bg::before {
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 55% 70% at 80% 35%, rgba(100,145,110,.10) 0%, transparent 65%),
+    radial-gradient(ellipse 40% 55% at 15% 75%, rgba(70,100,78,.12) 0%, transparent 60%);
+}
+.hero-bg::after {
+  content:'';position:absolute;bottom:0;left:0;right:0;height:180px;
+  background:linear-gradient(to top, var(--cream) 0%, rgba(247,244,239,.3) 40%, transparent 100%);
+}
+.hero-content {
+  position:relative;z-index:2;
+  width:100%;max-width:1200px;margin:0 auto;
+  padding:100px 48px 72px;
+  display:grid;grid-template-columns:1fr 280px;gap:80px;align-items:end;
+}
+.hero-left{}
+.hero-eyebrow {
+  font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--sage-light);margin-bottom:20px;
+  display:flex;align-items:center;gap:10px;
+}
+.hero-eyebrow::before{content:'';width:28px;height:1px;background:var(--sage-light)}
+.hero-h1 {
+  font-family:'Cormorant Garamond',serif;
+  font-size:72px;font-weight:300;line-height:1.0;
+  color:#fff;letter-spacing:-.02em;margin-bottom:28px;
+}
+.hero-h1 em{font-style:italic;color:rgba(255,255,255,.85)}
+.hero-sub {
+  font-size:16px;font-weight:300;line-height:1.75;
+  color:rgba(255,255,255,.68);max-width:400px;margin-bottom:40px;
+}
+.hero-actions{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.btn-primary {
+  background:#fff;color:var(--sage-deep);
+  padding:14px 32px;border-radius:40px;
+  font-size:13px;font-weight:500;letter-spacing:.04em;
+  text-decoration:none;transition:all .22s;
+  border:1px solid transparent;
+}
+.btn-primary:hover{background:var(--cream);transform:translateY(-1px);box-shadow:0 8px 24px rgba(0,0,0,.12)}
+.btn-ghost {
+  color:rgba(255,255,255,.8);font-size:13px;font-weight:400;
+  text-decoration:none;letter-spacing:.04em;
+  display:flex;align-items:center;gap:7px;transition:color .2s;
+}
+.btn-ghost:hover{color:#fff}
+.btn-ghost svg{width:14px;height:14px}
+.hero-right{
+  display:flex;flex-direction:column;align-items:flex-end;
+  justify-content:flex-end;
+  padding-bottom:0;
+}
+.hero-stats {
+  display:flex;flex-direction:column;gap:0;
+  border-top:1px solid rgba(255,255,255,.12);
+  padding-top:32px;margin-top:8px;
+  align-self:flex-end;
+}
+.hero-stat {
+  display:flex;align-items:baseline;justify-content:flex-end;gap:14px;
+  padding:20px 0;
+  border-bottom:1px solid rgba(255,255,255,.10);
+}
+.hero-stat:last-child{border-bottom:none}
+.hero-stat-label{font-size:12px;font-weight:300;color:rgba(255,255,255,.5);letter-spacing:.06em;text-transform:uppercase;text-align:right}
+.hero-stat-num{font-family:'Cormorant Garamond',serif;font-size:52px;font-weight:300;color:#fff;line-height:1;flex-shrink:0}
+
+/* ── TRUST STRIP ── */
+.trust-strip {
+  background:#fff;
+  border-top:1px solid var(--cream-dark);
+  border-bottom:1px solid var(--cream-dark);
+  padding:0 48px;
+}
+.trust-inner {
+  max-width:1200px;margin:0 auto;
+  display:flex;align-items:stretch;
+}
+
+.trust-item {
+  flex:1;padding:22px 28px;
+  display:flex;align-items:flex-start;gap:12px;
+  border-right:1px solid var(--cream-dark);
+  min-width:0;
+}
+.trust-item:first-child{padding-left:0}
+.trust-item:last-child{border-right:none;padding-right:0}
+.trust-icon{
+  width:34px;height:34px;border-radius:8px;
+  background:var(--sage-pale);flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  margin-top:2px;
+}
+.trust-icon svg{width:15px;height:15px;color:var(--sage-deep)}
+.trust-text{min-width:0}
+.trust-title{font-size:13px;font-weight:500;color:var(--text);line-height:1.3}
+.trust-desc{font-size:12px;font-weight:300;color:var(--text-soft);line-height:1.4;margin-top:2px}
+
+/* ── APPROACH ── */
+.approach{padding:var(--section-pad);background:var(--cream)}
+.approach-inner{max-width:1200px;margin:0 auto}
+.section-label{
+  font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--sage);margin-bottom:16px;
+  display:flex;align-items:center;gap:10px;
+}
+.section-label::before{content:'';width:24px;height:1px;background:var(--sage)}
+.approach-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+.approach-left{}
+.approach-h2{
+  font-family:'Cormorant Garamond',serif;
+  font-size:52px;font-weight:300;line-height:1.1;
+  color:var(--text);margin-bottom:24px;letter-spacing:-.01em;
+}
+.approach-h2 em{font-style:italic;color:var(--sage)}
+.approach-body{
+  font-size:15px;font-weight:300;line-height:1.8;
+  color:var(--text-mid);margin-bottom:32px;
+}
+.approach-link{
+  color:var(--sage-deep);font-size:13px;font-weight:500;
+  text-decoration:none;letter-spacing:.04em;
+  display:inline-flex;align-items:center;gap:7px;
+  border-bottom:1px solid var(--sage-deep);padding-bottom:2px;
+  transition:gap .2s;
+}
+.approach-link:hover{gap:12px}
+.pillars{display:flex;flex-direction:column;gap:0}
+.pillar{
+  padding:28px 0;border-bottom:1px solid var(--cream-dark);
+  display:grid;grid-template-columns:48px 1fr;gap:20px;align-items:start;
+}
+.pillar:first-child{border-top:1px solid var(--cream-dark)}
+.pillar-num{
+  font-family:'Cormorant Garamond',serif;
+  font-size:32px;font-weight:300;color:var(--stone);line-height:1;
+  padding-top:2px;
+}
+.pillar-title{font-size:15px;font-weight:500;color:var(--text);margin-bottom:6px}
+.pillar-desc{font-size:13px;font-weight:300;color:var(--text-mid);line-height:1.6}
+
+/* ── HOW IT WORKS ── */
+.how{background:var(--sage-deep);padding:var(--section-pad)}
+.how-inner{max-width:1200px;margin:0 auto}
+.how .section-label{color:var(--sage-light)}
+.how .section-label::before{background:var(--sage-light)}
+.how-h2{
+  font-family:'Cormorant Garamond',serif;
+  font-size:48px;font-weight:300;color:#fff;
+  margin-bottom:64px;line-height:1.1;
+}
+.how-h2 em{font-style:italic}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative}
+.steps::before{ content:none; }
+.step{padding:0 40px 0 0;}
+.step-circle{
+  width:auto;height:auto;border-radius:0;
+  border:none;background:none;
+  display:block;
+  margin-bottom:16px;
+}
+.step-num{
+  font-family:'Cormorant Garamond',serif;
+  font-size:13px;font-weight:400;
+  color:rgba(255,255,255,.3);
+  letter-spacing:.12em;
+  display:block;
+  margin-bottom:14px;
+}
+.step-num::before{ content:'0'; }
+.step-title{font-size:16px;font-weight:500;color:#fff;margin-bottom:12px;line-height:1.2}
+.step-desc{font-size:13px;font-weight:300;color:rgba(255,255,255,.55);line-height:1.6}
+
+/* ── WHO WE HELP ── */
+.who{padding:var(--section-pad);background:#fff}
+.who-inner{max-width:1200px;margin:0 auto}
+.who-h2{
+  font-family:'Cormorant Garamond',serif;
+  font-size:48px;font-weight:300;color:var(--text);
+  margin-bottom:16px;
+}
+.who-sub{font-size:15px;font-weight:300;color:var(--text-mid);margin-bottom:56px;max-width:520px}
+.who-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.who-card{
+  background:var(--cream);border:1px solid var(--cream-dark);
+  border-radius:16px;padding:32px 28px;
+  cursor:pointer;transition:all .22s;position:relative;overflow:hidden;
+  text-decoration:none;display:flex;flex-direction:column;
+}
+.who-card::before{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:3px;
+  background:var(--sage);transform:scaleX(0);transform-origin:left;
+  transition:transform .3s;
+}
+.who-card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(61,88,67,.1);border-color:var(--stone)}
+.who-card:hover::before{transform:scaleX(1)}
+.who-card-icon{
+  width:44px;height:44px;border-radius:12px;
+  background:var(--sage-pale);display:flex;align-items:center;justify-content:center;
+  margin-bottom:20px;
+}
+.who-card-icon svg{width:20px;height:20px;color:var(--sage-deep)}
+.who-card-title{font-size:15px;font-weight:500;color:var(--text);margin-bottom:10px;line-height:1.3}
+.who-card-desc{font-size:13px;font-weight:300;color:var(--text-mid);line-height:1.6;margin-bottom:20px;flex:1}
+.who-card-link{font-size:12px;font-weight:500;color:var(--sage);letter-spacing:.04em}
+
+/* ── SERVICES ── */
+.services{padding:var(--section-pad);background:var(--cream)}
+.services-inner{max-width:1200px;margin:0 auto}
+.services-header{
+  display:flex;align-items:flex-end;justify-content:space-between;
+  margin-bottom:56px;
+}
+.services-h2{
+  font-family:'Cormorant Garamond',serif;
+  font-size:48px;font-weight:300;color:var(--text);line-height:1.1;
+}
+.services-h2 em{font-style:italic;color:var(--sage)}
+.lang-badges{display:flex;gap:6px;align-items:center;padding-bottom:4px}
+.lang-badge{font-size:10px;font-weight:500;letter-spacing:.1em;padding:5px 10px;border-radius:20px;border:1px solid var(--stone);color:var(--text-mid);background:transparent}
+.services-tracks{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.track{border-radius:20px;overflow:hidden;border:1px solid var(--cream-dark);display:flex;flex-direction:column}
+.track-header{padding:32px 36px 28px;display:flex;align-items:center;gap:16px}
+.track-medical .track-header{background:var(--sage-deep);color:#fff}
+.track-therapeutic .track-header{background:var(--sage-deep);color:#fff;border-bottom:none}
+.track-icon{
+  width:40px;height:40px;border-radius:10px;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+}
+.track-medical .track-icon{background:rgba(255,255,255,.15)}
+.track-therapeutic .track-icon{background:rgba(255,255,255,.15)}
+.track-icon svg{width:18px;height:18px}
+.track-medical .track-icon svg{color:#fff}
+.track-therapeutic .track-icon svg{color:#fff}
+.track-meta{}
+.track-tag{
+  font-size:10px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;
+  margin-bottom:4px;
+}
+.track-medical .track-tag{color:var(--sage-light)}
+.track-therapeutic .track-tag{color:var(--sage-light)}
+.track-name{font-size:18px;font-weight:500;color:#fff}
+.track-medical .track-name{color:#fff}
+.track-body{background:#fff;padding:8px 0;flex:1}
+.service-row{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 36px;height:68px;border-bottom:1px solid var(--cream-dark);
+  text-decoration:none;transition:background .18s;cursor:pointer;
+}
+.service-row:last-child{border-bottom:none}
+.service-row:hover{background:var(--cream)}
+.service-row-left{min-width:0;flex:1;padding-right:12px}
+.service-name{font-size:14px;font-weight:500;color:var(--text);margin-bottom:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.service-desc{font-size:12px;font-weight:300;color:var(--text-soft);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.service-arrow{color:var(--text-soft);transition:transform .18s,color .18s;flex-shrink:0;opacity:1}
+.service-row:hover .service-arrow{transform:translateX(4px);color:var(--sage)}
+.track-footer{
+  background:var(--cream);padding:18px 36px;
+  display:flex;align-items:center;justify-content:space-between;
+  margin-top:auto;
+}
+.track-cta{
+  font-size:13px;font-weight:500;color:var(--sage-deep);
+  text-decoration:none;display:flex;align-items:center;gap:6px;
+  transition:gap .2s;
+}
+.track-cta:hover{gap:10px}
+
+
+/* ── TESTIMONIALS ── */
+.testimonials{padding:var(--section-pad);background:var(--sage-pale)}
+.testimonials-inner{max-width:1200px;margin:0 auto}
+.testimonials-header{
+  display:flex;align-items:flex-end;justify-content:space-between;
+  margin-bottom:40px;flex-wrap:wrap;gap:16px;
+}
+.testimonials-h2{font-family:'Cormorant Garamond',serif;font-size:48px;font-weight:300;color:var(--text);line-height:1.1}
+.testimonials-h2 em{font-style:italic;color:var(--sage)}
+.google-link{display:flex;align-items:center;gap:7px;font-size:13px;font-weight:500;color:var(--sage-deep);text-decoration:none;border-bottom:1px solid var(--sage-deep);padding-bottom:2px;white-space:nowrap;transition:gap .2s}
+.google-link:hover{gap:10px}
+/* Carousel */
+.carousel-wrap{display:flex;align-items:stretch;gap:0}
+.c-viewport{flex:1;overflow:hidden}
+.c-track{display:flex;transition:transform .42s cubic-bezier(.4,0,.2,1);align-items:stretch}
+/* Review card */
+.r-card{
+  box-sizing:border-box;
+  padding:0 10px;
+  flex-shrink:0;
+}
+.r-card-inner{
+  background:#fff;border-radius:16px;border:1px solid var(--cream-dark);
+  padding:28px;height:100%;
+  display:flex;flex-direction:column;
+  transition:box-shadow .2s;
+}
+.r-card:hover .r-card-inner{box-shadow:0 4px 24px rgba(61,88,67,.08)}
+/* Fix: inner wrapper */
+.r-top{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.r-avatar{
+  width:38px;height:38px;border-radius:50%;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  font-size:15px;font-weight:500;color:#fff;font-family:'DM Sans',sans-serif;
+}
+.r-meta{flex:1;min-width:0}
+.r-name{font-size:13px;font-weight:500;color:var(--text)}
+.r-info{font-size:11px;font-weight:300;color:var(--text-soft);margin-top:1px}
+.r-google{flex-shrink:0}
+.r-stars{color:#f5a623;font-size:13px;letter-spacing:1px;margin-bottom:12px}
+.r-text{font-size:13px;font-weight:300;line-height:1.7;color:var(--text-mid);flex:1;margin-bottom:16px}
+.r-source{
+  font-size:11px;font-weight:500;letter-spacing:.05em;
+  color:var(--sage);text-decoration:none;text-transform:uppercase;
+  margin-top:auto;
+}
+.r-source:hover{color:var(--sage-deep)}
+/* Arrows */
+.c-arrow{
+  flex-shrink:0;width:38px;height:38px;border-radius:50%;
+  border:1px solid var(--stone);background:#fff;
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;transition:all .18s;color:var(--text-mid);
+  align-self:center;
+}
+.c-arrow:hover{border-color:var(--sage);color:var(--sage)}
+.c-prev{margin-right:12px}
+.c-next{margin-left:12px}
+/* Dots */
+.c-dots{display:flex;justify-content:center;gap:6px;margin-top:24px}
+.c-dot{width:7px;height:7px;border-radius:50%;background:var(--stone);border:none;cursor:pointer;padding:0;transition:all .22s}
+.c-dot.active{background:var(--sage-deep);width:22px;border-radius:4px}
+
+/* ── ACADEMY BANNER ── */
+.academy{padding:var(--section-pad);background:var(--cream)}
+.academy-inner{max-width:1200px;margin:0 auto}
+.academy-banner{
+  background:var(--sage-deep);border-radius:20px;
+  padding:56px 64px;
+  display:grid;grid-template-columns:1fr auto;gap:48px;align-items:center;
+  position:relative;overflow:hidden;
+}
+.academy-banner::before{
+  content:'';position:absolute;right:-60px;top:-60px;
+  width:320px;height:320px;border-radius:50%;
+  background:rgba(255,255,255,.04);
+}
+.academy-banner::after{
+  content:'';position:absolute;right:60px;bottom:-80px;
+  width:200px;height:200px;border-radius:50%;
+  background:rgba(255,255,255,.03);
+}
+.academy-tag{
+  font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--sage-light);margin-bottom:12px;
+}
+.academy-h3{
+  font-family:'Cormorant Garamond',serif;
+  font-size:40px;font-weight:300;color:#fff;
+  line-height:1.1;margin-bottom:14px;
+}
+.academy-h3 em{font-style:italic}
+.academy-desc{
+  font-size:14px;font-weight:300;color:rgba(255,255,255,.65);
+  line-height:1.7;max-width:480px;
+}
+.academy-actions{
+  display:flex;flex-direction:column;gap:12px;align-items:flex-end;flex-shrink:0;
+  position:relative;z-index:2;
+}
+.btn-white{
+  background:#fff;color:var(--sage-deep);
+  padding:13px 28px;border-radius:40px;
+  font-size:13px;font-weight:500;
+  text-decoration:none;transition:all .22s;white-space:nowrap;
+}
+.btn-white:hover{background:var(--cream);transform:translateY(-1px)}
+.btn-outline-white{
+  color:rgba(255,255,255,.7);font-size:13px;font-weight:400;
+  text-decoration:none;white-space:nowrap;
+  transition:color .2s;
+}
+.btn-outline-white:hover{color:#fff}
+
+/* ── FINAL CTA ── */
+.final-cta{
+  background:var(--text);padding:96px 48px;
+  text-align:center;
+}
+.final-cta-inner{max-width:600px;margin:0 auto}
+.final-eyebrow{
+  font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--sage-light);margin-bottom:20px;
+}
+.final-h2{
+  font-family:'Cormorant Garamond',serif;
+  font-size:56px;font-weight:300;color:#fff;
+  line-height:1.05;margin-bottom:20px;
+}
+.final-h2 em{font-style:italic}
+.final-sub{
+  font-size:15px;font-weight:300;color:rgba(255,255,255,.55);
+  line-height:1.7;margin-bottom:40px;
+}
+.final-actions{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.btn-wa{
+  display:flex;align-items:center;gap:10px;
+  background:var(--wa);color:#fff;
+  padding:14px 28px;border-radius:40px;
+  font-size:14px;font-weight:500;
+  text-decoration:none;transition:background .2s;
+}
+.btn-wa:hover{background:#1fa855}
+.btn-wa svg{width:18px;height:18px;fill:#fff}
+.btn-ghost-dark{
+  color:rgba(255,255,255,.6);font-size:14px;font-weight:400;
+  text-decoration:none;display:flex;align-items:center;gap:6px;
+  padding:14px 0;transition:color .2s;
+}
+.btn-ghost-dark:hover{color:#fff}
+
+/* ── FOOTER ── */
+footer{background:var(--sage-deep);padding:48px;color:rgba(255,255,255,.6)}
+.footer-inner{
+  max-width:1200px;margin:0 auto;
+  display:flex;align-items:center;justify-content:space-between;
+  flex-wrap:wrap;gap:20px;
+}
+.footer-logo{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:400;color:#fff}
+.footer-address{font-size:13px;font-weight:300}
+.footer-links{display:flex;gap:24px}
+.footer-links a{color:rgba(255,255,255,.5);text-decoration:none;font-size:12px;transition:color .2s}
+.footer-links a:hover{color:#fff}
+
+/* ── RESPONSIVE ── */
+@media(min-width:1400px){
+  .hero-h1{font-size:76px}
+  .hero-content{max-width:1280px}
+}
+@media(max-width:900px){
+  nav{padding:0 20px}
+  .nav-links{display:none}
+  .hero-content{grid-template-columns:1fr;gap:40px;padding:120px 20px 60px}
+  .hero-h1{font-size:48px}
+  .hero-right{display:none}
+  .trust-strip{padding:0 20px}
+  .trust-inner{flex-wrap:wrap}
+  .trust-item{flex:1 1 48%;padding:16px 12px;border-right:none;border-bottom:1px solid var(--cream-dark);align-items:flex-start}
+  .trust-item:nth-child(odd){border-right:1px solid var(--cream-dark)}
+  .trust-item:nth-last-child(-n+2){border-bottom:none}
+  .approach-grid{grid-template-columns:1fr}
+  .approach-h2{font-size:36px}
+  .steps{grid-template-columns:1fr 1fr;gap:32px}
+  .steps::before{display:none}
+  .who-grid{grid-template-columns:1fr 1fr}
+  .services-tracks{grid-template-columns:1fr}
+  .reviews-grid{grid-template-columns:1fr}
+  .academy-banner{grid-template-columns:1fr;padding:36px 28px}
+  .academy-actions{align-items:flex-start}
+  .services-inner,.approach-inner,.how-inner,.who-inner,.testimonials-inner,.academy-inner,.final-cta-inner{padding:0}
+  .approach,.how,.who,.services,.testimonials,.academy{padding:64px 20px}
+  .final-cta{padding:72px 20px}
+  footer{padding:40px 20px}
+  .footer-inner{flex-direction:column;align-items:flex-start}
+  .services-header{flex-direction:column;align-items:flex-start;gap:8px}
+  .services-note{text-align:left;max-width:none}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#" class="nav-logo">Seena</a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#">Specialists</a></li>
+    <li><a href="#">Learn</a></li>
+    <li><a href="#">Shop</a></li>
+  </ul>
+  <a href="https://wa.me/351924353219" class="nav-cta">Book Appointment</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-left">
+      <div class="hero-eyebrow">Integrative Health Centre · Lisbon</div>
+      <h1 class="hero-h1">Healing<br><em>beyond</em><br>symptoms</h1>
+      <p class="hero-sub">Where Western medical science meets Eastern healing traditions — one roof, one plan, lasting results.</p>
+      <div class="hero-actions">
+        <a href="https://wa.me/351924353219" class="btn-primary">Book a free consultation</a>
+        <a href="#services" class="btn-ghost">
+          Explore services
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 3l5 5-5 5M3 8h10"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="hero-stat-label">Integrated disciplines</div>
+          <div class="hero-stat-num">9</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-label">Licensed specialists</div>
+          <div class="hero-stat-num">8</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-label">Years combined practice</div>
+          <div class="hero-stat-num">60+</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST STRIP -->
+<div class="trust-strip">
+  <div class="trust-inner">
+    <div class="trust-item">
+      <div class="trust-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+      </div>
+      <div class="trust-text">
+        <div class="trust-title">Medically supervised</div>
+        <div class="trust-desc">All medical services supervised by licensed doctors</div>
+      </div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
+      </div>
+      <div class="trust-text">
+        <div class="trust-title">Evidence-based</div>
+        <div class="trust-desc">Science-grounded methods, no pseudoscience</div>
+      </div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+      </div>
+      <div class="trust-text">
+        <div class="trust-title">9 disciplines, one roof</div>
+        <div class="trust-desc">Coordinated care across medical & therapeutic services</div>
+      </div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+      </div>
+      <div class="trust-text">
+        <div class="trust-title">Free first consultation</div>
+        <div class="trust-desc">Talk to us before booking any session</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- THE SEENA APPROACH -->
+<section class="approach">
+  <div class="approach-inner">
+    <div class="approach-grid">
+      <div class="approach-left">
+        <div class="section-label">The Seena approach</div>
+        <h2 class="approach-h2">A system, not just <em>a session</em></h2>
+        <p class="approach-body">Seena was built on one conviction: that real, lasting health requires more than treating isolated symptoms. It needs a structured approach that sees the whole person — body, mind, and context — and brings the right disciplines together under a single, coherent plan.<br><br>We don't rotate you between disconnected appointments. We build you a pathway.</p>
+        <a href="#" class="approach-link">Our story and philosophy →</a>
+      </div>
+      <div class="pillars">
+        <div class="pillar">
+          <div class="pillar-num">01</div>
+          <div>
+            <div class="pillar-title">Science</div>
+            <div class="pillar-desc">Every assessment is diagnostic and measurable. We start with evidence — functional testing, medical history, clinical observation — before recommending anything.</div>
+          </div>
+        </div>
+        <div class="pillar">
+          <div class="pillar-num">02</div>
+          <div>
+            <div class="pillar-title">Tradition</div>
+            <div class="pillar-desc">Centuries of Eastern and Western healing practice inform our therapeutic methods — acupuncture, manual therapy, breathwork — integrated into modern, evidence-based protocols.</div>
+          </div>
+        </div>
+        <div class="pillar">
+          <div class="pillar-num">03</div>
+          <div>
+            <div class="pillar-title">System</div>
+            <div class="pillar-desc">Your plan doesn't end when you leave. Structured follow-ups, progress tracking, and coordinated care between disciplines ensure continuity — not just one-off relief.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how">
+  <div class="how-inner">
+    <div class="section-label">How it works</div>
+    <h2 class="how-h2">From first visit to <em>long-term wellbeing</em></h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-circle"><span class="step-num">1</span></div>
+        <div class="step-title">Free consultation</div>
+        <div class="step-desc">A no-obligation conversation — by WhatsApp or in person — to understand your situation and whether Seena is the right fit for you.</div>
+      </div>
+      <div class="step">
+        <div class="step-circle"><span class="step-num">2</span></div>
+        <div class="step-title">Integrated assessment</div>
+        <div class="step-desc">A thorough intake with one of our specialists. We look at your full picture — not just the symptom that brought you in.</div>
+      </div>
+      <div class="step">
+        <div class="step-circle"><span class="step-num">3</span></div>
+        <div class="step-title">Your personal plan</div>
+        <div class="step-desc">A clear, structured care plan — which services, in what order, with what goals. You'll leave knowing exactly what happens next and why.</div>
+      </div>
+      <div class="step">
+        <div class="step-circle"><span class="step-num">4</span></div>
+        <div class="step-title">Ongoing support</div>
+        <div class="step-desc">Progress check-ins, follow-ups, and plan adjustments as your health evolves. The relationship doesn't end after one session.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHO WE HELP -->
+<section class="who">
+  <div class="who-inner">
+    <div class="section-label">Who we help</div>
+    <h2 class="who-h2">Not sure where to start?</h2>
+    <p class="who-sub">Most of our clients come to us with one of these situations. Find yours — we'll point you to the right path.</p>
+    <div class="who-grid">
+      <a href="#" class="who-card">
+        <div class="who-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+        </div>
+        <div class="who-card-title">Chronic pain & physical recovery</div>
+        <div class="who-card-desc">Back pain, joint issues, post-injury recovery, poor posture, persistent tension. You've tried the usual routes and want something that actually addresses the cause.</div>
+        <div class="who-card-link">Explore services →</div>
+      </a>
+      <a href="#" class="who-card">
+        <div class="who-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+        </div>
+        <div class="who-card-title">Stress, burnout & emotional health</div>
+        <div class="who-card-desc">Fatigue that doesn't go away, anxiety, sleep problems, difficulty recovering after difficult periods. We work with the body and nervous system together.</div>
+        <div class="who-card-link">Explore services →</div>
+      </a>
+      <a href="#" class="who-card">
+        <div class="who-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+        </div>
+        <div class="who-card-title">Preventive care & longevity</div>
+        <div class="who-card-desc">You feel broadly well but want to stay that way — optimising nutrition, gut health, immunity, and long-term resilience before problems develop.</div>
+        <div class="who-card-link">Explore services →</div>
+      </a>
+      <a href="#" class="who-card">
+        <div class="who-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+        </div>
+        <div class="who-card-title">Children's rehabilitation</div>
+        <div class="who-card-desc">Developmental support, posture and movement issues, early childhood concerns. Gentle, specialist-led paediatric care with clear milestones for families.</div>
+        <div class="who-card-link">Explore services →</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="services-inner">
+    <div class="services-header">
+      <h2 class="services-h2">Our <em>services</em></h2>
+      <div class="lang-badges">
+        <span class="lang-badge">EN</span>
+        <span class="lang-badge">RU</span>
+        <span class="lang-badge">PT</span>
+      </div>
+    </div>
+    <div class="services-tracks">
+
+      <!-- MEDICAL -->
+      <div class="track track-medical">
+        <div class="track-header">
+          <div class="track-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+          </div>
+          <div class="track-meta" style="flex:1">
+            <div class="track-tag">Doctor-supervised</div>
+            <div class="track-name">Medical Services</div>
+          </div>
+          <div style="background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:20px;padding:4px 10px;font-size:10px;font-weight:500;color:rgba(255,255,255,.7);letter-spacing:.06em;white-space:nowrap;align-self:center">
+            Licensed ✓
+          </div>
+        </div>
+        <div class="track-body">
+          <a href="#" class="service-row">
+            <div class="service-row-left">
+              <div class="service-name">Integrative Physician Consultation</div>
+              <div class="service-desc">Hormonal balance, deficiencies, energy and sleep optimisation</div>
+            </div>
+            <svg class="service-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 18l6-6-6-6"/></svg>
+          </a>
+          <a href="#" class="service-row">
+            <div class="service-row-left">
+              <div class="service-name">Medical Acupuncture</div>
+              <div class="service-desc">Clinically proven nervous system regulation and pain relief</div>
+            </div>
+            <svg class="service-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 18l6-6-6-6"/></svg>
+          </a>
+          <a href="#" class="service-row">
+            <div class="service-row-left">
+              <div class="service-name">Naturopathy</div>
+              <div class="service-desc">Personalised nutrition, lifestyle guidance and bioresonance</div>
+            </div>
+            <svg class="service-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 18l6-6-6-6"/></svg>
+          </a>
+          <a href="#" class="service-row">
+            <div class="service-row-left">
+              <div class="service-name">Ozone Therapy</div>
+              <div class="service-desc">Medical O₃ treatments — prescribed and supervised by our doctor</div>
+            </div>
+            <svg class="service-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 18l6-6-6-6"/></svg>
+          </a>
+        </div>
+        <div class="track-footer">
+          <a href="#" class="track-cta">
+            All medical services
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 18l6-6-6-6"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- THERAPEUTIC -->
+      <div class="track track-therapeutic">
+        <div class="track-header">
+          <div class="track-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+          </div>
+          <div class="track-meta">
+            <div class="track-tag">Certified practitioners</div>
+            <div class="track-name">Therapeutic Services</div>
+          </div>
+        </div>
+        <div class="track-body">
+          <a href="#" class="service-row">
+            <div class="service-row-left">
+              <div class="service-name">Kinesiology</div>
+              <div class="service-desc">Movement dysfunction assessment and muscle balance correction</div>
+            </div>
+            <svg class="service-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 18l6-6-6-6"/></svg>
+          </a>
+          <a href="#" class="service-row">
+            <div class="service-row-left">
+              <div class="service-name">Lifebreath® Manual Therapy</div>
+              <div class="service-desc">Deep fascial and structural work by a surgeon-developed method</div>
+            </div>
+            <svg class="service-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 18l6-6-6-6"/></svg>
+          </a>
+          <a href="#" class="service-row">
+            <div class="service-row-left">
+              <div class="service-name">Therapeutic Massage</div>
+              <div class="service-desc">Pain relief, muscle tension release and mobility restoration</div>
+            </div>
+            <svg class="service-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 18l6-6-6-6"/></svg>
+          </a>
+          <a href="#" class="service-row">
+            <div class="service-row-left">
+              <div class="service-name">TRE & Paediatric Rehabilitation</div>
+              <div class="service-desc">Trauma release exercises and children's developmental rehab</div>
+            </div>
+            <svg class="service-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 18l6-6-6-6"/></svg>
+          </a>
+        </div>
+        <div class="track-footer">
+          <a href="#" class="track-cta">
+            All therapeutic services
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 18l6-6-6-6"/></svg>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <div class="testimonials-inner">
+    <div class="testimonials-header">
+      <div>
+        <div class="section-label">Client stories</div>
+        <h2 class="testimonials-h2">Real results, <em>real people</em></h2>
+      </div>
+      <a href="https://www.google.com/maps/place/Seena+Integrative+Health+Centre" target="_blank" class="google-link">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        See all on Google
+      </a>
+    </div>
+
+    <div class="carousel-wrap">
+      <button class="c-arrow c-prev" onclick="cGo(-1)">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
+      <div class="c-viewport">
+        <div class="c-track" id="cTrack">
+
+          <div class="r-card">
+            <div class="r-card-inner">
+            <div class="r-top">
+              <div class="r-avatar" style="background:#8B6F5E">M</div>
+              <div class="r-meta">
+                <div class="r-name">Mariana Andrusiv</div>
+                <div class="r-info">1 review · 6 months ago</div>
+              </div>
+              <div class="r-google">
+                <svg width="16" height="16" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+              </div>
+            </div>
+            <div class="r-stars">★★★★★</div>
+            <p class="r-text">I recently visited Seena Integrative Health Center in Lisbon and had an exceptional experience. After just two visits, my back pain significantly decreased, and I found it much easier to move and sleep comfortably. The team creates a welcoming and professional environment. I highly recommend Seena.</p>
+            <a href="https://www.google.com/maps/place/Seena+Integrative+Health+Centre" target="_blank" class="r-source">Lifebreath® Manual Therapy · Massage</a>
+            </div>
+          </div>
+
+          <div class="r-card">
+            <div class="r-card-inner">
+            <div class="r-top">
+              <div class="r-avatar r-avatar-img"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='36' viewBox='0 0 36 36'%3E%3Ccircle cx='18' cy='18' r='18' fill='%23B5C4A1'/%3E%3Ctext x='18' y='23' text-anchor='middle' fill='white' font-size='14' font-family='sans-serif'%3ED%3C/text%3E%3C/svg%3E" alt="Diana"></div>
+              <div class="r-meta">
+                <div class="r-name">Diana Malashyna</div>
+                <div class="r-info">4 reviews · 4 months ago</div>
+              </div>
+              <div class="r-google"><svg width="16" height="16" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg></div>
+            </div>
+            <div class="r-stars">★★★★★</div>
+            <p class="r-text">I really enjoyed my consultation with the naturopath Joana Mateus. She was able to get to the root of my issue, and since then I've been feeling better — both mentally and physically. I genuinely recommend her. Thank you.</p>
+            <a href="https://www.google.com/maps/place/Seena+Integrative+Health+Centre" target="_blank" class="r-source">Naturopathy</a>
+            </div>
+          </div>
+
+          <div class="r-card">
+            <div class="r-card-inner">
+            <div class="r-top">
+              <div class="r-avatar" style="background:#6B8F71">M</div>
+              <div class="r-meta">
+                <div class="r-name">Maryam</div>
+                <div class="r-info">Local Guide · 4 reviews · a year ago</div>
+              </div>
+              <div class="r-google"><svg width="16" height="16" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg></div>
+            </div>
+            <div class="r-stars">★★★★★</div>
+            <p class="r-text">Our whole family comes here — my son sees a paediatric rehabilitation specialist for his neck posture, and Alena has been a great help. I started working with the kinesiologist after giving birth, and his work is truly amazing. Irina has magical hands!</p>
+            <a href="https://www.google.com/maps/place/Seena+Integrative+Health+Centre" target="_blank" class="r-source">Kinesiology · Massage · Paediatric Rehab</a>
+            </div>
+          </div>
+
+          <div class="r-card">
+            <div class="r-card-inner">
+            <div class="r-top">
+              <div class="r-avatar" style="background:#5B7FA6">J</div>
+              <div class="r-meta">
+                <div class="r-name">José Nuno Vieira</div>
+                <div class="r-info">Local Guide · 169 reviews · 5 months ago</div>
+              </div>
+              <div class="r-google"><svg width="16" height="16" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg></div>
+            </div>
+            <div class="r-stars">★★★★★</div>
+            <p class="r-text">Maxim is my go-to guy whenever I've pain. He was able to recover my torn psoas muscle. Seena was a novelty to me and I was very pleased with the space and the warm welcome from the staff. If I ever need a recovery again, I will for sure come back.</p>
+            <a href="https://www.google.com/maps/place/Seena+Integrative+Health+Centre" target="_blank" class="r-source">Kinesiology</a>
+            </div>
+          </div>
+
+          <div class="r-card">
+            <div class="r-card-inner">
+            <div class="r-top">
+              <div class="r-avatar" style="background:#A67B5B">A</div>
+              <div class="r-meta">
+                <div class="r-name">Alla</div>
+                <div class="r-info">3 reviews · 6 months ago</div>
+              </div>
+              <div class="r-google"><svg width="16" height="16" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg></div>
+            </div>
+            <div class="r-stars">★★★★★</div>
+            <p class="r-text">Powerful results! I came with constant back pain and apathy. After osteopathy the pain was gone and my posture improved. Massage consolidated the results. The naturopath adjusted my nutrition and my energy returned. Coordinated work, genuine help. I am now a regular client!</p>
+            <a href="https://www.google.com/maps/place/Seena+Integrative+Health+Centre" target="_blank" class="r-source">Naturopathy · Osteopathy · Massage</a>
+            </div>
+          </div>
+
+          <div class="r-card">
+            <div class="r-card-inner">
+            <div class="r-top">
+              <div class="r-avatar" style="background:#7B8FA6">V</div>
+              <div class="r-meta">
+                <div class="r-name">V T</div>
+                <div class="r-info">1 review · 11 months ago</div>
+              </div>
+              <div class="r-google"><svg width="16" height="16" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg></div>
+            </div>
+            <div class="r-stars">★★★★★</div>
+            <p class="r-text">I'm incredibly grateful to Maxim — he quite literally saved my shoulder after an injury, and has been helping me with rehabilitation after a skiing accident. I'm beyond happy with the results and truly impressed by his level of expertise. He's an amazing specialist and a wonderful human being.</p>
+            <a href="https://www.google.com/maps/place/Seena+Integrative+Health+Centre" target="_blank" class="r-source">Kinesiology</a>
+            </div>
+          </div>
+
+          <div class="r-card">
+            <div class="r-card-inner">
+            <div class="r-top">
+              <div class="r-avatar" style="background:#8B7355">T</div>
+              <div class="r-meta">
+                <div class="r-name">Tasha Raduga</div>
+                <div class="r-info">5 reviews · 7 months ago</div>
+              </div>
+              <div class="r-google"><svg width="16" height="16" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg></div>
+            </div>
+            <div class="r-stars">★★★★★</div>
+            <p class="r-text">If you're expecting a baby, Alena's newborn class can be very helpful — especially for future dads. She explains how to care for a newborn and helps parents feel more confident. After the birth, Alena can visit your home and provide personal guidance tailored to your child.</p>
+            <a href="https://www.google.com/maps/place/Seena+Integrative+Health+Centre" target="_blank" class="r-source">Paediatric Rehabilitation</a>
+            </div>
+          </div>
+
+          <div class="r-card">
+            <div class="r-card-inner">
+            <div class="r-top">
+              <div class="r-avatar" style="background:#6B8B73">К</div>
+              <div class="r-meta">
+                <div class="r-name">Ксения</div>
+                <div class="r-info">Local Guide · 44 reviews · 5 months ago</div>
+              </div>
+              <div class="r-google"><svg width="16" height="16" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg></div>
+            </div>
+            <div class="r-stars">★★★★★</div>
+            <p class="r-text">Super Doctor Max — attentive, works conscientiously, there are results after the first session. This is not a person focused on money, this doctor is focused on the result and making sure patients are healthy and happy. Competent, capable and extremely positive.</p>
+            <a href="https://www.google.com/maps/place/Seena+Integrative+Health+Centre" target="_blank" class="r-source">Medical Acupuncture</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <button class="c-arrow c-next" onclick="cGo(1)">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 18l6-6-6-6"/></svg>
+      </button>
+    </div>
+
+    <div class="c-dots" id="cDots"></div>
+
+  </div>
+</section>
+
+<script>
+(function(){
+  const track = document.getElementById('cTrack');
+  const dotsEl = document.getElementById('cDots');
+  const cards = track.querySelectorAll('.r-card');
+  let cur = 0, pv = 3;
+
+  function pView(){
+    return window.innerWidth < 640 ? 1 : window.innerWidth < 1024 ? 2 : 3;
+  }
+
+  function setup(){
+    pv = pView();
+    const vw = track.parentElement.offsetWidth;
+    const cw = vw / pv;
+    cards.forEach(c => { c.style.width = cw + 'px'; c.style.flexShrink = '0'; });
+    buildDots();
+    render(Math.min(cur, Math.ceil(cards.length/pv)-1));
+  }
+
+  function buildDots(){
+    dotsEl.innerHTML = '';
+    const pages = Math.ceil(cards.length / pv);
+    for(let i=0;i<pages;i++){
+      const d = document.createElement('button');
+      d.className = 'c-dot' + (i===0?' active':'');
+      d.onclick = ()=>render(i);
+      dotsEl.appendChild(d);
+    }
+  }
+
+  function render(idx){
+    const pages = Math.ceil(cards.length/pv);
+    cur = Math.max(0,Math.min(idx,pages-1));
+    const cw = track.parentElement.offsetWidth / pv;
+    track.style.transform = 'translateX(-'+(cur*pv*cw)+'px)';
+    dotsEl.querySelectorAll('.c-dot').forEach((d,i)=>d.classList.toggle('active',i===cur));
+    document.querySelector('.c-prev').style.opacity = cur===0?'0.25':'1';
+    document.querySelector('.c-next').style.opacity = cur>=pages-1?'0.25':'1';
+  }
+
+  window.cGo = dir => render(cur+dir);
+  window.addEventListener('resize', setup);
+  setup();
+})();
+</script>
+
+<!-- ACADEMY BANNER -->
+<section class="academy">
+  <div class="academy-inner">
+    <div class="academy-banner">
+      <div>
+        <div class="academy-tag">Seena Academy</div>
+        <h3 class="academy-h3">Understand your health<br><em>before you treat it</em></h3>
+        <p class="academy-desc">Our education programme explains what integrative medicine actually is — through events, workshops, and online guides. Because informed clients make better decisions about their own health.</p>
+      </div>
+      <div class="academy-actions">
+        <a href="#" class="btn-white">Browse the Learn section</a>
+        <a href="#" class="btn-outline-white">Upcoming events →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <div class="final-cta-inner">
+    <div class="final-eyebrow">Parque das Nações · Lisbon</div>
+    <h2 class="final-h2">Ready to<br><em>start?</em></h2>
+    <p class="final-sub">Begin with a free consultation — no commitment, no pressure. Just a conversation about where you are and where you want to be.</p>
+    <div class="final-actions">
+      <a href="https://wa.me/351924353219" class="btn-wa">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Book a free consultation
+      </a>
+      <a href="tel:+351924353219" class="btn-ghost-dark">
+        or call +351 924 353 219
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">Seena</div>
+    <div class="footer-address">Rua das Musas 13A · Parque das Nações · Lisbon · 1990-166</div>
+    <div class="footer-links">
+      <a href="#">Services</a>
+      <a href="#">Specialists</a>
+      <a href="#">Learn</a>
+      <a href="#">Shop</a>
+      <a href="#">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+});
+</script>
+</body>
+</html>
