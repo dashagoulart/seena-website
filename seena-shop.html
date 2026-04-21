@@ -10,14 +10,14 @@
 :root{--sage:#5a7a62;--sage-light:#7daa86;--sage-deep:#3d5843;--cream:#f7f4ef;--cream-dark:#ede9e1;--stone:#c8bfb0;--text:#2a2520;--text-mid:#6b6259;--text-soft:#9b9088;--white:#ffffff;--wa:#25D366}
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text);min-height:100vh}
-nav{background:var(--sage-deep);padding:0 48px;display:flex;align-items:center;justify-content:space-between;height:64px;position:sticky;top:0;z-index:100}
-.nav-logo-icon{height:38px;width:auto;flex-shrink:0}
+nav{background:var(--sage-deep);padding:0 48px;display:flex;align-items:center;justify-content:space-between;height:68px;position:sticky;top:0;z-index:100}
+.nav-logo-icon{height:40px;width:auto;flex-shrink:0;filter:brightness(0) invert(1);opacity:.9}
 .nav-logo{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:400;color:#fff;letter-spacing:.04em;text-decoration:none;display:flex;align-items:center;gap:9px}
 .nav-links{display:flex;gap:32px;list-style:none}
-.nav-links a{color:rgba(255,255,255,.7);text-decoration:none;font-size:13px;letter-spacing:.06em;text-transform:uppercase;transition:color .2s}
+.nav-links a{color:rgba(255,255,255,.75);text-decoration:none;font-size:12px;font-weight:400;letter-spacing:.08em;text-transform:uppercase;transition:color .2s}
 .nav-links a:hover,.nav-links a.active{color:#fff}
-.nav-book{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);color:#fff;padding:8px 20px;border-radius:40px;font-size:12px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;transition:background .2s}
-.nav-book:hover{background:rgba(255,255,255,.25)}
+.nav-book{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.35);color:#fff;padding:9px 22px;border-radius:40px;font-size:12px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;transition:background .2s}
+.nav-book:hover{background:rgba(255,255,255,.28)}
 .shop-hero{background:var(--sage-deep);color:#fff;padding:56px 48px 64px;position:relative;overflow:hidden}
 .shop-hero::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:48px;background:var(--cream);clip-path:ellipse(55% 100% at 50% 100%)}
 .hero-label{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--sage-light);margin-bottom:12px}
@@ -87,7 +87,7 @@ main{max-width:1200px;margin:0 auto;padding:48px 48px 80px}
 .tab-c.active{display:block}
 .shop-cta{background:var(--sage-deep);border-radius:16px;padding:44px 48px;display:flex;align-items:center;justify-content:space-between;gap:32px;margin-top:16px}
 .shop-cta h3{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:400;color:#fff;margin-bottom:8px}
-.shop-cta p{font-size:14px;font-weight:300;color:rgba(255,255,255,.65);max-width:400px;line-height:1.6}
+.shop-cta p{font-size:14px;font-weight:300;color:rgba(255,255,255,.75);max-width:400px;line-height:1.6}
 .wa-btn{display:flex;align-items:center;gap:10px;background:var(--wa);color:#fff;padding:14px 28px;border-radius:40px;font-size:14px;font-weight:500;cursor:pointer;white-space:nowrap;font-family:'DM Sans',sans-serif;text-decoration:none;transition:background .18s;flex-shrink:0}
 .wa-btn:hover{background:#1fa855}
 .wa-btn svg{width:18px;height:18px;fill:#fff}
@@ -99,7 +99,7 @@ main{max-width:1200px;margin:0 auto;padding:48px 48px 80px}
 <body>
 
 <nav>
-  <a href="seena-home_11.html" class="nav-logo"><img src="logos/icon-dark.png" alt="" class="nav-logo-icon"></a>
+  <a href="seena-home_11.html" class="nav-logo"><img src="logos/icon-white.png" alt="" class="nav-logo-icon"></a>
   <ul class="nav-links">
     <li><a href="seena-services.html">Services</a></li>
     <li><a href="seena-specialists.html">Specialists</a></li>
