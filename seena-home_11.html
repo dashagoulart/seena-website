@@ -63,9 +63,11 @@ nav.scrolled{background:var(--sage-deep);box-shadow:0 2px 24px rgba(0,0,0,.18)}
   display:flex;align-items:flex-end;
 }
 .hero-left{padding:120px 0 84px 0;max-width:640px;}
-.hero-brand{display:flex;align-items:center;gap:14px;margin-bottom:28px}
-.hero-brand-logo{height:72px;width:auto;filter:brightness(0) invert(1);opacity:.92}
-.hero-brand-location{font-size:11px;font-weight:400;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.45);align-self:flex-end;padding-bottom:6px}
+.hero-brand{display:flex;align-items:center;gap:13px;margin-bottom:32px}
+.hero-brand-icon{height:34px;width:auto;filter:brightness(0) invert(1);opacity:.80;flex-shrink:0}
+.hero-brand-text{display:flex;flex-direction:column;gap:3px}
+.hero-brand-name{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:400;color:#fff;letter-spacing:.04em;line-height:1}
+.hero-brand-sub{font-size:9.5px;font-weight:400;letter-spacing:.17em;text-transform:uppercase;color:rgba(255,255,255,.42)}
 .hero-h1 {
   font-family:'Cormorant Garamond',serif;
   font-size:88px;font-weight:300;line-height:1.0;
@@ -491,7 +493,8 @@ footer{background:var(--sage-deep);padding:40px 48px}
   .nav-links{display:none}
   .hero-content{grid-template-columns:1fr;gap:40px;padding:120px 20px 60px}
   .hero-h1{font-size:48px}
-  .hero-brand-logo{height:52px}
+  .hero-brand-icon{height:26px}
+  .hero-brand-name{font-size:20px}
   .hero-right{display:none}
   .trust-strip{padding:0 20px}
   .trust-inner{flex-wrap:wrap}
@@ -538,8 +541,11 @@ footer{background:var(--sage-deep);padding:40px 48px}
   <div class="hero-content">
     <div class="hero-left">
       <div class="hero-brand">
-        <img src="logos/logo-white.png" alt="Seena Integrative Health Centre" class="hero-brand-logo">
-        <span class="hero-brand-location">· Lisbon</span>
+        <img src="logos/icon-white.png" alt="" class="hero-brand-icon">
+        <div class="hero-brand-text">
+          <span class="hero-brand-name">Seena</span>
+          <span class="hero-brand-sub">Integrative Health Centre &middot; Lisbon</span>
+        </div>
       </div>
       <h1 class="hero-h1">Healing<br><em>beyond</em><br>symptoms</h1>
       <p class="hero-sub">Where Western medical science meets Eastern medical philosophies — one roof, one plan, lasting results.</p>
