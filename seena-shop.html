@@ -94,6 +94,17 @@ main{max-width:1200px;margin:0 auto;padding:48px 48px 80px}
 .modal::-webkit-scrollbar{width:4px}
 .modal::-webkit-scrollbar-thumb{background:var(--stone);border-radius:2px}
 @media(max-width:768px){nav{padding:0 20px}.nav-links{display:none}main{padding:32px 20px 60px}.shop-hero{padding:40px 20px 52px}.hero-label,.hero-title,.hero-sub,.hero-badge{writing-mode:horizontal-tb;transform:none;text-orientation:mixed}.hero-title{font-size:36px}.modal-top{grid-template-columns:1fr}.modal-img{border-radius:20px 20px 0 0;min-height:180px}.shop-cta{flex-direction:column;padding:32px 20px}}
+/* ── FOOTER ── */
+footer{background:var(--sage-deep);padding:40px 48px}
+.footer-inner{max-width:1240px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.footer-logo{display:flex;align-items:center;text-decoration:none;opacity:.8;transition:opacity .2s}
+.footer-logo:hover{opacity:1}
+.footer-logo-icon{height:28px;width:auto;filter:brightness(0) invert(1)}
+.footer-links{display:flex;gap:28px;flex-wrap:wrap}
+.footer-links a{color:rgba(255,255,255,.4);text-decoration:none;font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;transition:color .2s}
+.footer-links a:hover{color:rgba(255,255,255,.8)}
+.footer-copy{font-size:11px;font-weight:300;color:rgba(255,255,255,.35)}
+@media(max-width:640px){footer{padding:32px 20px}.footer-inner{flex-direction:column;align-items:flex-start;gap:20px}.footer-links{gap:16px}}
 </style>
 </head>
 <body>
@@ -372,5 +383,21 @@ function switchTab(btn,id){document.querySelectorAll('.tab-h').forEach(h=>h.clas
 function filterBrand(brand,btn){document.querySelectorAll('.filter-pill').forEach(p=>p.classList.remove('active'));btn.classList.add('active');document.querySelectorAll('.brand-section').forEach(s=>{s.classList.toggle('hidden',brand!=='all'&&s.dataset.brand!==brand);});}
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();});
 </script>
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <a href="seena-home_11.html" class="footer-logo">
+      <img src="logos/icon-white.png" alt="Seena" class="footer-logo-icon">
+    </a>
+    <div class="footer-links">
+      <a href="seena-services.html">Services</a>
+      <a href="seena-specialists.html">Specialists</a>
+      <a href="seena-about.html">About</a>
+      <a href="seena-learn.html">Academy</a>
+      <a href="seena-shop.html">Shop</a>
+    </div>
+    <span class="footer-copy">© 2026 Seena Integrative Health Centre · Lisbon</span>
+  </div>
+</footer>
 </body>
 </html>
