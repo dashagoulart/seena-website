@@ -146,7 +146,7 @@ footer{background:var(--sage-deep);color:rgba(255,255,255,.45);padding:48px 56px
     <li><a href="seena-services.html" class="active">Services</a></li>
     <li><a href="seena-specialists.html">Specialists</a></li>
     <li><a href="seena-about.html">About</a></li>
-    <li><a href="seena-learn.html">Learn</a></li>
+    <li><a href="seena-learn.html">Academy</a></li>
     <li><a href="seena-shop.html">Shop</a></li>
   </ul>
   <a href="https://wa.me/351924353219" class="nav-cta">Book Appointment</a>
@@ -309,13 +309,14 @@ const ICON_SHOCK = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" s
 const ICON_PRESS = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>`;
 const ICON_POUF = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>`;
 const ICON_SWADDLE = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M3 9h18M3 15h18"/></svg>`;
+const ICON_FERTILITY = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M12 6v6l4 2"/></svg>`;
 
 // ── DATA ──
 const services = {
   consultations: [
     {
       icon: ICON_CONSULT,
-      name: 'Integrative Physician Consultation',
+      name: 'Integrative Medical Consultation',
       specialists: [{"name": "Dr. Vadim Fasiy", "key": "vadim"}, {"name": "Dr. Nataliia Polishchuk", "key": "natalia"}],
       cat: 'Consultations',
       desc: 'A medical consultation focused on enhancing quality of life, optimizing hormonal balance, identifying and correcting deficiencies, and supporting energy and sleep.',
@@ -327,7 +328,7 @@ const services = {
     {
       icon: ICON_NUTRITION,
       name: 'Integrative Nutritionist Consultation',
-      specialists: [{"name": "Dr. Nataliia Polishchuk", "key": "natalia"}],
+      specialists: [{"name": "Gultekin Ravshanovna Daglar", "key": "gultekin"}],
       cat: 'Consultations',
       desc: 'The doctor and nutritionist collaborate to develop a personalized nutrition and recovery plan tailored to your lab results, symptoms, and lifestyle.',
       pricing: [
@@ -343,6 +344,36 @@ const services = {
       pricing: [
         {label: 'First session', price: '€95'},
         {label: 'Follow-up sessions', price: '€90'},
+      ]
+    },
+    {
+      icon: ICON_FERTILITY,
+      name: 'Habibi Care — Avoiding Pregnancy',
+      specialists: [{"name": "Sheila Góis Habib", "key": "sheila"}],
+      cat: 'Consultations',
+      desc: 'Personalised fertility awareness support to learn charting and evidence-based ovulation signs for natural birth control. Support over 4 menstrual cycles (up to 8 sessions).',
+      pricing: [
+        {label: 'Programme (up to 8 sessions)', price: '€600'},
+      ]
+    },
+    {
+      icon: ICON_FERTILITY,
+      name: 'Habibi Care — Trying to Conceive',
+      specialists: [{"name": "Sheila Góis Habib", "key": "sheila"}],
+      cat: 'Consultations',
+      desc: 'Personalised fertility awareness support tailored for clients trying to conceive. Support over 3 months (up to 6 sessions).',
+      pricing: [
+        {label: 'Programme (up to 6 sessions)', price: '€460'},
+      ]
+    },
+    {
+      icon: ICON_FERTILITY,
+      name: 'Habibi Care — Individual Session',
+      specialists: [{"name": "Sheila Góis Habib", "key": "sheila"}],
+      cat: 'Consultations',
+      desc: 'One-off 90-minute session for cycle review or specific fertility awareness questions.',
+      pricing: [
+        {label: '90-minute session', price: '€80'},
       ]
     },
   ],
@@ -437,7 +468,7 @@ const services = {
     {
       icon: ICON_IV,
       name: 'Intravenous Ozone (Major Autohemotherapy)',
-      specialists: [{"name": "Dr. Vadim Fasiy", "key": "vadim"}],
+      specialists: [{"name": "Nurse Ana (Ana Filipa Pereira Lavaredas)", "key": "ana"}],
       cat: 'Ozone Therapy',
       type: 'ozone',
       desc: 'A procedure in which ozone is introduced into the blood (50–200 ml drawn, mixed with ozone, then reinfused) to improve tissue oxygenation, strengthen immunity, boost energy, and support overall health. Has a systemic, whole-body effect.',
@@ -450,7 +481,7 @@ const services = {
     {
       icon: ICON_OZONE,
       name: 'Intramuscular Ozone (Minor Autohemotherapy)',
-      specialists: [{"name": "Dr. Vadim Fasiy", "key": "vadim"}],
+      specialists: [{"name": "Nurse Ana (Ana Filipa Pereira Lavaredas)", "key": "ana"}],
       cat: 'Ozone Therapy',
       type: 'ozone',
       desc: 'A small amount of blood (5–10 ml) is mixed with ozone and injected into a muscle to enhance circulation, speed up recovery, decrease inflammation, and maintain overall body vitality. Often used to stimulate the immune system.',
@@ -474,7 +505,7 @@ const services = {
     {
       icon: ICON_OZONE,
       name: 'Rectal Ozone (Insufflation)',
-      specialists: [{"name": "Dr. Vadim Fasiy", "key": "vadim"}],
+      specialists: [{"name": "Nurse Ana (Ana Filipa Pereira Lavaredas)", "key": "ana"}],
       cat: 'Ozone Therapy',
       type: 'ozone',
       desc: 'Ozone gas is gently introduced into the rectum to enhance blood oxygenation, boost the immune system, promote detoxification, and support overall well-being. A simple, non-invasive alternative to IV ozone therapy.',
@@ -485,7 +516,7 @@ const services = {
     {
       icon: ICON_OZONE,
       name: 'Auricular Ozone Therapy',
-      specialists: [{"name": "Dr. Vadim Fasiy", "key": "vadim"}],
+      specialists: [{"name": "Nurse Ana (Ana Filipa Pereira Lavaredas)", "key": "ana"}],
       cat: 'Ozone Therapy',
       type: 'ozone',
       desc: 'Ozone is gently applied into the ear canal to improve microcirculation, strengthen immunity, and support the health of the ears and upper respiratory tract.',
@@ -495,19 +526,8 @@ const services = {
     },
     {
       icon: ICON_OZONE,
-      name: 'Topical Ozone (External)',
-      specialists: [{"name": "Dr. Vadim Fasiy", "key": "vadim"}],
-      cat: 'Ozone Therapy',
-      type: 'ozone',
-      desc: 'Ozone is applied locally to the skin to speed up healing, decrease inflammation, regenerate tissues, and enhance overall skin health.',
-      pricing: [
-        {label: 'Session', price: '€100'},
-      ]
-    },
-    {
-      icon: ICON_OZONE,
       name: 'Bag Ozone Therapy',
-      specialists: [{"name": "Dr. Vadim Fasiy", "key": "vadim"}],
+      specialists: [{"name": "Nurse Ana (Ana Filipa Pereira Lavaredas)", "key": "ana"}],
       cat: 'Ozone Therapy',
       type: 'ozone',
       desc: 'A limb (arm or leg) is placed in a sealed bag, and medical ozone gas is pumped inside to improve circulation, reduce inflammation, support healing, and fight infections in the treated area.',
@@ -518,7 +538,7 @@ const services = {
     {
       icon: ICON_ACUPUNCTURE,
       name: 'Ozone Acupuncture',
-      specialists: [{"name": "Dr. Vadim Fasiy", "key": "vadim"}],
+      specialists: [{"name": "Nurse Ana (Ana Filipa Pereira Lavaredas)", "key": "ana"}],
       cat: 'Ozone Therapy',
       type: 'ozone',
       desc: 'Combines acupuncture principles with local administration of an oxygen–ozone mixture into trigger points. Reduces pain and inflammation, promotes muscle relaxation, improves microcirculation, and stimulates tissue regeneration.',
@@ -529,7 +549,7 @@ const services = {
     {
       icon: ICON_OZONE,
       name: 'Intravaginal Ozone Therapy',
-      specialists: [{"name": "Dr. Vadim Fasiy", "key": "vadim"}],
+      specialists: [{"name": "Nurse Ana (Ana Filipa Pereira Lavaredas)", "key": "ana"}],
       cat: 'Ozone Therapy',
       type: 'ozone',
       desc: 'An oxygen–ozone mixture is used for local treatment of the vaginal mucosa. Helps restore normal vaginal microflora and is used in the management of bacterial vaginosis, candidiasis, and chronic inflammatory conditions of the pelvic organs.',
@@ -540,7 +560,7 @@ const services = {
     {
       icon: ICON_OZONE,
       name: 'Localized Lipolysis (Anti-Cellulite)',
-      specialists: [{"name": "Dr. Vadim Fasiy", "key": "vadim"}],
+      specialists: [{"name": "Nurse Ana (Ana Filipa Pereira Lavaredas)", "key": "ana"}],
       cat: 'Ozone Therapy',
       type: 'ozone',
       desc: 'A technique targeting external fat deposits to reduce them and diminish cellulite. Improves body contours, decreases fat accumulation, and enhances skin firmness, providing an aesthetic and circulatory benefit.',

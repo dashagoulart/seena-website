@@ -290,7 +290,7 @@ footer{
     <li><a href="seena-services.html">Services</a></li>
     <li><a href="seena-specialists.html" class="active">Specialists</a></li>
     <li><a href="seena-about.html">About</a></li>
-    <li><a href="seena-learn.html">Learn</a></li>
+    <li><a href="seena-learn.html">Academy</a></li>
     <li><a href="seena-shop.html">Shop</a></li>
   </ul>
   <a href="https://wa.me/351924353219" class="nav-cta">Book Appointment</a>
@@ -351,20 +351,6 @@ footer{
 <script>
 const specialists = [
   {
-    img: 'specialist_images/vadim.jpg',
-    services: [{"name": "Integrative Physician", "section": "consultations"}, {"name": "Medical Acupuncture", "section": "consultations"}, {"name": "Ozone Therapy", "section": "ozone"}],
-    name: 'Dr. Vadim Fasiy',
-    role: 'General Medicine · Medical Acupuncture · Urology',
-    langs: ['PT','EN','RU','UA'],
-    licence: 'Medical License: CP-45593',
-    summary: 'Doctor with 27 years of clinical experience combining holistic medicine, internal medicine, urology-andrology, and medical neurofunctional electroacupuncture. Founder and clinical director of his own clinic in Parque das Nações.',
-    bio: `Doctor with 27 years of clinical experience whose work combines holistic medicine, internal medicine, urology-andrology, and medical neurofunctional electroacupuncture. His current focus includes conservative treatment of prostate conditions and the development of specialised prostate treatment protocols using neurofunctional electroacupuncture.
-
-He graduated from the Bukovinian State Medical Academy and completed a urology internship at Vinnytsia Pirogov State Medical University. In the early 2000s he validated his diploma in Portugal and went on to work in both public and private healthcare settings, including CUF Descobertas, Lusíadas, NephroCare, and DaVita.
-
-He completed a Master's degree in Medical Neurofunctional Electroacupuncture in 2014 and practised at Hospital Lusíadas and a private clinic in Parque das Nações. From 2012 to 2024 he worked as an emergency doctor at CUF Descobertas. He currently works mainly with hemodialysis clinics (DaVita) and is also the founder and clinical director of his own clinic in Parque das Nações, Lisbon. In Portugal, he describes his specialty as Internal Medicine, applying a holistic approach to patients across multiple pathologies.`
-  },
-  {
     img: 'specialist_images/natalia.jpg',
     services: [{"name": "Integrative Physician", "section": "consultations"}, {"name": "Integrative Nutrition", "section": "consultations"}],
     name: 'Dr. Nataliia Polishchuk',
@@ -377,6 +363,16 @@ He completed a Master's degree in Medical Neurofunctional Electroacupuncture in 
 Her areas of focus include cardiovascular risk prevention, arterial hypertension, diabetes and metabolic dysfunction, thyroid disorders, hormonal imbalances, menstrual irregularities, PMS, perimenopause, menopause, sleep disorders, and vitamin deficiency states.
 
 She combines evidence-based medicine with integrative and functional medicine principles, including personalised recommendations on nutrition, lifestyle, and hormonal regulation, with the goal of preventing chronic disease, extending active longevity, and improving quality of life. She regularly completes international educational programs to keep her practice current, safe, and scientifically grounded.`
+  },
+  {
+    img: 'specialist_images/vadim.jpg',
+    services: [{"name": "Medical Acupuncture", "section": "consultations"}, {"name": "Ozone Therapy", "section": "ozone"}],
+    name: 'Dr. Vadim Fasiy',
+    role: 'General Medicine · Medical Acupuncture · Urology',
+    langs: ['PT','EN','RU','UA'],
+    licence: 'Medical License: CP-45593',
+    summary: 'Doctor with 27 years of clinical experience combining holistic medicine, internal medicine, urology-andrology, and medical neurofunctional electroacupuncture. Founder and clinical director of his own clinic in Parque das Nações.',
+    bio: ``
   },
   {
     img: 'specialist_images/maxim.jpg',
@@ -475,6 +471,26 @@ Her methodology blends functional breathing, mindful movement, and self-practice
 She holds a Master's degree in Teaching Mindfulness-Based Interventions from Bangor University (UK) and is certified in TRE® (Tension & Trauma Releasing Exercises). Teresa has taught mindfulness practices in higher education, including regular classes at Nova University in Lisbon.
 
 She was part of the therapeutic team at New Life Portugal from 2022 to 2024, supporting individuals through mindfulness sessions, psychoeducational workshops, retreats, and one-to-one work focused on grief, menopause, communication, relapse prevention, and personal growth.`
+  },
+  {
+    img: 'specialist_images/sheila.jpg',
+    services: [{"name": "Fertility Awareness", "section": "therapies"}, {"name": "Habibi Care Program", "section": "therapies"}, {"name": "Cycle Charting", "section": "therapies"}],
+    name: 'Sheila Góis Habib',
+    role: 'Fertility Awareness Educator',
+    langs: ['EN','PT'],
+    licence: '',
+    summary: 'A certified Fertility Awareness Educator and Portuguese Muslim woman of South Asian heritage. Brings an intersectional lens to menstrual, sexual, and reproductive health education, teaching people how to chart their cycles for birth control.',
+    bio: `A certified Fertility Awareness Educator and Portuguese Muslim woman of South Asian heritage. With a Master's degree in Human Rights Law and over a decade of experience in gender equality and social inclusion, she brings an intersectional lens to menstrual, sexual, and reproductive health education. She teaches people how to chart their cycles and track evidence-based ovulation signs for birth control. Her work centers a fundamental belief: understanding your body should be a right, not a privilege.`
+  },
+  {
+    img: 'specialist_images/ana.jpg',
+    services: [{"name": "Ozonotherapy", "section": "ozone"}, {"name": "Orthomolecular Therapeutics", "section": "therapies"}, {"name": "Maternal Health", "section": "therapies"}, {"name": "Holistic Therapies", "section": "therapies"}],
+    name: 'Ana Filipa Pereira Lavaredas',
+    role: 'Specialist Nurse · Maternal Health & Obstetrics',
+    langs: ['PT','EN'],
+    licence: 'OE n.º 42597',
+    summary: 'Specialist Nurse in Maternal Health and Obstetrics with over two decades of experience. Trained in ozonotherapy, orthomolecular therapeutics, Reiki, and Family Constellations — integrating clinical excellence with a human-centered approach.',
+    bio: `A Specialist Nurse in Maternal Health and Obstetrics with over two decades of experience in nursing, clinical coordination, and integrative care. Trained in ozonotherapy, orthomolecular therapeutics, and holistic disciplines including Reiki and Family Constellations. She integrates clinical excellence with a human-centered approach — truly listening to the body to support deeper, lasting healing.`
   }
 ];
 
@@ -540,8 +556,9 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal()
 
 // ── HASH-BASED AUTO-OPEN (from services page links) ──
 const hashMap = {
-  'vadim': 0, 'natalia': 1, 'maxim': 2, 'vladislava': 3,
-  'alyona-s': 4, 'irina': 5, 'joana': 6, 'alyona-t': 7, 'teresa': 8
+  'natalia': 0, 'vadim': 1, 'maxim': 2, 'vladislava': 3,
+  'alyona-s': 4, 'irina': 5, 'joana': 6, 'alyona-t': 7, 'teresa': 8,
+  'sheila': 9, 'ana': 10
 };
 function openFromHash() {
   const hash = window.location.hash.slice(1);
