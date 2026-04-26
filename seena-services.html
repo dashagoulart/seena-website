@@ -65,8 +65,8 @@ main{max-width:1240px;margin:0 auto;padding:64px 56px 96px}
 .card-icon{width:40px;height:40px;background:var(--sage-light);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:16px;flex-shrink:0}
 .card-icon svg{width:18px;height:18px;stroke:var(--sage);fill:none;stroke-width:1.5}
 .card-name{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:400;line-height:1.2;color:var(--text);margin-bottom:10px}
-.card-desc{font-size:12.5px;font-weight:300;line-height:1.65;color:var(--text-soft);flex:1;margin-bottom:18px}
-.card-footer{display:flex;align-items:center;justify-content:space-between;margin-top:auto;gap:12px}
+.card-desc{font-size:12.5px;font-weight:300;line-height:1.65;color:var(--text-soft);margin-bottom:18px}
+.card-footer{display:flex;align-items:center;justify-content:space-between;gap:12px}
 .card-price{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:400;color:var(--sage-deep)}
 .card-price-note{font-size:10.5px;font-weight:300;color:var(--text-muted);line-height:1.4}
 .card-book{background:var(--sage);color:#fff;padding:8px 18px;border-radius:40px;font-size:11px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;flex-shrink:0;transition:background .2s}
@@ -127,7 +127,7 @@ footer{background:var(--sage-deep);color:rgba(255,255,255,.45);padding:48px 56px
 @media(max-width:640px){.services-grid,.services-grid.cols-2{grid-template-columns:1fr}.page-hero h1{font-size:44px}.site-nav,.page-hero,main,footer{padding-left:20px;padding-right:20px}.cat-nav{padding:0 20px}.section-header{flex-direction:column;align-items:flex-start}.section-note{text-align:left}.ozone-intro{grid-template-columns:1fr}}
 
 /* ── SPECIALIST CHIPS ── */
-.card-specialists{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
+.card-specialists{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px;margin-top:auto}
 .specialist-chip{display:inline-flex;align-items:center;gap:5px;font-size:10.5px;font-weight:400;color:var(--sage-deep);background:var(--sage-light);padding:4px 10px;border-radius:20px;text-decoration:none;transition:background .2s}
 .specialist-chip:hover{background:rgba(125,170,134,.25)}
 .specialist-chip svg{width:11px;height:11px;stroke:var(--sage);fill:none;stroke-width:1.5;flex-shrink:0}
@@ -168,21 +168,21 @@ footer{background:var(--sage-deep);color:rgba(255,255,255,.45);padding:48px 56px
       <svg viewBox="0 0 24 24"><path d="M9 12h6M9 16h6M17 21H7a2 2 0 01-2-2V5a2 2 0 012-2h7l5 5v11a2 2 0 01-2 2z"/></svg>
       Consultations
     </a>
-    <a class="cat-pill" href="#therapies">
-      <svg viewBox="0 0 24 24"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2"/><path d="M12 8v4l3 3"/></svg>
-      Therapies
-    </a>
     <a class="cat-pill" href="#ozone">
       <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1l2.1-2.1M17 7l2.1-2.1"/></svg>
       Ozone Therapy
     </a>
-    <a class="cat-pill" href="#equipment">
-      <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
-      Equipment
+    <a class="cat-pill" href="#therapies">
+      <svg viewBox="0 0 24 24"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2"/><path d="M12 8v4l3 3"/></svg>
+      Therapies
     </a>
     <a class="cat-pill" href="#children">
       <svg viewBox="0 0 24 24"><path d="M12 2a4 4 0 100 8 4 4 0 000-8zM4 20a8 8 0 0116 0"/></svg>
       Children's Health
+    </a>
+    <a class="cat-pill" href="#equipment">
+      <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+      Equipment
     </a>
   </div>
 </div>
@@ -199,18 +199,6 @@ footer{background:var(--sage-deep);color:rgba(255,255,255,.45);padding:48px 56px
       <p class="section-note">All medical services are supervised by a licensed physician and tailored to your health history and goals.</p>
     </div>
     <div class="services-grid" id="grid-consultations"></div>
-  </section>
-
-  <!-- ══ THERAPIES ══ -->
-  <section class="service-section" id="therapies">
-    <div class="section-header">
-      <div class="section-title-group">
-        <div class="section-eyebrow">Hands-on</div>
-        <h2 class="section-title">Therapies</h2>
-      </div>
-      <p class="section-note">Manual, movement, and mind-body therapies for pain, recovery, and long-term wellbeing.</p>
-    </div>
-    <div class="services-grid" id="grid-therapies"></div>
   </section>
 
   <!-- ══ OZONE ══ -->
@@ -231,16 +219,16 @@ footer{background:var(--sage-deep);color:rgba(255,255,255,.45);padding:48px 56px
     <div class="services-grid" id="grid-ozone"></div>
   </section>
 
-  <!-- ══ EQUIPMENT ══ -->
-  <section class="service-section" id="equipment">
+  <!-- ══ THERAPIES ══ -->
+  <section class="service-section" id="therapies">
     <div class="section-header">
       <div class="section-title-group">
-        <div class="section-eyebrow">Technology</div>
-        <h2 class="section-title">Equipment & Technology</h2>
+        <div class="section-eyebrow">Hands-on</div>
+        <h2 class="section-title">Therapies</h2>
       </div>
-      <p class="section-note">Modern diagnostic and therapeutic equipment used as part of an integrated recovery plan.</p>
+      <p class="section-note">Manual, movement, and mind-body therapies for pain, recovery, and long-term wellbeing.</p>
     </div>
-    <div class="services-grid" id="grid-equipment"></div>
+    <div class="services-grid" id="grid-therapies"></div>
   </section>
 
   <!-- ══ CHILDREN ══ -->
@@ -253,6 +241,18 @@ footer{background:var(--sage-deep);color:rgba(255,255,255,.45);padding:48px 56px
       <p class="section-note">Products developed in collaboration with Alyona Sazonova to support natural, healthy child development from birth.</p>
     </div>
     <div class="services-grid cols-2" id="grid-children"></div>
+  </section>
+
+  <!-- ══ EQUIPMENT ══ -->
+  <section class="service-section" id="equipment">
+    <div class="section-header">
+      <div class="section-title-group">
+        <div class="section-eyebrow">Technology</div>
+        <h2 class="section-title">Equipment & Technology</h2>
+      </div>
+      <p class="section-note">Modern diagnostic and therapeutic equipment used as part of an integrated recovery plan.</p>
+    </div>
+    <div class="services-grid" id="grid-equipment"></div>
   </section>
 
 </main>
@@ -348,22 +348,13 @@ const services = {
     },
     {
       icon: ICON_FERTILITY,
-      name: 'Habibi Care — Avoiding Pregnancy',
+      name: 'Habibi Care Programme',
       specialists: [{"name": "Sheila Góis Habib", "key": "sheila"}],
       cat: 'Consultations',
-      desc: 'Personalised fertility awareness support to learn charting and evidence-based ovulation signs for natural birth control. Support over 4 menstrual cycles (up to 8 sessions).',
+      desc: 'Personalised fertility awareness support — learning to chart your cycle and track evidence-based ovulation signs for natural birth control or conception. Two private sessions per month, direct messaging support, app subscription, and session recordings included.',
       pricing: [
-        {label: 'Programme (up to 8 sessions)', price: '€600'},
-      ]
-    },
-    {
-      icon: ICON_FERTILITY,
-      name: 'Habibi Care — Trying to Conceive',
-      specialists: [{"name": "Sheila Góis Habib", "key": "sheila"}],
-      cat: 'Consultations',
-      desc: 'Personalised fertility awareness support tailored for clients trying to conceive. Support over 3 months (up to 6 sessions).',
-      pricing: [
-        {label: 'Programme (up to 6 sessions)', price: '€460'},
+        {label: 'Avoiding Pregnancy · 4 cycles (up to 8 sessions)', price: '€600'},
+        {label: 'Trying to Conceive · 3 months (up to 6 sessions)', price: '€460'},
       ]
     },
     {
@@ -371,7 +362,7 @@ const services = {
       name: 'Habibi Care — Individual Session',
       specialists: [{"name": "Sheila Góis Habib", "key": "sheila"}],
       cat: 'Consultations',
-      desc: 'One-off 90-minute session for cycle review or specific fertility awareness questions.',
+      desc: 'A one-off 90-minute session with Sheila for cycle review, charting questions, or specific fertility awareness topics. No programme commitment needed.',
       pricing: [
         {label: '90-minute session', price: '€80'},
       ]
