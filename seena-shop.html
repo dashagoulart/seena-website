@@ -10,13 +10,13 @@
 :root{--sage:#5a7a62;--sage-light:#7daa86;--sage-deep:#3d5843;--cream:#f7f4ef;--cream-dark:#ede9e1;--stone:#c8bfb0;--text:#2a2520;--text-mid:#6b6259;--text-soft:#9b9088;--white:#ffffff;--wa:#25D366}
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text);min-height:100vh}
-nav{background:var(--sage-deep);padding:0 48px;display:flex;align-items:center;justify-content:space-between;height:68px;position:sticky;top:0;z-index:100}
-.nav-logo-icon{height:40px;width:auto;flex-shrink:0;filter:brightness(0) invert(1);opacity:.9}
-.nav-logo{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:400;color:#fff;letter-spacing:.04em;text-decoration:none;display:flex;align-items:center;gap:9px}
+nav{background:var(--sage-deep);transition:box-shadow .35s;padding:0 48px;display:flex;align-items:center;justify-content:space-between;height:68px;position:sticky;top:0;z-index:100}
+nav.scrolled{box-shadow:0 2px 24px rgba(0,0,0,.18)}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:400;color:#fff;letter-spacing:.06em;text-decoration:none;line-height:1}
 .nav-links{display:flex;gap:32px;list-style:none}
-.nav-links a{color:rgba(255,255,255,.75);text-decoration:none;font-size:12px;font-weight:400;letter-spacing:.08em;text-transform:uppercase;transition:color .2s}
+.nav-links a{color:rgba(255,255,255,.72);text-decoration:none;font-size:13.5px;font-weight:400;letter-spacing:.01em;transition:color .2s}
 .nav-links a:hover,.nav-links a.active{color:#fff}
-.nav-book{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.35);color:#fff;padding:9px 22px;border-radius:40px;font-size:12px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;transition:background .2s}
+.nav-book{background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.30);color:#fff;padding:9px 22px;border-radius:40px;font-size:13px;font-weight:500;letter-spacing:.01em;text-decoration:none;transition:background .2s}
 .nav-book:hover{background:rgba(255,255,255,.28)}
 .shop-hero{background:var(--sage-deep);color:#fff;padding:56px 48px 64px;position:relative;overflow:hidden}
 .shop-hero::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:48px;background:var(--cream);clip-path:ellipse(55% 100% at 50% 100%)}
@@ -93,21 +93,71 @@ main{max-width:1200px;margin:0 auto;padding:48px 48px 80px}
 .wa-btn svg{width:18px;height:18px;fill:#fff}
 .modal::-webkit-scrollbar{width:4px}
 .modal::-webkit-scrollbar-thumb{background:var(--stone);border-radius:2px}
-@media(max-width:768px){nav{padding:0 20px}.nav-links{display:none}main{padding:32px 20px 60px}.shop-hero{padding:40px 20px 52px}.hero-title{font-size:36px}.modal-top{grid-template-columns:1fr}.modal-img{border-radius:20px 20px 0 0;min-height:180px}.shop-cta{flex-direction:column;padding:32px 20px}}
+@media(max-width:768px){nav{padding:0 20px}.nav-links{display:none}main{padding:32px 20px 60px}.shop-hero{padding:40px 20px 52px}.hero-label,.hero-title,.hero-sub,.hero-badge{writing-mode:horizontal-tb;transform:none;text-orientation:mixed}.hero-title{font-size:36px}.modal-top{grid-template-columns:1fr}.modal-img{border-radius:20px 20px 0 0;min-height:180px}.shop-cta{flex-direction:column;padding:32px 20px}}
+/* ── FOOTER ── */
+footer{background:var(--sage-deep);padding:40px 48px}
+.footer-inner{max-width:1240px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.footer-logo{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:400;color:rgba(255,255,255,.75);letter-spacing:.05em;text-decoration:none;line-height:1}
+.footer-logo:hover{opacity:1}
+.footer-links{display:flex;gap:28px;flex-wrap:wrap}
+.footer-links a{color:rgba(255,255,255,.38);text-decoration:none;font-size:13px;letter-spacing:.01em;transition:color .2s}
+.footer-links a:hover{color:rgba(255,255,255,.75)}
+.footer-copy{font-size:11px;font-weight:300;color:rgba(255,255,255,.35)}
+@media(max-width:640px){footer{padding:32px 20px}.footer-inner{flex-direction:column;align-items:flex-start;gap:20px}.footer-links{gap:16px}}
+
+/* ── MOBILE NAV ── */
+.nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:6px;flex-shrink:0}
+.nav-hamburger span{width:22px;height:1.5px;background:#fff;display:block;border-radius:2px}
+.nav-mobile{display:none;position:fixed;inset:0;background:var(--sage-deep,#2e4535);z-index:500;flex-direction:column;align-items:center;justify-content:center;gap:36px}
+.nav-mobile.open{display:flex}
+.nav-mobile-close{position:absolute;top:24px;right:24px;background:none;border:none;color:rgba(255,255,255,.55);font-size:28px;cursor:pointer;padding:8px;line-height:1}
+.nav-mobile a{font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:300;color:rgba(255,255,255,.85);text-decoration:none;letter-spacing:.03em}
+.nav-mobile a:active{color:#fff}
+.nav-mobile-cta{background:#fff!important;color:#2e4535!important;padding:14px 40px!important;border-radius:40px!important;font-family:'DM Sans',sans-serif!important;font-size:15px!important;letter-spacing:.02em!important;font-weight:500!important}
+@media(max-width:800px){
+  .nav-links,.nav-cta,.nav-book{display:none!important}
+  .nav-hamburger{display:flex}
+}
+@media(max-width:800px){
+  nav{padding:0 20px}
+  .shop-hero{padding:32px 20px 48px}
+  .hero-title{font-size:36px}
+  main{padding:32px 20px 60px}
+  .order-note{flex-direction:column;align-items:flex-start;gap:12px}
+  .product-grid{grid-template-columns:repeat(2,1fr)!important;gap:12px}
+  .brand-header{flex-direction:column;align-items:flex-start;gap:6px}
+  .shop-cta{flex-direction:column!important;padding:28px 20px!important;gap:20px!important}
+  .modal{border-radius:16px 16px 0 0!important;position:fixed;bottom:0;left:0;right:0;width:100%;max-width:100%;max-height:90vh}
+  .modal-overlay{align-items:flex-end!important;padding:0!important}
+  .tab-heads{padding:0 20px}
+  .tab-c{padding:18px 20px 24px}
+  .modal-info{padding:24px 20px 20px}
+}
 </style>
 </head>
 <body>
+<!-- MOBILE MENU -->
+<div class="nav-mobile" id="navMobile">
+  <button class="nav-mobile-close" onclick="closeMobileNav()">&#x2715;</button>
+  <a href="seena-services.html" onclick="closeMobileNav()">Services</a>
+  <a href="seena-specialists.html" onclick="closeMobileNav()">Specialists</a>
+  <a href="seena-about.html" onclick="closeMobileNav()">About</a>
+  <a href="seena-learn.html" onclick="closeMobileNav()">Academy</a>
+  <a href="seena-shop.html" onclick="closeMobileNav()">Shop</a>
+  <a href="https://wa.me/351924353219" class="nav-mobile-cta" onclick="closeMobileNav()">Book Appointment</a>
+</div>
 
 <nav>
-  <a href="seena-home_11.html" class="nav-logo"><img src="logos/icon-white.png" alt="" class="nav-logo-icon"></a>
+  <a href="seena-home_11.html" class="nav-logo">Seena</a>
   <ul class="nav-links">
     <li><a href="seena-services.html">Services</a></li>
     <li><a href="seena-specialists.html">Specialists</a></li>
     <li><a href="seena-about.html">About</a></li>
-    <li><a href="seena-learn.html">Learn</a></li>
+    <li><a href="seena-learn.html">Academy</a></li>
     <li><a href="#" class="active">Shop</a></li>
   </ul>
   <a href="https://wa.me/351924353219" class="nav-book">Book Appointment</a>
+<button class="nav-hamburger" onclick="openMobileNav()" aria-label="Open menu"><span></span><span></span><span></span></button>
 </nav>
 
 <div class="shop-hero">
@@ -231,13 +281,11 @@ main{max-width:1200px;margin:0 auto;padding:48px 48px 80px}
     </div>
     <div class="modal-tabs">
       <div class="tab-heads">
-        <button class="tab-h active" onclick="switchTab(this,'ti')">Ingredients</button>
-        <button class="tab-h" onclick="switchTab(this,'ta')">Allergens</button>
-        <button class="tab-h" onclick="switchTab(this,'ts')">Storage</button>
+        <button class="tab-h active" onclick="switchTab(this,'th')">How to Use</button>
+        <button class="tab-h" onclick="switchTab(this,'ti')">Supplement Facts</button>
       </div>
-      <div class="tab-c active" id="ti"></div>
-      <div class="tab-c" id="ta"></div>
-      <div class="tab-c" id="ts"></div>
+      <div class="tab-c active" id="th"></div>
+      <div class="tab-c" id="ti"></div>
     </div>
   </div>
 </div>
@@ -253,52 +301,55 @@ const SVG_SET = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stro
 
 const products = {
   augment: [
-    {name:'Creatine Monohydrate Powder',tag:'Performance & recovery · 250g / 500g',price:'€18 – €30',desc:'Pure creatine without additives that enhances physical performance, speeds up muscle recovery after workouts, and supports energy and concentration.',ing:'Pure creatine monohydrate powder. 250g or 500g. No additives.',al:'No allergens. Suitable for vegetarians.',st:'Store in a cool dry place. Seal tightly after opening.',icon:'supp',imgKey:'creatine'},
-    {name:'Collagen Peptides Type II',tag:'Skin elasticity & joint health',price:'€36',desc:'Type II bovine collagen with hyaluronic acid — pure hydrolyzed collagen that supports skin elasticity and joint health. Easily absorbed, no unnecessary additives.',ing:'Hydrolysed bovine collagen peptides type II, hyaluronic acid. Pure powder.',al:'Bovine (contains collagen). No gluten, no soy.',st:'Store in a cool dry place. Use within 3 months of opening.',icon:'supp',imgKey:'collagen'},
-    {name:'Quercetin Dihydrate',tag:'Immune support & antioxidant',price:'€13',desc:'A natural antioxidant that supports the immune system and reduces inflammation. May help with allergic reactions.',ing:'Pure quercetin dihydrate in highly bioavailable form.',al:'No allergens. Suitable for vegetarians and vegans.',st:'Store away from heat and moisture.',icon:'supp',imgKey:'quercetin'},
-    {name:'Curcumin',tag:'Anti-inflammatory & joint support',price:'€15',desc:'A scientifically proven anti-inflammatory and antioxidant compound that supports joint health and protects cells from oxidative stress.',ing:'High-potency curcumin extract. Enhanced bioavailability formula.',al:'No allergens. Suitable for vegetarians and vegans.',st:'Store away from heat and moisture.',icon:'supp',imgKey:'curcumin'},
-    {name:'Berberine',tag:'Blood sugar & metabolic support',price:'€25',desc:'A natural compound scientifically proven to help support normal blood sugar levels and healthy metabolism.',ing:'Pure berberine HCl. High-grade extract.',al:'No allergens. Suitable for vegetarians and vegans.',st:'Store in a cool dry place.',icon:'supp',imgKey:'berberine'},
-    {name:'L-Theanine',tag:'Calm focus without drowsiness',price:'€27',desc:'A natural amino acid from green tea — scientifically proven to reduce stress and promote relaxation without drowsiness, while supporting concentration and cognitive function.',ing:'Pure L-theanine from green tea extract.',al:'No allergens. Suitable for vegetarians and vegans.',st:'Store away from heat and moisture.',icon:'supp',imgKey:'ltheanine'},
-    {name:'Magnesium Glycinate',tag:'Muscles, nerves & sleep quality',price:'€17',desc:'An easily absorbable form of magnesium — scientifically proven to support the normal function of muscles, the nervous system, and the cardiovascular system.',ing:'Magnesium in glycinate form — highest bioavailability, gentle on digestion.',al:'No allergens. Suitable for vegetarians and vegans.',st:'Store in a cool dry place.',icon:'supp',imgKey:'magnesium'},
-    {name:'D-Mannose',tag:'Urinary tract health',price:'€24',desc:'A natural sugar scientifically proven to support urinary tract health and reduce the risk of bacterial infections.',ing:'Pure D-mannose powder. No additives.',al:'No allergens. Suitable for vegetarians and vegans.',st:'Store in a cool dry place.',icon:'supp',imgKey:'dmannose'},
-    {name:'Vitamin D3 + K2',tag:'Immunity, bones & calcium balance',price:'€26',desc:'A highly effective combination: Vitamin D3 supports immunity and bone health, while K2 in MK-7 form directs calcium to the bones where it belongs.',ing:'Vitamin D3 (cholecalciferol) + Vitamin K2 (MK-7 form). Highly bioavailable.',al:'No major allergens. Suitable for vegetarians.',st:'Store away from light and moisture.',icon:'supp',imgKey:'vitamind3k2'},
-    {name:'Ashwagandha',tag:'Stress resilience & energy',price:'€12',desc:'A natural adaptogenic herb scientifically proven to reduce stress, support emotional balance, and enhance the body\'s energy and stamina.',ing:'Standardised ashwagandha root extract (KSM-66® equivalent).',al:'No allergens. Suitable for vegetarians and vegans.',st:'Store in a cool dry place.',icon:'supp',imgKey:'ashwagandha'},
-    {name:'Serenity+',tag:'Emotional balance & calm',price:'€24',desc:'A natural herbal formula designed to support emotional balance, reduce stress, and promote relaxation without causing drowsiness.',ing:'Proprietary blend of natural herbs and adaptogens for calm and balance.',al:'No allergens. Suitable for vegetarians and vegans.',st:'Store in a cool dry place.',icon:'supp',imgKey:'serenityplus'},
+    {name:'Creatine Monohydrate Powder',tag:'Performance & cognitive health · 250g / 500g',price:'€18 / €30',desc:'Pure creatine without additives that enhances physical performance and cognitive function, speeds up muscle recovery after workouts, and supports energy and concentration.',ing:'Pure creatine monohydrate powder.',al:'',st:'Store in a cool, dry place, tightly sealed and protected from heat, moisture, and direct sunlight.',how:'Take 3–5 g daily, mixed with water or a drink, at any consistent time of day.',icon:'supp',imgKey:'creatine'},
+    {name:'Collagen Peptides Type II Bovine Powder',tag:'Skin & joint support · 500g',price:'€36',desc:'Type II bovine collagen with hyaluronic acid — pure hydrolyzed collagen that supports skin elasticity and joint health, is easily absorbed, and contains no unnecessary additives.',ing:'Type II bovine collagen, hyaluronic acid.',al:'',st:'Store in a cool, dry place, tightly sealed, away from heat, moisture, and sunlight.',how:'',icon:'supp',imgKey:'collagen'},
+    {name:'Quercetin',tag:'Immune support & antioxidant · 60 capsules / 250mg',price:'€13',desc:'A natural antioxidant that supports the immune system and reduces inflammation. May help with allergic reactions.',ing:'Quercetin 99% pure.',al:'',st:'Store in a cool, dry place, tightly sealed, away from heat, moisture, and sunlight.',how:'Take 1 capsule once or twice daily with food. Best taken in the morning or with meals for better absorption and less stomach irritation.',icon:'supp',imgKey:'quercetin'},
+    {name:'Curcumin with Piperine',tag:'Anti-inflammatory & antioxidant · 60 capsules / 300mg',price:'€15',desc:'Curcumin, a scientifically proven anti-inflammatory and antioxidant compound that helps balance inflammatory responses and supports neutralization of oxidative stress.',ing:'Curcumin, piperine.',al:'',st:'Store in a cool, dry place, tightly sealed, away from heat, moisture, and sunlight.',how:'Take 1–2 capsules daily (300 mg curcumin + piperine each) with food, preferably in the morning or with a main meal. Take with food (preferably with fat) to improve absorption.',icon:'supp',imgKey:'curcumin'},
+    {name:'Berberine',tag:'Blood sugar & metabolism support · 60 capsules / 500mg',price:'€25',desc:'A natural compound scientifically proven to help support normal blood sugar levels and metabolism.',ing:'Berberine, piperine, monocrystalline cellulose.',al:'',st:'Store in a cool, dry place, tightly sealed, away from heat, moisture, and sunlight.',how:'Take 1–2 times daily, with meals. Start with 1 dose daily if new. Take just before or with meals, especially carb-heavy meals.',icon:'supp',imgKey:'berberine'},
+    {name:'L-Theanine',tag:'Relaxation & focus support · 60 capsules / 400mg',price:'€27',desc:'A natural amino acid from green tea, scientifically proven to help reduce stress and promote relaxation without causing drowsiness, while supporting concentration and cognitive function.',ing:'L-theanine, vegetable capsule shell (HPMC).',al:'',st:'Store in a cool, dry place, tightly sealed, away from heat, moisture, and sunlight.',how:'Take 1 capsule once daily, usually in the morning for focus or in the evening for relaxation/sleep, with or without food.',icon:'supp',imgKey:'ltheanine'},
+    {name:'Magnesium Glycinate',tag:'Muscle, nervous system & cardiovascular support · 120 capsules / 800mg',price:'€17',desc:'An easily absorbable form of magnesium, scientifically proven to support the normal function of muscles, the nervous system, and the cardiovascular system.',ing:'Magnesium glycinate, vegetable capsule shell (HPMC).',al:'',st:'Store in a cool, dry place, tightly sealed, away from heat, moisture, and sunlight.',how:'Take 1 capsule daily in the evening, preferably after dinner or before bed, to support relaxation, sleep, and muscle recovery.',icon:'supp',imgKey:'magnesium'},
+    {name:'D-Mannose',tag:'Urinary tract support · 250g powder',price:'€24',desc:'A natural sugar scientifically proven to support urinary tract health and reduce the risk of bacterial infections.',ing:'D-mannose pure, vegetarian capsule shell (HPMC).',al:'',st:'Store in a cool, dry place, tightly sealed, away from heat, moisture, and sunlight.',how:'Acute use (at first signs of UTI discomfort): Take 1–2 g (½–1 tsp) in water every 2–3 hours for the first day. Prevention: Take 1–2 g once daily, or after triggers (e.g. sexual activity).',icon:'supp',imgKey:'dmannose'},
+    {name:'Vitamin D3+K2',tag:'Immune support & bone health · 120 capsules / 4000 IU + 75 µg',price:'€26',desc:'A highly effective combination in a bioavailable form. Vitamin D3 supports the immune system and bone health, while K2 (MK-7 form) helps direct calcium to the bones.',ing:'Vitamin D3, Vitamin K2 (MK-7), microcrystalline cellulose, vegetable capsule shell (HPMC), magnesium salts of fatty acids.',al:'',st:'Store in a cool, dry place, tightly sealed, away from heat, moisture, and sunlight.',how:'Take 1 capsule with a meal containing fat, preferably in the morning or at lunchtime.',icon:'supp',imgKey:'vitamind3k2'},
+    {name:'Ashwagandha',tag:'Stress, stamina & emotional balance · 60 capsules / 200mg',price:'€15',desc:'A natural adaptogenic herb, scientifically proven for its ability to reduce stress, support emotional balance, and enhance the body\'s energy and stamina.',ing:'Ashwagandha (Withania somnifera) root extract, microcrystalline cellulose, vegetable capsule shell (HPMC).',al:'',st:'Store in a cool, dry place, tightly sealed, away from heat, moisture, and sunlight.',how:'Take 1 capsule twice per day, preferably with food. Best taken later in the day to support relaxation and balance.',icon:'supp',imgKey:'ashwagandha'},
   ],
   oxxyo3: [
-    {name:'Gastro Syrup',tag:'Digestive & stomach lining support',price:'€27',desc:'An ozonated olive oil syrup blended with natural herbal extracts. Supports gastric mucosal health, promotes comfortable digestion, and protects the stomach lining with gentle antioxidant support.',ing:'Ozonated olive oil, natural herbal extracts. Syrup form.',al:'Contains olive oil. Consult your specialist if you have known sensitivities.',st:'Store in a cool dark place. Use within 3 months of opening.',icon:'bulb',imgKey:'oxxyo3_gastro'},
-    {name:'Ampoules',tag:'Antioxidant support with zinc',price:'€45',desc:'Ozonated olive oil ampoules enriched with zinc. Provides potent antioxidant support and strengthens the body\'s natural defence mechanisms.',ing:'Ozonated olive oil, zinc. Single-dose ampoule format.',al:'Contains olive oil.',st:'Store away from light and heat.',icon:'bulb',imgKey:'oxxyo3_ampoules'},
-    {name:'Oral Spray',tag:'Throat comfort & immune vitality',price:'€19',desc:'An oral spray with ozonated olive oil, propolis, echinacea, licorice, marshmallow root, and thyme. Supports comfort in the mouth and throat while promoting overall vitality.',ing:'Ozonated olive oil, propolis, echinacea, licorice root, marshmallow root, thyme.',al:'Contains propolis (bee product). Not suitable for bee product allergies.',st:'Store upright in a cool dry place.',icon:'bulb',imgKey:'oxxyo3_spray'},
-    {name:'Capsules',tag:'Immune & cellular protection',price:'€44',desc:'Antioxidant support capsules formulated with olive extract and ozonated molecules, enriched with zinc to support the immune system and protect cells from oxidative stress.',ing:'Olive extract, ozonated molecules, zinc. Capsule form.',al:'Contains olive derivatives.',st:'Store in a cool dark place.',icon:'bulb',imgKey:'oxxyo3_capsules'},
+    {name:'Gastro',tag:'Gastric mucosa & digestive comfort · 250mL',price:'€30',desc:'An ozonated olive oil syrup blended with natural herbal extracts. Designed to support gastric mucosal health, promote comfortable digestion, and help protect the stomach lining while providing gentle antioxidant support.',ing:'Pimpinella anisum (Green anise), Geranium robertianum (Herb Robert), Apium graveolens (Celery), Hyssopus officinalis (Hyssop), Brassica oleracea (Broccoli).',al:'Dietary supplement with sweetener (steviol glycosides).',st:'Store in a cool, dry place, protected from sunlight.',how:'10mL on an empty stomach and 10mL 10–20 minutes before dinner, diluted in half a glass of water. Do not exceed the recommended daily intake.',icon:'bulb',imgKey:'oxxyo3_gastro'},
+    {name:'Ampoules',tag:'Antioxidant & immune support · 300mL / 30 ampoules of 10mL',price:'€47',desc:'Ozonated olive oil ampoules enriched with zinc. Provides potent antioxidant support, helping to maintain overall well-being and strengthen the body\'s natural defense mechanisms.',ing:'Olive Oil (Olea europaea, standardized to 7% hydroxytyrosol), Sunflower Oil (Helianthus annuus), zinc.',al:'',st:'Store in a cool, dry place, protected from sunlight.',how:'Take 1 ampoule daily on an empty stomach, in half a glass of water. Do not exceed the recommended daily intake.',icon:'bulb',imgKey:'oxxyo3_ampoules'},
+    {name:'Oral Spray',tag:'Mouth & throat comfort · 30mg',price:'€21',desc:'An oral spray formulated with ozonated olive oil, propolis, and a potent blend of herbal extracts including echinacea, licorice, marshmallow root, and thyme. Designed to support comfort in the mouth and throat while promoting overall vitality.',ing:'Ozonated olive oil, sunflower (Helianthus annuus), propolis, honey, echinacea (Echinacea purpurea), licorice (Glycyrrhiza glabra), marshmallow (Althaea officinalis), thyme (Thymus vulgaris).',al:'',st:'Store in a cool, dry place, protected from sunlight.',how:'2 sprays, 5 times throughout the day, directly into the throat. Do not exceed the recommended daily intake.',icon:'bulb',imgKey:'oxxyo3_spray'},
+    {name:'Capsules',tag:'Antioxidant & immune support · 30 capsules',price:'€46',desc:'Antioxidant support capsules formulated with olive extract and ozonated molecules. Enriched with zinc to support the immune system, protecting cells from oxidative stress while promoting overall well-being.',ing:'Inulin, olive fruit oil (Olea europaea), sunflower oil (Helianthus annuus), vegetable capsule (hypromellose/HPMC), zinc oxide, flavoring (coconut, banana), antioxidant (ascorbyl palmitate).',al:'Contains coconut.',st:'Store in a cool, dry place, protected from sunlight.',how:'Take 1 capsule daily, preferably on an empty stomach, with water. Do not exceed the recommended daily intake.',icon:'bulb',imgKey:'oxxyo3_capsules'},
+    {name:'Toothpaste',tag:'Ozonized toothpaste without fluoride · 100mL',price:'€20',desc:'Ozonized toothpaste without fluoride for deep oral hygiene and gentle protection.',ing:'Sorbitol, Aqua, Ozonized Hydrated Silica, Calcium Carbonate, Ozonized Olive Oil, Decyl Glucoside, Polysorbate 20, Glycerin, Cellulose Gum, Tetrasodium Glutamate Diacetate, Sodium Chloride, Propolis Extract, Sodium Saccharin, Phenoxyethanol, Ethylhexylglycerin, Aroma.',al:'',st:'Store in a cool, dry place, protected from sunlight.',how:'Apply a small amount, brush teeth after each meal, and rinse thoroughly with water. Follow your dentist\'s recommendation.',icon:'bulb',imgKey:'oxxyo3_toothpaste'},
+    {name:'Hand Sanitizer Gel',tag:'Protect and hydrate skin · 250mL',price:'€21',desc:'Enriched with Ethanol Alcohol, Vitamin E, and Ozonized Olive Oil to sanitize hands without drying.',ing:'Denatured Alcohol, Aqua, Ozonized Olive Oil, Tocopheryl Acetate, Triethanolamine, Carbomer 940, Acrylates/C10-30 Alkyl Acrylate Crosspolymer, Sodium Hypochlorite, Phenoxyethanol, Ethylhexylglycerin, Tetrasodium Glutamate Diacetate.',al:'',st:'Store in a cool, dry place, protected from sunlight.',how:'Pour a small quantity directly on the hands, rub for a few seconds and leave to dry.',icon:'bulb',imgKey:'oxxyo3_sanitizer'},
+    {name:'Ozonized Nail Oil',tag:'Ozonized nail oil · 15mL',price:'€19',desc:'Enrich nails with Ozonized Olive Oil to promote healthy growth.',ing:'Tocopheryl Acetate, Ozonized Olive Oil.',al:'',st:'Store in a cool, dry place, protected from sunlight.',how:'Apply daily on the outside and inside of the nail and on the surrounding cuticle, massaging until fully absorbed.',icon:'skin',imgKey:'oxxyo3_nails'},
+    {name:'Ozone Soap',tag:'Deep skin hygiene · 100g',price:'€12',desc:'OxxyO3 ozone soap offers deep skin hygiene without drying. Frequent use is possible — the high-quality organic ozone base provides a soothing and moisturizing effect.',ing:'Sodium Palmate, Sodium Palm Kernelate, Aqua, Ozonized Olive Oil, Glycerin, Sodium Chloride, Tetrasodium EDTA, Tetrasodium Etidronate.',al:'',st:'Store in a cool, dry place, protected from sunlight.',how:'Moisten the soap, rub on the body and face, and let it act for 2–3 minutes. Rinse with water. For external use only.',icon:'skin',imgKey:'oxxyo3_soap'},
   ],
   hawa: [
-    {name:'Digest',tag:'Digestive comfort & enzyme support',price:'€19',desc:'An herbal and enzyme-based supplement designed to support digestion and comfortable nutrient absorption. Formulated with fennel, cardamom, gentian, and digestive enzymes — helps maintain lightness after meals.',ing:'Fennel extract, cardamom extract, gentian (bitter) extract, digestive enzymes blend.',al:'Consult a specialist if you have known plant sensitivities.',st:'Store in a cool dry place below 25°C.',icon:'heart',imgKey:'hawa_digest'},
-    {name:'Vitamin C',tag:'Immune support · Alkaline form',price:'€20',desc:'Vitamin C in alkaline form — supports the immune system, provides powerful antioxidant benefits, aids in iron absorption, and promotes healthy skin.',ing:'Vitamin C (ascorbate, alkaline form). Gentle on the stomach.',al:'No major allergens.',st:'Store in a cool dry place.',icon:'heart',imgKey:'hawa_vitc'},
-    {name:'Vitamin D3',tag:'Bones, immunity & calcium absorption',price:'€15',desc:'Active form Vitamin D3 — supports bone and muscle health while strengthening the immune system. Aids in calcium and phosphorus absorption for overall vitality.',ing:'Vitamin D3 (cholecalciferol) in active form.',al:'No major allergens.',st:'Store in a cool dry place.',icon:'heart',imgKey:'hawa_vitd3'},
-    {name:'Stress',tag:'Stress resilience & energy formula',price:'€26',desc:'A powerful formula combining Serenzo (Citrus sinensis extract), ashwagandha, tulsi, GABA, and coriander — designed to support stress resilience, energy levels, and overall vitality.',ing:'Serenzo® (Citrus sinensis extract), ashwagandha, tulsi (holy basil), GABA, coriander extract.',al:'Contains citrus. Consult your specialist if you have sensitivities.',st:'Store in a cool dry place.',icon:'heart',imgKey:'hawa_stress'},
-    {name:'Flu',tag:'Immune defence formula',price:'€16',desc:'Herbal immune support with elderberry, acerola, propolis, and echinacea — vital support during cold and flu season.',ing:'Elderberry extract, acerola, propolis, echinacea extract.',al:'Contains propolis (bee product). Not suitable for bee allergies.',st:'Store in a cool dry place.',icon:'heart',imgKey:'hawa_flu'},
-    {name:'Diur',tag:'Natural fluid balance support',price:'€19',desc:'A gentle herbal formula with horsetail, hibiscus, and pilosella — supports the body\'s natural fluid balance and helps reduce water retention.',ing:'Horsetail extract, hibiscus extract, pilosella extract.',al:'No major allergens. Consult your specialist if pregnant.',st:'Store in a cool dry place.',icon:'heart',imgKey:'hawa_diur'},
+    {name:'Digest',tag:'Digestion & nutrient absorption · 60 capsules / 100mg',price:'€19',desc:'An herbal and enzyme-based dietary supplement designed to support digestion and the comfortable absorption of nutrients. Formulated with fennel, cardamom, gentian, and digestive enzymes.',ing:'Enzyme complex (alpha-amylase, neutral protease, lipase, lactase, cellulase), Gentian root extract, capsule (gelatin), soy lecithin, papain, fennel seeds, cardamom seeds.',al:'Contains soy.',st:'Store in a cool, dry place, protected from sunlight.',how:'Take 1 capsule with a little water, before or during the two main meals. Do not exceed the recommended daily intake.',icon:'heart',imgKey:'hawa_digest'},
+    {name:'Vitamin C',tag:'Immune support & antioxidant · 60 capsules / 100mg',price:'€20',desc:'Vitamin C in alkaline form. Supports the immune system, provides powerful antioxidant benefits, aids in iron absorption, and promotes healthy skin.',ing:'L-calcium ascorbate, L-ascorbyl 6-palmitate, coating agent (gelatin), complex of citrus bioflavonoids (Citrus aurantium, 40% Hesperidin), anti-caking agent (magnesium salts of fatty acids).',al:'',st:'Store in a cool, dry place, protected from sunlight.',how:'One capsule twice daily, preferably with meals and a little water. Do not exceed the recommended daily intake.',icon:'heart',imgKey:'hawa_vitc'},
+    {name:'Vitamin D3',tag:'Bone, muscle & immune support · 60 capsules / 4000 IU',price:'€15',desc:'Active form Vitamin D3 — supports bone and muscle health while strengthening the immune system. Aids in the absorption of calcium and phosphorus.',ing:'Vitamin D3, bulking agent (sunflower oil), coating agents (gelatin, glycerin).',al:'',st:'Store in a cool, dry place, protected from sunlight.',how:'1 capsule at breakfast with a little water. Do not exceed daily intake.',icon:'heart',imgKey:'hawa_vitd3'},
+    {name:'Stress',tag:'Stress resilience & vitality · 90 capsules',price:'€26',desc:'A powerful formula combining Serenzo (Citrus sinensis extract), ashwagandha, tulsi, GABA, and coriander — designed to support stress resilience, energy levels, and overall vitality.',ing:'Serenzo orange fruit extract (Citrus sinensis), ashwagandha root extract (Withania somnifera), tulsi leaf extract (Ocimum sanctum), GABA (gamma-aminobutyric acid), coriander aerial parts extract (Coriandrum sativum).',al:'',st:'Store in a cool, dry place, protected from sunlight.',how:'Take 1 capsule before breakfast and 2 before dinner with a little water. Do not exceed the recommended daily intake.',icon:'heart',imgKey:'hawa_stress'},
+    {name:'Flu',tag:'Immune support during cold & flu season · 30 capsules',price:'€16',desc:'Herbal immune support with elderberry, acerola, propolis, and echinacea — vital support during cold and flu season.',ing:'Capsule (gelatin), Elderflower and fruit extract (Sambucus nigra), Acerola fruit extract (Malpighia glabra), South African Geranium Root extract (Pelargonium sidoides), propolis resin extract, echinacea root extract (Echinacea purpurea), Nucleotides, Vitamin C (L-ascorbic acid).',al:'Contains propolis.',st:'Store in a cool, dry place, protected from sunlight.',how:'First three days: 2 capsules every 8 hours with half a glass of water. Next four days: 1 capsule every 8 hours. As a preventative: 1 capsule twice a day, preferably between meals.',icon:'heart',imgKey:'hawa_flu'},
+    {name:'Diur',tag:'Fluid balance & water retention support · 60 capsules',price:'€19',desc:'A gentle herbal formula with horsetail, hibiscus, and pilosella — supports the body\'s natural fluid balance and helps reduce water retention.',ing:'Horsetail plant extract (Equisetum arvense), capsule (gelatin), pilosella plant extract (Hieracium pilosella), hibiscus flower extract (Hibiscus sabdariffa).',al:'',st:'Store in a cool, dry place, protected from sunlight.',how:'Take 2 capsules in the morning on an empty stomach with a little water. Do not exceed the daily intake.',icon:'heart',imgKey:'hawa_diur'},
   ],
   tallow: [
-    {name:'Tallow Lip Balm',tag:'Deep nourishment · 2 ingredients only',price:'€14',desc:'A natural lip balm made from just two ingredients: tallow (rendered, purified beef fat rich in vitamins A, D, E, and K) and organic beeswax. Deeply nourishes and protects the lips — no synthetic additives or fragrances.',ing:'Rendered beef tallow (rich in vitamins A, D, E, K), organic beeswax. That\'s it.',al:'Contains beeswax (bee product). Contains beef derivatives.',st:'Keep away from heat. Slight natural variation between batches is normal.',icon:'skin',imgKey:'tallow_lipbalm'},
-    {name:'Tallow Deo Stick',tag:'Natural deodorant · Aluminum-free',price:'€18',desc:'A natural deodorant made from rendered beef tallow, baking soda, arrowroot, and jojoba oil. Neutralizes odor without blocking sweating. Aluminum-free, synthetic fragrance-free, hormone-disrupting ingredient-free.',ing:'Beef tallow, baking soda, arrowroot powder, jojoba oil.',al:'Contains beef derivatives. No synthetic fragrances.',st:'Keep in a cool place. May soften in heat — normal for a tallow product.',icon:'skin',imgKey:'tallow_deo'},
+    {name:'Tallow Lip Balm',tag:'Minimalist lip care · 12g',price:'€14',desc:'A natural lip balm made from just two ingredients: tallow (rendered, purified beef fat rich in vitamins A, D, E, and K) and organic beeswax. It deeply nourishes, restores, and protects the lips, supporting their natural barrier — without synthetic additives or fragrances.',ing:'Tallow, organic beeswax.',al:'Contains beeswax and animal-derived ingredients.',st:'Keep away from direct sunlight.',how:'',icon:'skin',imgKey:'tallow_lipbalm'},
+    {name:'Tallow Deo Stick',tag:'Natural deodorant stick · 33mL',price:'€18',desc:'A natural deodorant stick made from rendered beef tallow. Neutralizes odor using baking soda and arrowroot while nourishing and protecting the skin with tallow and jojoba oil. Does not block sweating. Free from aluminum, synthetic fragrances, and hormone-disrupting ingredients.',ing:'Tallow, Maranta Arundinacea Root Powder (arrowroot), Sodium Bicarbonate, Simmondsia Chinensis Seed Oil (jojoba), Lavandula Angustifolia Oil, Litsea Cubeba Fruit Oil, *Citral, *Limonene, *Linalool, *Geraniol (*naturally derived from essential oils).',al:'Contains animal-derived ingredients.',st:'Keep away from direct sunlight. May soften in heat — normal for a tallow product.',how:'',icon:'skin',imgKey:'tallow_deo'},
   ],
   redlight: [
-    {name:'Mini Red Clip-On Lamp',tag:'Sleep-safe night reading light',price:'€17',desc:'A small rechargeable clip-on lamp with soft red light — perfect for reading or night feeds without disturbing sleep. Supports natural melatonin production and healthy circadian rhythms. Adjustable brightness, clips to book, bed, or crib.',ing:'Rechargeable clip-on lamp. Red light spectrum only. Adjustable brightness.',al:'Not a medical device.',st:'Charge fully before first use. Keep away from water.',icon:'bulb',imgKey:'redlight_clipon'},
-    {name:'Red LED Night Light',tag:'Motion sensor · Melatonin-safe',price:'€19.50',desc:'Soft red light with motion sensor — turns on automatically in bathrooms and hallways at night. No blue spectrum means no melatonin suppression, supporting healthy circadian rhythm and easier sleep.',ing:'Red LED, built-in motion sensor. Plug-in. For bathroom or hallway use.',al:'Not a medical device.',st:'Plug into standard EU socket. Motion sensor range approx. 3 metres.',icon:'bulb',imgKey:'redlight_night'},
+    {name:'Red LED Night Light with Motion Sensor',tag:'Motion-sensor night light · 2 lights',price:'€19.50',desc:'Soft light without the blue spectrum does not suppress melatonin, supports the circadian rhythm, and helps make it easier to fall back asleep at night. Equipped with a motion sensor, it turns on automatically when movement is detected — perfect for nighttime use in bathrooms and hallways.',ing:'Red LED, built-in motion sensor. Plug-in. Pack of 2.',al:'Not a medical device.',st:'Plug into standard EU socket. Motion sensor range approx. 3 metres.',how:'',icon:'bulb',imgKey:'redlight_night'},
+    {name:'Mini Red Clip-On Lamp',tag:'Rechargeable clip-on red lamp · 1 light',price:'€17',desc:'A small rechargeable clip-on lamp with soft red light for nighttime use — perfect for reading or feeding without disturbing sleep. The red light supports natural melatonin production and healthy circadian rhythms, gently soothing the eyes. Adjustable brightness, clips to a book, bed, or crib. Charges via cable.',ing:'Rechargeable clip-on lamp. Red light spectrum only. Adjustable brightness.',al:'Not a medical device.',st:'Charge fully before first use. Keep away from water.',how:'',icon:'bulb',imgKey:'redlight_clipon'},
   ],
   altai: [
-    {name:'Forest Harmony',tag:'Calm & immune balance',price:'€14',desc:'A blend of herbs that help create a sense of calm and inner balance while gently supporting the immune system.',ing:'Kuril tea (Potentilla), lemon balm, mint.',al:'No known allergens. Naturally caffeine-gentle.',st:'Store in a cool dry place, away from strong odours.',icon:'tea',imgKey:'altai_forest'},
-    {name:'Summer Sigh',tag:'Relaxation · Strawberry notes',price:'€15',desc:'A gentle blend providing relaxation and rejuvenation, with light fruity notes of strawberry.',ing:'Kuril tea, thyme, strawberry leaves, dried strawberries.',al:'No known allergens. Naturally caffeine-gentle.',st:'Store in a cool dry place, away from strong odours.',icon:'tea',imgKey:'altai_summer'},
-    {name:'Whisper of the Meadow',tag:'Gentle calming · Refreshing aroma',price:'€12',desc:'A herbal blend valued for its gentle calming effects and refreshing aroma.',ing:'Chamomile, ziziphora, lemongrass, lemon peel.',al:'No known allergens. Naturally caffeine-gentle.',st:'Store in a cool dry place, away from strong odours.',icon:'tea',imgKey:'altai_whisper'},
-    {name:'Glow of the Sunset',tag:'Vitamin-rich · Immune support',price:'€14',desc:'A vitamin-rich blend traditionally used to support overall health and gently strengthen the immune system.',ing:'Linden flowers, rose hips, orange peel, raspberry leaves, nettle, blackcurrant leaves.',al:'No known allergens. Naturally caffeine-gentle.',st:'Store in a cool dry place, away from strong odours.',icon:'tea',imgKey:'altai_glow'},
-    {name:'Misty Morning',tag:'Calm & cardiovascular harmony',price:'€12',desc:'Hawthorn helps to calm and gently relax the body while supporting cardiovascular health.',ing:'Fermented Ivan tea, hawthorn.',al:'No known allergens. Naturally caffeine-gentle.',st:'Store in a cool dry place, away from strong odours.',icon:'tea',imgKey:'altai_misty'},
-    {name:'Berry Dew',tag:'Wild strawberry antioxidant blend',price:'€15',desc:'Wild strawberries give this tea a gentle fruity flavour and serve as a natural source of antioxidants.',ing:'Fermented Ivan tea, dried wild strawberries.',al:'No known allergens. Naturally caffeine-gentle.',st:'Store in a cool dry place, away from strong odours.',icon:'tea',imgKey:'altai_berry'},
-    {name:'Secret of the Wind',tag:'Vitality & digestive comfort',price:'€15',desc:'A blend combining herbs that support vitality, reduce fatigue, and promote comfortable digestion.',ing:'Kuril tea, blackcurrant leaves, lemon balm, rosemary, chamomile.',al:'No known allergens. Naturally caffeine-gentle.',st:'Store in a cool dry place, away from strong odours.',icon:'tea',imgKey:'altai_secret'},
-    {name:'Scarlet Dawn',tag:'Cranberry & antioxidant blend',price:'€14',desc:'Cranberries add a refreshing tartness and serve as a natural source of antioxidants.',ing:'Fermented Ivan tea with cranberries.',al:'No known allergens. Naturally caffeine-gentle.',st:'Store in a cool dry place, away from strong odours.',icon:'tea',imgKey:'altai_scarlet'},
-    {name:'Mini Set: Energy',tag:'4 teas · 30g each · Gift-ready',price:'€18',desc:'A curated 30g tasting set including Berry Dew, Whisper of the Meadow, Summer Sigh, and Scarlet Dawn. Perfect for gifting or exploring the range.',ing:'Berry Dew (30g), Whisper of the Meadow (30g), Summer Sigh (30g), Scarlet Dawn (30g).',al:'No known allergens.',st:'Store in a cool dry place.',icon:'set',setLabel:'4 teas',imgKey:'altai_set_energy'},
-    {name:'Mini Set: Energy & Balance',tag:'Full collection · 8 teas · 30g each',price:'€30',desc:'The complete Altai Code collection — all 8 teas in a curated 30g mini set. A perfect introduction to the full range or a thoughtful gift.',ing:'Berry Dew, Whisper of the Meadow, Summer Sigh, Scarlet Dawn, Misty Morning, Forest Harmony, Secret of the Wind, Glow of the Sunset — 30g each.',al:'No known allergens.',st:'Store in a cool dry place.',icon:'set',setLabel:'8 teas',imgKey:'altai_set_enbal'},
-    {name:'Mini Set: Balance',tag:'4 calming teas · 30g each',price:'€17',desc:'A calming 30g tasting set including Misty Morning, Forest Harmony, Secret of the Wind, and Glow of the Sunset.',ing:'Misty Morning (30g), Forest Harmony (30g), Secret of the Wind (30g), Glow of the Sunset (30g).',al:'No known allergens.',st:'Store in a cool dry place.',icon:'set',setLabel:'4 teas',imgKey:'altai_set_balance'},
+    {name:'Forest Harmony',tag:'Relaxation & rejuvenation tea · 100g',price:'€14',desc:'This blend provides a gentle sense of relaxation and rejuvenation, with light fruity notes of strawberry.',ing:'Kuril tea, thyme, strawberry leaves, dried strawberries.',al:'',st:'Store in a cool, dry place, protected from sunlight.',how:'Makes about 30 cups.',icon:'tea',imgKey:'altai_forest'},
+    {name:'Summer Sigh',tag:'Calming herbal tea · 100g',price:'€15',desc:'This herbal blend is valued for its gentle calming effects and refreshing aroma.',ing:'Chamomile, ziziphora, lemongrass, lemon peel.',al:'',st:'Store in a cool, dry place, protected from sunlight.',how:'Makes about 30 cups.',icon:'tea',imgKey:'altai_summer'},
+    {name:'Whisper of the Meadow',tag:'Calm & inner balance tea · 100g',price:'€14',desc:'These herbs help create a sense of calm and inner balance while gently supporting the immune system.',ing:'Kuril tea (Potentilla), lemon balm, mint.',al:'',st:'Store in a cool, dry place, protected from sunlight.',how:'',icon:'tea',imgKey:'altai_whisper'},
+    {name:'Glow of the Sunset',tag:'Fruity antioxidant tea · 100g',price:'€15',desc:'Wild strawberries give the tea a gentle fruity flavor and serve as a natural source of antioxidants.',ing:'Fermented Ivan tea, dried wild strawberries.',al:'',st:'Store in a cool, dry place, protected from sunlight.',how:'',icon:'tea',imgKey:'altai_glow'},
+    {name:'Misty Morning',tag:'Vitamin-rich herbal blend · 100g',price:'€12',desc:'This vitamin-rich blend is traditionally used to support overall health and gently strengthen the immune system.',ing:'Linden flowers, rose hips, orange peel, raspberry leaves, nettle, blackcurrant leaves.',al:'',st:'Store in a cool, dry place, protected from sunlight.',how:'',icon:'tea',imgKey:'altai_misty'},
+    {name:'Berry Dew',tag:'Calm & cardiovascular support tea · 100g',price:'€15',desc:'Hawthorn helps to calm and gently relax the body while supporting cardiovascular health.',ing:'Fermented Ivan tea, hawthorn.',al:'',st:'Store in a cool, dry place, protected from sunlight.',how:'',icon:'tea',imgKey:'altai_berry'},
+    {name:'Secret of the Wind',tag:'Vitality & digestion tea · 100g',price:'€15',desc:'This blend combines herbs that help support vitality, reduce fatigue, and promote comfortable digestion.',ing:'Kuril tea, blackcurrant leaves, lemon balm, rosemary, chamomile.',al:'',st:'Store in a cool, dry place, protected from sunlight.',how:'',icon:'tea',imgKey:'altai_secret'},
+    {name:'Scarlet Dawn',tag:'Tart antioxidant tea · 100g',price:'€15',desc:'Cranberries add a refreshing tartness and serve as a natural source of antioxidants.',ing:'Fermented Ivan tea with cranberries.',al:'',st:'Store in a cool, dry place, protected from sunlight.',how:'',icon:'tea',imgKey:'altai_scarlet'},
+    {name:'Mini Set Energy',tag:'4-tea energy selection · 30g tea set',price:'€18',desc:'A 30g tea set featuring Misty Morning, Forest Harmony, Secret of the Wind, and Glow of the Sunset.',ing:'Misty Morning: Linden flowers, rose hips, orange peel, raspberry leaves, nettle, blackcurrant leaves. Forest Harmony: Kuril tea, thyme, strawberry leaves, dried strawberries. Secret of the Wind: Kuril tea, blackcurrant leaves, lemon balm, rosemary, chamomile. Glow of the Sunset: Fermented Ivan tea, dried wild strawberries.',al:'',st:'Store in a cool, dry place, protected from sunlight.',how:'',icon:'set',setLabel:'4 teas',imgKey:'altai_set_energy'},
+    {name:'Mini Set Balance',tag:'4-tea balance selection · 30g tea set',price:'€17',desc:'A 30g tea set featuring Berry Dew, Whisper of the Meadow, Summer Sigh, and Scarlet Dawn.',ing:'Berry Dew: Fermented Ivan tea, hawthorn. Whisper of the Meadow: Kuril tea (Potentilla), lemon balm, mint. Summer Sigh: Chamomile, ziziphora, lemongrass, lemon peel. Scarlet Dawn: Fermented Ivan tea with cranberries.',al:'',st:'Store in a cool, dry place, protected from sunlight.',how:'',icon:'set',setLabel:'4 teas',imgKey:'altai_set_balance'},
+    {name:'Mini Set Energy & Balance',tag:'8-tea mixed selection · 30g tea set',price:'€30',desc:'A 30g tea set combining the Energy and Balance selections. Includes Berry Dew, Whisper of the Meadow, Summer Sigh, Scarlet Dawn, Misty Morning, Forest Harmony, Secret of the Wind, and Glow of the Sunset.',ing:'All 8 teas: Berry Dew (Fermented Ivan tea, hawthorn), Whisper of the Meadow (Kuril tea, lemon balm, mint), Summer Sigh (Chamomile, ziziphora, lemongrass, lemon peel), Scarlet Dawn (Fermented Ivan tea with cranberries), Misty Morning (Linden flowers, rose hips, orange peel, raspberry leaves, nettle, blackcurrant leaves), Forest Harmony (Kuril tea, thyme, strawberry leaves, dried strawberries), Secret of the Wind (Kuril tea, blackcurrant leaves, lemon balm, rosemary, chamomile), Glow of the Sunset (Fermented Ivan tea, dried wild strawberries).',al:'',st:'Store in a cool, dry place, protected from sunlight.',how:'',icon:'set',setLabel:'8 teas',imgKey:'altai_set_enbal'},
   ]
 };
 
@@ -343,15 +394,24 @@ function openModal(p, brand) {
   document.getElementById('mName').textContent = p.name;
   document.getElementById('mDesc').textContent = p.desc;
   document.getElementById('mPrice').textContent = p.price;
-  document.getElementById('ti').textContent = p.ing;
-  document.getElementById('ta').textContent = p.al;
-  document.getElementById('ts').textContent = p.st;
+
+  // How to Use tab = how to take + storage
+  const howParts = [];
+  if (p.how) howParts.push(p.how);
+  if (p.st) howParts.push('Storage: ' + p.st);
+  document.getElementById('th').textContent = howParts.join('\n\n');
+
+  // Supplement Facts tab = ingredients + allergens
+  let factsText = p.ing || '';
+  if (p.al) factsText += (factsText ? '\n\nAllergens: ' : 'Allergens: ') + p.al;
+  document.getElementById('ti').textContent = factsText;
+
   const msg = encodeURIComponent(`Hi! I'd like to order: ${p.name} (${p.price}). Could you confirm availability and delivery options?`);
   document.getElementById('mCta').href = `${WA}?text=${msg}`;
   document.querySelectorAll('.tab-h').forEach(h=>h.classList.remove('active'));
   document.querySelectorAll('.tab-c').forEach(c=>c.classList.remove('active'));
   document.querySelectorAll('.tab-h')[0].classList.add('active');
-  document.getElementById('ti').classList.add('active');
+  document.getElementById('th').classList.add('active');
   document.getElementById('overlay').classList.add('open');
   document.body.style.overflow='hidden';
 }
@@ -361,6 +421,32 @@ function closeOnOverlay(e){if(e.target===document.getElementById('overlay'))clos
 function switchTab(btn,id){document.querySelectorAll('.tab-h').forEach(h=>h.classList.remove('active'));document.querySelectorAll('.tab-c').forEach(c=>c.classList.remove('active'));btn.classList.add('active');document.getElementById(id).classList.add('active');}
 function filterBrand(brand,btn){document.querySelectorAll('.filter-pill').forEach(p=>p.classList.remove('active'));btn.classList.add('active');document.querySelectorAll('.brand-section').forEach(s=>{s.classList.toggle('hidden',brand!=='all'&&s.dataset.brand!==brand);});}
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();});
+</script>
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <a href="seena-home_11.html" class="footer-logo">Seena</a>
+    <div class="footer-links">
+      <a href="seena-services.html">Services</a>
+      <a href="seena-specialists.html">Specialists</a>
+      <a href="seena-about.html">About</a>
+      <a href="seena-learn.html">Academy</a>
+      <a href="seena-shop.html">Shop</a>
+    </div>
+    <span class="footer-copy">© 2026 Seena Integrative Health Centre · Lisbon</span>
+  </div>
+</footer>
+<script>
+(function(){
+  var nav=document.querySelector('nav');
+  function tick(){nav.classList.toggle('scrolled',window.scrollY>10)}
+  window.addEventListener('scroll',tick,{passive:true});
+  tick();
+})();
+</script>
+<script>
+function openMobileNav(){var m=document.getElementById('navMobile');m.classList.add('open');document.body.style.overflow='hidden'}
+function closeMobileNav(){var m=document.getElementById('navMobile');m.classList.remove('open');document.body.style.overflow=''}
 </script>
 </body>
 </html>
