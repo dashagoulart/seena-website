@@ -511,9 +511,45 @@ footer{background:var(--sage-deep);padding:40px 48px}
   .services-header{flex-direction:column;align-items:flex-start;gap:8px}
   .services-note{text-align:left;max-width:none}
 }
+
+/* ── MOBILE NAV ── */
+.nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:6px;flex-shrink:0}
+.nav-hamburger span{width:22px;height:1.5px;background:#fff;display:block;border-radius:2px}
+.nav-mobile{display:none;position:fixed;inset:0;background:var(--sage-deep,#2e4535);z-index:500;flex-direction:column;align-items:center;justify-content:center;gap:36px}
+.nav-mobile.open{display:flex}
+.nav-mobile-close{position:absolute;top:24px;right:24px;background:none;border:none;color:rgba(255,255,255,.55);font-size:28px;cursor:pointer;padding:8px;line-height:1}
+.nav-mobile a{font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:300;color:rgba(255,255,255,.85);text-decoration:none;letter-spacing:.03em}
+.nav-mobile a:active{color:#fff}
+.nav-mobile-cta{background:#fff!important;color:#2e4535!important;padding:14px 40px!important;border-radius:40px!important;font-family:'DM Sans',sans-serif!important;font-size:15px!important;letter-spacing:.02em!important;font-weight:500!important}
+@media(max-width:800px){
+  .nav-links,.nav-cta{display:none!important}
+  .nav-hamburger{display:flex}
+}
+@media(max-width:800px){
+  nav{padding:0 20px}
+  .hero-content{padding:0 20px}
+  .hero-left{padding:100px 0 56px}
+  .hero-h1{font-size:44px}
+  .hero-sub{font-size:14px;margin-bottom:32px}
+  .btn-primary{padding:13px 26px;font-size:13px}
+  .hero-trust{gap:16px;margin-top:24px;padding-top:24px;flex-wrap:wrap}
+  .trust-dot{font-size:10.5px}
+  .steps{grid-template-columns:1fr!important}
+  .who-grid{grid-template-columns:1fr!important}
+}
 </style>
 </head>
 <body>
+<!-- MOBILE MENU -->
+<div class="nav-mobile" id="navMobile">
+  <button class="nav-mobile-close" onclick="closeMobileNav()">&#x2715;</button>
+  <a href="seena-services.html" onclick="closeMobileNav()">Services</a>
+  <a href="seena-specialists.html" onclick="closeMobileNav()">Specialists</a>
+  <a href="seena-about.html" onclick="closeMobileNav()">About</a>
+  <a href="seena-learn.html" onclick="closeMobileNav()">Academy</a>
+  <a href="seena-shop.html" onclick="closeMobileNav()">Shop</a>
+  <a href="https://wa.me/351924353219" class="nav-mobile-cta" onclick="closeMobileNav()">Book appointment</a>
+</div>
 
 <!-- NAV -->
 <nav id="nav">
@@ -526,6 +562,7 @@ footer{background:var(--sage-deep);padding:40px 48px}
     <li><a href="seena-shop.html">Shop</a></li>
   </ul>
   <a href="https://wa.me/351924353219" class="nav-cta">Book Appointment</a>
+<button class="nav-hamburger" onclick="openMobileNav()" aria-label="Open menu"><span></span><span></span><span></span></button>
 </nav>
 
 <!-- HERO -->
@@ -1076,6 +1113,10 @@ const nav = document.getElementById('nav');
 window.addEventListener('scroll', () => {
   nav.classList.toggle('scrolled', window.scrollY > 60);
 });
+</script>
+<script>
+function openMobileNav(){var m=document.getElementById('navMobile');m.classList.add('open');document.body.style.overflow='hidden'}
+function closeMobileNav(){var m=document.getElementById('navMobile');m.classList.remove('open');document.body.style.overflow=''}
 </script>
 </body>
 </html>
