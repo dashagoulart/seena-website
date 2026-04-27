@@ -8,12 +8,13 @@
 *{margin:0;padding:0;box-sizing:border-box}
 :root{--sage:#5a7a62;--sage-deep:#3d5843;--sage-pale:#edf2ee;--cream:#f7f4ef;--cream-dark:#ede9e1;--stone:#c8bfb0;--text:#2a2520;--text-mid:#6b6259;--text-soft:#9b9088;--white:#ffffff}
 body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text)}
-nav{position:fixed;top:0;left:0;right:0;z-index:200;background:var(--sage-deep);padding:0 48px;height:68px;display:flex;align-items:center;justify-content:space-between}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;background:transparent;transition:background .35s,box-shadow .35s;padding:0 48px;height:68px;display:flex;align-items:center;justify-content:space-between}
+nav.scrolled{background:var(--sage-deep);box-shadow:0 2px 24px rgba(0,0,0,.18)}
 .nav-logo{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:400;color:#fff;letter-spacing:.06em;text-decoration:none;line-height:1}
 .nav-links{display:flex;gap:32px;list-style:none}
-.nav-links a{color:rgba(255,255,255,.75);text-decoration:none;font-size:12px;font-weight:400;letter-spacing:.08em;text-transform:uppercase}
+.nav-links a{color:rgba(255,255,255,.75);text-decoration:none;font-size:13.5px;font-weight:400;letter-spacing:.01em;}
 .nav-links a:hover{color:#fff}
-.nav-cta{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.35);color:#fff;padding:9px 22px;border-radius:40px;font-size:12px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;text-decoration:none}
+.nav-cta{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.35);color:#fff;padding:9px 22px;border-radius:40px;font-size:13px;font-weight:500;letter-spacing:.01em;text-decoration:none}
 .article-hero{padding:140px 56px 56px;max-width:860px;margin:0 auto}
 .back-link{display:inline-flex;align-items:center;gap:6px;color:var(--text-soft);font-size:12px;text-decoration:none;letter-spacing:.06em;text-transform:uppercase;margin-bottom:28px}
 .back-link svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:1.5}
@@ -67,7 +68,7 @@ footer{background:var(--sage-deep);padding:40px 48px}
 <nav>
   <a href="seena-home_11.html" class="nav-logo">Seena</a>
   <ul class="nav-links"><li><a href="seena-services.html">Services</a></li><li><a href="seena-specialists.html">Specialists</a></li><li><a href="seena-learn.html">Academy</a></li><li><a href="seena-shop.html">Shop</a></li></ul>
-  <a href="https://wa.me/351924353219" class="nav-cta">Book Appointment</a>
+  <a href="https://wa.me/351924353219" class="nav-cta">Book appointment</a>
 </nav>
 
 <div class="article-hero">
@@ -175,4 +176,12 @@ footer{background:var(--sage-deep);padding:40px 48px}
 </footer>
 
 
+<script>
+(function(){
+  var nav=document.querySelector('nav');
+  function tick(){nav.classList.toggle('scrolled',window.scrollY>10)}
+  window.addEventListener('scroll',tick,{passive:true});
+  tick();
+})();
+</script>
 </body></html>
