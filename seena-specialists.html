@@ -505,7 +505,8 @@ She was part of the therapeutic team at New Life Portugal from 2022 to 2024, sup
     bio: `A certified Fertility Awareness Educator and Portuguese Muslim woman of South Asian heritage. With a Master's degree in Human Rights Law and over a decade of experience in gender equality and social inclusion, she brings an intersectional lens to menstrual, sexual, and reproductive health education. She teaches people how to chart their cycles and track evidence-based ovulation signs for birth control. Her work centers a fundamental belief: understanding your body should be a right, not a privilege.`
   },
   {
-    img: 'specialist_images/ana.jpg',
+    img: 'specialist_images/ana.jpg?v=2',
+    imgPos: 'center 85%',
     services: [{"name": "Ozonotherapy", "section": "ozone"}, {"name": "Orthomolecular Therapeutics", "section": "therapies"}, {"name": "Maternal Health", "section": "therapies"}, {"name": "Holistic Therapies", "section": "therapies"}],
     name: 'Ana Filipa Pereira Lavaredas',
     role: 'Specialist Nurse · Maternal Health & Obstetrics',
@@ -525,10 +526,11 @@ function buildCard(s, idx) {
     `<a class="service-chip" href="seena-services.html#${sv.section}" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24"><path d="M9 12h6M9 16h6M17 21H7a2 2 0 01-2-2V5a2 2 0 012-2h7l5 5v11a2 2 0 01-2 2z"/></svg>${sv.name}</a>`
   ).join('');
   const svcRow = svcChips ? `<div class="card-services">${svcChips}</div>` : '';
+  const imgStyle = s.imgPos ? ' style="object-position:' + s.imgPos + '"' : '';
   return `
   <div class="specialist-card" onclick="openModal(${idx})">
     <div class="card-photo">
-      <img src="${s.img}" alt="${s.name}" loading="lazy">
+      <img src="${s.img}" alt="${s.name}" loading="lazy"${imgStyle}>
     </div>
     <div class="card-body">
       <div class="card-role">${s.role}</div>
