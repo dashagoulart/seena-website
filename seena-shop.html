@@ -10,8 +10,8 @@
 :root{--sage:#5a7a62;--sage-light:#7daa86;--sage-deep:#3d5843;--cream:#f7f4ef;--cream-dark:#ede9e1;--stone:#c8bfb0;--text:#2a2520;--text-mid:#6b6259;--text-soft:#9b9088;--white:#ffffff;--wa:#25D366}
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text);min-height:100vh}
-nav{background:transparent;transition:background .35s,box-shadow .35s;padding:0 48px;display:flex;align-items:center;justify-content:space-between;height:68px;position:sticky;top:0;z-index:100}
-nav.scrolled{background:var(--sage-deep);box-shadow:0 2px 24px rgba(0,0,0,.18)}
+nav{background:var(--sage-deep);transition:box-shadow .35s;padding:0 48px;display:flex;align-items:center;justify-content:space-between;height:68px;position:sticky;top:0;z-index:100}
+nav.scrolled{box-shadow:0 2px 24px rgba(0,0,0,.18)}
 .nav-logo{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:400;color:#fff;letter-spacing:.06em;text-decoration:none;line-height:1}
 .nav-links{display:flex;gap:32px;list-style:none}
 .nav-links a{color:rgba(255,255,255,.72);text-decoration:none;font-size:13.5px;font-weight:400;letter-spacing:.01em;transition:color .2s}

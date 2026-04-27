@@ -379,6 +379,12 @@ nav.scrolled{background:var(--sage-deep);box-shadow:0 2px 24px rgba(0,0,0,.18)}
 .c-dots{display:flex;justify-content:center;gap:6px;margin-top:24px}
 .c-dot{width:7px;height:7px;border-radius:50%;background:var(--stone);border:none;cursor:pointer;padding:0;transition:all .22s}
 .c-dot.active{background:var(--sage-deep);width:22px;border-radius:4px}
+@media(max-width:640px){
+  .c-arrow{display:none}
+  .c-viewport{overflow:hidden;width:100%}
+  .r-card-inner{padding:20px}
+  .testimonials-h2{font-size:36px}
+}
 
 /* ── ACADEMY BANNER ── */
 .academy{padding:var(--section-pad);background:var(--cream)}
@@ -1048,9 +1054,18 @@ footer{background:var(--sage-deep);padding:40px 48px}
     const cw = track.parentElement.offsetWidth / pv;
     track.style.transform = 'translateX(-'+(cur*pv*cw)+'px)';
     dotsEl.querySelectorAll('.c-dot').forEach((d,i)=>d.classList.toggle('active',i===cur));
-    document.querySelector('.c-prev').style.opacity = cur===0?'0.25':'1';
-    document.querySelector('.c-next').style.opacity = cur>=pages-1?'0.25':'1';
+    const prev = document.querySelector('.c-prev'), next = document.querySelector('.c-next');
+    if(prev) prev.style.opacity = cur===0?'0.25':'1';
+    if(next) next.style.opacity = cur>=pages-1?'0.25':'1';
   }
+
+  // Touch swipe support
+  let touchX = 0;
+  track.addEventListener('touchstart', e => { touchX = e.touches[0].clientX; }, {passive:true});
+  track.addEventListener('touchend', e => {
+    const dx = e.changedTouches[0].clientX - touchX;
+    if(Math.abs(dx) > 40) render(cur + (dx < 0 ? 1 : -1));
+  }, {passive:true});
 
   window.cGo = dir => render(cur+dir);
   window.addEventListener('resize', setup);
