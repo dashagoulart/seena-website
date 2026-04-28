@@ -49,6 +49,8 @@ main{max-width:1200px;margin:0 auto;padding:48px 48px 80px}
 .product-card:hover{transform:translateY(-3px);box-shadow:0 12px 32px rgba(61,88,67,.1);border-color:var(--stone)}
 .card-image{aspect-ratio:1;background:#fff;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;padding:16px}
 .card-image img{width:100%;height:100%;object-fit:contain;display:block}
+.card-image--photo{padding:0}
+.card-image--photo img{object-fit:cover}
 .modal-img img{width:100%;height:100%;object-fit:contain;display:block;border-radius:20px 0 0 0}
 .card-ph{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px}
 .card-ph .ico{width:44px;height:44px;background:var(--cream-dark);border-radius:50%;display:flex;align-items:center;justify-content:center}
@@ -358,6 +360,8 @@ const products = {
 const iconMap = {supp:SVG_SUPP, heart:SVG_HEART, bulb:SVG_BULB, tea:SVG_TEA, skin:SVG_SKIN, set:SVG_SET};
 const brandMap = {augment:'Augment Life', oxxyo3:'OXXYO3', hawa:'Hawa Pharma', tallow:'Pure Tallow', redlight:'Red Light', altai:'Altai Code Tea'};
 
+const photosBrands = new Set(['augment','hawa']);
+
 function buildCard(p, brand) {
   const isSet = p.icon === 'set';
   const imgBg = isSet ? 'background:linear-gradient(135deg,#e8f0ea,#d4e6d8)' : '';
@@ -367,8 +371,9 @@ function buildCard(p, brand) {
   const imgContent = p.imgKey
     ? `<img src="product_images/${p.imgKey}.png" alt="${p.name}" loading="lazy">${setLabel}`
     : `<div class="card-ph"><div class="ico">${iconMap[p.icon]||SVG_SUPP}</div>${setLabel}</div>`;
+  const photoClass = (photosBrands.has(brand) && p.imgKey) ? ' card-image--photo' : '';
   return `<div class="product-card" onclick='openModal(${escaped},"${brand}")'>
-    <div class="card-image" style="${imgBg}">
+    <div class="card-image${photoClass}" style="${imgBg}">
       ${imgContent}
       <span class="card-tag">${tagLabel}</span>
     </div>
