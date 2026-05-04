@@ -56,6 +56,7 @@ main{max-width:1200px;margin:0 auto;padding:48px 48px 80px}
 .card-ph .ico{width:44px;height:44px;background:var(--cream-dark);border-radius:50%;display:flex;align-items:center;justify-content:center}
 .card-ph .ico svg{width:20px;height:20px;opacity:.35}
 .card-tag{position:absolute;top:10px;left:10px;background:var(--sage-deep);color:#fff;font-size:9px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;padding:3px 8px;border-radius:20px;opacity:.85}
+.card-setlabel{position:absolute;bottom:8px;right:10px;font-size:10px;color:var(--sage-deep);font-weight:500;background:rgba(255,255,255,.82);padding:2px 9px;border-radius:10px}
 .card-body{padding:14px 16px 16px;flex:1;display:flex;flex-direction:column}
 .card-name{font-size:13px;font-weight:500;line-height:1.4;color:var(--text);margin-bottom:4px}
 .card-tagline{font-size:11.5px;color:var(--text-soft);font-weight:300;line-height:1.4;margin-bottom:12px;flex:1}
@@ -365,17 +366,18 @@ const photosBrands = new Set(['augment','hawa']);
 function buildCard(p, brand) {
   const isSet = p.icon === 'set';
   const imgBg = isSet ? 'background:linear-gradient(135deg,#e8f0ea,#d4e6d8)' : '';
-  const setLabel = p.setLabel ? `<span style="font-size:10px;color:var(--sage-deep);font-weight:500;margin-top:4px">${p.setLabel}</span>` : '';
+  const setLabel = p.setLabel ? `<span class="card-setlabel">${p.setLabel}</span>` : '';
   const tagLabel = isSet ? 'Gift Set' : brandMap[brand];
   const escaped = JSON.stringify(p).replace(/'/g,"&#39;");
   const imgContent = p.imgKey
-    ? `<img src="product_images/${p.imgKey}.png" alt="${p.name}" loading="lazy">${setLabel}`
-    : `<div class="card-ph"><div class="ico">${iconMap[p.icon]||SVG_SUPP}</div>${setLabel}</div>`;
+    ? `<img src="product_images/${p.imgKey}.png" alt="${p.name}" loading="lazy">`
+    : `<div class="card-ph"><div class="ico">${iconMap[p.icon]||SVG_SUPP}</div></div>`;
   const photoClass = (photosBrands.has(brand) && p.imgKey) ? ' card-image--photo' : '';
   return `<div class="product-card" onclick='openModal(${escaped},"${brand}")'>
     <div class="card-image${photoClass}" style="${imgBg}">
       ${imgContent}
       <span class="card-tag">${tagLabel}</span>
+      ${setLabel}
     </div>
     <div class="card-body">
       <div class="card-name">${p.name}</div>
