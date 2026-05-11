@@ -1,0 +1,19 @@
+User-agent: *
+Allow: /
+
+# Block draft and old pages
+Disallow: /seena-home_5.html
+Disallow: /seena-home_11.html
+Disallow: /seena-home-reviews.html
+Disallow: /seena-specialists.html
+Disallow: /seena-services.html
+Disallow: /seena-about.html
+Disallow: /seena-learn.html
+Disallow: /seena-shop.html
+Disallow: /seena-shop-new.html
+Disallow: /seena-article-ozone.html
+Disallow: /seena-event-ozone-intro.html
+Disallow: /hero-variants.html
+Disallow: /*.tmp-*
+
+Sitemap: https://seenacentre.com/sitemap.xml
