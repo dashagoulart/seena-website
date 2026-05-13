@@ -300,7 +300,7 @@ footer{background:var(--sage-deep);padding:40px 48px}
     <div class="modal-tabs">
       <div class="tab-heads">
         <button class="tab-h active" onclick="switchTab(this,'th')">How to Use</button>
-        <button class="tab-h" onclick="switchTab(this,'ti')">Supplement Facts</button>
+        <button class="tab-h" id="tab2Btn" onclick="switchTab(this,'ti')">Supplement Facts</button>
       </div>
       <div class="tab-c active" id="th"></div>
       <div class="tab-c" id="ti"></div>
@@ -426,7 +426,11 @@ function openModal(p, brand) {
   if (p.st) howParts.push('Storage: ' + p.st);
   document.getElementById('th').textContent = howParts.join('\n\n');
 
-  // Supplement Facts tab = ingredients + allergens
+  // Second tab label — "Supplement Facts" only for actual supplements
+  const isSupp = p.icon === 'supp' || p.icon === 'heart';
+  document.getElementById('tab2Btn').textContent = isSupp ? 'Supplement Facts' : 'Ingredients';
+
+  // Ingredients/Supplement Facts tab = ingredients + allergens
   let factsText = p.ing || '';
   if (p.al) factsText += (factsText ? '\n\nAllergens: ' : 'Allergens: ') + p.al;
   document.getElementById('ti').textContent = factsText;
