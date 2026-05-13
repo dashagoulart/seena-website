@@ -310,7 +310,7 @@ footer{background:var(--sage-deep);padding:40px 48px}
     <div class="events-grid">
 
       <div class="event-card" id="event-flat-feet" onclick="openEvent('flat-feet')">
-        <div class="event-card-top has-photo" style="background-color:#4a5e4a;background-image:url('/events/event-flat-feet.jpg')">
+        <div class="event-card-top has-photo" style="background-color:#4a5e4a;background-image:url('/events/event-flat-feet.jpg');background-position:top center">
           <span class="event-card-date">18 Apr 2026</span>
           <span class="event-card-tag past">Past event</span>
         </div>
@@ -326,7 +326,7 @@ footer{background:var(--sage-deep);padding:40px 48px}
       </div>
 
       <div class="event-card" id="event-breathing-jan" onclick="openEvent('breathing-jan')">
-        <div class="event-card-top has-photo" style="background-color:#3d5460;background-image:url('/events/event-breathing-nudge.jpg')">
+        <div class="event-card-top has-photo" style="background-color:#3d5460;background-image:url('/events/event-breathing-nudge.jpg');background-position:top center">
           <span class="event-card-date">28 Jan 2026</span>
           <span class="event-card-tag past">Past event</span>
         </div>
@@ -342,7 +342,7 @@ footer{background:var(--sage-deep);padding:40px 48px}
       </div>
 
       <div class="event-card" id="event-sazonova" onclick="openEvent('sazonova')">
-        <div class="event-card-top has-photo" style="background-color:#6b4f3a;background-image:url('/events/event-sazonova.jpg')">
+        <div class="event-card-top has-photo" style="background-image:linear-gradient(160deg,#6b4f3a,#8a6550)">
           <span class="event-card-date">25 Jan 2026</span>
           <span class="event-card-tag past">Past event</span>
         </div>
@@ -351,14 +351,14 @@ footer{background:var(--sage-deep);padding:40px 48px}
           <div class="event-by"><img src="/specialist_images/alyona_s.jpg" alt="Alyona Sazonova">Alyona Sazonova</div>
           <div class="event-card-desc">A collaboration with perinatal specialist Alyona Sazonova. Seena presented integrative support options covering pregnancy, postpartum recovery, and early motherhood care.</div>
           <div class="event-card-footer">
-            <span class="event-card-meta">Partnership · In-person</span>
+            <span class="event-card-meta">Seminar · Lisbon</span>
             <svg class="event-card-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 18l6-6-6-6"/></svg>
           </div>
         </div>
       </div>
 
       <div class="event-card" id="event-child-rehab" onclick="openEvent('child-rehab')">
-        <div class="event-card-top has-photo" style="background-color:#4a5e52;background-image:url('/events/event-child-rehab.jpg')">
+        <div class="event-card-top has-photo" style="background-color:#4a5e52;background-image:url('/events/event-child-rehab.jpg');background-position:top center">
           <span class="event-card-date">2026</span>
           <span class="event-card-tag past">Past event</span>
         </div>
@@ -367,14 +367,14 @@ footer{background:var(--sage-deep);padding:40px 48px}
           <div class="event-by"><img src="/specialist_images/alyona_s.jpg" alt="Alyona Sazonova">Alyona Sazonova</div>
           <div class="event-card-desc">A practical workshop on child rehabilitation — covering movement development, early intervention approaches, and how parents can support healthy physical development at each stage.</div>
           <div class="event-card-footer">
-            <span class="event-card-meta">Workshop · In-person</span>
+            <span class="event-card-meta">Workshop · Seena Centre</span>
             <svg class="event-card-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 18l6-6-6-6"/></svg>
           </div>
         </div>
       </div>
 
       <div class="event-card" id="event-lwt" onclick="openEvent('lwt')">
-        <div class="event-card-top has-photo" style="background-color:#3a4f5a;background-image:url('/events/event-lwt.jpg')">
+        <div class="event-card-top has-photo" style="background-color:#3a4f5a;background-image:url('/events/event-lwt.jpg');background-position:top center">
           <span class="event-card-date">Jan 2026</span>
           <span class="event-card-tag past">Past event</span>
         </div>
@@ -389,7 +389,7 @@ footer{background:var(--sage-deep);padding:40px 48px}
       </div>
 
       <div class="event-card" id="event-feira" onclick="openEvent('feira')">
-        <div class="event-card-top has-photo" style="background-color:#5a4a3a;background-image:url('/events/event-feira.jpg')">
+        <div class="event-card-top has-photo" style="background-image:linear-gradient(160deg,#5a4a3a,#7a6a5a)">
           <span class="event-card-date">Sep 2025</span>
           <span class="event-card-tag past">Past event</span>
         </div>
@@ -537,47 +537,47 @@ var _lightboxIdx=0;
 var EVENTS={
   'open-door':{
     title:'Open Doors at Seena',date:'16 May 2026',type:'Open House',location:'Seena Centre',
-    status:'upcoming',cover:null,coverColor:'#3d5843',specialist:null,
+    status:'upcoming',cover:null,coverColor:'#3d5843',coverColor2:'#4a6b52',coverPos:'center',specialist:null,
     desc:'An invitation for our community to visit the centre, meet the specialists, and experience integrative care firsthand. Walk through every room, ask your questions directly, and discover what root-cause medicine looks like in practice. Fully booked.',
     gallery:[]
   },
   'flat-feet':{
     title:'Flat Feet: Myth or Real Problem?',date:'18 Apr 2026',type:'Workshop',location:'Seena Centre',
-    status:'past',cover:'/events/event-flat-feet.jpg',coverColor:'#4a5e4a',
+    status:'past',cover:'/events/event-flat-feet.jpg',coverColor:'#4a5e4a',coverPos:'top center',
     specialist:{name:'Vladislava Artemenko',role:'Physiotherapist',img:'/specialist_images/vladislava.png',link:'/specialists/#vladislava'},
     desc:'An educational workshop led by Vladislava Artemenko on flat feet in adults and children. The session covered when treatment is actually needed, the clinical difference between structural and flexible flat feet, and practical guidance on footwear, posture, and arch-strengthening exercises for daily life.',
     gallery:['/events/gallery/flat-feet-1.jpg','/events/gallery/flat-feet-2.jpg']
   },
   'breathing-jan':{
     title:'Breathing Re-Educated — The Buteyko Method',date:'28 Jan 2026',type:'Workshop',location:'The Nudge Lisboa',
-    status:'past',cover:'/events/event-breathing-nudge.jpg',coverColor:'#3d5460',
+    status:'past',cover:'/events/event-breathing-nudge.jpg',coverColor:'#3d5460',coverPos:'top center',
     specialist:{name:'Alyona Tenitski',role:'Buteyko Practitioner & Lifebreath® Therapist',img:'/specialist_images/alyona_t.jpeg',link:'/specialists/#alyona-t'},
     desc:'A small-group workshop on functional breathing, held at The Nudge Lisboa. Alyona Tenitski guided participants through the science of how breathing habits affect sleep quality, anxiety levels, allergies, and adenoid health in children. Includes hands-on Buteyko method exercises and a practical take-home breathing protocol.',
     gallery:['/events/gallery/breathing-1.jpg','/events/gallery/breathing-2.jpg','/events/gallery/breathing-3.jpg','/events/gallery/breathing-4.jpg']
   },
   'sazonova':{
-    title:'Seena × Alyona Sazonova — Seminar',date:'25 Jan 2026',type:'Partnership',location:'In-person',
-    status:'past',cover:null,coverColor:'#6b4f3a',
+    title:'Seena × Alyona Sazonova — Seminar',date:'25 Jan 2026',type:'Seminar',location:'Lisbon',
+    status:'past',cover:null,coverColor:'#6b4f3a',coverColor2:'#8a6550',coverPos:'center',
     specialist:{name:'Alyona Sazonova',role:'Perinatal Specialist',img:'/specialist_images/alyona_s.jpg',link:'/specialists/#alyona-s'},
     desc:'A collaboration with perinatal specialist Alyona Sazonova. Seena presented integrative support options covering pregnancy care, postpartum recovery, and early motherhood — exploring how an integrative medical approach can complement conventional obstetric care during the most transformative period of a woman\'s life.',
     gallery:[]
   },
   'child-rehab':{
-    title:'Child Rehabilitation Workshop',date:'2026',type:'Workshop',location:'In-person',
-    status:'past',cover:'/events/event-child-rehab.jpg',coverColor:'#4a5e52',
+    title:'Child Rehabilitation Workshop',date:'2026',type:'Workshop',location:'Seena Centre',
+    status:'past',cover:'/events/event-child-rehab.jpg',coverColor:'#4a5e52',coverPos:'top center',
     specialist:{name:'Alyona Sazonova',role:'Perinatal Specialist',img:'/specialist_images/alyona_s.jpg',link:'/specialists/#alyona-s'},
     desc:'A practical workshop by Alyona Sazonova on child rehabilitation — covering healthy movement development milestones, early intervention strategies, and how parents can actively support physical development at each stage. Focused on practical exercises and tools for everyday home use.',
     gallery:['/events/gallery/child-rehab-1.jpg','/events/gallery/child-rehab-2.jpg','/events/gallery/child-rehab-3.jpg','/events/gallery/child-rehab-4.jpg']
   },
   'lwt':{
     title:'Ladies Who Talk — Partner of the Week',date:'Jan 2026',type:'Community',location:'Seena Centre',
-    status:'past',cover:'/events/event-lwt.jpg',coverColor:'#3a4f5a',specialist:null,
+    status:'past',cover:'/events/event-lwt.jpg',coverColor:'#3a4f5a',coverPos:'top center',specialist:null,
     desc:'Seena was featured as Ladies Who Talk\'s Partner of the Week. LWT members visited the centre over two days, met our specialists, explored treatments, and learned firsthand about preventive health diagnostics and root-cause integrative medicine. A wonderful opportunity to bring our community closer to a different way of thinking about health.',
     gallery:['/events/gallery/lwt-1.jpg','/events/gallery/lwt-2.jpg','/events/gallery/lwt-3.jpg','/events/gallery/lwt-4.jpg','/events/gallery/lwt-5.jpg','/events/gallery/lwt-6.jpg','/events/gallery/lwt-7.jpg','/events/gallery/lwt-8.jpg']
   },
   'feira':{
     title:'Feira da Saúde — Lisbon Community Health Fair',date:'Sep 2025',type:'Community',location:'Lisbon',
-    status:'past',cover:'/events/event-feira.jpg',coverColor:'#5a4a3a',specialist:null,
+    status:'past',cover:null,coverColor:'#5a4a3a',coverColor2:'#7a6a5a',coverPos:'center',specialist:null,
     desc:'Seena participated in the Lisbon community health fair, offering free diagnostic consultations and information on integrative medicine. The event reflected our commitment to accessible, community-centred care and to making integrative health part of the wider public conversation in Portugal.',
     gallery:['/events/gallery/feira-1.jpg']
   }
@@ -587,7 +587,9 @@ function openEvent(id){
   var e=EVENTS[id]; if(!e) return;
   var cover=document.getElementById('evCover');
   cover.style.backgroundColor=e.coverColor;
-  cover.style.backgroundImage=e.cover?'url("'+e.cover+'")':'none';
+  cover.style.backgroundPosition=e.coverPos||'center';
+  cover.style.backgroundImage=e.cover?'url("'+e.cover+'")'
+    :'linear-gradient(160deg,'+e.coverColor+','+(e.coverColor2||e.coverColor)+')';
   document.getElementById('evCoverDate').textContent=e.date;
   document.getElementById('evCoverType').textContent=e.type;
   var st=document.getElementById('evStatus');
