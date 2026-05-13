@@ -74,7 +74,7 @@ main{max-width:1200px;margin:0 auto;padding:64px 48px 96px}
 .events-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
 .event-card{background:var(--white);border-radius:14px;border:1px solid var(--cream-dark);overflow:hidden;text-decoration:none;transition:transform .22s,box-shadow .22s;display:flex;flex-direction:column}
 .event-card:hover{transform:translateY(-3px);box-shadow:0 8px 28px rgba(61,88,67,.08)}
-.event-card-top{background:var(--sage-pale);padding:20px 22px;display:flex;align-items:center;justify-content:space-between}
+.event-card-top{min-height:130px;padding:16px 18px;display:flex;align-items:flex-end;justify-content:space-between;background:var(--sage-pale)}
 .event-card-date{font-size:13px;font-weight:400;color:var(--sage-deep);letter-spacing:.02em}
 .event-card-tag{font-size:9.5px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--sage);background:rgba(90,122,98,.1);padding:4px 9px;border-radius:20px}
 .event-card-tag.past{color:var(--text-soft);background:var(--cream-dark)}
@@ -85,7 +85,18 @@ main{max-width:1200px;margin:0 auto;padding:64px 48px 96px}
 .event-card-meta{font-size:11.5px;color:var(--text-soft)}
 .event-card-arrow{color:var(--stone);transition:color .18s,transform .18s}
 .event-card:hover .event-card-arrow{color:var(--sage);transform:translateX(4px)}
-.articles-block{margin-bottom:80px}
+.past-events-header{margin:36px 0 20px;padding-top:28px;border-top:1px solid var(--cream-dark);display:flex;align-items:center;gap:12px}
+.past-events-label{font-size:10.5px;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--text-soft)}
+.event-card-top.has-photo{position:relative;min-height:130px;background-size:cover;background-position:center;align-items:flex-end;padding:16px 18px}
+.event-card-top.has-photo::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(42,37,32,.65) 0%,rgba(42,37,32,.18) 100%)}
+.event-card-top.has-photo .event-card-date,.event-card-top.has-photo .event-card-tag{position:relative;z-index:1}
+.event-card-top.has-photo .event-card-date{color:rgba(255,255,255,.9)}
+.event-card-top.has-photo .event-card-tag{background:rgba(255,255,255,.14);color:rgba(255,255,255,.85);border:1px solid rgba(255,255,255,.18)}
+.event-card-top.has-photo .event-card-tag.past{background:rgba(255,255,255,.14);color:rgba(255,255,255,.8);border:1px solid rgba(255,255,255,.18)}
+.event-by{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:400;color:var(--sage);margin-bottom:10px;width:fit-content}
+.event-by img{width:22px;height:22px;border-radius:50%;object-fit:cover;border:1.5px solid var(--cream-dark);background:var(--cream-dark)}
+.event-by img{width:22px;height:22px;border-radius:50%;object-fit:cover;border:1.5px solid var(--cream-dark)}
+.articles-block{display:none}
 .articles-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
 .article-card{background:var(--white);border-radius:14px;border:1px solid var(--cream-dark);overflow:hidden;text-decoration:none;transition:transform .22s,box-shadow .22s;display:flex;flex-direction:column}
 .article-card:hover{transform:translateY(-3px);box-shadow:0 8px 28px rgba(61,88,67,.08)}
@@ -211,7 +222,6 @@ footer{background:var(--sage-deep);padding:40px 48px}
   <div class="filters-inner">
     <button class="filter-tab active" onclick="filterContent('all',this)">All</button>
     <button class="filter-tab" onclick="filterContent('events',this)">Events</button>
-    <button class="filter-tab" onclick="filterContent('articles',this)">Articles</button>
   </div>
 </div>
 
@@ -227,70 +237,123 @@ footer{background:var(--sage-deep);padding:40px 48px}
       <a href="#" class="see-all">All events →</a>
     </div>
 
-    <a href="/events/ozone-intro/" class="event-featured">
-      <div class="event-featured-img">
-        <div class="event-date-badge">
-          <div class="badge-day">14</div>
-          <div class="badge-month">May 2026</div>
-        </div>
-      </div>
-      <div class="event-featured-body">
-        <div class="event-status upcoming">Upcoming</div>
-        <div class="event-type">Workshop · In-person · Lisbon</div>
-        <div class="event-title">Introduction to Ozone Therapy: What It Is and Who It's For</div>
-        <div class="event-desc">A 90-minute guided session with our integrative physician Dr. Vadim Fasiy. Learn how medical ozone therapy works, what conditions it supports, and how to know if it's right for you.</div>
-        <div class="event-meta">
-          <span class="event-meta-item"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>Thu 14 May · 18:30</span>
-          <span class="event-meta-item"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>Seena Centre, Parque das Nações</span>
-          <span class="event-meta-item"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>Limited to 15 people</span>
-        </div>
-        <div class="event-cta">Reserve your spot →</div>
-      </div>
-    </a>
-
     <div class="events-grid">
-      <a href="/events/breathing/" class="event-card">
-        <div class="event-card-top">
-          <span class="event-card-date">28 May 2026</span>
-          <span class="event-card-tag">Workshop</span>
+      <a href="#" class="event-card">
+        <div class="event-card-top has-photo" style="background-color:#3d5843">
+          <span class="event-card-date">16 May 2026</span>
+          <span class="event-card-tag">Open House</span>
         </div>
         <div class="event-card-body">
-          <div class="event-card-title">Breathing and the Nervous System: A Buteyko Method Intro</div>
-          <div class="event-card-desc">How breathing patterns affect anxiety, sleep, and energy — and simple techniques to begin retraining them.</div>
+          <div class="event-card-title">Open Doors at Seena</div>
+          <div class="event-card-desc">An invitation for our community to visit the centre, meet the specialists, and experience integrative care firsthand.</div>
           <div class="event-card-footer">
-            <span class="event-card-meta">18:30 · Seena Centre</span>
+            <span class="event-card-meta">Fully booked</span>
             <svg class="event-card-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 18l6-6-6-6"/></svg>
           </div>
         </div>
       </a>
-      <a href="/events/kinesiology/" class="event-card">
-        <div class="event-card-top">
-          <span class="event-card-date">11 Jun 2026</span>
-          <span class="event-card-tag">Talk</span>
-        </div>
-        <div class="event-card-body">
-          <div class="event-card-title">Why Your Back Pain Comes Back — a kinesiology perspective</div>
-          <div class="event-card-desc">Understanding movement dysfunction, muscle compensation, and why treating the symptom is never enough.</div>
-          <div class="event-card-footer">
-            <span class="event-card-meta">19:00 · Seena Centre</span>
-            <svg class="event-card-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 18l6-6-6-6"/></svg>
-          </div>
-        </div>
-      </a>
-      <a href="/events/nutrition/" class="event-card">
-        <div class="event-card-top">
-          <span class="event-card-date">Mar 2026</span>
+    </div>
+
+    <!-- PAST EVENTS -->
+    <div class="past-events-header">
+      <div class="past-events-label">Past events</div>
+    </div>
+    <div class="events-grid">
+
+      <a href="/specialists/#vladislava" class="event-card" id="event-flat-feet">
+        <div class="event-card-top has-photo" style="background-color:#4a5e4a;background-image:url('/events/event-flat-feet.jpg')">
+          <span class="event-card-date">18 Apr 2026</span>
           <span class="event-card-tag past">Past event</span>
         </div>
         <div class="event-card-body">
-          <div class="event-card-title">Gut Health & Integrative Nutrition — what the science says</div>
-          <div class="event-card-desc">A session on the gut-brain connection, anti-inflammatory eating, and personalised supplementation. Recording available.</div>
+          <div class="event-card-title">Flat Feet: Myth or Real Problem?</div>
+          <div class="event-by"><img src="/specialist_images/vladislava.png" alt="Vladislava Artemenko">Vladislava Artemenko</div>
+          <div class="event-card-desc">An educational workshop on flat feet in adults and children — when treatment is actually needed, the difference between structural and flexible flat feet, and practical guidance on posture and arch development.</div>
           <div class="event-card-footer">
-            <span class="event-card-meta">Recording available</span>
+            <span class="event-card-meta">Workshop · Seena Centre</span>
             <svg class="event-card-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 18l6-6-6-6"/></svg>
           </div>
         </div>
       </a>
+
+      <a href="/specialists/#alyona-t" class="event-card" id="event-breathing-jan">
+        <div class="event-card-top has-photo" style="background-color:#3d5460;background-image:url('/events/event-breathing-nudge.jpg')">
+          <span class="event-card-date">28 Jan 2026</span>
+          <span class="event-card-tag past">Past event</span>
+        </div>
+        <div class="event-card-body">
+          <div class="event-card-title">Breathing Re-Educated — The Buteyko Method</div>
+          <div class="event-by"><img src="/specialist_images/alyona_t.jpeg" alt="Alyona Tenitski">Alyona Tenitski</div>
+          <div class="event-card-desc">A small-group workshop on how breathing habits affect sleep, anxiety, allergies, and adenoids. Guided Buteyko exercises and science-backed techniques to retrain breathing at home.</div>
+          <div class="event-card-footer">
+            <span class="event-card-meta">Workshop · The Nudge Lisboa</span>
+            <svg class="event-card-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 18l6-6-6-6"/></svg>
+          </div>
+        </div>
+      </a>
+
+      <a href="/specialists/#alyona-s" class="event-card" id="event-sazonova">
+        <div class="event-card-top has-photo" style="background-color:#6b4f3a;background-image:url('/events/event-sazonova.jpg')">
+          <span class="event-card-date">25 Jan 2026</span>
+          <span class="event-card-tag past">Past event</span>
+        </div>
+        <div class="event-card-body">
+          <div class="event-card-title">Seena × Alyona Sazonova — Seminar</div>
+          <div class="event-by"><img src="/specialist_images/alyona_s.jpg" alt="Alyona Sazonova">Alyona Sazonova</div>
+          <div class="event-card-desc">A collaboration with perinatal specialist Alyona Sazonova. Seena presented integrative support options covering pregnancy, postpartum recovery, and early motherhood care.</div>
+          <div class="event-card-footer">
+            <span class="event-card-meta">Partnership · In-person</span>
+            <svg class="event-card-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 18l6-6-6-6"/></svg>
+          </div>
+        </div>
+      </a>
+
+      <a href="/specialists/#alyona-s" class="event-card" id="event-child-rehab">
+        <div class="event-card-top has-photo" style="background-color:#4a5e52;background-image:url('/events/event-child-rehab.jpg')">
+          <span class="event-card-date">2026</span>
+          <span class="event-card-tag past">Past event</span>
+        </div>
+        <div class="event-card-body">
+          <div class="event-card-title">Child Rehabilitation Workshop</div>
+          <div class="event-by"><img src="/specialist_images/alyona_s.jpg" alt="Alyona Sazonova">Alyona Sazonova</div>
+          <div class="event-card-desc">A practical workshop on child rehabilitation — covering movement development, early intervention approaches, and how parents can support healthy physical development at each stage.</div>
+          <div class="event-card-footer">
+            <span class="event-card-meta">Workshop · In-person</span>
+            <svg class="event-card-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 18l6-6-6-6"/></svg>
+          </div>
+        </div>
+      </a>
+
+      <a href="/specialists/" class="event-card" id="event-lwt">
+        <div class="event-card-top has-photo" style="background-color:#3a4f5a;background-image:url('/events/event-lwt.jpg')">
+          <span class="event-card-date">Jan 2026</span>
+          <span class="event-card-tag past">Past event</span>
+        </div>
+        <div class="event-card-body">
+          <div class="event-card-title">Ladies Who Talk — Partner of the Week</div>
+          <div class="event-card-desc">Seena was featured as LWT's Partner of the Week. Members visited the centre, met our specialists, and learned about preventive health and root-cause integrative medicine.</div>
+          <div class="event-card-footer">
+            <span class="event-card-meta">Community · Seena Centre</span>
+            <svg class="event-card-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 18l6-6-6-6"/></svg>
+          </div>
+        </div>
+      </a>
+
+      <a href="/specialists/" class="event-card" id="event-feira">
+        <div class="event-card-top has-photo" style="background-color:#5a4a3a;background-image:url('/events/event-feira.jpg')">
+          <span class="event-card-date">Sep 2025</span>
+          <span class="event-card-tag past">Past event</span>
+        </div>
+        <div class="event-card-body">
+          <div class="event-card-title">Feira da Saúde — Lisbon Community Health Fair</div>
+          <div class="event-card-desc">Seena participated in the Lisbon community health fair, offering diagnostics and consultations — reflecting our commitment to accessible, community-centred care.</div>
+          <div class="event-card-footer">
+            <span class="event-card-meta">Community · Lisbon</span>
+            <svg class="event-card-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 18l6-6-6-6"/></svg>
+          </div>
+        </div>
+      </a>
+
     </div>
   </div>
 
@@ -388,8 +451,6 @@ footer{background:var(--sage-deep);padding:40px 48px}
 function filterContent(type,btn){
   document.querySelectorAll('.filter-tab').forEach(t=>t.classList.remove('active'));
   btn.classList.add('active');
-  document.getElementById('events-block').style.display=type==='articles'?'none':'';
-  document.getElementById('articles-block').style.display=type==='events'?'none':'';
 }
 </script>
 <script>

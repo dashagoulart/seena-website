@@ -306,6 +306,12 @@ footer{background:var(--sage-deep);padding:40px 48px}
 .modal-service-chip{display:inline-flex;align-items:center;gap:5px;font-size:11.5px;color:var(--sage-deep);background:var(--sage-light);padding:5px 12px;border-radius:20px;text-decoration:none;transition:background .2s}
 .modal-service-chip:hover{background:rgba(125,170,134,.25)}
 .modal-service-chip svg{width:12px;height:12px;stroke:var(--sage);fill:none;stroke-width:1.5}
+.modal-events{padding:16px 28px 20px;border-top:1px solid var(--cream-dark)}
+.modal-events-label{font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--text-muted);margin-bottom:10px}
+.event-pill{display:inline-flex;align-items:center;gap:6px;background:var(--cream);border:1px solid var(--cream-dark);color:var(--sage-deep);text-decoration:none;padding:6px 12px;border-radius:8px;font-size:12px;font-weight:400;margin-right:8px;margin-bottom:8px;transition:background .18s,border-color .18s}
+.event-pill:hover{background:var(--sage-light);border-color:rgba(90,122,98,.2)}
+.event-pill svg{width:11px;height:11px;stroke:var(--sage);fill:none;stroke-width:1.5;flex-shrink:0}
+.event-pill-date{font-size:10.5px;color:var(--text-muted);margin-left:2px}
 
 /* ── MOBILE NAV ── */
 .nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:6px;flex-shrink:0}
@@ -407,6 +413,7 @@ footer{background:var(--sage-deep);padding:40px 48px}
       <div class="modal-services" id="mServices"></div>
       <p class="modal-bio" id="mBio"></p>
     </div>
+    <div class="modal-events" id="mEvents" style="display:none"></div>
     <div class="modal-footer">
       <a id="mBook" class="modal-btn-book" href="https://wa.me/351924353219" target="_blank">Book Appointment</a>
       <button class="modal-btn-close" onclick="closeModal()">Close</button>
@@ -479,6 +486,7 @@ She combines evidence-based medicine with integrative and functional medicine pr
   {
     img: '/specialist_images/maxim.jpg',
     services: [{"name": "Kinesiology", "section": "therapies"}, {"name": "Thermocamera", "section": "equipment"}, {"name": "Shockwave Therapy", "section": "equipment"}, {"name": "EMS Body Sculpt", "section": "equipment"}, {"name": "Pressotherapy", "section": "equipment"}],
+    events: [{title:'Feira da Saúde — Community Health Fair', date:'Sep 2025', id:'event-feira'}],
     name: 'Maxim Steshenko',
     role: 'Kinesiologist · Clinical Physiologist',
     langs: [],
@@ -493,6 +501,7 @@ Patients value his clear clinical reasoning, attentive listening, and personalis
   {
     img: '/specialist_images/vladislava.png',
     services: [{"name": "Lifebreath Manual Therapy", "section": "therapies"}],
+    events: [{title:'Flat Feet: Myth or Real Problem?', date:'Apr 2026', id:'event-flat-feet'}],
     name: 'Vladislava Artemenko',
     role: 'Founder, Lifebreath® Method · PhD Orthopedics',
     langs: [],
@@ -507,6 +516,7 @@ Her broader background includes medical education at Bogomolets National Medical
   {
     img: '/specialist_images/alyona_s.jpg',
     services: [{"name": "Pediatric Rehabilitation", "section": "therapies"}, {"name": "Children's Health", "section": "children"}],
+    events: [{title:'Child Rehabilitation Workshop', date:'2026', id:'event-child-rehab'},{title:'Seena × Alyona Sazonova Seminar', date:'Jan 2026', id:'event-sazonova'}],
     name: 'Alyona Sazonova',
     role: 'Pediatric Rehabilitation · Early Childhood Development',
     langs: ['RU','UA'],
@@ -535,6 +545,7 @@ Her work addresses both acute and chronic conditions, combining medical knowledg
   {
     img: '/specialist_images/joana.png',
     services: [{"name": "Naturopathy", "section": "therapies"}],
+    events: [{title:'Feira da Saúde — Community Health Fair', date:'Sep 2025', id:'event-feira'}],
     name: 'Joana Patrícia Teixeira Mateus',
     role: 'Licensed Naturopath · Integrative Pharmacist',
     langs: ['PT','EN'],
@@ -549,6 +560,7 @@ She works with diverse patients and families, combining scientific rigour with r
   {
     img: '/specialist_images/alyona_t.jpeg',
     services: [{"name": "Functional Breathing", "section": "therapies"}],
+    events: [{title:'Breathing Re-Educated — The Buteyko Method', date:'Jan 2026', id:'event-breathing-jan'}],
     name: 'Alyona Tenitski',
     role: 'Functional Breath Coach · Buteyko Method',
     langs: [],
@@ -563,6 +575,7 @@ Her methodology blends functional breathing, mindful movement, and self-practice
   {
     img: '/specialist_images/teresa.jpg',
     services: [{"name": "TRE \u2014 Tension Release", "section": "therapies"}],
+    events: [{title:'Feira da Sa\u00fade \u2014 Community Health Fair', date:'Sep 2025', id:'event-feira'}],
     name: 'Teresa Ranieri',
     role: 'Mindfulness Practitioner · TRE® Certified',
     langs: [],
@@ -622,6 +635,14 @@ function openModal(idx) {
   document.getElementById('mLicence').textContent = s.licence;
   const msg = encodeURIComponent(`Hi! I'd like to book an appointment with ${s.name}. Could you confirm availability?`);
   document.getElementById('mBook').href = `https://wa.me/351924353219?text=${msg}`;
+  const evEl = document.getElementById('mEvents');
+  if (s.events && s.events.length) {
+    evEl.innerHTML = '<div class="modal-events-label">Events & Workshops</div>' +
+      s.events.map(ev => `<a class="event-pill" href="/learn/#${ev.id}"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>${ev.title}<span class="event-pill-date">${ev.date}</span></a>`).join('');
+    evEl.style.display = '';
+  } else {
+    evEl.style.display = 'none';
+  }
   document.getElementById('overlay').classList.add('open');
   document.body.style.overflow = 'hidden';
 }
