@@ -353,8 +353,8 @@ const products = {
     {name:'Tallow Deo Stick',tag:'Natural deodorant stick · 33mL',price:'€18',desc:'A natural deodorant stick made from rendered beef tallow. Neutralizes odor using baking soda and arrowroot while nourishing and protecting the skin with tallow and jojoba oil. Does not block sweating. Free from aluminum, synthetic fragrances, and hormone-disrupting ingredients.',ing:'Tallow, Maranta Arundinacea Root Powder (arrowroot), Sodium Bicarbonate, Simmondsia Chinensis Seed Oil (jojoba), Lavandula Angustifolia Oil, Litsea Cubeba Fruit Oil, *Citral, *Limonene, *Linalool, *Geraniol (*naturally derived from essential oils).',al:'Contains animal-derived ingredients.',st:'Keep away from direct sunlight. May soften in heat — normal for a tallow product.',how:'',note:'Handmade in Portugal · The good stuff for great skin',icon:'skin',imgKey:'tallow_deo'},
   ],
   redlight: [
-    {name:'Red LED Night Light with Motion Sensor',tag:'Motion-sensor night light · 2 lights',price:'€19.50',desc:'Soft light without the blue spectrum does not suppress melatonin, supports the circadian rhythm, and helps make it easier to fall back asleep at night. Equipped with a motion sensor, it turns on automatically when movement is detected — perfect for nighttime use in bathrooms and hallways.',ing:'Red LED, built-in motion sensor. Plug-in. Pack of 2.',al:'Not a medical device.',st:'Plug into standard EU socket. Motion sensor range approx. 3 metres.',how:'',icon:'bulb',imgKey:'redlight_night'},
-    {name:'Mini Red Clip-On Lamp',tag:'Rechargeable clip-on red lamp · 1 light',price:'€17',desc:'A small rechargeable clip-on lamp with soft red light for nighttime use — perfect for reading or feeding without disturbing sleep. The red light supports natural melatonin production and healthy circadian rhythms, gently soothing the eyes. It charges via cable, has a single-button control, adjustable brightness, and easily clips to a book, bed, or crib.',ing:'Rechargeable clip-on lamp. Red light spectrum only. Adjustable brightness.',al:'Not a medical device.',st:'Charge fully before first use. Keep away from water.',how:'',icon:'bulb',imgKey:'redlight_clipon'},
+    {name:'Red LED Night Light with Motion Sensor',tag:'Motion-sensor night light · 2 lights',price:'€19.50',desc:'Soft light without the blue spectrum does not suppress melatonin, supports the circadian rhythm, and helps make it easier to fall back asleep at night. Equipped with a motion sensor, it turns on automatically when movement is detected — perfect for nighttime use in bathrooms and hallways.',ing:'',al:'',st:'Plug into standard EU socket. Motion sensor range approx. 3 metres.',how:'',icon:'bulb',imgKey:'redlight_night',noIngTab:true},
+    {name:'Mini Red Clip-On Lamp',tag:'Rechargeable clip-on red lamp · 1 light',price:'€17',desc:'A small rechargeable clip-on lamp with soft red light for nighttime use — perfect for reading or feeding without disturbing sleep. The red light supports natural melatonin production and healthy circadian rhythms, gently soothing the eyes. It charges via cable, has a single-button control, adjustable brightness, and easily clips to a book, bed, or crib.',ing:'',al:'',st:'Charge fully before first use. Keep away from water.',how:'',icon:'bulb',imgKey:'redlight_clipon',noIngTab:true},
   ],
   altai: [
     {name:'Forest Harmony',tag:'Relaxation & rejuvenation tea · 100g',price:'€14',desc:'This blend provides a gentle sense of relaxation and rejuvenation, with light fruity notes of strawberry.',ing:'Kuril tea, thyme, strawberry leaves, dried strawberries.',al:'',st:'Store in a cool, dry place, protected from sunlight.',how:'',note:'Makes about 30 cups.',icon:'tea',imgKey:'altai_forest'},
@@ -426,14 +426,20 @@ function openModal(p, brand) {
   if (p.st) howParts.push('Storage: ' + p.st);
   document.getElementById('th').textContent = howParts.join('\n\n');
 
-  // Second tab label — "Supplement Facts" only for actual supplements
-  const isSupp = p.icon === 'supp' || p.icon === 'heart';
-  document.getElementById('tab2Btn').textContent = isSupp ? 'Supplement Facts' : 'Ingredients';
-
-  // Ingredients/Supplement Facts tab = ingredients + allergens
-  let factsText = p.ing || '';
-  if (p.al) factsText += (factsText ? '\n\nAllergens: ' : 'Allergens: ') + p.al;
-  document.getElementById('ti').textContent = factsText;
+  // Second tab — hide entirely for non-ingredient products (e.g. devices)
+  const tab2Btn = document.getElementById('tab2Btn');
+  const tab2Content = document.getElementById('ti');
+  if (p.noIngTab) {
+    tab2Btn.style.display = 'none';
+    tab2Content.textContent = '';
+  } else {
+    tab2Btn.style.display = '';
+    const isSupp = p.icon === 'supp' || p.icon === 'heart';
+    tab2Btn.textContent = isSupp ? 'Supplement Facts' : 'Ingredients';
+    let factsText = p.ing || '';
+    if (p.al) factsText += (factsText ? '\n\nAllergens: ' : 'Allergens: ') + p.al;
+    tab2Content.textContent = factsText;
+  }
 
   const msg = encodeURIComponent(`Hi! I'd like to order: ${p.name} (${p.price}). Could you confirm availability and delivery options?`);
   document.getElementById('mCta').href = `${WA}?text=${msg}`;
