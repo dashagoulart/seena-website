@@ -206,6 +206,7 @@ footer{background:var(--sage-deep);padding:40px 48px}
     <button class="filter-pill" onclick="filterBrand('tallow',this)">Pure Tallow</button>
     <button class="filter-pill" onclick="filterBrand('redlight',this)">Red Light</button>
     <button class="filter-pill" onclick="filterBrand('altai',this)">Altai Code Tea</button>
+    <button class="filter-pill" onclick="filterBrand('sazonova',this)">Sazonova School</button>
   </div>
 </div>
 
@@ -253,6 +254,15 @@ footer{background:var(--sage-deep);padding:40px 48px}
     <div class="brand-desc">After sunset, light matters. Soft red light doesn't suppress melatonin — supporting natural rest, recovery, and healthy circadian rhythms.</div>
   </div>
   <div class="product-grid" id="grid-redlight"></div>
+</div>
+
+<!-- SAZONOVA SCHOOL -->
+<div class="brand-section" data-brand="sazonova">
+  <div class="brand-header">
+    <div class="brand-name">Sazonova School × Seena</div>
+    <div class="brand-desc">Products developed in collaboration with Alyona Sazonova to support natural, healthy child development from birth.</div>
+  </div>
+  <div class="product-grid" id="grid-sazonova"></div>
 </div>
 
 <!-- ALTAI CODE TEA -->
@@ -356,6 +366,10 @@ const products = {
     {name:'Red LED Night Light with Motion Sensor',tag:'Motion-sensor night light · 2 lights',price:'€19.50',desc:'Soft light without the blue spectrum does not suppress melatonin, supports the circadian rhythm, and helps make it easier to fall back asleep at night. Equipped with a motion sensor, it turns on automatically when movement is detected — perfect for nighttime use in bathrooms and hallways.',ing:'',al:'',st:'Plug into standard EU socket. Motion sensor range approx. 3 metres.',how:'',icon:'bulb',imgKey:'redlight_night',noIngTab:true},
     {name:'Mini Red Clip-On Lamp',tag:'Rechargeable clip-on red lamp · 1 light',price:'€17',desc:'A small rechargeable clip-on lamp with soft red light for nighttime use — perfect for reading or feeding without disturbing sleep. The red light supports natural melatonin production and healthy circadian rhythms, gently soothing the eyes. It charges via cable, has a single-button control, adjustable brightness, and easily clips to a book, bed, or crib.',ing:'',al:'',st:'Charge fully before first use. Keep away from water.',how:'',icon:'bulb',imgKey:'redlight_clipon',noIngTab:true},
   ],
+  sazonova: [
+    {name:'Nova Sense Baby Pouf',tag:'Womb-like support · Birth to 3–5 years',price:'€150',desc:'Creates a cozy, womb-like environment for children from birth up to 3–5 years. Its soft, enveloping shape gently supports the body, providing a sense of safety and comfort similar to being in the mother\'s womb. Helps the child relax, relieves tension, promotes calm breathing, and supports body awareness, coordination, and early sensory integration. Lightweight, portable, and easy to care for.',ing:'',al:'',st:'',how:'',icon:'heart',imgKey:null,noIngTab:true},
+    {name:'Physiological Swaddles',tag:'Natural swaddling · Adaptable sizing',price:'€20 / €25',desc:'A soft, cozy wrap that holds the upper body while allowing the hips and legs to move freely. Supports proper spinal alignment, encourages self-soothing, and adapts as the child grows, offering safe, comfortable, and calming swaddling.',ing:'',al:'',st:'',how:'',note:'Standard size · €20 · Large size · €25',icon:'heart',imgKey:null,noIngTab:true},
+  ],
   altai: [
     {name:'Forest Harmony',tag:'Relaxation & rejuvenation tea · 100g',price:'€14',desc:'This blend provides a gentle sense of relaxation and rejuvenation, with light fruity notes of strawberry.',ing:'Kuril tea, thyme, strawberry leaves, dried strawberries.',al:'',st:'Store in a cool, dry place, protected from sunlight.',how:'',note:'Makes about 30 cups.',icon:'tea',imgKey:'altai_forest'},
     {name:'Summer Sigh',tag:'Calming herbal tea · 100g',price:'€15',desc:'This herbal blend is valued for its gentle calming effects and refreshing aroma.',ing:'Chamomile, ziziphora, lemongrass, lemon peel.',al:'',st:'Store in a cool, dry place, protected from sunlight.',how:'',note:'Makes about 30 cups.',icon:'tea',imgKey:'altai_summer'},
@@ -372,7 +386,7 @@ const products = {
 };
 
 const iconMap = {supp:SVG_SUPP, heart:SVG_HEART, bulb:SVG_BULB, tea:SVG_TEA, skin:SVG_SKIN, set:SVG_SET};
-const brandMap = {augment:'Augment Life', oxxyo3:'OXXYO3', hawa:'Hawa Pharma', tallow:'Pure Tallow', redlight:'Red Light', altai:'Altai Code Tea'};
+const brandMap = {augment:'Augment Life', oxxyo3:'OXXYO3', hawa:'Hawa Pharma', tallow:'Pure Tallow', redlight:'Red Light', altai:'Altai Code Tea', sazonova:'Sazonova School'};
 
 const photosBrands = new Set(['augment','hawa','altai']);
 

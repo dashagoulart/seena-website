@@ -88,11 +88,6 @@ main{max-width:1240px;margin:0 auto;padding:64px 56px 96px}
 .service-card.ozone .card-icon svg{stroke:#4a90b8}
 .service-card.ozone .card-price{color:#3a7498}
 
-/* Children card accent */
-.service-card.children .card-icon{background:rgba(180,140,200,.1)}
-.service-card.children .card-icon svg{stroke:#8c6aaa}
-.service-card.children .card-price{color:#7a5a9a}
-
 /* ── MODAL ── */
 .modal-overlay{display:none;position:fixed;inset:0;z-index:200;background:rgba(20,30,22,.6);backdrop-filter:blur(6px);align-items:center;justify-content:center;padding:24px}
 .modal-overlay.open{display:flex}
@@ -102,7 +97,6 @@ main{max-width:1240px;margin:0 auto;padding:64px 56px 96px}
 .modal-close svg{width:15px;height:15px}
 .modal-accent{height:6px;background:linear-gradient(90deg,var(--sage-deep),var(--sage-mid));flex-shrink:0}
 .modal-accent.ozone{background:linear-gradient(90deg,#2d6a8f,#4a90b8)}
-.modal-accent.children{background:linear-gradient(90deg,#6a4a8a,#9c7ab8)}
 .modal-content{padding:32px 36px 28px;overflow-y:auto;flex:1}
 .modal-cat{font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--sage);margin-bottom:10px}
 .modal-name{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:300;line-height:1.15;color:var(--text);margin-bottom:20px}
@@ -234,10 +228,6 @@ footer{background:var(--sage-deep);padding:40px 48px}
       <svg viewBox="0 0 24 24"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2"/><path d="M12 8v4l3 3"/></svg>
       Therapies
     </a>
-    <a class="cat-pill" href="#children">
-      <svg viewBox="0 0 24 24"><path d="M12 2a4 4 0 100 8 4 4 0 000-8zM4 20a8 8 0 0116 0"/></svg>
-      Children's Health
-    </a>
     <a class="cat-pill" href="#equipment">
       <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
       Equipment
@@ -289,17 +279,6 @@ footer{background:var(--sage-deep);padding:40px 48px}
     <div class="services-grid" id="grid-therapies"></div>
   </section>
 
-  <!-- ══ CHILDREN ══ -->
-  <section class="service-section" id="children">
-    <div class="section-header">
-      <div class="section-title-group">
-        <div class="section-eyebrow">Sazonova School × Seena</div>
-        <h2 class="section-title">Children's Health</h2>
-      </div>
-      <p class="section-note">Products developed in collaboration with Alyona Sazonova to support natural, healthy child development from birth.</p>
-    </div>
-    <div class="services-grid cols-2" id="grid-children"></div>
-  </section>
 
   <!-- ══ EQUIPMENT ══ -->
   <section class="service-section" id="equipment">
@@ -409,6 +388,16 @@ const services = {
     },
     {
       icon: ICON_FERTILITY,
+      name: 'Menstrual Literacy Programme — Individual Session',
+      specialists: [{"name": "Sheila Góis Habib", "key": "sheila"}],
+      cat: 'Consultations',
+      desc: 'A one-off 90-minute session with Sheila for cycle review, charting questions, or specific fertility awareness topics. No programme commitment needed.',
+      pricing: [
+        {label: '90-minute session', price: '€80'},
+      ]
+    },
+    {
+      icon: ICON_FERTILITY,
       name: 'Menstrual Literacy Programme',
       specialists: [{"name": "Sheila Góis Habib", "key": "sheila"}],
       cat: 'Consultations',
@@ -416,16 +405,6 @@ const services = {
       pricing: [
         {label: 'Trying to Conceive · 3 months (up to 6 sessions)', price: '€460'},
         {label: 'Avoiding Pregnancy · 4 cycles (up to 8 sessions)', price: '€600'},
-      ]
-    },
-    {
-      icon: ICON_FERTILITY,
-      name: 'Menstrual Literacy Programme — Individual Session',
-      specialists: [{"name": "Sheila Góis Habib", "key": "sheila"}],
-      cat: 'Consultations',
-      desc: 'A one-off 90-minute session with Sheila for cycle review, charting questions, or specific fertility awareness topics. No programme commitment needed.',
-      pricing: [
-        {label: '90-minute session', price: '€80'},
       ]
     },
   ],
@@ -479,7 +458,7 @@ const services = {
       cat: 'Therapies',
       desc: 'A clinical technique designed to restore proper breathing patterns and normalize lung function, enhancing tissue oxygenation, reducing anxiety and hyperventilation, and supporting overall respiratory well-being.',
       pricing: [
-        {label: 'Single session', price: '€60'},
+        {label: 'Single session', price: '€50'},
         {label: 'Pack of 5 sessions', price: '€249'},
       ]
     },
@@ -680,31 +659,6 @@ const services = {
       ]
     },
   ],
-  children: [
-    {
-      icon: ICON_POUF,
-      name: 'Nova Sense Baby Pouf',
-      specialists: [{"name": "Alyona Sazonova", "key": "alyona-s"}],
-      cat: "Children's Health",
-      type: 'children',
-      desc: 'Creates a cozy, womb-like environment for children from birth up to 3–5 years. Its soft, enveloping shape gently supports the body, providing a sense of safety and comfort similar to being in the mother\'s womb.\n\nHelps the child relax, relieves tension, promotes calm breathing, and supports body awareness, coordination, and early sensory integration. Lightweight, portable, and easy to care for.',
-      pricing: [
-        {label: 'Nova Sense Pouf', price: '€150'},
-      ]
-    },
-    {
-      icon: ICON_SWADDLE,
-      name: 'Physiological Swaddles',
-      specialists: [{"name": "Alyona Sazonova", "key": "alyona-s"}],
-      cat: "Children's Health",
-      type: 'children',
-      desc: 'A soft, cozy wrap that holds the upper body while allowing the hips and legs to move freely. Supports proper spinal alignment, encourages self-soothing, and adapts as the child grows, offering safe, comfortable, and calming swaddling.',
-      pricing: [
-        {label: 'Standard size', price: '€20'},
-        {label: 'Large size', price: '€25'},
-      ]
-    },
-  ]
 };
 
 // ── BUILD CARDS ──
