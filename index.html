@@ -35,7 +35,8 @@ nav {
   transition:background .35s,box-shadow .35s;
 }
 nav.scrolled{background:var(--sage-deep);box-shadow:0 2px 24px rgba(0,0,0,.18)}
-.nav-logo{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:400;color:#fff;letter-spacing:.06em;text-decoration:none;line-height:1}
+.nav-logo{display:flex;align-items:center;gap:10px;font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:400;color:#fff;letter-spacing:.06em;text-decoration:none;line-height:1}
+.nav-logo-icon{height:40px;width:auto;flex-shrink:0}
 .nav-links{display:flex;gap:32px;list-style:none}
 .nav-links a{color:rgba(255,255,255,.72);text-decoration:none;font-size:13.5px;font-weight:400;letter-spacing:.01em;transition:color .2s}
 .nav-links a:hover{color:#fff}
@@ -573,7 +574,7 @@ footer{background:var(--sage-deep);padding:40px 48px}
 
 <!-- NAV -->
 <nav id="nav">
-  <a href="/" class="nav-logo">Seena</a>
+  <a href="/" class="nav-logo"><img src="/logos/icon-white.png" alt="" class="nav-logo-icon"><span>Seena</span></a>
   <ul class="nav-links">
     <li><a href="/services/">Services</a></li>
     <li><a href="/specialists/">Specialists</a></li>
