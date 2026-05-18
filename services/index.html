@@ -477,7 +477,8 @@ const services = {
       pricing: [
         {label: 'Single session', price: '€50'},
         {label: 'Pack of 5 sessions', price: '€249'},
-      ]
+      ],
+      cardDisplay: {price: '€249', note: 'Pack of 5 sessions'}
     },
     {
       icon: ICON_TRE,
@@ -681,11 +682,12 @@ const services = {
 // ── BUILD CARDS ──
 function buildCard(s, idx, section) {
   const isIncluded = s.included;
-  const mainPrice = s.pricing.length ? s.pricing[0].price : null;
+  const cardPrice = s.cardDisplay ? s.cardDisplay.price : (s.pricing.length ? s.pricing[0].price : null);
+  const cardNote = s.cardDisplay ? s.cardDisplay.note : (s.pricing.length > 1 ? '+ pack options available' : '');
   const priceHtml = isIncluded
     ? `<span class="included-badge"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>${s.included}</span>`
-    : mainPrice
-      ? `<div><div class="card-price">${mainPrice}</div>${s.pricing.length > 1 ? `<div class="card-price-note">+ pack options available</div>` : ''}</div>`
+    : cardPrice
+      ? `<div><div class="card-price">${cardPrice}</div>${cardNote ? `<div class="card-price-note">${cardNote}</div>` : ''}</div>`
       : '';
 
   const bookHtml = isIncluded ? '' : `<a class="card-book" href="https://wa.me/351924353219?text=${encodeURIComponent('Hi! I\'d like to book: '+s.name+'. Could you confirm availability?')}" target="_blank" onclick="event.stopPropagation()">Book</a>`;
