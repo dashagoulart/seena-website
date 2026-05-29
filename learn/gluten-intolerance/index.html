@@ -214,11 +214,10 @@ main{max-width:860px;margin:0 auto;padding:0 56px 96px;display:grid;grid-templat
 .faq-a{font-size:14px;font-weight:300;color:var(--text-mid);line-height:1.7}
 
 /* ── REFERENCES ── */
-.prose .references li::before{content:none;display:none}
 .references{margin-top:48px;padding-top:32px;border-top:1px solid var(--cream-dark)}
 .references-label{font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--text-soft);margin-bottom:16px}
-.references ol{list-style:none;padding:0;display:flex;flex-direction:column;gap:12px}
-.references li{display:flex;gap:12px;font-size:12px;font-weight:300;color:var(--text-soft);line-height:1.7}
+.ref-list{display:flex;flex-direction:column;gap:12px}
+.ref-item{display:flex;gap:12px;font-size:12px;font-weight:300;color:var(--text-soft);line-height:1.7}
 .ref-num{min-width:16px;font-weight:500;color:var(--stone);flex-shrink:0;padding-top:1px}
 
 /* ── SIDEBAR ── */
@@ -500,13 +499,13 @@ footer{background:var(--sage-deep);padding:40px 48px}
 
     <div class="references">
       <div class="references-label">References</div>
-      <ol>
-        <li><span class="ref-num">1.</span><span>Fasano A, et al. Global prevalence of celiac disease estimated at ~1% based on meta-analysis of population studies. Celiac Disease Foundation / Clinical data review.</span></li>
-        <li><span class="ref-num">2.</span><span>El-Salhy M, et al. The relation between celiac disease, non-celiac gluten sensitivity and irritable bowel syndrome. <em>Nutrition Journal.</em></span></li>
-        <li><span class="ref-num">3.</span><span>Biesiekierski JR, Peters SL, Newnham ED, Rosella O, Muir JG, Gibson PR. No effects of gluten in patients with self-reported non-celiac gluten sensitivity after dietary reduction of fermentable, poorly absorbed, short-chain carbohydrates. <em>Gastroenterology.</em> 2013;145(2):320–328. doi:10.1053/j.gastro.2013.04.051.</span></li>
-        <li><span class="ref-num">4.</span><span>Skodje GI, Sarna VK, Minelle IH, et al. Fructan, Rather Than Gluten, Induces Symptoms in Patients With Self-Reported Non-Celiac Gluten Sensitivity. <em>Gastroenterology.</em> 2018;154(3):529–539. doi:10.1053/j.gastro.2017.10.040.</span></li>
-        <li><span class="ref-num">5.</span><span>Allied Market Research. Gluten-Free Products Market: Global Opportunity Analysis and Industry Forecast, 2021–2030.</span></li>
-      </ol>
+      <div class="ref-list">
+        <div class="ref-item"><span class="ref-num">1.</span><span>Fasano A, et al. Global prevalence of celiac disease estimated at ~1% based on meta-analysis of population studies. Celiac Disease Foundation / Clinical data review.</span></div>
+        <div class="ref-item"><span class="ref-num">2.</span><span>El-Salhy M, et al. The relation between celiac disease, non-celiac gluten sensitivity and irritable bowel syndrome. <em>Nutrition Journal.</em></span></div>
+        <div class="ref-item"><span class="ref-num">3.</span><span>Biesiekierski JR, Peters SL, Newnham ED, Rosella O, Muir JG, Gibson PR. No effects of gluten in patients with self-reported non-celiac gluten sensitivity after dietary reduction of fermentable, poorly absorbed, short-chain carbohydrates. <em>Gastroenterology.</em> 2013;145(2):320–328. doi:10.1053/j.gastro.2013.04.051.</span></div>
+        <div class="ref-item"><span class="ref-num">4.</span><span>Skodje GI, Sarna VK, Minelle IH, et al. Fructan, Rather Than Gluten, Induces Symptoms in Patients With Self-Reported Non-Celiac Gluten Sensitivity. <em>Gastroenterology.</em> 2018;154(3):529–539. doi:10.1053/j.gastro.2017.10.040.</span></div>
+        <div class="ref-item"><span class="ref-num">5.</span><span>Allied Market Research. Gluten-Free Products Market: Global Opportunity Analysis and Industry Forecast, 2021–2030.</span></div>
+      </div>
     </div>
 
   </article>
