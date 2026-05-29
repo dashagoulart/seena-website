@@ -96,7 +96,7 @@ main{max-width:1200px;margin:0 auto;padding:64px 48px 96px}
 .event-by{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:400;color:var(--sage);margin-bottom:10px;width:fit-content}
 .event-by img{width:22px;height:22px;border-radius:50%;object-fit:cover;border:1.5px solid var(--cream-dark);background:var(--cream-dark)}
 .event-by img{width:22px;height:22px;border-radius:50%;object-fit:cover;border:1.5px solid var(--cream-dark)}
-.articles-block{display:none}
+.articles-block{margin-bottom:80px}
 .event-card{cursor:pointer}
 /* ── EVENT MODAL ── */
 .ev-overlay{position:fixed;inset:0;background:rgba(42,37,32,.62);z-index:400;display:none;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)}
@@ -162,6 +162,7 @@ main{max-width:1200px;margin:0 auto;padding:64px 48px 96px}
 .bg-nutrition{background:linear-gradient(135deg,#6b4226,#a0522d)}
 .bg-stress{background:linear-gradient(135deg,#4c3475,#6b46c1)}
 .bg-kids{background:linear-gradient(135deg,#1a4a4a,#2c7a7b)}
+.bg-gluten{background:linear-gradient(135deg,#7a6230,#b09a50)}
 .newsletter{background:var(--sage-deep);border-radius:20px;padding:52px 64px;display:flex;align-items:center;justify-content:space-between;gap:48px}
 .newsletter h3{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:300;color:#fff;margin-bottom:8px}
 .newsletter h3 em{font-style:italic}
@@ -271,6 +272,7 @@ footer{background:var(--sage-deep);padding:40px 48px}
   <div class="filters-inner">
     <button class="filter-tab active" onclick="filterContent('all',this)">All</button>
     <button class="filter-tab" onclick="filterContent('events',this)">Events</button>
+    <button class="filter-tab" onclick="filterContent('articles',this)">Articles</button>
   </div>
 </div>
 
@@ -286,28 +288,26 @@ footer{background:var(--sage-deep);padding:40px 48px}
       <a href="#" class="see-all">All events →</a>
     </div>
 
-    <div class="events-grid">
-      <div class="event-card" onclick="openEvent('open-door')">
-        <div class="event-card-top has-photo" style="background-color:#3d5843">
-          <span class="event-card-date">16 May 2026</span>
-          <span class="event-card-tag">Open House</span>
-        </div>
-        <div class="event-card-body">
-          <div class="event-card-title">Open Doors at Seena</div>
-          <div class="event-card-desc">An invitation for our community to visit the centre, meet the specialists, and experience integrative care firsthand.</div>
-          <div class="event-card-footer">
-            <span class="event-card-meta">Fully booked</span>
-            <svg class="event-card-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 18l6-6-6-6"/></svg>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <!-- PAST EVENTS -->
     <div class="past-events-header">
       <div class="past-events-label">Past events</div>
     </div>
     <div class="events-grid">
+
+      <div class="event-card" onclick="openEvent('open-door')">
+        <div class="event-card-top has-photo" style="background-color:#3d5843">
+          <span class="event-card-date">16 May 2026</span>
+          <span class="event-card-tag past">Past event</span>
+        </div>
+        <div class="event-card-body">
+          <div class="event-card-title">Open Doors at Seena</div>
+          <div class="event-card-desc">An invitation for our community to visit the centre, meet the specialists, and experience integrative care firsthand.</div>
+          <div class="event-card-footer">
+            <span class="event-card-meta">Open House · Seena Centre</span>
+            <svg class="event-card-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 18l6-6-6-6"/></svg>
+          </div>
+        </div>
+      </div>
 
       <div class="event-card" id="event-flat-feet" onclick="openEvent('flat-feet')">
         <div class="event-card-top has-photo" style="background-image:linear-gradient(160deg,#4a5e4a,#3d5843)">
@@ -400,52 +400,12 @@ footer{background:var(--sage-deep);padding:40px 48px}
       <a href="#" class="see-all">All articles →</a>
     </div>
     <div class="articles-grid">
-      <a href="/learn/ozone-therapy/" class="article-card">
-        <div class="article-card-img bg-ozone"><span class="article-cat">Ozone Therapy</span></div>
+      <a href="/learn/gluten-intolerance/" class="article-card">
+        <div class="article-card-img bg-gluten"><span class="article-cat">Nutrition</span></div>
         <div class="article-body">
-          <div class="article-title">What is Ozone Therapy? Is It Right for You?</div>
-          <div class="article-excerpt">A plain-English guide to how medical ozone works, what conditions it supports, and what to expect from your first session.</div>
-          <div class="article-footer"><span class="article-author">Dr. Vadim Fasiy</span><span class="article-read">5 min read</span></div>
-        </div>
-      </a>
-      <a href="/learn/breathing/" class="article-card">
-        <div class="article-card-img bg-breath"><span class="article-cat">Functional Breathing</span></div>
-        <div class="article-body">
-          <div class="article-title">Are You Breathing Incorrectly? The Buteyko Method Explained</div>
-          <div class="article-excerpt">Chronic over-breathing is behind more conditions than most people realise — from anxiety to poor sleep to persistent fatigue.</div>
-          <div class="article-footer"><span class="article-author">Alyona Tenitski</span><span class="article-read">6 min read</span></div>
-        </div>
-      </a>
-      <a href="/learn/integrative-medicine/" class="article-card">
-        <div class="article-card-img bg-nutrition"><span class="article-cat">Integrative Medicine</span></div>
-        <div class="article-body">
-          <div class="article-title">What is Integrative Medicine? Why Does It Matter?</div>
-          <div class="article-excerpt">The difference between conventional, complementary, and integrative approaches — and why the third produces different results.</div>
-          <div class="article-footer"><span class="article-author">Joana Mateus</span><span class="article-read">4 min read</span></div>
-        </div>
-      </a>
-      <a href="/learn/kinesiology/" class="article-card">
-        <div class="article-card-img bg-stress"><span class="article-cat">Kinesiology</span></div>
-        <div class="article-body">
-          <div class="article-title">Kinesiology: Assessing Movement to Understand the Whole Body</div>
-          <div class="article-excerpt">Functional kinesiology isn't just about muscles — it's a diagnostic lens for understanding how the body compensates.</div>
-          <div class="article-footer"><span class="article-author">Maxim Steshenko</span><span class="article-read">5 min read</span></div>
-        </div>
-      </a>
-      <a href="/learn/naturopathy/" class="article-card">
-        <div class="article-card-img bg-kids"><span class="article-cat">Naturopathy</span></div>
-        <div class="article-body">
-          <div class="article-title">Beyond Supplements: What a Naturopath Actually Does</div>
-          <div class="article-excerpt">Most people think naturopathy is about vitamins. It's about finding root causes — through nutrition, lifestyle, and diagnostics.</div>
-          <div class="article-footer"><span class="article-author">Joana Mateus</span><span class="article-read">4 min read</span></div>
-        </div>
-      </a>
-      <a href="/learn/stress/" class="article-card">
-        <div class="article-card-img bg-ozone"><span class="article-cat">Mind & Body</span></div>
-        <div class="article-body">
-          <div class="article-title">TRE: How Trauma Releases from the Body but Not the Mind</div>
-          <div class="article-excerpt">Tension & Trauma Releasing Exercises work through the body's own neurogenic tremor mechanism. An intro to TRE and who it helps.</div>
-          <div class="article-footer"><span class="article-author">Teresa Ranieri</span><span class="article-read">6 min read</span></div>
+          <div class="article-title">Gluten Intolerance: What It Really Is</div>
+          <div class="article-excerpt">Is gluten actually the problem? Evidence-based guidance on celiac disease, FODMAPs, fructans, and finding the food patterns that work for your body.</div>
+          <div class="article-footer"><span class="article-author">Gultekin Daglar</span><span class="article-read">12 min read</span></div>
         </div>
       </a>
     </div>
@@ -630,6 +590,8 @@ window.addEventListener('DOMContentLoaded',function(){
 function filterContent(type,btn){
   document.querySelectorAll('.filter-tab').forEach(t=>t.classList.remove('active'));
   btn.classList.add('active');
+  document.getElementById('events-block').style.display=type==='articles'?'none':'';
+  document.getElementById('articles-block').style.display=type==='events'?'none':'';
 }
 </script>
 <script>
