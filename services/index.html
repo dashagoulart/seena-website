@@ -381,6 +381,7 @@ function serviceLangs(specialists) {
 const services = {
   consultations: [
     {
+      slug: 'integrative-medicine',
       icon: ICON_CONSULT,
       name: 'Integrative Medical Consultation',
       specialists: [{"name": "Dr. Nataliia Polishchuk", "key": "natalia"}],
@@ -392,6 +393,7 @@ const services = {
       ]
     },
     {
+      slug: 'nutritionist-consultation',
       icon: ICON_NUTRITION,
       name: 'Integrative Nutritionist Consultation',
       specialists: [{"name": "Gultekin Ravshanovna Daglar", "key": "gultekin"}],
@@ -402,6 +404,7 @@ const services = {
       ]
     },
     {
+      slug: 'medical-acupuncture',
       icon: ICON_ACUPUNCTURE,
       name: 'Medical Acupuncture',
       specialists: [{"name": "Dr. Vadim Fasiy", "key": "vadim"}],
@@ -413,6 +416,7 @@ const services = {
       ]
     },
     {
+      slug: 'menstrual-literacy',
       icon: ICON_FERTILITY,
       name: 'Menstrual Literacy Programme',
       specialists: [{"name": "Sheila Góis Habib", "key": "sheila"}],
@@ -427,6 +431,7 @@ const services = {
   ],
   therapies: [
     {
+      slug: 'naturopathy',
       icon: ICON_NATURE,
       name: 'Naturopathy',
       specialists: [{"name": "Joana Patr\u00edcia Teixeira Mateus", "key": "joana"}],
@@ -437,6 +442,7 @@ const services = {
       ]
     },
     {
+      slug: 'manual-therapy',
       icon: ICON_MANUAL,
       name: 'Lifebreath Manual Therapy',
       specialists: [{"name": "Vladislava Artemenko", "key": "vladislava"}],
@@ -448,6 +454,7 @@ const services = {
       ]
     },
     {
+      slug: 'therapeutic-massage',
       icon: ICON_MASSAGE,
       name: 'Therapeutic Massage',
       specialists: [{"name": "Irina Bukharbaeva", "key": "irina"}],
@@ -458,6 +465,7 @@ const services = {
       ]
     },
     {
+      slug: 'kinesiology',
       icon: ICON_KINESIO,
       name: 'Kinesiology',
       specialists: [{"name": "Maxim Steshenko", "key": "maxim"}],
@@ -469,6 +477,7 @@ const services = {
       ]
     },
     {
+      slug: 'buteyko-breathing',
       icon: ICON_BREATH,
       name: 'Functional Breathing — Buteyko Method',
       specialists: [{"name": "Alyona Tenitski", "key": "alyona-t"}],
@@ -481,6 +490,7 @@ const services = {
       cardDisplay: {price: '€249', note: 'Pack of 5 sessions'}
     },
     {
+      slug: 'tre',
       icon: ICON_TRE,
       name: 'TRE — Tension Release Exercises',
       specialists: [{"name": "Teresa Ranieri", "key": "teresa"}],
@@ -491,6 +501,7 @@ const services = {
       ]
     },
     {
+      slug: 'pediatric-rehabilitation',
       icon: ICON_CHILD,
       name: 'Pediatric Rehabilitation',
       specialists: [{"name": "Alyona Sazonova", "key": "alyona-s"}],
@@ -503,6 +514,7 @@ const services = {
   ],
   ozone: [
     {
+      slug: 'ozone-consultation',
       icon: ICON_CONSULT,
       name: 'Ozone Therapy Consultation',
       specialists: [{"name": "Dr. Nataliia Polishchuk", "key": "natalia"}, {"name": "Dr. Vadim Fasiy", "key": "vadim"}],
@@ -515,6 +527,7 @@ const services = {
       ]
     },
     {
+      slug: 'intravenous-ozone',
       icon: ICON_IV,
       name: 'Intravenous Ozone (Major Autohemotherapy)',
       specialists: [{"name": "Nurse Ana (Ana Filipa Pereira Lavaredas)", "key": "ana"}],
@@ -528,6 +541,7 @@ const services = {
       ]
     },
     {
+      slug: 'intramuscular-ozone',
       icon: ICON_OZONE,
       name: 'Intramuscular Ozone (Minor Autohemotherapy)',
       specialists: [{"name": "Nurse Ana (Ana Filipa Pereira Lavaredas)", "key": "ana"}],
@@ -541,6 +555,7 @@ const services = {
       ]
     },
     {
+      slug: 'intra-articular-ozone',
       icon: ICON_JOINT,
       name: 'Intra-Articular Ozone',
       specialists: [{"name": "Dr. Vadim Fasiy", "key": "vadim"}],
@@ -552,6 +567,7 @@ const services = {
       ]
     },
     {
+      slug: 'rectal-ozone',
       icon: ICON_OZONE,
       name: 'Rectal Ozone (Insufflation)',
       specialists: [{"name": "Nurse Ana (Ana Filipa Pereira Lavaredas)", "key": "ana"}],
@@ -563,6 +579,7 @@ const services = {
       ]
     },
     {
+      slug: 'auricular-ozone',
       icon: ICON_OZONE,
       name: 'Auricular Ozone Therapy',
       specialists: [{"name": "Nurse Ana (Ana Filipa Pereira Lavaredas)", "key": "ana"}],
@@ -574,6 +591,7 @@ const services = {
       ]
     },
     {
+      slug: 'bag-ozone',
       icon: ICON_OZONE,
       name: 'Bag Ozone Therapy',
       specialists: [{"name": "Nurse Ana (Ana Filipa Pereira Lavaredas)", "key": "ana"}],
@@ -585,6 +603,7 @@ const services = {
       ]
     },
     {
+      slug: 'ozone-acupuncture',
       icon: ICON_ACUPUNCTURE,
       name: 'Ozone Acupuncture',
       specialists: [{"name": "Dr. Vadim Fasiy", "key": "vadim"}],
@@ -596,6 +615,7 @@ const services = {
       ]
     },
     {
+      slug: 'intravaginal-ozone',
       icon: ICON_OZONE,
       name: 'Intravaginal Ozone Therapy',
       specialists: [{"name": "Nurse Ana (Ana Filipa Pereira Lavaredas)", "key": "ana"}],
@@ -607,6 +627,7 @@ const services = {
       ]
     },
     {
+      slug: 'localized-lipolysis',
       icon: ICON_OZONE,
       name: 'Localized Lipolysis (Anti-Cellulite)',
       specialists: [{"name": "Nurse Ana (Ana Filipa Pereira Lavaredas)", "key": "ana"}],
@@ -618,6 +639,7 @@ const services = {
       ]
     },
     {
+      slug: 'ozone-cystitis',
       icon: ICON_OZONE,
       name: 'Ozone Therapy for Chronic Interstitial Cystitis',
       specialists: [{"name": "Dr. Vadim Fasiy", "key": "vadim"}],
@@ -631,6 +653,7 @@ const services = {
   ],
   equipment: [
     {
+      slug: 'ems-body-sculpt',
       icon: ICON_EMS,
       name: 'EMS Body Sculpt / EMS Chair',
       specialists: [{"name": "Maxim Steshenko", "key": "maxim"}],
@@ -640,6 +663,7 @@ const services = {
       pricing: []
     },
     {
+      slug: 'shockwave-therapy',
       icon: ICON_SHOCK,
       name: 'Shockwave Therapy',
       specialists: [{"name": "Maxim Steshenko", "key": "maxim"}],
@@ -649,6 +673,7 @@ const services = {
       pricing: []
     },
     {
+      slug: 'pressotherapy',
       icon: ICON_PRESS,
       name: 'Pressotherapy',
       specialists: [{"name": "Maxim Steshenko", "key": "maxim"}],
@@ -658,6 +683,7 @@ const services = {
       pricing: []
     },
     {
+      slug: 'tens',
       icon: ICON_EMS,
       name: 'TENS',
       specialists: [{"name": "Maxim Steshenko", "key": "maxim"}],
@@ -667,6 +693,7 @@ const services = {
       pricing: []
     },
     {
+      slug: 'thermal-chamber',
       icon: ICON_THERMAL,
       name: 'Thermal Chamber (Thermography)',
       specialists: [{"name": "Maxim Steshenko", "key": "maxim"}],
@@ -698,7 +725,7 @@ function buildCard(s, idx, section) {
   const specRow = specChips ? `<div class="card-specialists">${specChips}</div>` : '';
   const langs = serviceLangs(s.specialists);
   const langsRow = langs.length ? `<div class="card-langs">${langs.map(l=>`<span class="lang-tag">${l}</span>`).join('')}</div>` : '';
-  return `<div class="service-card${s.type ? ' '+s.type : ''}" onclick="openModal('${section}',${idx})">
+  return `<div class="service-card${s.type ? ' '+s.type : ''}" id="${s.slug}" onclick="openModal('${section}',${idx})">
     <div class="card-icon">${s.icon}</div>
     <div class="card-name">${s.name}</div>
     <p class="card-desc">${s.desc.split('\n')[0]}</p>
@@ -743,11 +770,13 @@ function openModal(section, idx) {
   document.getElementById('mBook').href = `https://wa.me/351924353219?text=${msg}`;
   document.getElementById('overlay').classList.add('open');
   document.body.style.overflow = 'hidden';
+  if (s.slug) history.pushState({slug: s.slug}, '', '#' + s.slug);
 }
 
 function closeModal() {
   document.getElementById('overlay').classList.remove('open');
   document.body.style.overflow = '';
+  history.pushState(null, '', window.location.pathname);
 }
 function closeOnOverlay(e) {
   if (e.target === document.getElementById('overlay')) closeModal();
@@ -780,6 +809,21 @@ sections.forEach(s => observer.observe(s));
 <script>
 function openMobileNav(){var m=document.getElementById('navMobile');m.classList.add('open');document.body.style.overflow='hidden'}
 function closeMobileNav(){var m=document.getElementById('navMobile');m.classList.remove('open');document.body.style.overflow=''}
+</script>
+<script>
+(function(){
+  var hash = window.location.hash.slice(1);
+  if (!hash) return;
+  for (var section in services) {
+    for (var i = 0; i < services[section].length; i++) {
+      if (services[section][i].slug === hash) {
+        var s = section, idx = i;
+        setTimeout(function(){ openModal(s, idx); }, 50);
+        return;
+      }
+    }
+  }
+})();
 </script>
 </body>
 </html>
