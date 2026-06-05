@@ -717,7 +717,7 @@ function buildCard(s, idx, section) {
       ? `<div><div class="card-price">${cardPrice}</div>${cardNote ? `<div class="card-price-note">${cardNote}</div>` : ''}</div>`
       : '';
 
-  const bookHtml = isIncluded ? '' : `<a class="card-book" href="https://wa.me/351924353219?text=${encodeURIComponent('Hi! I\'d like to book: '+s.name+'. Could you confirm availability?')}" target="_blank" onclick="event.stopPropagation()">Book</a>`;
+  const bookHtml = isIncluded ? '' : `<a class="card-book" href="https://wa.me/351924353219?text=${encodeURIComponent('Hi! I\'d like to book: '+s.name+'. Could you confirm availability?')}" target="_blank" data-gtm="book-appointment" data-service="${s.name}" data-slug="${s.slug||''}" onclick="event.stopPropagation();window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'book_appointment_click',service_name:'${s.name.replace(/'/g,"\\'")}',service_slug:'${s.slug||''}'})">Book</a>`;
 
   const specChips = (s.specialists||[]).map(sp =>
     `<a class="specialist-chip" href="/specialists/#${sp.key}" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>${sp.name}</a>`
