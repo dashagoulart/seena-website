@@ -311,7 +311,7 @@ footer{background:var(--sage-deep);padding:40px 48px}
       <div class="modal-pricing" id="mPricing"></div>
     </div>
     <div class="modal-footer-btns">
-      <a id="mBook" class="modal-btn-book" href="https://wa.me/351924353219" target="_blank">Book Appointment</a>
+      <a id="mBook" class="modal-btn-book" href="https://wa.me/351924353219" target="_blank" data-gtm="book-appointment">Book Appointment</a>
       <button class="modal-btn-close" onclick="closeModal()">Close</button>
     </div>
   </div>
@@ -767,7 +767,10 @@ function openModal(section, idx) {
   }
 
   const msg = encodeURIComponent(`Hi! I'd like to book: ${s.name}. Could you confirm availability?`);
-  document.getElementById('mBook').href = `https://wa.me/351924353219?text=${msg}`;
+  const mBook = document.getElementById('mBook');
+  mBook.href = `https://wa.me/351924353219?text=${msg}`;
+  mBook.dataset.service = s.name;
+  mBook.dataset.slug = s.slug || '';
   document.getElementById('overlay').classList.add('open');
   document.body.style.overflow = 'hidden';
   if (s.slug) history.pushState({slug: s.slug}, '', '#' + s.slug);
@@ -782,6 +785,15 @@ function closeOnOverlay(e) {
   if (e.target === document.getElementById('overlay')) closeModal();
 }
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+document.getElementById('mBook').addEventListener('click', function() {
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    event: 'book_appointment_click',
+    service_name: this.dataset.service || '',
+    service_slug: this.dataset.slug || '',
+  });
+});
 
 // ── CATEGORY NAV HIGHLIGHT ──
 const pills = document.querySelectorAll('.cat-pill');
