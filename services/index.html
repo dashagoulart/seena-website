@@ -119,6 +119,14 @@ main{max-width:1240px;margin:0 auto;padding:64px 56px 96px}
 .ozone-intro p{font-size:13px;font-weight:300;line-height:1.7;color:rgba(255,255,255,.75);max-width:560px}
 .ozone-intro-note{font-size:11px;font-weight:300;color:rgba(255,255,255,.5);line-height:1.6;text-align:right;min-width:160px}
 
+/* ── SECTION PHOTOS ── */
+.photo-card{border-radius:14px;overflow:hidden;border:1px solid var(--cream-dark)}
+.photo-card img{width:100%;height:100%;object-fit:cover;display:block}
+.ozone-visual{display:grid;grid-template-columns:1fr 220px;gap:20px;margin-bottom:28px;align-items:stretch}
+.ozone-visual .ozone-intro{margin-bottom:0}
+.ozone-photo{border-radius:16px;overflow:hidden}
+.ozone-photo img{width:100%;height:100%;object-fit:cover;display:block}
+
 /* ── FOOTER ── */
 footer{background:var(--sage-deep);padding:40px 48px}
 .footer-inner{max-width:1240px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
@@ -165,6 +173,8 @@ footer{background:var(--sage-deep);padding:40px 48px}
   main{padding:32px 20px 64px}
   .section-header{flex-direction:column;align-items:flex-start;gap:8px}
   .section-note,.ozone-intro-note{text-align:left;max-width:100%;min-width:unset}
+  .ozone-visual{grid-template-columns:1fr}
+  .ozone-photo{height:180px}
   .services-grid{grid-template-columns:1fr!important}
   .services-grid.cols-2{grid-template-columns:1fr!important}
   .ozone-intro{grid-template-columns:1fr;padding:24px 20px}
@@ -260,12 +270,17 @@ footer{background:var(--sage-deep);padding:40px 48px}
         <h2 class="section-title">Ozone Therapy</h2>
       </div>
     </div>
-    <div class="ozone-intro">
-      <div>
-        <h3>What is ozone therapy?</h3>
-        <p>A medical treatment using controlled medical ozone (O₃) — a form of oxygen — to improve oxygen delivery, reduce inflammation, and support the immune system. Applied intravenously, rectally, intramuscularly, or locally depending on the doctor's recommendation.</p>
+    <div class="ozone-visual">
+      <div class="ozone-intro">
+        <div>
+          <h3>What is ozone therapy?</h3>
+          <p>A medical treatment using controlled medical ozone (O₃) — a form of oxygen — to improve oxygen delivery, reduce inflammation, and support the immune system. Applied intravenously, rectally, intramuscularly, or locally depending on the doctor's recommendation.</p>
+        </div>
+        <div class="ozone-intro-note">Every patient begins with<br>a medical consultation to ensure<br>treatment is thoughtfully<br>tailored to their needs.</div>
       </div>
-      <div class="ozone-intro-note">Every patient begins with<br>a medical consultation to ensure<br>treatment is thoughtfully<br>tailored to their needs.</div>
+      <div class="ozone-photo">
+        <img src="../images/ozone-machine-prep.jpg" alt="Ozone therapy machine" style="object-position:center 40%">
+      </div>
     </div>
     <div class="services-grid" id="grid-ozone"></div>
   </section>
@@ -730,9 +745,21 @@ function buildCard(s, idx, section) {
   </div>`;
 }
 
+const SECTION_PHOTOS = {
+  consultations: {src:'../images/gallery-books.jpg',      alt:'Seena consultation space', pos:'center 35%'},
+  therapies:     {src:'../images/gallery-treatment-room.jpg', alt:'Seena treatment room',     pos:'center 65%'},
+};
 Object.keys(services).forEach(section => {
   const grid = document.getElementById('grid-' + section);
-  if (grid) grid.innerHTML = services[section].map((s,i) => buildCard(s,i,section)).join('');
+  if (!grid) return;
+  const cards = services[section].map((s,i) => buildCard(s,i,section)).join('');
+  const photo = SECTION_PHOTOS[section];
+  if (photo) {
+    const rowSpan = Math.ceil(services[section].length / 2);
+    grid.innerHTML = `<div class="photo-card" style="grid-row:span ${rowSpan}"><img src="${photo.src}" alt="${photo.alt}" style="object-position:${photo.pos}"></div>` + cards;
+  } else {
+    grid.innerHTML = cards;
+  }
 });
 
 // ── MODAL ──
