@@ -739,13 +739,13 @@ footer{background:var(--sage-deep);padding:40px 48px}
 <!-- GALLERY CAROUSEL -->
 <section class="gallery">
   <div class="gallery-track" id="galleryTrack">
-    <div class="gallery-slide"><img src="./images/gallery-books.jpg" alt="Детали интерьера"></div>
-    <div class="gallery-slide"><img src="./images/gallery-treatment-room.jpg" alt="Кабинет терапии"></div>
-    <div class="gallery-slide"><img src="./images/gallery-room-detail.jpg" alt="Кабинет — детали"></div>
-    <div class="gallery-slide"><img src="./images/gallery-ozone-machine.jpg" alt="Озонотерапия — аппарат"></div>
-    <div class="gallery-slide"><img src="./images/gallery-ozone-prep.jpg" alt="Озонотерапия — подготовка"></div>
-    <div class="gallery-slide"><img src="./images/gallery-products-full.jpg" alt="Продукты"></div>
-    <div class="gallery-slide"><img src="./images/gallery-coffee.jpg" alt="Кофе-станция"></div>
+    <div class="gallery-slide"><img src="./images/gallery-books.jpg" alt="Детали интерьера" loading="eager" decoding="async"></div>
+    <div class="gallery-slide"><img src="./images/gallery-treatment-room.jpg" alt="Кабинет терапии" loading="lazy" decoding="async"></div>
+    <div class="gallery-slide"><img src="./images/gallery-room-detail.jpg" alt="Кабинет — детали" loading="lazy" decoding="async"></div>
+    <div class="gallery-slide"><img src="./images/gallery-ozone-machine.jpg" alt="Озонотерапия — аппарат" loading="lazy" decoding="async"></div>
+    <div class="gallery-slide"><img src="./images/gallery-ozone-prep.jpg" alt="Озонотерапия — подготовка" loading="lazy" decoding="async"></div>
+    <div class="gallery-slide"><img src="./images/gallery-products-full.jpg" alt="Продукты" loading="lazy" decoding="async"></div>
+    <div class="gallery-slide"><img src="./images/gallery-coffee.jpg" alt="Кофе-станция" loading="lazy" decoding="async"></div>
   </div>
   <button class="gallery-arrow gallery-prev" onclick="galleryGo(-1)" aria-label="Previous">
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 18l-6-6 6-6"/></svg>
@@ -1278,8 +1278,7 @@ function closeMobileNav(){var m=document.getElementById('navMobile');m.classList
   function max(){ return total - slidesVisible(); }
   window.galleryGo = function(dir){
     pos = Math.max(0, Math.min(pos + dir, max()));
-    var slideW = track.children[0].offsetWidth;
-    track.style.transform = 'translateX(-' + (pos * slideW) + 'px)';
+    track.style.transform = 'translateX(-' + (pos * 100 / slidesVisible()) + '%)';
     document.querySelector('.gallery-prev').style.opacity = pos === 0 ? '.35' : '1';
     document.querySelector('.gallery-next').style.opacity = pos >= max() ? '.35' : '1';
   };
