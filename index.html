@@ -1272,13 +1272,14 @@ function closeMobileNav(){var m=document.getElementById('navMobile');m.classList
 <script>
 (function(){
   var pos = 0;
-  var total = 8;
+  var total = 7;
   var track = document.getElementById('galleryTrack');
   function slidesVisible(){ return window.innerWidth < 900 ? 1 : 3; }
   function max(){ return total - slidesVisible(); }
   window.galleryGo = function(dir){
     pos = Math.max(0, Math.min(pos + dir, max()));
-    track.style.transform = 'translateX(-' + (pos * (100 / slidesVisible())) + '%)';
+    var slideW = track.children[0].offsetWidth;
+    track.style.transform = 'translateX(-' + (pos * slideW) + 'px)';
     document.querySelector('.gallery-prev').style.opacity = pos === 0 ? '.35' : '1';
     document.querySelector('.gallery-next').style.opacity = pos >= max() ? '.35' : '1';
   };
