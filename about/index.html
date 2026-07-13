@@ -69,6 +69,10 @@ main{max-width:1200px;margin:0 auto;padding:80px 48px 0}
 .story-h2 em{font-style:italic;color:var(--sage)}
 .story p{font-size:15px;font-weight:300;line-height:1.85;color:var(--text-mid);margin-bottom:18px}
 .story p:last-child{margin-bottom:0}
+.story-text-wrap{display:grid;grid-template-columns:200px 1fr;gap:28px;align-items:stretch}
+.story-inline-media{border-radius:14px;overflow:hidden;border:1px solid var(--cream-dark)}
+.story-inline-media img{width:100%;height:100%;object-fit:cover;object-position:center 50%;display:block}
+@media(max-width:640px){.story-text-wrap{grid-template-columns:110px 1fr;gap:16px}}
 
 /* ── APPROACH — horizontal, no pillars, just clear statements ── */
 .approach{
@@ -167,6 +171,7 @@ footer{background:var(--sage-deep);padding:40px 48px}
   .hero h1{font-size:44px}
   main{padding:56px 20px 0}
   .story,.diff{grid-template-columns:1fr;gap:40px}
+  .story-media{width:160px}
   .approach{grid-template-columns:1fr;padding:36px 28px}
   .location{flex-direction:column;align-items:flex-start;padding:28px 24px}
   .cta-cards{grid-template-columns:1fr}
@@ -250,10 +255,15 @@ footer{background:var(--sage-deep);padding:40px 48px}
       <div class="section-label">Our story</div>
       <h2 class="story-h2">Where Western science meets <em>Eastern wisdom</em></h2>
     </div>
-    <div>
-      <p>Seena Integrative Health Centre was founded in Lisbon with a clear purpose: to create a space where medicine and natural therapies work together — not alongside each other, but as a unified plan for each patient.</p>
-      <p>We saw too many people moving between specialists who didn't communicate, receiving treatments that addressed symptoms but not causes. Seena was built to be the answer to that fragmentation.</p>
-      <p>Today our team includes medical doctors, kinesiologists, naturopaths, breathing coaches, massage therapists, and mind-body practitioners — all working from the same patient picture, with the same goal: long-term wellbeing, not short-term relief.</p>
+    <div class="story-text-wrap">
+      <div class="story-inline-media">
+        <img src="../images/gallery-corridor.jpg" alt="Seena waiting area">
+      </div>
+      <div>
+        <p>Seena Integrative Health Centre was founded in Lisbon with a clear purpose: to create a space where medicine and natural therapies work together — not alongside each other, but as a unified plan for each patient.</p>
+        <p>We saw too many people moving between specialists who didn't communicate, receiving treatments that addressed symptoms but not causes. Seena was built to be the answer to that fragmentation.</p>
+        <p>Today our team includes medical doctors, kinesiologists, naturopaths, breathing coaches, massage therapists, and mind-body practitioners — all working from the same patient picture, with the same goal: long-term wellbeing, not short-term relief.</p>
+      </div>
     </div>
   </section>
 
