@@ -453,6 +453,7 @@ const services = {
       slug: 'naturopathy',
       icon: ICON_NATURE,
       name: 'Naturopathy',
+      hidden: true,
       specialists: [],
       cat: 'Therapies',
       desc: 'A holistic approach to natural body support, offering personalized assessments, lifestyle and nutrition guidance, along with auriculotherapy and bioresonance techniques to gently address functional imbalances and promote overall balance.',
@@ -755,10 +756,11 @@ const SECTION_PHOTOS = {
 Object.keys(services).forEach(section => {
   const grid = document.getElementById('grid-' + section);
   if (!grid) return;
-  const cards = services[section].map((s,i) => buildCard(s,i,section)).join('');
+  const cards = services[section].map((s,i) => s.hidden ? '' : buildCard(s,i,section)).join('');
   const photo = SECTION_PHOTOS[section];
   if (photo) {
-    const rowSpan = Math.ceil(services[section].length / 2);
+    const visibleCount = services[section].filter(s => !s.hidden).length;
+    const rowSpan = Math.ceil(visibleCount / 2);
     grid.innerHTML = `<div class="photo-card" style="grid-row:span ${rowSpan}"><img src="${photo.src}" alt="${photo.alt}" style="object-position:${photo.pos}"></div>` + cards;
   } else {
     grid.innerHTML = cards;
