@@ -64,15 +64,16 @@ main{max-width:1200px;margin:0 auto;padding:80px 48px 0}
 .section-label::before{content:'';width:20px;height:1px;background:var(--sage)}
 
 /* ── STORY — asymmetric editorial layout ── */
-.story{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;margin-bottom:96px}
-.story-h2{font-family:'Cormorant Garamond',serif;font-size:44px;font-weight:300;line-height:1.12;color:var(--text);margin-bottom:28px}
+.story{display:block;margin-bottom:96px}
+.story-h2{font-family:'Cormorant Garamond',serif;font-size:44px;font-weight:300;line-height:1.12;color:var(--text);margin-bottom:0}
 .story-h2 em{font-style:italic;color:var(--sage)}
+.story>div:first-child{margin-bottom:40px}
 .story p{font-size:15px;font-weight:300;line-height:1.85;color:var(--text-mid);margin-bottom:18px}
 .story p:last-child{margin-bottom:0}
-.story-text-wrap{display:grid;grid-template-columns:200px 1fr;gap:28px;align-items:stretch}
-.story-inline-media{border-radius:14px;overflow:hidden;border:1px solid var(--cream-dark)}
+.story-text-wrap{display:flow-root}
+.story-inline-media{float:left;width:300px;aspect-ratio:3/4;margin:4px 32px 16px 0;border-radius:14px;overflow:hidden;border:1px solid var(--cream-dark)}
 .story-inline-media img{width:100%;height:100%;object-fit:cover;object-position:center 50%;display:block}
-@media(max-width:640px){.story-text-wrap{grid-template-columns:1fr;gap:20px}.story-inline-media{width:100%;aspect-ratio:16/10}.story-inline-media img{height:100%}}
+@media(max-width:640px){.story-inline-media{float:none;width:100%;aspect-ratio:16/10;margin:0 0 20px}}
 
 /* ── APPROACH — horizontal, no pillars, just clear statements ── */
 .approach{
