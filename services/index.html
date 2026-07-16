@@ -112,6 +112,17 @@ main{max-width:1240px;margin:0 auto;padding:64px 56px 96px}
 .modal-btn-book:hover{background:var(--sage-deep)}
 .modal-btn-close{display:inline-flex;align-items:center;justify-content:center;background:transparent;border:1px solid var(--cream-dark);color:var(--text-soft);padding:13px 24px;border-radius:40px;font-size:12.5px;font-weight:400;cursor:pointer;font-family:'DM Sans',sans-serif;transition:border-color .2s}
 .modal-btn-close:hover{border-color:var(--stone)}
+.modal-tabs{display:flex;gap:20px;margin-bottom:20px;border-bottom:1px solid var(--cream-dark)}
+.modal-tab{background:none;border:none;padding:10px 0 12px;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:500;letter-spacing:.03em;color:var(--text-muted);cursor:pointer;border-bottom:2px solid transparent;transition:color .2s,border-color .2s}
+.modal-tab.active{color:var(--sage-deep);border-bottom-color:var(--sage-deep)}
+.modal-panel{display:none}
+.modal-panel.active{display:block}
+.science-section{margin-bottom:18px}
+.science-section:last-child{margin-bottom:0}
+.science-h{font-family:'DM Sans',sans-serif;font-size:12.5px;font-weight:600;color:var(--text);margin-bottom:6px;letter-spacing:.01em}
+.science-p{font-size:13px;font-weight:300;line-height:1.75;color:var(--text-soft)}
+.science-intro-p{font-size:13px;font-weight:300;line-height:1.75;color:var(--text-soft);margin-bottom:14px}
+.science-closing{font-size:12.5px;font-weight:300;font-style:italic;color:var(--text-muted);margin-top:20px;padding-top:16px;border-top:1px solid var(--cream-dark)}
 
 /* ── OZONE INTRO BANNER ── */
 .ozone-intro{background:linear-gradient(135deg,#2d6a8f 0%,#3d8aaf 100%);border-radius:16px;padding:32px 36px;margin-bottom:28px;color:#fff;display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center}
@@ -129,7 +140,7 @@ main{max-width:1240px;margin:0 auto;padding:64px 56px 96px}
 
 /* ── FOOTER ── */
 footer{background:var(--sage-deep);padding:40px 48px 28px}
-.footer-inner{max-width:1240px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.footer-inner{max-width:1240px;margin:0 auto;display:flex;flex-direction:column;align-items:flex-start;gap:14px}
 .footer-logo{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:400;color:rgba(255,255,255,.8);letter-spacing:.05em;text-decoration:none;line-height:1}
 .footer-logo:hover{opacity:1}
 .footer-links{display:flex;gap:26px;flex-wrap:wrap}
@@ -328,7 +339,14 @@ footer{background:var(--sage-deep);padding:40px 48px 28px}
       <h2 class="modal-name" id="mName"></h2>
       <div class="modal-specialists" id="mSpecialists"></div>
       <div class="modal-langs" id="mLangs"></div>
-      <p class="modal-desc" id="mDesc"></p>
+      <div class="modal-tabs" id="mTabs" style="display:none">
+        <button class="modal-tab active" data-tab="overview" onclick="switchModalTab('overview')">Overview</button>
+        <button class="modal-tab" data-tab="science" onclick="switchModalTab('science')">The Honest Science</button>
+      </div>
+      <div class="modal-panel active" id="mPanelOverview">
+        <p class="modal-desc" id="mDesc"></p>
+      </div>
+      <div class="modal-panel" id="mPanelScience"></div>
       <div class="modal-pricing" id="mPricing"></div>
     </div>
     <div class="modal-footer-btns">
@@ -544,6 +562,28 @@ const services = {
       ivaNote: true,
       pricing: [
         {label: 'Session', price: '€80'},
+      ]
+    },
+    {
+      slug: 'vitamin-c-glutathione-iv',
+      icon: ICON_IV,
+      name: 'Vitamin C + Glutathione IV',
+      specialists: [{"name": "Nurse Ana (Ana Filipa Pereira Lavaredas)", "key": "ana"}],
+      cat: 'Therapies',
+      desc: 'High-dose Vitamin C and Glutathione, delivered intravenously to support antioxidant defense, immune health, and skin vitality.\n\nOur first IV therapy combines high-dose Vitamin C with Glutathione, two powerful antioxidants that work synergistically to support the body\'s natural defense systems. Scientific research suggests this combination may help reduce oxidative stress, support immune function, promote cellular health, and contribute to skin vitality. Administered intravenously, these nutrients bypass the digestive system, allowing for significantly higher blood concentrations than oral supplementation. It is a simple, effective, and evidence-based therapy that reflects our commitment to providing treatments with genuine therapeutic potential.',
+      science: {
+        intro: 'Vitamin C and glutathione are two important antioxidants naturally used by the body to help protect cells from oxidative stress and support overall health.\n\nOur IV formulas are sourced from trusted manufacturers in Italy and Germany, following high-quality production standards to ensure purity, safety, and consistency.',
+        sections: [
+          {h: 'Antioxidant Support', p: 'Scientific research shows that both Vitamin C and glutathione play important roles in the body\'s antioxidant systems. IV therapy can increase blood levels of these nutrients significantly compared with oral supplementation, making antioxidant support one of the strongest scientific reasons for this treatment.'},
+          {h: 'Immune Support', p: 'Vitamin C contributes to normal immune function, especially during times when the body is under stress or when nutritional needs are higher. Research supports its role in maintaining immune health, although benefits are less noticeable in people who already have sufficient Vitamin C levels.'},
+          {h: 'Skin Health & Glow', p: 'Glutathione has been studied for its ability to help reduce oxidative damage and support skin health. Some studies suggest it may help improve skin brightness and uneven pigmentation, but results vary between individuals and changes are usually gradual.'},
+          {h: 'Energy & Feeling Better', p: 'Many clients report feeling more refreshed and energized after IV therapy. However, current scientific evidence does not show consistent benefits for energy improvement in otherwise healthy individuals. Results can depend on lifestyle, nutrition, hydration, and individual needs.'},
+          {h: 'What Science Supports', p: 'Vitamin C and Glutathione IV therapy has the strongest evidence for antioxidant support and improving nutrient levels in the body. Current research does not prove that these treatments prevent disease or extend lifespan, but they can be a valuable addition to a healthy lifestyle.'},
+        ],
+        closing: 'High-quality ingredients, European sourcing, and a science-informed approach to supporting your wellbeing.'
+      },
+      pricing: [
+        {label: 'Per session, depending on dosage', price: '€150–€260'},
       ]
     },
   ],
@@ -790,6 +830,17 @@ Object.keys(services).forEach(section => {
 });
 
 // ── MODAL ──
+function switchModalTab(tab) {
+  document.querySelectorAll('.modal-tab').forEach(b => b.classList.toggle('active', b.dataset.tab === tab));
+  document.getElementById('mPanelOverview').classList.toggle('active', tab === 'overview');
+  document.getElementById('mPanelScience').classList.toggle('active', tab === 'science');
+}
+function buildScienceHtml(sci) {
+  const introHtml = sci.intro.split('\n\n').map(p => `<p class="science-intro-p">${p}</p>`).join('');
+  const sectionsHtml = sci.sections.map(sec => `<div class="science-section"><div class="science-h">${sec.h}</div><p class="science-p">${sec.p}</p></div>`).join('');
+  const closingHtml = sci.closing ? `<div class="science-closing">${sci.closing}</div>` : '';
+  return introHtml + sectionsHtml + closingHtml;
+}
 function openModal(section, idx) {
   const s = services[section][idx];
   const type = s.type || 'default';
@@ -797,6 +848,14 @@ function openModal(section, idx) {
   document.getElementById('mCat').textContent = s.cat;
   document.getElementById('mName').textContent = s.name;
   document.getElementById('mDesc').textContent = s.desc;
+  const tabsEl = document.getElementById('mTabs');
+  if (s.science) {
+    tabsEl.style.display = 'flex';
+    document.getElementById('mPanelScience').innerHTML = buildScienceHtml(s.science);
+  } else {
+    tabsEl.style.display = 'none';
+  }
+  switchModalTab('overview');
   const modalSpecs = (s.specialists||[]).map(sp =>
     `<a class="modal-specialist-chip" href="/specialists/#${sp.key}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>${sp.name}</a>`
   ).join('');
