@@ -189,24 +189,19 @@ footer{background:var(--sage-deep);padding:48px;margin-top:80px}
 }
 @media(max-width:640px){.events-grid,.articles-grid{grid-template-columns:1fr}}
 /* ── FOOTER ── */
-footer{background:var(--sage-deep);padding:56px 48px 28px}
-.footer-inner{max-width:1240px;margin:0 auto;display:grid;grid-template-columns:1.1fr 1fr 1.3fr;gap:40px;padding-bottom:32px;border-bottom:1px solid rgba(255,255,255,.08)}
-.footer-brand{display:flex;flex-direction:column;gap:10px}
-.footer-logo{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:400;color:rgba(255,255,255,.85);letter-spacing:.05em;text-decoration:none;line-height:1}
+footer{background:var(--sage-deep);padding:40px 48px 28px}
+.footer-inner{max-width:1240px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.footer-logo{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:400;color:rgba(255,255,255,.8);letter-spacing:.05em;text-decoration:none;line-height:1}
 .footer-logo:hover{opacity:1}
-.footer-tagline{font-size:13px;font-weight:300;color:rgba(255,255,255,.4);line-height:1.6;max-width:220px}
-.footer-col-title{font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:16px}
-.footer-links{display:flex;flex-direction:column;gap:11px}
+.footer-links{display:flex;gap:26px;flex-wrap:wrap}
 .footer-links a{color:rgba(255,255,255,.55);text-decoration:none;font-size:13px;letter-spacing:.01em;transition:color .2s}
 .footer-links a:hover{color:#fff}
-.footer-contact{display:flex;flex-direction:column;gap:8px;font-size:13px;font-weight:300;color:rgba(255,255,255,.55);line-height:1.5}
-.footer-contact-name{font-family:'Cormorant Garamond',serif;font-size:15px;font-weight:400;color:rgba(255,255,255,.85);letter-spacing:.02em;margin-bottom:2px}
-.footer-contact a{color:rgba(255,255,255,.55);text-decoration:none;transition:color .2s}
-.footer-contact a:hover{color:#fff}
-.footer-bottom{max-width:1240px;margin:20px auto 0}
+.footer-contact-line{max-width:1240px;margin:18px auto 0;font-size:12.5px;font-weight:300;color:rgba(255,255,255,.45);line-height:1.8}
+.footer-contact-line a{color:rgba(255,255,255,.45);text-decoration:none;transition:color .2s}
+.footer-contact-line a:hover{color:#fff}
+.footer-bottom{max-width:1240px;margin:20px auto 0;padding-top:18px;border-top:1px solid rgba(255,255,255,.08)}
 .footer-copy{font-size:11px;font-weight:300;color:rgba(255,255,255,.35)}
-@media(max-width:780px){.footer-inner{grid-template-columns:1fr 1fr}.footer-brand{grid-column:1/-1}}
-@media(max-width:640px){footer{padding:40px 20px 24px}.footer-inner{grid-template-columns:1fr;gap:28px;padding-bottom:24px}}
+@media(max-width:640px){footer{padding:32px 20px 24px}.footer-inner{flex-direction:column;align-items:flex-start;gap:16px}.footer-links{gap:16px}.footer-contact-line{line-height:1.9}}
 
 /* ── MOBILE NAV ── */
 .nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:6px;flex-shrink:0}
@@ -437,31 +432,18 @@ footer{background:var(--sage-deep);padding:56px 48px 28px}
 <!-- FOOTER -->
 <footer>
   <div class="footer-inner">
-    <div class="footer-brand">
-      <a href="/" class="footer-logo">Seena</a>
-      <p class="footer-tagline">Integrative health &amp; wellness in Lisbon.</p>
+    <a href="/" class="footer-logo">Seena</a>
+    <div class="footer-links">
+      <a href="/services/">Services</a>
+      <a href="/specialists/">Specialists</a>
+      <a href="/about/">About</a>
+      <a href="/learn/">Academy</a>
+      <a href="/shop/">Shop</a>
+      <a href="/about/cancellation-policy/">Cancellation Policy</a>
     </div>
-    <div>
-      <div class="footer-col-title">Explore</div>
-      <div class="footer-links">
-        <a href="/services/">Services</a>
-        <a href="/specialists/">Specialists</a>
-        <a href="/about/">About</a>
-        <a href="/learn/">Academy</a>
-        <a href="/shop/">Shop</a>
-        <a href="/about/cancellation-policy/">Cancellation Policy</a>
-      </div>
-    </div>
-    <div>
-      <div class="footer-col-title">Visit us</div>
-      <div class="footer-contact">
-        <div class="footer-contact-name">Seena Integrative Health Centre</div>
-        <div>Rua das Musas 13A, Parque das Nações · Lisbon, Portugal</div>
-        <div><strong>Monday – Friday</strong>&nbsp; 10:00 – 13:00 &nbsp;·&nbsp; 14:00 – 18:00</div>
-        <div><a href="tel:+351924353219">+351 924 353 219</a> &nbsp;·&nbsp; <a href="https://instagram.com/seenacentre" target="_blank" rel="noopener">@seenacentre</a></div>
-        <div><a href="mailto:info@seenahealth.com">info@seenahealth.com</a></div>
-      </div>
-    </div>
+  </div>
+  <div class="footer-contact-line">
+    Rua das Musas 13A, Parque das Nações · Lisbon, Portugal &nbsp;·&nbsp; <strong>Mon – Fri</strong> 10:00 – 13:00 · 14:00 – 18:00 &nbsp;·&nbsp; <a href="tel:+351924353219">+351 924 353 219</a> &nbsp;·&nbsp; <a href="https://instagram.com/seenacentre" target="_blank" rel="noopener">@seenacentre</a> &nbsp;·&nbsp; <a href="mailto:info@seenahealth.com">info@seenahealth.com</a>
   </div>
   <div class="footer-bottom">
     <span class="footer-copy">© 2026 Seena Integrative Health Centre · Lisbon</span>
