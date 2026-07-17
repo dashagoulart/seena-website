@@ -164,17 +164,22 @@ main{max-width:860px;margin:0 auto;padding:0 56px 96px;display:grid;grid-templat
 .prose h2{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:400;color:var(--text);margin:40px 0 14px;line-height:1.2}
 .prose h3{font-family:'DM Sans',sans-serif;font-size:15px;font-weight:500;color:var(--text);margin:28px 0 10px;line-height:1.4}
 .prose p{font-size:15px;font-weight:300;line-height:1.85;color:var(--text-mid);margin-bottom:18px}
-.prose ul,.prose ol{margin:4px 0 18px;display:flex;flex-direction:column;gap:10px;padding-left:0;list-style:none}
-.prose li{display:flex;align-items:flex-start;gap:10px;font-size:14px;font-weight:300;color:var(--text-mid);line-height:1.65}
-.prose ul li::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--sage);flex-shrink:0;margin-top:8px}
+.prose ul,.prose ol{margin:4px 0 18px;padding-left:0;list-style:none}
+.prose li{position:relative;padding-left:17px;font-size:14px;font-weight:300;color:var(--text-mid);line-height:1.65;margin-bottom:10px}
+.prose li:last-child{margin-bottom:0}
+.prose ul li::before{content:'';position:absolute;left:0;top:8px;width:5px;height:5px;border-radius:50%;background:var(--sage)}
 .prose ol{counter-reset:ol-counter}
-.prose ol li::before{counter-increment:ol-counter;content:counter(ol-counter) '.';font-size:12px;font-weight:500;color:var(--sage);flex-shrink:0;min-width:18px;margin-top:2px}
+.prose ol li{padding-left:22px}
+.prose ol li::before{position:absolute;left:0;top:0;counter-increment:ol-counter;content:counter(ol-counter) '.';font-size:12px;font-weight:500;color:var(--sage)}
 .prose li strong{color:var(--text);font-weight:500}
 .prose blockquote{border-left:3px solid var(--sage);padding:16px 20px;margin:28px 0;background:var(--sage-pale);border-radius:0 10px 10px 0}
 .prose blockquote p{font-family:'Cormorant Garamond',serif;font-size:20px;font-style:italic;color:var(--text);margin:0;line-height:1.5}
-.prose sup{font-size:10px;color:var(--sage);font-weight:500;position:relative;top:-4px}
+.prose sup{font-size:10px;color:var(--sage);font-weight:500;position:relative;top:-4px;margin-left:2px}
+.prose sup a{color:var(--sage);text-decoration:none}
+.prose sup a:hover{text-decoration:underline}
 .prose a{color:var(--sage-deep);text-decoration:underline;text-decoration-color:rgba(61,88,67,.3);text-underline-offset:2px;transition:text-decoration-color .2s}
 .prose a:hover{text-decoration-color:var(--sage-deep)}
+.ref-item{scroll-margin-top:88px}
 
 /* ── DAY/NIGHT + LIGHT CALLOUT CARDS ── */
 .condition-cards{display:flex;flex-direction:column;gap:12px;margin:20px 0 28px}
@@ -335,7 +340,7 @@ footer{background:var(--sage-deep);padding:40px 48px 28px}
 
     <h2>Melatonin Does Much More Than Help You Sleep</h2>
 
-    <p>Sleep is the effect we notice. Repair is what your body is actually doing. While you sleep, melatonin helps coordinate many of the body's natural recovery processes. Scientists now know that it is one of the body's most powerful natural antioxidants, helping protect cells from damage caused by free radicals, including damage to DNA.<sup>1,2</sup></p>
+    <p>Sleep is the effect we notice. Repair is what your body is actually doing. While you sleep, melatonin helps coordinate many of the body's natural recovery processes. Scientists now know that it is one of the body's most powerful natural antioxidants, helping protect cells from damage caused by free radicals, including damage to DNA.<sup><a href="#ref1">1</a>,<a href="#ref2">2</a></sup></p>
 
     <p>Think of free radicals as tiny sparks produced every time your cells make energy. A few are completely normal. Too many can damage proteins, cell membranes and even DNA. Melatonin helps keep those sparks under control. It also supports the tiny structures inside our cells called mitochondria, often described as the body's energy factories. Healthy mitochondria produce energy more efficiently, and melatonin appears to help protect them from everyday wear and tear.</p>
 
@@ -352,7 +357,7 @@ footer{background:var(--sage-deep);padding:40px 48px 28px}
 
     <h2>Why This Matters for Your Immune System</h2>
 
-    <p>Your immune system doesn't switch off while you sleep. In many ways, it becomes more active. During the night, your body carries out maintenance that is much harder to do during the day. Research suggests melatonin helps regulate immune responses and supports communication between immune cells, making good-quality sleep an important part of staying healthy.<sup>3</sup></p>
+    <p>Your immune system doesn't switch off while you sleep. In many ways, it becomes more active. During the night, your body carries out maintenance that is much harder to do during the day. Research suggests melatonin helps regulate immune responses and supports communication between immune cells, making good-quality sleep an important part of staying healthy.<sup><a href="#ref3">3</a></sup></p>
 
     <p>Poor sleep doesn't just leave you feeling tired. Over time, it may also affect recovery, resilience and overall health.</p>
 
@@ -364,7 +369,7 @@ footer{background:var(--sage-deep);padding:40px 48px 28px}
 
     <h2>What the Research Is Exploring</h2>
 
-    <p>Melatonin is one of the most studied hormones in the world. Researchers are currently investigating its potential role far beyond sleep. Studies have explored its effects on healthy ageing,<sup>6</sup> cardiovascular health, brain health and immune function. There is also growing research looking at whether melatonin may support conventional cancer treatment because of its antioxidant and immune-regulating properties.<sup>5</sup></p>
+    <p>Melatonin is one of the most studied hormones in the world. Researchers are currently investigating its potential role far beyond sleep. Studies have explored its effects on healthy ageing,<sup><a href="#ref6">6</a></sup> cardiovascular health, brain health and immune function. There is also growing research looking at whether melatonin may support conventional cancer treatment because of its antioxidant and immune-regulating properties.<sup><a href="#ref5">5</a></sup></p>
 
     <h2>How I Protect My Melatonin</h2>
 
@@ -438,7 +443,7 @@ footer{background:var(--sage-deep);padding:40px 48px 28px}
 
       <div class="faq-item">
         <div class="faq-q">What time does melatonin start increasing?</div>
-        <div class="faq-a">For most people, melatonin begins to rise about two to three hours before their usual bedtime, once it becomes dark.<sup>4</sup></div>
+        <div class="faq-a">For most people, melatonin begins to rise about two to three hours before their usual bedtime, once it becomes dark.<sup><a href="#ref4">4</a></sup></div>
       </div>
 
       <div class="faq-item">
@@ -485,12 +490,12 @@ footer{background:var(--sage-deep);padding:40px 48px 28px}
     <div class="references">
       <div class="references-label">References</div>
       <div class="ref-list">
-        <div class="ref-item"><span class="ref-num">1.</span><span>Reiter RJ, Tan DX, Mayo JC, et al. Melatonin as an antioxidant: biochemical mechanisms and pathophysiological implications. <em>Acta Biochimica Polonica.</em> 2003;50(4):1129–1146.</span></div>
-        <div class="ref-item"><span class="ref-num">2.</span><span>Reiter RJ. Oxidative damage to nuclear DNA: amelioration by melatonin. <em>Neuro Endocrinology Letters.</em> 1999;20(3–4):145–150.</span></div>
-        <div class="ref-item"><span class="ref-num">3.</span><span>Carrillo-Vico A, Guerrero JM, Lardone PJ, Reiter RJ. A review of the multiple actions of melatonin on the immune system. <em>Endocrine.</em> 2005;27(2):189–200.</span></div>
-        <div class="ref-item"><span class="ref-num">4.</span><span>Pandi-Perumal SR, Smits M, Spence W, et al. Dim light melatonin onset (DLMO): A tool for the analysis of circadian phase in sleep and chronobiological disorders. <em>Progress in Neuro-Psychopharmacology &amp; Biological Psychiatry.</em> 2007;31(1):1–11.</span></div>
-        <div class="ref-item"><span class="ref-num">5.</span><span>Vijayalaxmi, Thomas CR Jr, Reiter RJ, Herman TS. Melatonin: From basic research to cancer treatment clinics. <em>Journal of Clinical Oncology.</em> 2002;20(10):2575–2601.</span></div>
-        <div class="ref-item"><span class="ref-num">6.</span><span>Hardeland R. Melatonin and the theories of aging: A critical appraisal. <em>Advances in Gerontology.</em> 2013.</span></div>
+        <div class="ref-item" id="ref1"><span class="ref-num">1.</span><span>Reiter RJ, Tan DX, Mayo JC, et al. <a href="https://pubmed.ncbi.nlm.nih.gov/14740000/" target="_blank" rel="noopener">Melatonin as an antioxidant: biochemical mechanisms and pathophysiological implications</a>. <em>Acta Biochimica Polonica.</em> 2003;50(4):1129–1146.</span></div>
+        <div class="ref-item" id="ref2"><span class="ref-num">2.</span><span>Reiter RJ. <a href="https://pubmed.ncbi.nlm.nih.gov/11462105/" target="_blank" rel="noopener">Oxidative damage to nuclear DNA: amelioration by melatonin</a>. <em>Neuro Endocrinology Letters.</em> 1999;20(3–4):145–150.</span></div>
+        <div class="ref-item" id="ref3"><span class="ref-num">3.</span><span>Carrillo-Vico A, Guerrero JM, Lardone PJ, Reiter RJ. <a href="https://pubmed.ncbi.nlm.nih.gov/16217132/" target="_blank" rel="noopener">A review of the multiple actions of melatonin on the immune system</a>. <em>Endocrine.</em> 2005;27(2):189–200.</span></div>
+        <div class="ref-item" id="ref4"><span class="ref-num">4.</span><span>Pandi-Perumal SR, Smits M, Spence W, et al. <a href="https://pubmed.ncbi.nlm.nih.gov/16884842/" target="_blank" rel="noopener">Dim light melatonin onset (DLMO): A tool for the analysis of circadian phase in sleep and chronobiological disorders</a>. <em>Progress in Neuro-Psychopharmacology &amp; Biological Psychiatry.</em> 2007;31(1):1–11.</span></div>
+        <div class="ref-item" id="ref5"><span class="ref-num">5.</span><span>Vijayalaxmi, Thomas CR Jr, Reiter RJ, Herman TS. <a href="https://pubmed.ncbi.nlm.nih.gov/12011138/" target="_blank" rel="noopener">Melatonin: From basic research to cancer treatment clinics</a>. <em>Journal of Clinical Oncology.</em> 2002;20(10):2575–2601.</span></div>
+        <div class="ref-item" id="ref6"><span class="ref-num">6.</span><span>Hardeland R. <a href="https://pubmed.ncbi.nlm.nih.gov/24112071/" target="_blank" rel="noopener">Melatonin and the theories of aging: a critical appraisal of melatonin's role in antiaging mechanisms</a>. <em>Journal of Pineal Research.</em> 2013;55(4):325–356.</span></div>
       </div>
     </div>
 
