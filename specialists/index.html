@@ -133,14 +133,6 @@ main{max-width:1240px;margin:0 auto;padding:64px 56px 96px}
   color:var(--text-soft);
   flex:1;margin-bottom:18px;
 }
-.card-langs{
-  display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px;
-}
-.lang-tag{
-  font-size:10px;font-weight:500;letter-spacing:.06em;
-  background:var(--sage-light);color:var(--sage-deep);
-  padding:3px 9px;border-radius:20px;
-}
 .card-actions{
   display:flex;gap:10px;
 }
@@ -212,7 +204,6 @@ main{max-width:1240px;margin:0 auto;padding:64px 56px 96px}
   font-size:clamp(24px,3.5vw,36px);font-weight:300;line-height:1.1;
   color:var(--text);margin-bottom:14px;
 }
-.modal-langs{display:flex;gap:6px;flex-wrap:wrap}
 .modal-licence{
   margin-top:8px;
   font-size:10.5px;color:var(--text-muted);font-weight:300;
@@ -408,7 +399,6 @@ footer{background:var(--sage-deep);padding:40px 48px 28px}
       <div class="modal-header">
         <div class="modal-role" id="mRole"></div>
         <h2 class="modal-name" id="mName"></h2>
-        <div class="modal-langs" id="mLangs"></div>
         <div class="modal-licence" id="mLicence"></div>
       </div>
       <div class="modal-photo" id="mPhoto"></div>
@@ -453,10 +443,9 @@ const specialists = [
     imgPos: 'center 26%',
     services: [{"name": "Integrative Physician", "section": "consultations"}],
     name: 'Dr. Nataliia Polishchuk',
-    role: 'MD · Internal Medicine · Integrative Doctor',
-    langs: ['PT','EN','RU','UA'],
+    role: 'MD · Specialist in Internal Medicine · Integrative and Functional Medicine',
     licence: 'Medical License: CP-43489',
-    summary: 'Physician in internal medicine with 25+ years of clinical experience. Specialises in hormonal health, metabolic disorders, cardiovascular risk, perimenopause, and preventive care — integrating evidence-based and functional medicine principles.',
+    summary: 'Physician in internal medicine with 25+ years of clinical experience. Specialises in hormonal health, metabolic disorders, cardiovascular risk, perimenopause, and personalised preventive care — integrating evidence-based and functional medicine principles.',
     bio: `Physician in internal medicine with more than 25 years of clinical experience, in continuous practice since 2003. Dr. Polishchuk takes a comprehensive, systems-based approach to diagnosis, prevention, and treatment, allowing her to see the patient as a whole and coordinate care across different conditions and specialists when necessary.
 
 Her areas of focus include cardiovascular risk prevention, arterial hypertension, diabetes and metabolic dysfunction, thyroid disorders, hormonal imbalances, menstrual irregularities, PMS, perimenopause, menopause, sleep disorders, and vitamin deficiency states.
@@ -469,11 +458,10 @@ Her approach centres on integrative medicine, preventive care, and a personalise
     img: '/specialist_images/vadim.jpg',
     services: [{"name": "Medical Acupuncture", "section": "consultations"}, {"name": "Ozone Therapy", "section": "ozone"}],
     name: 'Dr. Vadim Fasiy',
-    role: 'General Medicine · Medical Acupuncture · Urology',
-    langs: ['PT','RU','UA'],
+    role: 'General Medicine · Medical Acupuncture',
     licence: 'Medical License: CP-45593',
-    summary: 'Doctor with 27 years of clinical experience combining holistic medicine, internal medicine, urology-andrology, and medical neurofunctional electroacupuncture. Founder and clinical director of his own clinic in Parque das Nações.',
-    bio: `Doctor with 27 years of clinical experience combining holistic medicine, internal medicine, urology-andrology, and medical neurofunctional electroacupuncture. Founder and clinical director of his own clinic in Parque das Nações, Dr. Fasiy brings a deeply integrative approach to patient care — addressing the root causes of illness through the intersection of conventional medicine, acupuncture, and holistic disciplines.`
+    summary: 'Doctor with 27 years of clinical experience combining holistic medicine, internal medicine, and medical neurofunctional electroacupuncture.',
+    bio: `Doctor with 27 years of clinical experience combining holistic medicine, internal medicine, and medical neurofunctional electroacupuncture. Dr. Fasiy brings a deeply integrative approach to patient care — addressing the root causes of illness through the intersection of conventional medicine, acupuncture, and holistic disciplines.`
   },
   {
     img: '/specialist_images/ana.jpg?v=4',
@@ -481,7 +469,6 @@ Her approach centres on integrative medicine, preventive care, and a personalise
     services: [{"name": "Ozonotherapy", "section": "ozone"}, {"name": "Orthomolecular Therapeutics", "section": "therapies"}, {"name": "Maternal Health", "section": "therapies"}, {"name": "Holistic Therapies", "section": "therapies"}],
     name: 'Ana Filipa Pereira Lavaredas',
     role: 'Specialist Nurse · Maternal Health & Obstetrics',
-    langs: ['PT','EN'],
     licence: 'OE n.º 42597',
     summary: 'Specialist Nurse in Maternal Health and Obstetrics with over two decades of experience. Trained in ozonotherapy and orthomolecular therapeutics — integrating clinical excellence with a human-centered approach.',
     bio: `A Specialist Nurse in Maternal Health and Obstetrics with over two decades of experience in nursing, clinical coordination, and integrative care. Trained in ozonotherapy, orthomolecular therapeutics, and holistic disciplines. She integrates clinical excellence with a human-centered approach — truly listening to the body to support deeper, lasting healing. Her work combines integrative approaches with a focus on maternal health and obstetrics.`
@@ -491,9 +478,8 @@ Her approach centres on integrative medicine, preventive care, and a personalise
     services: [{"name": "Menstrual Literacy Coaching", "section": "therapies"}, {"name": "Menstrual Literacy Programme", "section": "therapies"}, {"name": "Cycle Charting", "section": "therapies"}],
     name: 'Sheila Góis Habib',
     role: 'Certified FEMM Fertility Awareness Educator',
-    langs: ['EN','PT'],
     licence: '',
-    summary: 'A certified Fertility Awareness Educator bringing an intersectional lens to menstrual, sexual, and reproductive health education, teaching people how to chart their cycles for birth control.',
+    summary: 'A certified Fertility Awareness Educator bringing an intersectional lens to menstrual, sexual, and reproductive health education, teaching people how to chart their cycles for natural birth control, optimise hormonal health, and better understand their bodies.',
     bio: `A certified Fertility Awareness Educator. She is a Certified FEMM Teacher, with advanced training in fertility awareness and reproductive health; her FEMM Teacher Training is approved for continuing nursing education by the Ohio Nurses Association (ONA), an ANCC-accredited provider. With a Master's degree in Human Rights Law and over a decade of experience in gender equality and social inclusion, she brings an intersectional lens to menstrual, sexual, and reproductive health education. She teaches people how to chart their cycles and track evidence-based ovulation signs for birth control. Her work centers a fundamental belief: understanding your body should be a right, not a privilege.`
   },
   {
@@ -502,7 +488,6 @@ Her approach centres on integrative medicine, preventive care, and a personalise
     events: [{title:'Feira da Saúde — Community Health Fair', date:'Sep 2025', id:'event-feira'}],
     name: 'Maxim Steshenko',
     role: 'Movement & Kinesiology Practitioner',
-    langs: [],
     licence: '',
     summary: 'Clinical physiologist and kinesiologist specialising in the root causes of musculoskeletal pain. Builds tailored recovery plans combining kinesiology assessment, shock wave therapy, and manual techniques.',
     bio: `Clinical physiologist and kinesiologist who specialises in identifying the root causes of musculoskeletal pain and helping the body return to balance, strength, posture, and mobility.
@@ -516,27 +501,29 @@ Patients value his clear clinical reasoning, attentive listening, and personalis
     services: [{"name": "Lifebreath Manual Therapy", "section": "therapies"}],
     events: [{title:'Flat Feet: Myth or Real Problem?', date:'Apr 2026', id:'event-flat-feet'}],
     name: 'Vladislava Artemenko',
-    role: 'Founder of Life Breath Manual Therapy® | Manual Therapy Specialist',
-    langs: [],
+    role: 'Founder of Life Breath Manual Therapy® · Manual Therapy Specialist',
     licence: '',
-    summary: 'Surgeon with a research degree in Orthopedics & Traumatology and founder of the Lifebreath® Method. After over a decade in surgical practice, she pioneered an osteopathy-based approach centred on the body\'s innate intelligence and has trained practitioners since 2019.',
-    bio: `Founder and lead practitioner of the Lifebreath® Method. Vladislava combines deep medical training with an osteopathy-based therapeutic philosophy centred on perception, touch, clinical observation, and the body's innate intelligence.
+    summary: 'Founder and lead practitioner of the Lifebreath® Method, she specialises in hands-on manual therapy that supports the body\'s natural structure, movement, and self-healing capacity.',
+    bio: `Founder and lead practitioner of the Lifebreath® Method, Vladislava works as a manual therapy specialist, focusing on a bodywork approach centred on perception, touch, and refined observational skills.
 
-After more than a decade in orthopaedics and traumatology, including surgical practice and a research degree focused on preserving limb function, she fully shifted to osteopathy-based work in 2011. She brings seven years of surgical experience and more than 11 years of osteopathic practice, and is the author of the patented Lifebreath® Manual Therapy method in Europe, available exclusively at Seena. She has worked with thousands of patients, trained future practitioners since 2019, and founded the Lifebreath School of Osteopathy in 2020.
+Her background includes extensive training in anatomy, physiology, and hands-on therapeutic techniques, as well as many years of experience in orthopaedics and traumatology environments, including surgical settings and research focused on functional movement.
 
-Her broader background includes medical education at Bogomolets National Medical University and work at the Institute of Orthopedics and Traumatology and the Institute of Gerontology, followed by clinical practice.`
+Vladislava is the author of the Lifebreath® Manual Therapy method, registered in Europe and available exclusively at Seena. She has worked with a wide range of clients, trained practitioners since 2019, and founded the Lifebreath School in 2020.
+
+She studied at Bogomolets National Medical University and gained professional experience in orthopaedics and traumatology settings before transitioning fully into independent manual therapy practice.
+
+Her work is focused on manual techniques and does not replace medical diagnosis or treatment.`
   },
   {
     img: '/specialist_images/irina.jpg',
     services: [{"name": "Therapeutic Massage", "section": "therapies"}],
     name: 'Irina Bukharbaeva',
     role: 'Certified Massage Therapist',
-    langs: [],
     licence: '',
     summary: 'Certified massage therapist with 7+ years of experience specialised in complementary massage techniques and therapeutic wellbeing practices. Addresses both acute and chronic conditions with individualised care to relieve pain, restore mobility, and support healing.',
     bio: `Certified Massage Therapist specialised in complementary massage techniques and therapeutic wellbeing practices, focused on restoring balance, relieving pain, improving mobility, and supporting the body's healing capacity through evidence-based manual therapies.
 
-Irina studied Complementary Medicine with a specialisation in Advanced Medical Massage, including orthopaedics, physiopathology, resuscitation, sports massage, medical massage, classic Swedish massage, anatomy, and physiology. She also holds certification as a Spa Therapist from the Wingate Institute.
+Irina studied complementary therapies, sports massage, lymphatic drainage massage, Swedish massage, anatomy, and physiology. She is also a certified Spa Therapist from the Wingate Institute.
 
 Her work addresses both acute and chronic conditions, combining medical knowledge with attentive, individualised care.`
   },
@@ -546,7 +533,6 @@ Her work addresses both acute and chronic conditions, combining medical knowledg
     services: [{"name": "Psychology", "section": "consultations"}],
     name: 'Carlota Rodrigues',
     role: 'Clinical Psychologist',
-    langs: ['EN','PT'],
     licence: 'Psychologist: 32405',
     summary: 'Clinical Psychologist specialising in mental health and psychological wellbeing, supporting individuals experiencing anxiety, depression, burnout, and stress-related difficulties through an evidence-based and collaborative approach.',
     bio: `Clinical Psychologist with a Master's degree in Clinical Psychology from ISPA, specialising in mental health and psychological wellbeing. Experienced in multidisciplinary settings, she supports individuals experiencing anxiety, depression, burnout, and stress-related difficulties through an evidence-based and collaborative approach. She specialises in CBT (Cognitive Behavioural Therapy) approaches for stress, anxiety, burnout, and emotional wellbeing.
@@ -559,9 +545,8 @@ Her work is grounded in the belief that psychological wellbeing is closely conne
     events: [{title:'Breathing Re-Educated — The Buteyko Method', date:'Jan 2026', id:'event-breathing-jan'}],
     name: 'Alyona Tenitski',
     role: 'Certified Buteyko Breathing Instructor',
-    langs: [],
     licence: '',
-    summary: 'Certified Functional Breath Coach and Yoga Instructor certified in the Buteyko Breathing Method under Patrick McKeown. Helps clients of all ages improve breathing efficiency, energy, and resilience through a practical, body-based approach.',
+    summary: 'Certified Functional Breath Coach and Yoga Instructor certified in the Buteyko Breathing Method under Patrick McKeown. Helps clients of all ages improve breathing efficiency, energy, and resilience through a clinical, practical, body-based approach.',
     bio: `Certified Functional Breath Coach and Yoga Instructor with a background in movement, body mechanics, and wellbeing. Her work focuses on helping clients improve breathing efficiency, energy, resilience, and everyday health through a practical, body-based approach.
 
 Alyona began her journey as a gymnast and later built a wellness business for 15 years. She is certified in the Buteyko Breathing Method, trained under Patrick McKeown and certified through Buteyko Clinic International, and works with clients of different ages and health profiles, from asthma sufferers to athletes.
@@ -574,22 +559,15 @@ Her methodology blends functional breathing, mindful movement, and self-practice
     events: [{title:'Feira da Sa\u00fade \u2014 Community Health Fair', date:'Sep 2025', id:'event-feira'}],
     name: 'Teresa Ranieri',
     role: 'Certified TRE® Provider',
-    langs: [],
     licence: '',
     summary: 'Mindfulness practitioner and certified TRE® provider specialising in stress, burnout, trauma recovery, and post-traumatic growth. Holds a Master\'s from Bangor University and has taught at Nova University Lisbon.',
     bio: `Mindfulness practitioner and TRE® method practitioner specialising in stress, burnout, trauma recovery, and post-traumatic growth. Teresa combines scientific knowledge with a compassionate and highly structured approach to help people reconnect with themselves and build sustainable healing practices.
 
-She holds a Master's degree in Teaching Mindfulness-Based Interventions from Bangor University and is certified in TRE® (Tension & Trauma Releasing Exercises) through TRE for All, Inc., with advanced training in mindfulness and trauma-informed stress reduction. Teresa has taught mindfulness practices in higher education, including regular classes at Nova University in Lisbon.
-
-She was part of the therapeutic team at New Life Portugal from 2022 to 2024, supporting individuals through mindfulness sessions, psychoeducational workshops, retreats, and one-to-one work focused on grief, menopause, communication, relapse prevention, and personal growth.`
+She holds a Master's degree in Teaching Mindfulness-Based Interventions from Bangor University and is certified in TRE® (Tension & Trauma Releasing Exercises) through TRE for All, Inc., with advanced training in mindfulness and trauma-informed stress reduction. Teresa has taught mindfulness practices in higher education, including regular classes at Nova University in Lisbon.`
   }
 ];
 
 function buildCard(s, idx) {
-  const langs = s.langs.length
-    ? s.langs.map(l => `<span class="lang-tag">${l}</span>`).join('')
-    : '';
-  const langsRow = s.langs.length ? `<div class="card-langs">${langs}</div>` : '';
   const svcChips = (s.services||[]).map(sv =>
     `<a class="service-chip" href="/services/#${sv.section}" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24"><path d="M9 12h6M9 16h6M17 21H7a2 2 0 01-2-2V5a2 2 0 012-2h7l5 5v11a2 2 0 01-2 2z"/></svg>${sv.name}</a>`
   ).join('');
@@ -605,7 +583,6 @@ function buildCard(s, idx) {
       <div class="card-name">${s.name}</div>
       <p class="card-summary">${s.summary}</p>
       ${svcRow}
-      ${langsRow}
       <div class="card-actions">
         <button class="btn-learn" onclick="event.stopPropagation();openModal(${idx})">Learn More</button>
         <a class="btn-book" href="https://wa.me/351924353219" target="_blank" onclick="event.stopPropagation()">Book</a>
@@ -627,7 +604,6 @@ function openModal(idx) {
   ).join('');
   const mSvc = document.getElementById('mServices');
   if(mSvc) mSvc.innerHTML = modalSvcs;
-  document.getElementById('mLangs').innerHTML = s.langs.map(l => `<span class="lang-tag">${l}</span>`).join('');
   document.getElementById('mLicence').textContent = s.licence;
   const msg = encodeURIComponent(`Hi! I'd like to book an appointment with ${s.name}. Could you confirm availability?`);
   document.getElementById('mBook').href = `https://wa.me/351924353219?text=${msg}`;
