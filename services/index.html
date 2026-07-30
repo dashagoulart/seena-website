@@ -107,6 +107,11 @@ main{max-width:1240px;margin:0 auto;padding:64px 56px 96px}
 .price-row:last-child{border-bottom:none;padding-bottom:0}
 .price-label{font-size:12.5px;font-weight:300;color:var(--text-soft)}
 .price-val{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:400;color:var(--sage-deep)}
+.modal-features{margin-bottom:24px}
+.modal-features-title{font-size:10px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--text-muted);margin-bottom:12px}
+.feature-row{display:flex;align-items:flex-start;gap:8px;padding:5px 0;font-size:12.5px;font-weight:300;line-height:1.6;color:var(--text-soft)}
+.feature-row svg{width:13px;height:13px;stroke:var(--sage);fill:none;stroke-width:2;flex-shrink:0;margin-top:3px}
+.modal-note{font-size:11.5px;font-weight:300;line-height:1.6;color:var(--text-muted);margin-top:14px}
 .modal-footer-btns{padding:20px 36px 28px;border-top:1px solid var(--cream-dark);display:flex;gap:12px;flex-shrink:0}
 .modal-btn-book{flex:1;display:inline-flex;align-items:center;justify-content:center;background:var(--sage);color:#fff;padding:13px 24px;border-radius:40px;font-size:12.5px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;transition:background .2s}
 .modal-btn-book:hover{background:var(--sage-deep)}
@@ -161,9 +166,6 @@ footer{background:var(--sage-deep);padding:40px 48px 28px}
 .modal-specialist-chip{display:inline-flex;align-items:center;gap:6px;font-size:11.5px;font-weight:400;color:var(--sage-deep);background:var(--sage-light);padding:6px 14px;border-radius:20px;text-decoration:none;transition:background .2s}
 .modal-specialist-chip:hover{background:rgba(125,170,134,.25)}
 .modal-specialist-chip svg{width:13px;height:13px;stroke:var(--sage);fill:none;stroke-width:1.5}
-.card-langs{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:14px}
-.lang-tag{font-size:10px;font-weight:500;letter-spacing:.06em;background:var(--sage-light);color:var(--sage-deep);padding:3px 9px;border-radius:20px}
-.modal-langs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px}
 
 /* ── MOBILE NAV ── */
 .nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:6px;flex-shrink:0}
@@ -338,7 +340,6 @@ footer{background:var(--sage-deep);padding:40px 48px 28px}
       <div class="modal-cat" id="mCat"></div>
       <h2 class="modal-name" id="mName"></h2>
       <div class="modal-specialists" id="mSpecialists"></div>
-      <div class="modal-langs" id="mLangs"></div>
       <div class="modal-tabs" id="mTabs" style="display:none">
         <button class="modal-tab active" data-tab="overview" onclick="switchModalTab('overview')">Overview</button>
         <button class="modal-tab" data-tab="science" onclick="switchModalTab('science')">The Honest Science</button>
@@ -347,7 +348,9 @@ footer{background:var(--sage-deep);padding:40px 48px 28px}
         <p class="modal-desc" id="mDesc"></p>
       </div>
       <div class="modal-panel" id="mPanelScience"></div>
+      <div class="modal-features" id="mFeatures" style="display:none"></div>
       <div class="modal-pricing" id="mPricing"></div>
+      <p class="modal-note" id="mNote" style="display:none"></p>
     </div>
     <div class="modal-footer-btns">
       <a id="mBook" class="modal-btn-book" href="https://wa.me/351924353219" target="_blank" data-gtm="book-appointment">Book Appointment</a>
@@ -401,41 +404,26 @@ const ICON_SWADDLE = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
 const ICON_FERTILITY = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M12 6v6l4 2"/></svg>`;
 const ICON_PSYCHOLOGY = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 4a3.5 3.5 0 00-3.5 3.5c0 .3 0 .6.1.9A3 3 0 007 14a3 3 0 001.5 5.2c.3 1 1.2 1.8 2.3 1.8h2.4c1.1 0 2-.8 2.3-1.8A3 3 0 0018 14a3 3 0 001.4-5.6c.1-.3.1-.6.1-.9A3.5 3.5 0 0016 4a3.5 3.5 0 00-2 .6A3.5 3.5 0 0012 4z"/><path d="M12 4v17M9 9c.7.6 1.6.6 2 0M15 9c-.7.6-1.6.6-2 0"/></svg>`;
 
-// ── SPECIALIST LANGUAGES LOOKUP ──
-const SPEC_LANGS = {
-  'natalia':    ['PT','EN','RU','UA'],
-  'vadim':      ['PT','RU','UA'],
-  'ana':        ['PT','EN'],
-  'sheila':     ['EN','PT'],
-  'joana':      ['PT','EN'],
-  'maxim':      [],
-  'vladislava': [],
-  'irina':      [],
-  'carlota':    ['EN','PT'],
-  'alyona-t':   [],
-  'teresa':     [],
-};
-function serviceLangs(specialists) {
-  const seen = new Set(), langs = [];
-  (specialists||[]).forEach(sp => {
-    (SPEC_LANGS[sp.key]||[]).forEach(l => { if (!seen.has(l)) { seen.add(l); langs.push(l); } });
-  });
-  return langs;
-}
-
 // ── DATA ──
 const services = {
   consultations: [
     {
       slug: 'integrative-medicine',
       icon: ICON_CONSULT,
-      name: 'Integrative Medical Consultation',
+      name: '30-Day Integrative Medical Support',
       specialists: [{"name": "Dr. Nataliia Polishchuk", "key": "natalia"}],
       cat: 'Consultations',
-      desc: 'A medical consultation focused on enhancing quality of life, optimizing hormonal balance, identifying and correcting deficiencies, and supporting energy and sleep.',
+      desc: 'A medical consultation with 30 days of follow-up support.\n\nCome with a specific concern, symptom, or existing condition you want addressed, or use it as a broader assessment to optimise hormonal balance, correct deficiencies, and support your energy and sleep. Either way, the focus is on identifying and treating the root cause.',
+      features: [
+        'Personalised medical assessment (60-90min)',
+        'Integrative health approach focused on identifying and addressing root causes',
+        'Individualised health recommendations tailored to your needs and current concerns',
+        'Guidance on appropriate tests, lifestyle, and wellbeing strategies',
+        'One month of email follow-up support after your appointment. The doctor will respond to follow-up questions within 72 hours.',
+      ],
+      note: 'Please note that if a new or unrelated health concern arises, a new consultation booking may be required.',
       pricing: [
-        {label: 'First consultation', price: '€110'},
-        {label: 'Follow-up sessions', price: '€100'},
+        {label: 'Consultation package', price: '€200'},
       ]
     },
     {
@@ -799,14 +787,11 @@ function buildCard(s, idx, section) {
     `<a class="specialist-chip" href="/specialists/#${sp.key}" onclick="event.stopPropagation()"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>${sp.name}</a>`
   ).join('');
   const specRow = specChips ? `<div class="card-specialists">${specChips}</div>` : '';
-  const langs = serviceLangs(s.specialists);
-  const langsRow = langs.length ? `<div class="card-langs">${langs.map(l=>`<span class="lang-tag">${l}</span>`).join('')}</div>` : '';
   return `<div class="service-card${s.type ? ' '+s.type : ''}" id="${s.slug}" onclick="openModal('${section}',${idx})">
     <div class="card-icon">${s.icon}</div>
     <div class="card-name">${s.name}</div>
     <p class="card-desc">${s.desc.split('\n')[0]}</p>
     ${specRow}
-    ${langsRow}
     <div class="card-footer">${priceHtml}${bookHtml}</div>
   </div>`;
 }
@@ -861,8 +846,6 @@ function openModal(section, idx) {
   ).join('');
   const specContainer = document.getElementById('mSpecialists');
   if(specContainer) specContainer.innerHTML = modalSpecs;
-  const mLangsEl = document.getElementById('mLangs');
-  if(mLangsEl) mLangsEl.innerHTML = serviceLangs(s.specialists).map(l=>`<span class="lang-tag">${l}</span>`).join('');
 
   const pricingEl = document.getElementById('mPricing');
   if (s.included) {
@@ -873,6 +856,25 @@ function openModal(section, idx) {
       (s.ivaNote ? `<div style="font-size:11px;font-weight:300;color:var(--text-muted);margin-top:10px">* IVA not included</div>` : '');
   } else {
     pricingEl.innerHTML = '';
+  }
+
+  const featuresEl = document.getElementById('mFeatures');
+  if (s.features && s.features.length) {
+    featuresEl.style.display = 'block';
+    featuresEl.innerHTML = `<div class="modal-features-title">Included</div>` +
+      s.features.map(f => `<div class="feature-row"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg><span>${f}</span></div>`).join('');
+  } else {
+    featuresEl.style.display = 'none';
+    featuresEl.innerHTML = '';
+  }
+
+  const noteEl = document.getElementById('mNote');
+  if (s.note) {
+    noteEl.style.display = 'block';
+    noteEl.textContent = s.note;
+  } else {
+    noteEl.style.display = 'none';
+    noteEl.textContent = '';
   }
 
   const msg = encodeURIComponent(`Hi! I'd like to book: ${s.name}. Could you confirm availability?`);
