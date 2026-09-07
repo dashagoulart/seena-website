@@ -68,6 +68,12 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text)}
 main{max-width:1240px;margin:0 auto;padding:64px 56px 96px}
 
 /* ── GRID ── */
+.specialists-group{margin-bottom:56px}
+.specialists-group:last-child{margin-bottom:0}
+.group-header{margin-bottom:28px;padding-bottom:18px;border-bottom:1px solid var(--cream-dark)}
+.group-eyebrow{font-size:10px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--sage);margin-bottom:8px}
+.group-title{font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:300;color:var(--text);line-height:1.1}
+
 .specialists-grid{
   display:grid;
   grid-template-columns:repeat(3,1fr);
@@ -386,7 +392,29 @@ footer{background:var(--sage-deep);padding:40px 48px 28px}
 
 <!-- GRID -->
 <main>
-  <div class="specialists-grid" id="grid"></div>
+  <section class="specialists-group" id="medical-care">
+    <div class="group-header">
+      <div class="group-eyebrow">Licensed healthcare professionals</div>
+      <h2 class="group-title">Medical & Psychological Care</h2>
+    </div>
+    <div class="specialists-grid" id="grid-medical-care"></div>
+  </section>
+
+  <section class="specialists-group" id="body-movement">
+    <div class="group-header">
+      <div class="group-eyebrow">Hands-on, movement and body-focused services</div>
+      <h2 class="group-title">Body & Movement</h2>
+    </div>
+    <div class="specialists-grid" id="grid-body-movement"></div>
+  </section>
+
+  <section class="specialists-group" id="health-education">
+    <div class="group-header">
+      <div class="group-eyebrow">Helping you understand, observe and support your health</div>
+      <h2 class="group-title">Health Education & Wellbeing</h2>
+    </div>
+    <div class="specialists-grid" id="grid-health-education"></div>
+  </section>
 </main>
 
 <!-- MODAL -->
@@ -441,7 +469,8 @@ const specialists = [
   {
     img: '/specialist_images/natalia.jpg?v=3',
     imgPos: 'center 26%',
-    services: [{"name": "Integrative Physician", "section": "consultations"}],
+    services: [{"name": "Integrative Physician", "section": "medical-care"}],
+    group: 'medical-care',
     name: 'Dr. Nataliia Polishchuk',
     role: 'MD · Specialist in Internal Medicine · Integrative and Functional Medicine',
     licence: 'Medical License: CP-43489',
@@ -456,7 +485,8 @@ Her approach centres on integrative medicine, preventive care, and a personalise
   },
   {
     img: '/specialist_images/vadim.jpg',
-    services: [{"name": "Medical Acupuncture", "section": "consultations"}, {"name": "Ozone Therapy", "section": "ozone"}],
+    services: [{"name": "Medical Acupuncture", "section": "medical-care"}],
+    group: 'medical-care',
     name: 'Dr. Vadim Fasiy',
     role: 'General Medicine · Medical Acupuncture',
     licence: 'Medical License: CP-45593',
@@ -464,18 +494,9 @@ Her approach centres on integrative medicine, preventive care, and a personalise
     bio: `Doctor with 27 years of clinical experience combining holistic medicine, internal medicine, and medical neurofunctional electroacupuncture. Dr. Fasiy brings a deeply integrative approach to patient care — addressing the root causes of illness through the intersection of conventional medicine, acupuncture, and holistic disciplines.`
   },
   {
-    img: '/specialist_images/ana.jpg?v=4',
-    imgPos: 'center 26%',
-    services: [{"name": "Ozonotherapy", "section": "ozone"}, {"name": "Orthomolecular Therapeutics", "section": "therapies"}, {"name": "Maternal Health", "section": "therapies"}, {"name": "Holistic Therapies", "section": "therapies"}],
-    name: 'Ana Filipa Pereira Lavaredas',
-    role: 'Specialist Nurse · Maternal Health & Obstetrics',
-    licence: 'OE n.º 42597',
-    summary: 'Specialist Nurse in Maternal Health and Obstetrics with over two decades of experience. Trained in ozonotherapy and orthomolecular therapeutics — integrating clinical excellence with a human-centered approach.',
-    bio: `A Specialist Nurse in Maternal Health and Obstetrics with over two decades of experience in nursing, clinical coordination, and integrative care. Trained in ozonotherapy, orthomolecular therapeutics, and holistic disciplines. She integrates clinical excellence with a human-centered approach — truly listening to the body to support deeper, lasting healing. Her work combines integrative approaches with a focus on maternal health and obstetrics.`
-  },
-  {
     img: '/specialist_images/sheila.jpg',
-    services: [{"name": "Menstrual Literacy Coaching", "section": "therapies"}, {"name": "Menstrual Literacy Programme", "section": "therapies"}, {"name": "Cycle Charting", "section": "therapies"}],
+    services: [{"name": "Menstrual Literacy Coaching", "section": "health-education"}, {"name": "Menstrual Literacy Programme", "section": "health-education"}, {"name": "Cycle Charting", "section": "health-education"}],
+    group: 'health-education',
     name: 'Sheila Góis Habib',
     role: 'Certified FEMM Fertility Awareness Educator',
     licence: '',
@@ -484,8 +505,9 @@ Her approach centres on integrative medicine, preventive care, and a personalise
   },
   {
     img: '/specialist_images/maxim.jpg',
-    services: [{"name": "Kinesiology", "section": "therapies"}, {"name": "Thermocamera", "section": "equipment"}, {"name": "Shockwave Therapy", "section": "equipment"}, {"name": "EMS Body Sculpt", "section": "equipment"}, {"name": "Pressotherapy", "section": "equipment"}],
+    services: [{"name": "Kinesiology", "section": "body-movement"}, {"name": "Thermocamera", "section": "body-movement"}, {"name": "Shockwave Therapy", "section": "body-movement"}, {"name": "EMS Body Sculpt", "section": "body-movement"}, {"name": "Pressotherapy", "section": "body-movement"}],
     events: [{title:'Feira da Saúde — Community Health Fair', date:'Sep 2025', id:'event-feira'}],
+    group: 'body-movement',
     name: 'Maxim Steshenko',
     role: 'Movement & Kinesiology Practitioner',
     licence: '',
@@ -497,26 +519,9 @@ Maxim graduated from the Escola Superior de Saúde de Coimbra with a degree in C
 Patients value his clear clinical reasoning, attentive listening, and personalised recovery plans.`
   },
   {
-    img: '/specialist_images/vladislava.png',
-    services: [{"name": "Lifebreath Manual Therapy", "section": "therapies"}],
-    events: [{title:'Flat Feet: Myth or Real Problem?', date:'Apr 2026', id:'event-flat-feet'}],
-    name: 'Vladislava Artemenko',
-    role: 'Founder of Life Breath Manual Therapy® · Manual Therapy Specialist',
-    licence: '',
-    summary: 'Founder and lead practitioner of the Lifebreath® Method, she specialises in hands-on manual therapy that supports the body\'s natural structure, movement, and self-healing capacity.',
-    bio: `Founder and lead practitioner of the Lifebreath® Method, Vladislava works as a manual therapy specialist, focusing on a bodywork approach centred on perception, touch, and refined observational skills.
-
-Her background includes extensive training in anatomy, physiology, and hands-on therapeutic techniques, as well as many years of experience in orthopaedics and traumatology environments, including surgical settings and research focused on functional movement.
-
-Vladislava is the author of the Lifebreath® Manual Therapy method, registered in Europe and available exclusively at Seena. She has worked with a wide range of clients, trained practitioners since 2019, and founded the Lifebreath School in 2020.
-
-She studied at Bogomolets National Medical University and gained professional experience in orthopaedics and traumatology settings before transitioning fully into independent manual therapy practice.
-
-Her work is focused on manual techniques and does not replace medical diagnosis or treatment.`
-  },
-  {
     img: '/specialist_images/irina.jpg',
-    services: [{"name": "Therapeutic Massage", "section": "therapies"}],
+    services: [{"name": "Therapeutic Massage", "section": "body-movement"}],
+    group: 'body-movement',
     name: 'Irina Bukharbaeva',
     role: 'Certified Massage Therapist',
     licence: '',
@@ -530,7 +535,8 @@ Her work addresses both acute and chronic conditions, combining medical knowledg
   {
     img: '/specialist_images/carlota.jpg',
     imgPos: 'center 26%',
-    services: [{"name": "Psychology", "section": "consultations"}],
+    services: [{"name": "Psychology", "section": "medical-care"}],
+    group: 'medical-care',
     name: 'Carlota Rodrigues',
     role: 'Clinical Psychologist',
     licence: 'Psychologist: 32405',
@@ -541,8 +547,9 @@ Her work is grounded in the belief that psychological wellbeing is closely conne
   },
   {
     img: '/specialist_images/alyona_t.jpeg',
-    services: [{"name": "Functional Breathing", "section": "therapies"}],
+    services: [{"name": "Functional Breathing", "section": "health-education"}],
     events: [{title:'Breathing Re-Educated — The Buteyko Method', date:'Jan 2026', id:'event-breathing-jan'}],
+    group: 'health-education',
     name: 'Alyona Tenitski',
     role: 'Certified Buteyko Breathing Instructor',
     licence: '',
@@ -555,8 +562,9 @@ Her methodology blends functional breathing, mindful movement, and self-practice
   },
   {
     img: '/specialist_images/teresa.jpg',
-    services: [{"name": "TRE \u2014 Tension Release", "section": "therapies"}],
+    services: [{"name": "TRE \u2014 Tension Release", "section": "body-movement"}],
     events: [{title:'Feira da Sa\u00fade \u2014 Community Health Fair', date:'Sep 2025', id:'event-feira'}],
+    group: 'body-movement',
     name: 'Teresa Ranieri',
     role: 'Certified TRE® Provider',
     licence: '',
@@ -591,7 +599,16 @@ function buildCard(s, idx) {
   </div>`;
 }
 
-document.getElementById('grid').innerHTML = specialists.map((s,i) => buildCard(s,i)).join('');
+const GROUPS = ['medical-care', 'body-movement', 'health-education'];
+GROUPS.forEach(group => {
+  const el = document.getElementById('grid-' + group);
+  if (!el) return;
+  el.innerHTML = specialists
+    .map((s, i) => ({ s, i }))
+    .filter(({ s }) => s.group === group)
+    .map(({ s, i }) => buildCard(s, i))
+    .join('');
+});
 
 function openModal(idx) {
   const s = specialists[idx];
@@ -632,9 +649,9 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal()
 
 // ── HASH-BASED AUTO-OPEN (from services page links) ──
 const hashMap = {
-  'natalia': 0, 'vadim': 1, 'ana': 2, 'sheila': 3, 'maxim': 4,
-  'vladislava': 5, 'irina': 6, 'carlota': 7,
-  'alyona-t': 8, 'teresa': 9
+  'natalia': 0, 'vadim': 1, 'sheila': 2, 'maxim': 3,
+  'irina': 4, 'carlota': 5,
+  'alyona-t': 6, 'teresa': 7
 };
 function openFromHash() {
   const hash = window.location.hash.slice(1);

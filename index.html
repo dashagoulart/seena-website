@@ -289,29 +289,31 @@ nav.scrolled{background:var(--sage-deep);box-shadow:0 2px 24px rgba(0,0,0,.18)}
 .services-h2 em{font-style:italic;color:var(--sage)}
 .lang-badges{display:flex;gap:6px;align-items:center;padding-bottom:4px}
 .lang-badge{font-size:10px;font-weight:500;letter-spacing:.1em;padding:5px 10px;border-radius:20px;border:1px solid var(--stone);color:var(--text-mid);background:transparent}
-.services-tracks{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.services-tracks{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
 .track{border-radius:20px;overflow:hidden;border:1px solid var(--cream-dark);display:flex;flex-direction:column}
-.track-header{padding:32px 36px 28px;display:flex;align-items:center;gap:16px}
-.track-medical .track-header{background:var(--sage-deep);color:#fff}
-.track-therapeutic .track-header{background:var(--sage-deep);color:#fff;border-bottom:none}
-.track-icon{
-  width:40px;height:40px;border-radius:10px;flex-shrink:0;
-  display:flex;align-items:center;justify-content:center;
+.track-header{
+  min-height:124px;padding:26px 32px 22px;display:flex;align-items:flex-start;gap:14px;
+  background:var(--sage-deep);color:#fff;box-sizing:border-box;
 }
-.track-medical .track-icon{background:rgba(255,255,255,.15)}
-.track-therapeutic .track-icon{background:rgba(255,255,255,.15)}
-.track-icon svg{width:18px;height:18px}
-.track-medical .track-icon svg{color:#fff}
-.track-therapeutic .track-icon svg{color:#fff}
-.track-meta{}
+.track-icon{
+  width:40px;height:40px;border-radius:10px;flex-shrink:0;margin-top:2px;
+  display:flex;align-items:center;justify-content:center;
+  background:rgba(255,255,255,.15);
+}
+.track-icon svg{width:18px;height:18px;color:#fff}
+.track-meta{flex:1;min-width:0}
 .track-tag{
   font-size:10px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;
-  margin-bottom:4px;
+  margin-bottom:6px;color:var(--sage-light);
 }
-.track-medical .track-tag{color:var(--sage-light)}
-.track-therapeutic .track-tag{color:var(--sage-light)}
-.track-name{font-size:18px;font-weight:500;color:#fff}
-.track-medical .track-name{color:#fff}
+.track-name{font-size:19px;font-weight:500;color:#fff;line-height:1.28}
+.track-badge-row{background:#fff;padding:16px 32px 6px}
+.track-badge{
+  display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:500;
+  letter-spacing:.04em;color:var(--sage-deep);background:var(--sage-light);
+  padding:6px 12px;border-radius:20px;
+}
+.track-badge svg{width:12px;height:12px;flex-shrink:0}
 .track-body{background:#fff;padding:8px 0;flex:1}
 .service-row{
   display:flex;align-items:center;justify-content:space-between;
@@ -326,9 +328,9 @@ nav.scrolled{background:var(--sage-deep);box-shadow:0 2px 24px rgba(0,0,0,.18)}
 .service-arrow{color:var(--text-soft);transition:transform .18s,color .18s;flex-shrink:0;opacity:1}
 .service-row:hover .service-arrow{transform:translateX(4px);color:var(--sage)}
 .track-footer{
-  background:var(--cream);padding:18px 36px;
+  background:var(--cream-dark);padding:18px 36px;
   display:flex;align-items:center;justify-content:space-between;
-  margin-top:auto;
+  margin-top:auto;border-top:1px solid var(--stone);
 }
 .track-cta{
   font-size:13px;font-weight:500;color:var(--sage-deep);
@@ -520,6 +522,7 @@ footer{background:var(--sage-deep);padding:40px 48px 28px}
   .hero-content{grid-template-columns:1fr;gap:40px;padding:120px 20px 60px}
   .hero-img-card{display:none}
   .hero-h1{font-size:48px}
+  .services-tracks{grid-template-columns:1fr}
   .hero-right{display:none}
   .trust-strip{padding:0 20px}
   .trust-inner{flex-wrap:wrap}
@@ -747,8 +750,6 @@ footer{background:var(--sage-deep);padding:40px 48px 28px}
     <div class="gallery-slide"><img src="./images/gallery-books.jpg" alt="Детали интерьера" loading="eager" decoding="async"></div>
     <div class="gallery-slide"><img src="./images/gallery-reception.jpg" alt="Reception area" loading="lazy" decoding="async"></div>
     <div class="gallery-slide"><img src="./images/gallery-room-detail.jpg" alt="Кабинет — детали" loading="lazy" decoding="async"></div>
-    <div class="gallery-slide"><img src="./images/gallery-ozone-machine.jpg" alt="Озонотерапия — аппарат" loading="lazy" decoding="async"></div>
-    <div class="gallery-slide"><img src="./images/gallery-ozone-prep.jpg" alt="Озонотерапия — подготовка" loading="lazy" decoding="async"></div>
     <div class="gallery-slide"><img src="./images/gallery-products-full.jpg" alt="Продукты" loading="lazy" decoding="async"></div>
     <div class="gallery-slide"><img src="./images/gallery-coffee.jpg" alt="Кофе-станция" loading="lazy" decoding="async"></div>
   </div>
@@ -767,7 +768,7 @@ footer{background:var(--sage-deep);padding:40px 48px 28px}
     <h2 class="who-h2">Not sure where to start?</h2>
     <p class="who-sub">Most of our clients come to us with one of these situations. Find yours — we'll point you to the right path.</p>
     <div class="who-grid">
-      <a href="/services/#consultations" class="who-card">
+      <a href="/services/#medical-care" class="who-card">
         <div class="who-card-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
         </div>
@@ -775,7 +776,7 @@ footer{background:var(--sage-deep);padding:40px 48px 28px}
         <div class="who-card-desc">You feel broadly well but want to stay that way — optimising nutrition, gut health, immunity, and long-term resilience before problems develop.</div>
         <div class="who-card-link">Explore services →</div>
       </a>
-      <a href="/services/#therapies" class="who-card">
+      <a href="/services/#body-movement" class="who-card">
         <div class="who-card-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
         </div>
@@ -783,7 +784,7 @@ footer{background:var(--sage-deep);padding:40px 48px 28px}
         <div class="who-card-desc">Back pain, joint issues, post-injury recovery, poor posture, persistent tension. You've tried the usual routes and want something that actually addresses the cause.</div>
         <div class="who-card-link">Explore services →</div>
       </a>
-      <a href="/services/#therapies" class="who-card">
+      <a href="/services/#medical-care" class="who-card">
         <div class="who-card-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
         </div>
@@ -791,7 +792,7 @@ footer{background:var(--sage-deep);padding:40px 48px 28px}
         <div class="who-card-desc">Fatigue that doesn't go away, anxiety, sleep problems, difficulty recovering after difficult periods. We work with the body and nervous system together.</div>
         <div class="who-card-link">Explore services →</div>
       </a>
-      <a href="/services/#therapies" class="who-card">
+      <a href="/services/#body-movement" class="who-card">
         <div class="who-card-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
         </div>
@@ -822,96 +823,127 @@ footer{background:var(--sage-deep);padding:40px 48px 28px}
           <div class="track-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
           </div>
-          <div class="track-meta" style="flex:1">
-            <div class="track-tag">Doctor-supervised</div>
-            <div class="track-name">Medical Services</div>
-          </div>
-          <div style="background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:20px;padding:4px 10px;font-size:10px;font-weight:500;color:rgba(255,255,255,.7);letter-spacing:.06em;white-space:nowrap;align-self:center">
-            Licensed ✓
+          <div class="track-meta">
+            <div class="track-tag">Licensed healthcare professionals</div>
+            <div class="track-name">Medical & Psychological Care</div>
           </div>
         </div>
+        <div class="track-badge-row">
+          <span class="track-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+            Licensed ✓
+          </span>
+        </div>
         <div class="track-body">
-          <a href="/services/#consultations" class="service-row">
+          <a href="/services/#medical-care" class="service-row">
             <div class="service-row-left">
               <div class="service-name">30-Day Integrative Medical Support</div>
               <div class="service-desc">Existing concerns, hormonal balance, energy and sleep support</div>
             </div>
             <svg class="service-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 18l6-6-6-6"/></svg>
           </a>
-          <a href="/services/#consultations" class="service-row">
+          <a href="/services/#medical-care" class="service-row">
             <div class="service-row-left">
               <div class="service-name">Medical Acupuncture</div>
               <div class="service-desc">Clinically proven nervous system regulation and pain relief</div>
             </div>
             <svg class="service-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 18l6-6-6-6"/></svg>
           </a>
-          <a href="/services/#therapies" class="service-row">
+          <a href="/services/#medical-care" class="service-row">
             <div class="service-row-left">
-              <div class="service-name">Naturopathy</div>
-              <div class="service-desc">Personalised nutrition, lifestyle guidance and bioresonance</div>
-            </div>
-            <svg class="service-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 18l6-6-6-6"/></svg>
-          </a>
-          <a href="/services/#ozone" class="service-row">
-            <div class="service-row-left">
-              <div class="service-name">Ozone Therapy</div>
-              <div class="service-desc">Medical O₃ treatments — prescribed and supervised by our doctor</div>
+              <div class="service-name">Psychological Wellness Consultation</div>
+              <div class="service-desc">Evidence-based psychotherapy and CBT for anxiety, stress and burnout</div>
             </div>
             <svg class="service-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 18l6-6-6-6"/></svg>
           </a>
         </div>
         <div class="track-footer">
-          <a href="/services/#consultations" class="track-cta">
-            All medical services
+          <a href="/services/#medical-care" class="track-cta">
+            All medical & psychological care
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 18l6-6-6-6"/></svg>
           </a>
         </div>
       </div>
 
-      <!-- THERAPEUTIC -->
+      <!-- BODY & MOVEMENT -->
       <div class="track track-therapeutic">
         <div class="track-header">
           <div class="track-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
           </div>
           <div class="track-meta">
-            <div class="track-tag">Certified practitioners</div>
-            <div class="track-name">Therapeutic Services</div>
+            <div class="track-tag">Hands-on, movement and body-focused</div>
+            <div class="track-name">Body & Movement</div>
           </div>
         </div>
         <div class="track-body">
-          <a href="/services/#therapies" class="service-row">
+          <a href="/services/#body-movement" class="service-row">
             <div class="service-row-left">
               <div class="service-name">Kinesiology</div>
               <div class="service-desc">Movement dysfunction assessment and muscle balance correction</div>
             </div>
             <svg class="service-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 18l6-6-6-6"/></svg>
           </a>
-          <a href="/services/#therapies" class="service-row">
-            <div class="service-row-left">
-              <div class="service-name">Lifebreath® Manual Therapy</div>
-              <div class="service-desc">Deep fascial and structural work by a surgeon-developed method</div>
-            </div>
-            <svg class="service-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 18l6-6-6-6"/></svg>
-          </a>
-          <a href="/services/#therapies" class="service-row">
+          <a href="/services/#body-movement" class="service-row">
             <div class="service-row-left">
               <div class="service-name">Therapeutic Massage</div>
               <div class="service-desc">Pain relief, muscle tension release and mobility restoration</div>
             </div>
             <svg class="service-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 18l6-6-6-6"/></svg>
           </a>
-          <a href="/services/#therapies" class="service-row">
+          <a href="/services/#body-movement" class="service-row">
             <div class="service-row-left">
-              <div class="service-name">TRE & Paediatric Rehabilitation</div>
-              <div class="service-desc">Trauma release exercises and children's developmental rehab</div>
+              <div class="service-name">TRE — Tension Release Exercises</div>
+              <div class="service-desc">Trauma release exercises for chronic stress and nervous system regulation</div>
             </div>
             <svg class="service-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 18l6-6-6-6"/></svg>
           </a>
         </div>
         <div class="track-footer">
-          <a href="/services/#therapies" class="track-cta">
-            All therapeutic services
+          <a href="/services/#body-movement" class="track-cta">
+            All body & movement services
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 18l6-6-6-6"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- HEALTH EDUCATION & WELLBEING -->
+      <div class="track track-education">
+        <div class="track-header">
+          <div class="track-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2"/><path d="M12 8v4l3 3"/></svg>
+          </div>
+          <div class="track-meta">
+            <div class="track-tag">Understand, observe and support your health</div>
+            <div class="track-name">Health Education & Wellbeing</div>
+          </div>
+        </div>
+        <div class="track-body">
+          <a href="/services/#health-education" class="service-row">
+            <div class="service-row-left">
+              <div class="service-name">Integrative Nutrition Care</div>
+              <div class="service-desc">Ongoing personalised nutrition and lifestyle guidance</div>
+            </div>
+            <svg class="service-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 18l6-6-6-6"/></svg>
+          </a>
+          <a href="/services/#health-education" class="service-row">
+            <div class="service-row-left">
+              <div class="service-name">Menstrual Literacy Programme</div>
+              <div class="service-desc">Fertility awareness education and evidence-based cycle charting</div>
+            </div>
+            <svg class="service-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 18l6-6-6-6"/></svg>
+          </a>
+          <a href="/services/#health-education" class="service-row">
+            <div class="service-row-left">
+              <div class="service-name">Functional Breathing — Buteyko Method</div>
+              <div class="service-desc">Restoring healthy breathing patterns and lung function</div>
+            </div>
+            <svg class="service-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 18l6-6-6-6"/></svg>
+          </a>
+        </div>
+        <div class="track-footer">
+          <a href="/services/#health-education" class="track-cta">
+            All health education & wellbeing services
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 18l6-6-6-6"/></svg>
           </a>
         </div>
@@ -1282,7 +1314,7 @@ function closeMobileNav(){var m=document.getElementById('navMobile');m.classList
 <script>
 (function(){
   var pos = 0;
-  var total = 7;
+  var total = 5;
   var track = document.getElementById('galleryTrack');
   function slidesVisible(){ return window.innerWidth < 900 ? 1 : 3; }
   function max(){ return total - slidesVisible(); }
