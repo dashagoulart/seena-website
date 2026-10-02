@@ -507,7 +507,7 @@ var EVENTS={
   'flat-feet':{
     title:'Flat Feet: Myth or Real Problem?',date:'18 Apr 2026',type:'Workshop',location:'Seena Centre',
     status:'past',cover:null,coverColor:'#4a5e4a',coverColor2:'#3d5843',coverPos:'center',
-    specialist:{name:'Vladislava Artemenko',role:'Founder of Life Breath Manual Therapy® | Manual Therapy Specialist',img:'/specialist_images/vladislava.png',link:'/specialists/#vladislava'},
+    specialist:{name:'Vladislava Artemenko',role:'Founder of Life Breath Manual Therapy® | Manual Therapy Specialist',img:'/specialist_images/vladislava.png'},
     desc:'The workshop explained that flat feet are not always a problem and only need treatment in certain cases. It covered the difference between structural and flexible flat feet, evaluated treatments like insoles and orthopaedic footwear, and offered practical tips for foot arch development and posture.',
     gallery:['/events/gallery/flat-feet-1.jpg','/events/gallery/flat-feet-2.jpg']
   },
@@ -521,7 +521,7 @@ var EVENTS={
   'sazonova':{
     title:'Baby Basics — Newborn Care Seminar',date:'10 May 2026',type:'Seminar',location:'Seena Centre',
     status:'past',cover:null,coverColor:'#6b4f3a',coverColor2:'#8a6550',coverPos:'center',
-    specialist:{name:'Alyona Sazonova',role:'Pediatric Rehabilitation · Early Childhood Development',img:'/specialist_images/alyona_s.jpg',link:'/specialists/#alyona-s'},
+    specialist:{name:'Alyona Sazonova',role:'Pediatric Rehabilitation · Early Childhood Development',img:'/specialist_images/alyona_s.jpg'},
     desc:'Seena Centre, in collaboration with Sazonova School, hosted the Baby Basics seminar for future parents in Lisbon. Participants learned the basics of newborn care — how to hold, dress, comfort, and care for a baby in the first days after birth. The seminar also included hands-on practice with dolls, helping future parents build confidence and practical baby-care skills in a warm and supportive environment.',
     gallery:['/events/gallery/baby-basics-1.jpg','/events/gallery/baby-basics-2.jpg','/events/gallery/baby-basics-3.jpg']
   },
@@ -557,8 +557,8 @@ function openEvent(id){
   document.getElementById('evMeta').innerHTML='<div class="ev-modal-meta-item">'+calIcon+e.date+'</div><div class="ev-modal-meta-item">'+pinIcon+e.location+'</div>';
   var sp=document.getElementById('evSpecialist');
   if(e.specialist){
-    sp.href=e.specialist.link;
-    sp.innerHTML='<img src="'+e.specialist.img+'" alt="'+e.specialist.name+'"><div><div class="ev-modal-sp-name">'+e.specialist.name+'</div><div class="ev-modal-sp-role">'+e.specialist.role+'</div></div><svg style="margin-left:auto;flex-shrink:0;width:14px;height:14px" viewBox="0 0 24 24" fill="none" stroke="var(--stone)" stroke-width="1.5"><path d="M9 18l6-6-6-6"/></svg>';
+    if(e.specialist.link){sp.href=e.specialist.link;sp.style.cursor='';}else{sp.removeAttribute('href');sp.style.cursor='default';}
+    sp.innerHTML='<img src="'+e.specialist.img+'" alt="'+e.specialist.name+'"><div><div class="ev-modal-sp-name">'+e.specialist.name+'</div><div class="ev-modal-sp-role">'+e.specialist.role+'</div></div>'+(e.specialist.link?'<svg style="margin-left:auto;flex-shrink:0;width:14px;height:14px" viewBox="0 0 24 24" fill="none" stroke="var(--stone)" stroke-width="1.5"><path d="M9 18l6-6-6-6"/></svg>':'');
     sp.style.display='flex';
     document.getElementById('evDivider').style.display='';
   } else {
