@@ -63,6 +63,9 @@ main{max-width:1100px;margin:0 auto;padding:56px 48px 96px;display:grid;grid-tem
 .section-label{font-size:10.5px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--sage);margin:52px 0 -4px;display:flex;align-items:center;gap:10px}
 .section-label::before{content:'';width:20px;height:1px;background:var(--sage)}
 
+.pillars{display:flex;flex-wrap:wrap;gap:10px;margin:4px 0 26px}
+.pillars span{font-family:'Cormorant Garamond',serif;font-size:21px;font-style:italic;font-weight:400;color:var(--sage-deep);line-height:1.1;background:var(--sage-pale);border-radius:40px;padding:6px 20px 8px}
+@media(max-width:800px){.pillars{gap:8px}.pillars span{font-size:18px;padding:5px 15px 7px}}
 .food-grid{display:flex;flex-direction:column;gap:16px;margin-top:24px}
 .food-card{background:var(--white);border:1px solid var(--cream-dark);border-radius:16px;padding:28px 30px}
 .food-num{font-family:'Cormorant Garamond',serif;font-size:14px;font-style:italic;color:var(--sage);margin-bottom:6px}
@@ -182,6 +185,7 @@ footer{background:var(--sage-deep);padding:40px 48px 28px}
 <main>
   <div class="event-content">
     <h2>More Than a Cooking Workshop</h2>
+    <div class="pillars"><span>Food</span><span>Science</span><span>Traditions</span><span>Human connection</span></div>
     <p>Welcome to the first Seena Table, where food, science, traditions, and human connection come together.</p>
     <p>We’ll explore the art of fermentation using seasonal vegetables, discover the fascinating relationship between our gut and overall well-being, and share food traditions and memories around one table.</p>
 
