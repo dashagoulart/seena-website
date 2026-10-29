@@ -113,6 +113,12 @@ main{max-width:1240px;margin:0 auto;padding:64px 56px 96px}
   transform:scale(1.04);
 }
 
+.card-initials{
+  width:100%;height:100%;display:flex;align-items:center;justify-content:center;
+  font-family:'Cormorant Garamond',serif;font-size:56px;font-weight:300;letter-spacing:.04em;
+  color:rgba(255,255,255,.85);
+}
+
 /* dark overlay at bottom of photo for text legibility */
 .card-photo::after{
   content:'';
@@ -485,52 +491,95 @@ Her approach centres on integrative medicine, preventive care, and a personalise
   },
   {
     img: '/specialist_images/vadim.jpg',
-    services: [{"name": "Medical Acupuncture", "section": "medical-care"}],
+    services: [],
     group: 'medical-care',
     name: 'Dr. Vadim Fasiy',
-    role: 'General Medicine · Medical Acupuncture',
+    role: 'General Practice Doctor',
     licence: 'Medical License: CP-45593',
-    summary: 'Doctor with 27 years of clinical experience combining holistic medicine, internal medicine, and medical neurofunctional electroacupuncture.',
-    bio: `Doctor with 27 years of clinical experience combining holistic medicine, internal medicine, and medical neurofunctional electroacupuncture. Dr. Fasiy brings a deeply integrative approach to patient care — addressing the root causes of illness through the intersection of conventional medicine, acupuncture, and holistic disciplines.`
+    summary: 'With 27 years of clinical experience, he is a General Practitioner with extensive knowledge in patient assessment, medical consultations, and the management of a wide range of health concerns.',
+    bio: `With 27 years of clinical experience, he is a General Practitioner with extensive knowledge in patient assessment, medical consultations, and the management of a wide range of health concerns.
+
+Throughout his medical career, he has developed a comprehensive understanding of the human body and the importance of looking beyond individual symptoms to understand a patient's overall health.
+
+His approach combines years of clinical expertise with attentive, patient-centred care, taking time to understand each individual's medical history, current concerns, and personal health needs.
+
+He provides general medical consultations, supporting patients through medical assessment, clinical guidance, and personalised recommendations, with an emphasis on prevention, continuity of care, and long-term well-being.`
   },
   {
     img: '/specialist_images/sheila.jpg',
-    services: [{"name": "Menstrual Literacy Coaching", "section": "health-education"}, {"name": "Menstrual Literacy Programme", "section": "health-education"}, {"name": "Cycle Charting", "section": "health-education"}],
+    services: [{"name": "Menstrual Literacy Programme", "section": "health-education"}],
     group: 'health-education',
     name: 'Sheila Góis Habib',
-    role: 'Certified FEMM Fertility Awareness Educator',
+    role: 'Certified Fertility Awareness Educator',
     licence: '',
-    summary: 'A certified Fertility Awareness Educator bringing an intersectional lens to menstrual, sexual, and reproductive health education, teaching people how to chart their cycles for natural birth control, optimise hormonal health, and better understand their bodies.',
-    bio: `A certified Fertility Awareness Educator. She is a Certified FEMM Teacher, with advanced training in fertility awareness and reproductive health; her FEMM Teacher Training is approved for continuing nursing education by the Ohio Nurses Association (ONA), an ANCC-accredited provider. With a Master's degree in Human Rights Law and over a decade of experience in gender equality and social inclusion, she brings an intersectional lens to menstrual, sexual, and reproductive health education. She teaches people how to chart their cycles and track evidence-based ovulation signs for birth control. Her work centers a fundamental belief: understanding your body should be a right, not a privilege.`
+    summary: 'Sheila is a certified Fertility Awareness Educator with a Master\'s background in Human Rights, Gender Equality and Social Inclusion. She helps people understand their menstrual cycles and recognise evidence-based signs of ovulation.',
+    bio: `Sheila is a certified Fertility Awareness Educator with a Master's background in Human Rights, Gender Equality and Social Inclusion. Her work brings together reproductive health education, body literacy and a strong belief that understanding your own body should be accessible to everyone.
+
+She helps people understand their menstrual cycles, recognise evidence-based signs of ovulation and build greater awareness of their reproductive health and cyclical patterns.
+
+Sheila works one-to-one and with groups, leading educational sessions, workshops and community programmes. She also partners with organisations and communities to make menstrual literacy, fertility awareness and reproductive health education more accessible, practical and easier to talk about.`
   },
   {
     img: '/specialist_images/maxim.jpg',
-    services: [{"name": "Kinesiology", "section": "body-movement"}, {"name": "Thermocamera", "section": "body-movement"}, {"name": "Shockwave Therapy", "section": "body-movement"}, {"name": "EMS Body Sculpt", "section": "body-movement"}, {"name": "Pressotherapy", "section": "body-movement"}],
+    services: [{"name": "Kinesiology", "section": "body-movement"}],
     events: [{title:'Feira da Saúde — Community Health Fair', date:'Sep 2025', id:'event-feira'}],
     group: 'body-movement',
     name: 'Maxim Steshenko',
-    role: 'Movement & Kinesiology Practitioner',
+    role: 'Clinical Physiologist & Kinesiologist',
     licence: '',
-    summary: 'Clinical physiologist and kinesiologist specialising in the root causes of musculoskeletal pain. Builds tailored recovery plans combining kinesiology assessment, shock wave therapy, and manual techniques.',
-    bio: `Clinical physiologist and kinesiologist who specialises in identifying the root causes of musculoskeletal pain and helping the body return to balance, strength, posture, and mobility.
+    summary: 'Maxim is a Clinical Physiologist and Kinesiologist whose work focuses on supporting musculoskeletal health, posture, mobility, and overall physical well-being.',
+    bio: `Maxim is a Clinical Physiologist and Kinesiologist whose work focuses on supporting musculoskeletal health, posture, mobility, and overall physical well-being.
 
-Maxim graduated from the Escola Superior de Saúde de Coimbra with a degree in Clinical Physiology. His approach starts with kinesiology muscle testing to detect imbalances and dysfunctions, then builds a tailored treatment plan that may include shock wave therapy, cupping, electrical stimulation, and gentle manual therapies. He has also completed postgraduate training in Cranial Field Osteopathy and Body Osteoplasty.
+He graduated from the Escola Superior de Saúde de Coimbra with a degree in Clinical Physiology and has completed additional postgraduate training in Cranial Field Osteopathy and Body Osteoplasty.
 
-Patients value his clear clinical reasoning, attentive listening, and personalised recovery plans.`
+His approach combines kinesiology-based muscle assessment with an individualised understanding of movement patterns, muscular tension, and physical discomfort. Depending on each person's needs, sessions may incorporate techniques such as cupping and gentle manual therapies.
+
+Maxim values attentive listening, clear communication, and a personalised approach, helping individuals better understand their bodies and work towards improved comfort, movement, and physical balance.`
   },
   {
     img: '/specialist_images/irina.jpg',
-    services: [{"name": "Therapeutic Massage", "section": "body-movement"}],
+    services: [{"name": "Massage", "section": "body-movement"}],
     group: 'body-movement',
     name: 'Irina Bukharbaeva',
     role: 'Certified Massage Therapist',
     licence: '',
-    summary: 'Certified massage therapist with 7+ years of experience specialised in complementary massage techniques and therapeutic wellbeing practices. Addresses both acute and chronic conditions with individualised care to relieve pain, restore mobility, and support healing.',
-    bio: `Certified Massage Therapist specialised in complementary massage techniques and therapeutic wellbeing practices, focused on restoring balance, relieving pain, improving mobility, and supporting the body's healing capacity through evidence-based manual therapies.
+    summary: 'Irina is a Certified Massage Therapist specialising in complementary massage techniques and wellness-focused bodywork, with an emphasis on relaxation, muscular comfort, mobility, and overall physical well-being.',
+    bio: `Irina is a Certified Massage Therapist specialising in complementary massage techniques and wellness-focused bodywork, with an emphasis on relaxation, muscular comfort, mobility, and overall physical well-being.
 
-Irina studied complementary therapies, sports massage, lymphatic drainage massage, Swedish massage, anatomy, and physiology. She is also a certified Spa Therapist from the Wingate Institute.
+Her training includes complementary therapies, sports massage, lymphatic drainage massage, Swedish massage, anatomy, and physiology. She is also a certified Spa Therapist from the Wingate Institute.
 
-Her work addresses both acute and chronic conditions, combining medical knowledge with attentive, individualised care.`
+Her approach combines knowledge of the human body with attentive, individualised care. Each session is adapted to the client's needs and preferences, incorporating different massage techniques to help ease muscular tension, encourage relaxation, and support a greater sense of physical comfort.
+
+Irina values creating a calm, supportive environment where clients can reconnect with their bodies and enjoy a personalised experience focused on their well-being.`
+  },
+  {
+    img: '',
+    initials: 'OK',
+    services: [{"name": "Massage", "section": "body-movement"}],
+    group: 'body-movement',
+    name: 'Oleksii Kopanytsia',
+    role: 'Certified Massage Practitioner',
+    licence: '',
+    summary: 'Certified Massage Practitioner trained in classical massage techniques, with a focus on supporting relaxation, mobility, muscular comfort, and overall physical wellbeing through hands-on care.',
+    bio: `Certified Massage Practitioner trained in classical massage techniques, with a focus on supporting relaxation, mobility, muscular comfort, and overall physical wellbeing through hands-on care.
+
+Oleksii completed a 120-hour foundational massage training and has continued developing his skills through further education, including visceral manual techniques. His approach combines attentive, individualised care with practical manual techniques tailored to each client's needs.`
+  },
+  {
+    img: '/specialist_images/vladislava.png',
+    services: [{"name": "Lifebreath® Manual Therapy", "section": "body-movement"}],
+    group: 'body-movement',
+    name: 'Vladislava Artemenko',
+    role: 'Founder of the Lifebreath® Method',
+    licence: '',
+    summary: 'Vladislava is the founder and lead practitioner of the Lifebreath® Method, a specialised approach to manual bodywork centred on touch, body awareness, and careful observation.',
+    bio: `Vladislava is the founder and lead practitioner of the Lifebreath® Method, a specialised approach to manual bodywork centred on touch, body awareness, and careful observation.
+
+Her background combines years of study in human anatomy, physiology, movement, and hands-on techniques, alongside extensive practical experience exploring how the body responds to touch and movement.
+
+She is the creator of the Lifebreath® Method, registered in Europe and offered exclusively at Seena. Over the years, Vladislava has worked with a wide range of clients, sharing her approach with other practitioners since 2019 and establishing the Lifebreath School in 2020.
+
+Her work focuses on personalised manual bodywork, with an emphasis on physical comfort, relaxation, and awareness of the body's natural responses.`
   },
   {
     img: '/specialist_images/carlota.jpg',
@@ -551,27 +600,49 @@ Her work is grounded in the belief that psychological wellbeing is closely conne
     events: [{title:'Breathing Re-Educated — The Buteyko Method', date:'Jan 2026', id:'event-breathing-jan'}],
     group: 'health-education',
     name: 'Alyona Tenitski',
-    role: 'Certified Buteyko Breathing Instructor',
+    role: 'Certified Functional Breathing Coach',
     licence: '',
-    summary: 'Certified Functional Breath Coach and Yoga Instructor certified in the Buteyko Breathing Method under Patrick McKeown. Helps clients of all ages improve breathing efficiency, energy, and resilience through a clinical, practical, body-based approach.',
-    bio: `Certified Functional Breath Coach and Yoga Instructor with a background in movement, body mechanics, and wellbeing. Her work focuses on helping clients improve breathing efficiency, energy, resilience, and everyday health through a practical, body-based approach.
+    summary: 'Alyona is a Certified Functional Breathing Coach and Yoga Instructor trained in the Buteyko Breathing Method under Patrick McKeown. Her work focuses on breathing awareness, comfortable breathing habits, and everyday well-being.',
+    bio: `Alyona is a Certified Functional Breathing Coach and Yoga Instructor with a background in movement, body mechanics, and well-being. Her work focuses on developing breathing awareness, encouraging comfortable breathing habits, and supporting relaxation and everyday well-being through practical, body-based exercises.
 
-Alyona began her journey as a gymnast and later built a wellness business for 15 years. She is certified in the Buteyko Breathing Method, trained under Patrick McKeown and certified through Buteyko Clinic International, and works with clients of different ages and health profiles, from asthma sufferers to athletes.
+Beginning her journey as a gymnast, Alyona later spent 15 years building and managing a wellness business. She is trained in the Buteyko Breathing Method under Patrick McKeown and certified through Buteyko Clinic International.
 
-Her methodology blends functional breathing, mindful movement, and self-practice.`
+Her approach combines functional breathing exercises, mindful movement, and guided self-practice. Sessions are adapted to individual needs and experience levels, helping participants explore their breathing patterns, develop body awareness, and incorporate simple breathing practices into daily life.
+
+Alyona values practical education and an individualised approach, encouraging clients to build confidence in their breathing practices and develop sustainable habits that support their overall well-being.`
+  },
+  {
+    img: '/specialist_images/gultekin.png',
+    services: [{"name": "Integrative Nutrition Care", "section": "health-education"}],
+    group: 'health-education',
+    name: 'Gultekin Ravshanovna Daglar',
+    role: 'Culinary Wellness Educator · Co-Founder & CEO',
+    licence: '',
+    summary: 'Gultekin\'s background is in Biomedical Sciences and Food & Nutrition. For almost ten years, she has worked with people one-to-one and through community, NGO and school projects in different countries.',
+    bio: `Gultekin's background is in Biomedical Sciences and Food & Nutrition. For almost ten years, she has worked with people one-to-one and through community, NGO and school projects in different countries. She is also the Co-Founder and CEO of Seena.
+
+A big part of her work has always been taking complicated science and making it simple, practical and human.
+
+A strong empath by nature, she brings curiosity and sensitivity into her work, combining nutritional science with traditional food practices, fermentation, microbiome-supportive cooking, and the cultural stories behind food.
+
+As the oldest of seven siblings and now a mother of two boys, food and cooking have always been deeply personal to her. Cooking is how she cares for people, shows love, connects with others, and relieves stress. She believes food is not only about nutrition, but also about connection, tradition, and bringing people together.`
   },
   {
     img: '/specialist_images/teresa.jpg',
-    services: [{"name": "TRE \u2014 Tension Release", "section": "body-movement"}],
-    events: [{title:'Feira da Sa\u00fade \u2014 Community Health Fair', date:'Sep 2025', id:'event-feira'}],
+    services: [{"name": "TRE — Tension Release", "section": "body-movement"}],
+    events: [{title:'Feira da Saúde — Community Health Fair', date:'Sep 2025', id:'event-feira'}],
     group: 'body-movement',
     name: 'Teresa Ranieri',
-    role: 'Certified TRE® Provider',
+    role: 'Mindfulness & TRE® Practitioner',
     licence: '',
-    summary: 'Mindfulness practitioner and certified TRE® provider specialising in stress, burnout, trauma recovery, and post-traumatic growth. Holds a Master\'s from Bangor University and has taught at Nova University Lisbon.',
-    bio: `Mindfulness practitioner and TRE® method practitioner specialising in stress, burnout, trauma recovery, and post-traumatic growth. Teresa combines scientific knowledge with a compassionate and highly structured approach to help people reconnect with themselves and build sustainable healing practices.
+    summary: 'Teresa is a Mindfulness and TRE® Practitioner whose work focuses on stress management, emotional well-being, body awareness, and relaxation. She holds a Master\'s from Bangor University and has taught at NOVA University in Lisbon.',
+    bio: `Teresa is a Mindfulness and TRE® Practitioner whose work focuses on stress management, emotional well-being, body awareness, and relaxation through mindfulness-based practices and gentle, body-oriented exercises.
 
-She holds a Master's degree in Teaching Mindfulness-Based Interventions from Bangor University and is certified in TRE® (Tension & Trauma Releasing Exercises) through TRE for All, Inc., with advanced training in mindfulness and trauma-informed stress reduction. Teresa has taught mindfulness practices in higher education, including regular classes at Nova University in Lisbon.`
+She holds a Master's degree in Teaching Mindfulness-Based Interventions from Bangor University and is certified in TRE® (Tension & Trauma Releasing Exercises) through TRE for All, Inc. She has also completed advanced training in mindfulness and trauma-informed approaches to stress management.
+
+Teresa has experience teaching mindfulness practices in higher education, including classes at NOVA University in Lisbon.
+
+Her approach combines structured mindfulness practices with body awareness techniques, creating a supportive environment where individuals can explore their responses to everyday stress, develop greater self-awareness, and cultivate practices that support relaxation and emotional balance.`
   }
 ];
 
@@ -584,7 +655,7 @@ function buildCard(s, idx) {
   return `
   <div class="specialist-card" onclick="openModal(${idx})">
     <div class="card-photo">
-      <img src="${s.img}" alt="${s.name}" loading="lazy"${imgStyle}>
+      ${s.img ? `<img src="${s.img}" alt="${s.name}" loading="lazy"${imgStyle}>` : `<div class="card-initials">${s.initials||''}</div>`}
     </div>
     <div class="card-body">
       <div class="card-role">${s.role}</div>
@@ -612,7 +683,7 @@ GROUPS.forEach(group => {
 
 function openModal(idx) {
   const s = specialists[idx];
-  document.getElementById('mPhoto').innerHTML = `<img src="${s.img}" alt="${s.name}">`;
+  document.getElementById('mPhoto').innerHTML = s.img ? `<img src="${s.img}" alt="${s.name}">` : `<div class="card-initials">${s.initials||''}</div>`;
   document.getElementById('mRole').textContent = s.role;
   document.getElementById('mName').textContent = s.name;
   document.getElementById('mBio').textContent = s.bio;

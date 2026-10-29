@@ -136,8 +136,8 @@ main{max-width:1240px;margin:0 auto;padding:64px 56px 96px}
 .ozone-intro-note{font-size:11px;font-weight:300;color:rgba(255,255,255,.5);line-height:1.6;text-align:right;min-width:160px}
 
 /* ── SECTION PHOTOS ── */
-.photo-card{border-radius:14px;overflow:hidden;border:1px solid var(--cream-dark)}
-.photo-card img{width:100%;height:100%;object-fit:cover;display:block}
+.photo-card{border-radius:14px;overflow:hidden;border:1px solid var(--cream-dark);position:relative;min-height:240px}
+.photo-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
 .ozone-visual{display:grid;grid-template-columns:1fr 220px;gap:20px;margin-bottom:28px;align-items:stretch}
 .ozone-visual .ozone-intro{margin-bottom:0}
 .ozone-photo{border-radius:16px;overflow:hidden}
@@ -284,7 +284,7 @@ footer{background:var(--sage-deep);padding:40px 48px 28px}
         <div class="section-eyebrow">Hands-on</div>
         <h2 class="section-title">Body & Movement</h2>
       </div>
-      <p class="section-note">Hands-on, movement and body-focused services for pain, recovery, and long-term wellbeing.</p>
+      <p class="section-note">Body & Movement care sessions are complementary bodywork approaches and do not replace medical assessment, diagnosis, or treatment.</p>
     </div>
     <div class="services-grid" id="grid-body-movement"></div>
   </section>
@@ -356,7 +356,6 @@ footer{background:var(--sage-deep);padding:40px 48px 28px}
 // ── ICONS ──
 const ICON_CONSULT = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12h6M9 16h6M17 21H7a2 2 0 01-2-2V5a2 2 0 012-2h7l5 5v11a2 2 0 01-2 2z"/></svg>`;
 const ICON_NUTRITION = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2a7 7 0 017 7c0 5-7 13-7 13S5 14 5 9a7 7 0 017-7z"/><circle cx="12" cy="9" r="2.5"/></svg>`;
-const ICON_ACUPUNCTURE = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2v20M8 6l4-4 4 4M7 10h10"/></svg>`;
 const ICON_KINESIO = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="5" r="2"/><path d="M12 7v6l-3 4m3-4l3 4M9 13H7m10 0h-2"/></svg>`;
 const ICON_MANUAL = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 11V6a2 2 0 00-4 0v5M14 11V4a2 2 0 00-4 0v7M10 11V6a2 2 0 00-4 0v5M6 11v3a6 6 0 0012 0v-3"/></svg>`;
 const ICON_NATURE = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22V12M12 12C12 6 6 3 3 3c0 6 3 9 9 9zM12 12c0-6 6-9 9-9-1 6-4 9-9 9"/></svg>`;
@@ -367,10 +366,6 @@ const ICON_BREATH = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" 
 const ICON_OZONE = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1l2.1-2.1M17 7l2.1-2.1"/></svg>`;
 const ICON_IV = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 6h8M8 12h8M8 18h8M3 6l3-3 3 3M21 6v12a2 2 0 01-2 2H5a2 2 0 01-2-2V6"/></svg>`;
 const ICON_JOINT = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16h.01"/></svg>`;
-const ICON_EMS = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>`;
-const ICON_THERMAL = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 14.76V3.5a2.5 2.5 0 00-5 0v11.26a4.5 4.5 0 105 0z"/></svg>`;
-const ICON_SHOCK = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 12h4l3-9 4 18 3-9h4"/></svg>`;
-const ICON_PRESS = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>`;
 const ICON_POUF = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>`;
 const ICON_SWADDLE = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M3 9h18M3 15h18"/></svg>`;
 const ICON_FERTILITY = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M12 6v6l4 2"/></svg>`;
@@ -399,18 +394,6 @@ const services = {
       ]
     },
     {
-      slug: 'medical-acupuncture',
-      icon: ICON_ACUPUNCTURE,
-      name: 'Medical Acupuncture',
-      specialists: [{"name": "Dr. Vadim Fasiy", "key": "vadim"}],
-      cat: 'Medical & Psychological Care',
-      desc: 'Medical acupuncture focused on pain relief, muscle relaxation, restoring bodily balance, and activating the body\'s natural healing processes.',
-      pricing: [
-        {label: 'First session', price: '€95'},
-        {label: 'Follow-up sessions', price: '€90'},
-      ]
-    },
-    {
       slug: 'psychology',
       icon: ICON_PSYCHOLOGY,
       name: 'Psychological Wellness Consultation',
@@ -436,10 +419,25 @@ const services = {
   ],
   'body-movement': [
     {
+      slug: 'manual-therapy',
+      icon: ICON_MANUAL,
+      name: 'Lifebreath® Manual Therapy',
+      specialists: [{"name": "Vladislava Artemenko", "key": "vladislava"}],
+      cat: 'Body & Movement',
+      desc: 'A specialised hands-on manual therapy method developed by Vladislava, combining gentle touch, precise manual techniques, and careful observation of the body\'s natural movement and responses.\n\nEach session is personalised, focusing on areas of physical tension, restricted movement, and discomfort. Through attentive touch and bodywork, the method aims to encourage relaxation, improve body awareness, and support greater comfort and freedom of movement.\n\nThe approach considers the body as a connected system, exploring how different areas of tension and movement patterns may influence overall physical well-being.\n\nSessions are provided exclusively at Seena and are adapted to each individual\'s needs and comfort.',
+      pricing: [
+        {label: 'First session (adult)', price: '€200'},
+        {label: 'First session (kids)', price: '€100'},
+        {label: 'Follow-up (adult)', price: '€150'},
+        {label: 'Follow-up (kids)', price: '€80'},
+      ],
+      cardDisplay: {price: '€200', note: 'Adult & kids options available'}
+    },
+    {
       slug: 'therapeutic-massage',
       icon: ICON_MASSAGE,
-      name: 'Therapeutic Massage',
-      specialists: [{"name": "Irina Bukharbaeva", "key": "irina"}],
+      name: 'Massage',
+      specialists: [{"name": "Irina Bukharbaeva", "key": "irina"}, {"name": "Oleksii Kopanytsia", "key": "oleksii"}],
       cat: 'Body & Movement',
       desc: 'Therapeutic soft tissue treatments designed to alleviate pain, release muscle tension, and restore mobility. Our specialists train at the LifeBreath Osteopathic School to deliver deeper, more precise, and highly effective massage therapy.',
       ivaNote: true,
@@ -466,58 +464,6 @@ const services = {
       specialists: [{"name": "Teresa Ranieri", "key": "teresa"}],
       cat: 'Body & Movement',
       desc: 'A clinical technique that releases deep muscle tension by activating the body\'s natural neuromuscular tremors, helping to reduce chronic stress, rebalance the nervous system, and ease psycho-emotional strain.',
-      ivaNote: true,
-      pricing: [
-        {label: 'Session', price: '€80'},
-      ]
-    },
-    {
-      slug: 'ems-body-sculpt',
-      icon: ICON_EMS,
-      name: 'EMS Body Sculpt / EMS Chair',
-      specialists: [{"name": "Maxim Steshenko", "key": "maxim"}],
-      cat: 'Body & Movement',
-      desc: 'High-intensity electromagnetic muscle stimulation for deep muscle strengthening. Used to improve muscle tone, support postpartum recovery, strengthen the pelvic floor muscles, and enhance overall muscle function without placing stress on the joints.',
-      included: 'Included with Kinesiology & Massage',
-      pricing: []
-    },
-    {
-      slug: 'shockwave-therapy',
-      icon: ICON_SHOCK,
-      name: 'Shockwave Therapy',
-      specialists: [{"name": "Maxim Steshenko", "key": "maxim"}],
-      cat: 'Body & Movement',
-      desc: 'A hardware-based treatment using acoustic waves to stimulate blood circulation and the body\'s natural tissue regeneration. Used for chronic muscle and tendon pain, overuse injuries, fasciitis, and restricted mobility — often combined with kinesiology.',
-      included: 'Included with Kinesiology',
-      pricing: []
-    },
-    {
-      slug: 'pressotherapy',
-      icon: ICON_PRESS,
-      name: 'Pressotherapy',
-      specialists: [{"name": "Maxim Steshenko", "key": "maxim"}],
-      cat: 'Body & Movement',
-      desc: 'A device-assisted lymphatic drainage treatment using controlled pressure. Reduces swelling, improves venous and lymphatic outflow, relieves heaviness in the legs, and supports the body\'s recovery processes.',
-      included: 'Included with Kinesiology & Massage',
-      pricing: []
-    },
-    {
-      slug: 'tens',
-      icon: ICON_EMS,
-      name: 'TENS',
-      specialists: [{"name": "Maxim Steshenko", "key": "maxim"}],
-      cat: 'Body & Movement',
-      desc: 'Transcutaneous electrical nerve stimulation used to reduce pain and relax muscles. Applied for both acute and chronic pain, muscle spasms, and tension. Combined with kinesiology for quicker pain relief and improved movement function.',
-      included: 'Included with Kinesiology',
-      pricing: []
-    },
-    {
-      slug: 'thermal-chamber',
-      icon: ICON_THERMAL,
-      name: 'Thermal Chamber (Thermography)',
-      specialists: [{"name": "Maxim Steshenko", "key": "maxim"}],
-      cat: 'Body & Movement',
-      desc: 'Thermal imaging diagnostics that visualize areas with increased or decreased heat radiation in the body. Helps identify inflammatory processes, circulatory disorders, and functional asymmetries — used as an additional tool for objective assessment.',
       ivaNote: true,
       pricing: [
         {label: 'Session', price: '€80'},
@@ -747,7 +693,7 @@ function closeMobileNav(){var m=document.getElementById('navMobile');m.classList
   if (!hash) return;
   for (var section in services) {
     for (var i = 0; i < services[section].length; i++) {
-      if (services[section][i].slug === hash) {
+      if (services[section][i].slug === hash && !services[section][i].hidden) {
         var s = section, idx = i;
         setTimeout(function(){ openModal(s, idx); }, 50);
         return;
