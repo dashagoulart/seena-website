@@ -382,7 +382,7 @@ dialog.modal[open] { display: flex; flex-direction: column; animation: pop .22s 
         <p>During Web Summit, we’re welcoming participants for express sessions designed to fit into busy schedules. Our specialists work with neck pain, back discomfort, muscle stiffness and physical fatigue, and you can also come in for half an hour just to unwind.</p>
       </div>
       </div>
-      <div class="media-photo"><img src="seena-waiting-area.jpg" loading="lazy" decoding="async" alt="Seena waiting area with white armchairs and a small table" width="1000" height="1500" style="object-position:center 72%"></div>
+      <div class="media-photo"><img src="seena-waiting-area.jpg" loading="lazy" decoding="async" alt="Seena waiting area with white armchairs and a small table" width="1000" height="1500" style="object-position:center 80%"></div>
     </div>
   </section>
 
@@ -539,14 +539,11 @@ dialog.modal[open] { display: flex; flex-direction: column; animation: pop .22s 
     acupuncture: "an Express Acupuncture session (45 min, €80)",
     kinesiology: "an Express Kinesiology session (40 min, €60)"
   };
-  // utm_source → short tag in the booking code, so Seena can count bookings per channel
-  var SOURCE_TAGS = { newsletter: "NL", seena_list: "SL", instagram: "IG", linkedin: "LI", community: "CM" };
   var src = "";
   try { src = new URLSearchParams(window.location.search).get("utm_source") || ""; } catch (e) {}
-  var code = "WS26" + (SOURCE_TAGS[src] ? "-" + SOURCE_TAGS[src] : "");
 
   function waLink(key) {
-    var msg = "Hi Seena, I'm at Web Summit and would like to book " + (NAMES[key] || NAMES.general) + ".\nPreferred day and time: \nCode " + code;
+    var msg = "Hi Seena, I'm at Web Summit and would like to book " + (NAMES[key] || NAMES.general) + ".";
     return "https://wa.me/" + NUMBER + "?text=" + encodeURIComponent(msg);
   }
   function wire(a) {
