@@ -16,6 +16,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{--sage:#5a7a62;--sage-deep:#3d5843;--sage-pale:#edf2ee;--cream:#f7f4ef;--cream-dark:#ede9e1;--stone:#c8bfb0;--text:#2a2520;--text-mid:#6b6259;--text-soft:#9b9088;--white:#ffffff}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text)}
 nav{position:fixed;top:0;left:0;right:0;z-index:200;background:transparent;transition:background .35s,box-shadow .35s;padding:0 48px;height:68px;display:flex;align-items:center;justify-content:space-between}
 nav.scrolled{background:var(--sage-deep);box-shadow:0 2px 24px rgba(0,0,0,.18)}
@@ -58,7 +59,7 @@ main{max-width:1100px;margin:0 auto;padding:56px 48px 96px;display:grid;grid-tem
 .event-content h2:first-child{margin-top:0}
 .event-content p{font-size:15px;font-weight:300;line-height:1.8;color:var(--text-mid);margin-bottom:16px}
 .event-content ul{margin:16px 0;display:flex;flex-direction:column;gap:10px;list-style:none}
-.event-content li{display:flex;align-items:flex-start;gap:10px;font-size:14px;font-weight:300;color:var(--text-mid);line-height:1.6}
+.event-content li{display:flex;align-items:flex-start;gap:10px;font-size:15px;font-weight:300;color:var(--text-mid);line-height:1.6}
 .event-content li::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--sage);flex-shrink:0;margin-top:8px}
 .section-label{font-size:10.5px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--sage);margin:52px 0 -4px;display:flex;align-items:center;gap:10px}
 .section-label::before{content:'';width:20px;height:1px;background:var(--sage)}
@@ -70,7 +71,7 @@ main{max-width:1100px;margin:0 auto;padding:56px 48px 96px;display:grid;grid-tem
 .food-card{background:var(--white);border-radius:16px;padding:28px 30px}
 .food-num{font-family:'Cormorant Garamond',serif;font-size:14px;font-style:italic;color:var(--sage);margin-bottom:6px}
 .food-card h3{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:400;color:var(--text);margin-bottom:12px}
-.food-card p{font-size:14.5px}
+.food-card p{font-size:15px}
 .food-card p:last-child{margin-bottom:0}
 .card-photos{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:20px}
 .card-photos button{position:relative;aspect-ratio:1;border:none;padding:0;border-radius:8px;overflow:hidden;cursor:zoom-in;background:var(--cream-dark)}
@@ -92,10 +93,10 @@ main{max-width:1100px;margin:0 auto;padding:56px 48px 96px;display:grid;grid-tem
 .quotes::-webkit-scrollbar{display:none}
 .quote{flex:0 0 calc(50% - 7px);scroll-snap-align:start;background:var(--white);border-radius:16px;padding:26px 26px 22px;margin:0;display:flex;flex-direction:column}
 .quote-mark{font-family:'Cormorant Garamond',serif;font-size:46px;line-height:.6;color:var(--sage);height:22px;margin-bottom:8px}
-.event-content .quote p{font-size:14.5px;font-weight:300;line-height:1.75;color:var(--text-mid);margin-bottom:20px;flex:1}
+.event-content .quote p{font-size:15px;font-weight:300;line-height:1.75;color:var(--text-mid);margin-bottom:20px;flex:1}
 .quote-who{display:flex;align-items:center;gap:10px;padding-top:16px;border-top:1px solid var(--cream-dark)}
 .quote-avatar{width:34px;height:34px;border-radius:50%;background:var(--sage-pale);color:var(--sage-deep);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:18px}
-.quote-who cite{font-style:normal;font-size:14px;font-weight:500;color:var(--text)}
+.quote-who cite{font-style:normal;font-size:15px;font-weight:500;color:var(--text)}
 .quotes-nav{display:flex;align-items:center;justify-content:space-between;margin-top:16px}
 .quotes-dots{display:flex;gap:8px}
 .quotes-dots button{width:8px;height:8px;border-radius:50%;border:none;padding:0;background:var(--stone);cursor:pointer;transition:background .2s,width .2s}
@@ -114,7 +115,7 @@ main{max-width:1100px;margin:0 auto;padding:56px 48px 96px;display:grid;grid-tem
 .booking-ig{display:block;text-align:center;font-size:12.5px;color:var(--sage-deep);text-decoration:none;margin-top:14px}
 .booking-ig:hover{text-decoration:underline}
 .food-card ul{margin-bottom:0}
-.stat{display:block;background:var(--sage-pale);border-radius:10px;padding:14px 18px;margin:4px 0 16px;font-size:14px;color:var(--sage-deep);line-height:1.6}
+.stat{display:block;background:var(--sage-pale);border-radius:10px;padding:14px 18px;margin:4px 0 16px;font-size:15px;color:var(--sage-deep);line-height:1.6}
 .note{font-size:13px!important;font-style:italic;color:var(--text-soft)!important}
 
 .timeline{margin-top:24px;border-left:1px solid var(--stone);padding-left:28px;display:flex;flex-direction:column;gap:22px}
@@ -122,22 +123,23 @@ main{max-width:1100px;margin:0 auto;padding:56px 48px 96px;display:grid;grid-tem
 .tl-item::before{content:'';position:absolute;left:-33px;top:5px;width:9px;height:9px;border-radius:50%;background:var(--sage);box-shadow:0 0 0 4px var(--cream)}
 .tl-time{font-size:11.5px;font-weight:500;letter-spacing:.08em;color:var(--sage);margin-bottom:4px}
 .tl-title{font-size:16px;font-weight:500;color:var(--text);margin-bottom:2px}
-.tl-desc{font-size:13px;font-weight:300;color:var(--text-soft);line-height:1.6}
+.tl-desc{font-size:15px;font-weight:300;color:var(--text-soft);line-height:1.6}
 
 .speaker-card{background:var(--white);border-radius:16px;padding:28px 30px;margin-top:24px}
 .speaker-head{display:flex;align-items:center;gap:16px;margin-bottom:18px}
 .speaker-avatar{width:72px;height:72px;border-radius:50%;object-fit:cover;object-position:center top;background:var(--cream-dark);flex-shrink:0}
 .speaker-name{font-size:16px;font-weight:500;color:var(--text);margin-bottom:4px}
 .speaker-role{font-size:12px;font-weight:300;color:var(--text-soft);line-height:1.5}
-.speaker-card p{font-size:14.5px}
+.speaker-card p{font-size:15px}
 .speaker-card p:last-child{margin-bottom:0}
 
 .join-list{margin-top:8px;border-top:1px solid var(--cream-dark)}
 .join-item{display:flex;gap:18px;padding:22px 0;border-bottom:1px solid var(--cream-dark)}
 .join-icon{width:40px;height:40px;border-radius:50%;background:var(--sage-pale);display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .join-icon svg{width:18px;height:18px;stroke:var(--sage-deep);fill:none;stroke-width:1.5}
-.join-item h3{font-size:15px;font-weight:500;color:var(--text);margin:8px 0 6px}
-.event-content .join-item p{font-size:14px;line-height:1.7;margin-bottom:0}
+.included-title{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:400;color:var(--text);margin:36px 0 8px}
+.join-item h3{font-size:16px;font-weight:500;color:var(--text);margin:8px 0 6px}
+.event-content .join-item p{font-size:15px;line-height:1.7;margin-bottom:0}
 
 /* ── SIDEBAR ── */
 .sidebar{position:sticky;top:88px}
@@ -354,20 +356,31 @@ footer{background:var(--sage-deep);padding:40px 48px 28px}
         <div><h3>Share your feedback</h3><p>We ask participants to complete a short feedback form after the event to help us improve future experiences.</p></div>
       </div>
       <div class="join-item">
-        <div class="join-icon"><svg viewBox="0 0 24 24"><path d="M8 3h8M9 3v3M15 3v3M6 6h12v13a2 2 0 01-2 2H8a2 2 0 01-2-2z"></path><path d="M6 11h12"></path></svg></div>
-        <div><h3>Everything is provided</h3><p>Ingredients, equipment, drinks, tastings, and your own fermentation jar to take home.</p></div>
-      </div>
-      <div class="join-item">
         <div class="join-icon"><svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"></path><circle cx="12" cy="13" r="4"></circle></svg></div>
         <div><h3>Photos are optional</h3><p>We’ll also be capturing moments for Seena’s social media. Your permission to appear in identifiable photos or videos will be requested separately and is optional.</p></div>
       </div>
+    </div>
+    <h3 class="included-title">What’s Included</h3>
+    <div class="join-list">
+      <div class="join-item">
+        <div class="join-icon"><svg viewBox="0 0 24 24"><path d="M8 3h8M9 3v3M15 3v3M6 6h12v13a2 2 0 01-2 2H8a2 2 0 01-2-2z"></path><path d="M6 11h12"></path></svg></div>
+        <div><h3>Everything Provided</h3><p>Fresh vegetables, jars, tools, delicious snacks, and drinks. Just bring yourself!</p></div>
+      </div>
+      <div class="join-item">
+        <div class="join-icon"><svg viewBox="0 0 24 24"><path d="M9 18h6M10 22h4M12 2a7 7 0 00-4 12.7V17h8v-2.3A7 7 0 0012 2z"></path></svg></div>
+        <div><h3>Knowledge &amp; Hands-On Experience</h3><p>Explore the science and traditions of fermentation, create your own ferment, and take it home!</p></div>
+      </div>
       <div class="join-item">
         <div class="join-icon"><svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 016.5 17H20V3H6.5A2.5 2.5 0 004 5.5z"></path><path d="M4 19.5A2.5 2.5 0 006.5 22H20v-5"></path></svg></div>
-        <div><h3>Ongoing guidance</h3><p>Receive an illustrated fermentation care guide and personal support from Gultekin as your ferment develops.</p></div>
+        <div><h3>Guidance Beyond the Workshop</h3><p>Receive an illustrated care guide and personal support as your ferment develops.</p></div>
+      </div>
+      <div class="join-item">
+        <div class="join-icon"><svg viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 00-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 00-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 000-7.8z"></path></svg></div>
+        <div><h3>Meaningful Connections</h3><p>Go beyond small talk through childhood memories, handwritten stories, laughter, and shared reflections.</p></div>
       </div>
       <div class="join-item">
         <div class="join-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"></path></svg></div>
-        <div><h3>A community beyond the table</h3><p>Connect with like-minded people, join future gatherings, and become part of something meaningful.</p></div>
+        <div><h3>A Community Beyond the Table</h3><p>Meet curious, like-minded people, build lasting connections, and become part of a growing community.</p></div>
       </div>
     </div>
     <div class="join-ctas">
