@@ -11,7 +11,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link rel="icon" type="image/svg+xml" href="/logos/favicon.svg">
 <link rel="icon" type="image/png" href="/logos/icon-dark.png">
 <title>Seena Table · Fermentation Workshop, 28 November 2026 | Seena Academy</title>
-<meta name="description" content="A hands-on fermentation workshop on the last Saturday of every month. Next table: 28 November 2026. Seasonal vegetables, gut health, and food memories around one table.">
+<meta name="description" content="A hands-on culinary workshop on 28 November 2026, held on the last Saturday of every month. Fermentation with seasonal vegetables, gut health, and food memories around one table.">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
@@ -72,6 +72,33 @@ main{max-width:1100px;margin:0 auto;padding:56px 48px 96px;display:grid;grid-tem
 .food-card h3{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:400;color:var(--text);margin-bottom:12px}
 .food-card p{font-size:14.5px}
 .food-card p:last-child{margin-bottom:0}
+.card-photos{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:20px}
+.card-photos button{position:relative;aspect-ratio:1;border:none;padding:0;border-radius:8px;overflow:hidden;cursor:zoom-in;background:var(--cream-dark)}
+.card-photos img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s}
+.card-photos button:hover img{transform:scale(1.05)}
+.card-photos .more{position:absolute;inset:0;background:rgba(40,62,47,.55);color:#fff;display:flex;align-items:center;justify-content:center;font-size:17px;font-weight:300}
+.card-photos .extra{display:none}
+.lightbox{position:fixed;inset:0;background:rgba(20,28,22,.94);z-index:600;display:none;align-items:center;justify-content:center}
+.lightbox.open{display:flex}
+.lightbox img{max-width:min(92vw,900px);max-height:84vh;border-radius:8px;object-fit:contain}
+.lb-btn{position:absolute;background:none;border:none;color:rgba(255,255,255,.75);font-size:34px;cursor:pointer;padding:14px;line-height:1}
+.lb-btn:hover{color:#fff}
+.lb-close{top:14px;right:14px;font-size:28px}
+.lb-prev{left:10px;top:50%;transform:translateY(-50%)}
+.lb-next{right:10px;top:50%;transform:translateY(-50%)}
+.lb-count{position:absolute;bottom:18px;left:0;right:0;text-align:center;font-size:12px;letter-spacing:.08em;color:rgba(255,255,255,.55)}
+.quotes{display:flex;flex-direction:column;gap:12px;margin-top:20px}
+.quote{border-left:2px solid var(--sage);padding:4px 0 4px 20px;margin:0}
+.quote p{font-family:'Cormorant Garamond',serif;font-size:19px;font-style:italic;line-height:1.55;color:var(--text);margin-bottom:6px}
+.quote cite{font-style:normal;font-size:12px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--sage)}
+.monthly{font-weight:500;font-style:italic;color:var(--sage-deep)}
+.join-ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
+.join-ctas a{display:inline-flex;align-items:center;gap:8px;padding:13px 26px;border-radius:40px;font-size:13px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;text-decoration:none}
+.join-ctas .primary{background:var(--sage-deep);color:#fff}
+.join-ctas .ghost{border:1px solid var(--sage);color:var(--sage-deep)}
+.join-ctas svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:1.6}
+.booking-ig{display:block;text-align:center;font-size:12.5px;color:var(--sage-deep);text-decoration:none;margin-top:14px}
+.booking-ig:hover{text-decoration:underline}
 .food-card ul{margin-bottom:0}
 .stat{display:block;background:var(--sage-pale);border-radius:10px;padding:14px 18px;margin:4px 0 16px;font-size:14px;color:var(--sage-deep);line-height:1.6}
 .note{font-size:13px!important;font-style:italic;color:var(--text-soft)!important}
@@ -97,49 +124,6 @@ main{max-width:1100px;margin:0 auto;padding:56px 48px 96px;display:grid;grid-tem
 .join-icon svg{width:18px;height:18px;stroke:var(--sage-deep);fill:none;stroke-width:1.5}
 .join-item h3{font-size:15px;font-weight:500;color:var(--text);margin:8px 0 6px}
 .event-content .join-item p{font-size:14px;line-height:1.7;margin-bottom:0}
-
-/* ── GALLERY ── */
-.section-sub{font-family:'Cormorant Garamond',serif;font-size:20px;font-style:italic;color:var(--sage-deep);margin:-8px 0 16px}
-.gallery-group{margin-top:28px}
-.gallery-group h3{font-family:'Cormorant Garamond',serif;font-size:22px;font-style:italic;font-weight:400;color:var(--sage-deep);margin-bottom:12px}
-.gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
-.gallery-grid button{position:relative;aspect-ratio:4/5;border:none;padding:0;border-radius:10px;overflow:hidden;cursor:zoom-in;background:var(--cream-dark)}
-.gallery-grid img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s}
-.gallery-grid button:hover img{transform:scale(1.04)}
-.gallery-grid .more{position:absolute;inset:0;background:rgba(40,62,47,.55);color:#fff;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:300;letter-spacing:.04em}
-.gallery-grid .extra{display:none}
-.lightbox{position:fixed;inset:0;background:rgba(20,28,22,.94);z-index:600;display:none;align-items:center;justify-content:center}
-.lightbox.open{display:flex}
-.lightbox img{max-width:min(92vw,900px);max-height:84vh;border-radius:8px;object-fit:contain}
-.lb-btn{position:absolute;background:none;border:none;color:rgba(255,255,255,.75);font-size:34px;cursor:pointer;padding:14px;line-height:1}
-.lb-btn:hover{color:#fff}
-.lb-close{top:14px;right:14px;font-size:28px}
-.lb-prev{left:10px;top:50%;transform:translateY(-50%)}
-.lb-next{right:10px;top:50%;transform:translateY(-50%)}
-.lb-count{position:absolute;bottom:18px;left:0;right:0;text-align:center;font-size:12px;letter-spacing:.08em;color:rgba(255,255,255,.55)}
-
-/* ── TESTIMONIALS ── */
-.quotes{display:flex;flex-direction:column;gap:14px;margin-top:20px}
-.quote{background:var(--white);border:1px solid var(--cream-dark);border-radius:16px;padding:24px 28px;margin:0}
-.quote p{font-family:'Cormorant Garamond',serif;font-size:19px;font-style:italic;line-height:1.55;color:var(--text);margin-bottom:12px}
-.quote cite{font-style:normal;font-size:12px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--sage)}
-
-/* ── PLACE AT THE TABLE ── */
-.monthly{font-weight:500;font-style:italic;color:var(--sage-deep)}
-.cta-row{display:flex;flex-wrap:wrap;gap:12px;margin:8px 0 8px}
-.btn-primary,.btn-ghost{display:inline-flex;align-items:center;gap:8px;padding:13px 26px;border-radius:40px;font-size:13px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;text-decoration:none}
-.btn-primary{background:var(--sage-deep);color:#fff}
-.btn-ghost{border:1px solid var(--sage);color:var(--sage-deep)}
-.btn-ghost svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:1.6}
-.included-title{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:400;color:var(--text);margin:40px 0 4px}
-.included-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px}
-.included-item{background:var(--white);border:1px solid var(--cream-dark);border-radius:14px;padding:20px 22px}
-.included-item h4{font-size:15px;font-weight:500;color:var(--text);margin-bottom:6px}
-.event-content .included-item p{font-size:14px;line-height:1.65;margin-bottom:0}
-.included-item:last-child:nth-child(odd){grid-column:1/-1}
-.booking-ig{display:block;text-align:center;font-size:12.5px;color:var(--sage-deep);text-decoration:none;margin-top:14px}
-.booking-ig:hover{text-decoration:underline}
-@media(max-width:640px){.gallery-grid{grid-template-columns:repeat(2,1fr)}.included-grid{grid-template-columns:1fr}.quote{padding:20px}}
 
 /* ── SIDEBAR ── */
 .sidebar{position:sticky;top:88px}
@@ -220,7 +204,7 @@ footer{background:var(--sage-deep);padding:40px 48px 28px}
     <div class="crumbs" role="navigation" aria-label="Breadcrumb"><a href="/">Seena</a><span class="sep">›</span><a href="/learn/">Academy</a><span class="sep">›</span><a href="/learn/events/">Events</a><span class="sep">›</span><span aria-current="page">Seena Table</span></div>
     <h1>Seena <em>Table</em></h1>
     <p class="hero-sub">A hands-on culinary experience for your taste buds, your gut, and the food memories that connect us.</p>
-    <div class="event-meta-line">28 November 2026<span>·</span>Time and location to be announced</div>
+    <div class="event-meta-line">28 November 2026<span>·</span>Time and location TBD</div>
     <a href="https://wa.me/351924353219?text=Hi!%20I%27d%20like%20to%20reserve%20a%20seat%20at%20Seena%20Table%20on%2028%20November." target="_blank" rel="noopener" class="hero-cta">Reserve your seat</a>
   </div>
 </section>
@@ -231,6 +215,8 @@ footer{background:var(--sage-deep);padding:40px 48px 28px}
     <div class="pillars"><span>Food</span><span>Science</span><span>Traditions</span><span>Human connection</span></div>
     <p>Welcome to the Seena Table, where food, science, traditions, and human connection come together.</p>
     <p>We’ll explore the art of fermentation using seasonal vegetables, discover the fascinating relationship between our gut and overall well-being, and share food traditions and memories around one table.</p>
+    <p>Our Seena Table gatherings bring together curious minds from all walks of life, from lawyers and physicians to entrepreneurs, creatives, parents, and simply those who love food and meaningful connections, around one table to explore fermentation, food traditions, and the gut microbiome.</p>
+    <p>From preparing our own fermentation jars to sharing stories and memories, it is always a beautiful beginning to the Seena Table community.</p>
 
     <div class="food-grid">
       <div class="food-card">
@@ -243,73 +229,59 @@ footer{background:var(--sage-deep);padding:40px 48px 28px}
           <li>Why many supermarket pickles don’t contain live beneficial bacteria</li>
           <li>The difference between fermented foods and probiotics</li>
         </ul>
+        <div class="card-photos">
+          <button type="button" data-i="0" aria-label="Open photo"><img src="/events/gallery/seena-table-01.jpg" alt="Gultekin’s talk on the gut microbiome at Seena Table" loading="lazy"></button>
+          <button type="button" data-i="1" aria-label="Open photo"><img src="/events/gallery/seena-table-02.jpg" alt="Gultekin’s talk on the gut microbiome at Seena Table" loading="lazy"></button>
+          <button type="button" data-i="2" aria-label="Open photo"><img src="/events/gallery/seena-table-03.jpg" alt="Gultekin’s talk on the gut microbiome at Seena Table" loading="lazy"></button>
+          <button type="button" data-i="3" aria-label="Open photo"><img src="/events/gallery/seena-table-04.jpg" alt="Gultekin’s talk on the gut microbiome at Seena Table" loading="lazy"><span class="more">+4</span></button>
+          <button type="button" class="extra" data-i="4" aria-label="Open photo"><img src="/events/gallery/seena-table-05.jpg" alt="Gultekin’s talk on the gut microbiome at Seena Table" loading="lazy"></button>
+          <button type="button" class="extra" data-i="5" aria-label="Open photo"><img src="/events/gallery/seena-table-06.jpg" alt="Gultekin’s talk on the gut microbiome at Seena Table" loading="lazy"></button>
+          <button type="button" class="extra" data-i="6" aria-label="Open photo"><img src="/events/gallery/seena-table-07.jpg" alt="Gultekin’s talk on the gut microbiome at Seena Table" loading="lazy"></button>
+          <button type="button" class="extra" data-i="7" aria-label="Open photo"><img src="/events/gallery/seena-table-08.jpg" alt="Gultekin’s talk on the gut microbiome at Seena Table" loading="lazy"></button>
+        </div>
       </div>
       <div class="food-card">
         <h3>Food for the Gut</h3>
         <p>Get hands-on and prepare your own jar of naturally fermented seasonal vegetables, without vinegar.</p>
         <p>Learn the process, understand the science, and take your jar home to continue fermenting.</p>
+        <div class="card-photos">
+          <button type="button" data-i="8" aria-label="Open photo"><img src="/events/gallery/seena-table-09.jpg" alt="Guests preparing fermented vegetables at Seena Table" loading="lazy"></button>
+          <button type="button" data-i="9" aria-label="Open photo"><img src="/events/gallery/seena-table-10.jpg" alt="Guests preparing fermented vegetables at Seena Table" loading="lazy"></button>
+          <button type="button" data-i="10" aria-label="Open photo"><img src="/events/gallery/seena-table-11.jpg" alt="Guests preparing fermented vegetables at Seena Table" loading="lazy"></button>
+          <button type="button" data-i="11" aria-label="Open photo"><img src="/events/gallery/seena-table-12.jpg" alt="Guests preparing fermented vegetables at Seena Table" loading="lazy"><span class="more">+7</span></button>
+          <button type="button" class="extra" data-i="12" aria-label="Open photo"><img src="/events/gallery/seena-table-13.jpg" alt="Guests preparing fermented vegetables at Seena Table" loading="lazy"></button>
+          <button type="button" class="extra" data-i="13" aria-label="Open photo"><img src="/events/gallery/seena-table-14.jpg" alt="Guests preparing fermented vegetables at Seena Table" loading="lazy"></button>
+          <button type="button" class="extra" data-i="14" aria-label="Open photo"><img src="/events/gallery/seena-table-15.jpg" alt="Guests preparing fermented vegetables at Seena Table" loading="lazy"></button>
+          <button type="button" class="extra" data-i="15" aria-label="Open photo"><img src="/events/gallery/seena-table-16.jpg" alt="Guests preparing fermented vegetables at Seena Table" loading="lazy"></button>
+          <button type="button" class="extra" data-i="16" aria-label="Open photo"><img src="/events/gallery/seena-table-17.jpg" alt="Guests preparing fermented vegetables at Seena Table" loading="lazy"></button>
+          <button type="button" class="extra" data-i="17" aria-label="Open photo"><img src="/events/gallery/seena-table-18.jpg" alt="Guests preparing fermented vegetables at Seena Table" loading="lazy"></button>
+          <button type="button" class="extra" data-i="18" aria-label="Open photo"><img src="/events/gallery/seena-table-19.jpg" alt="Guests preparing fermented vegetables at Seena Table" loading="lazy"></button>
+        </div>
       </div>
       <div class="food-card">
         <h3>Food for the Soul</h3>
         <p>Food carries memories, cultures, and family traditions.</p>
         <p>When you arrive, you’ll be invited to leave a food memory or tradition in our shared jar. Later, we’ll open a few notes and let the stories and conversations unfold naturally.</p>
         <p class="note">Sharing is always optional.</p>
-      </div>
-    </div>
-
-    <h2>Moments Around the Table</h2>
-    <p class="section-sub">A look back at our previous editions</p>
-    <p>Our Seena Table gatherings bring together curious minds from all walks of life, from lawyers and physicians to entrepreneurs, creatives, parents, and simply those who love food and meaningful connections, around one table to explore fermentation, food traditions, and the gut microbiome.</p>
-    <p>From preparing our own fermentation jars to sharing stories and memories, it is always a beautiful beginning to the Seena Table community.</p>
-    <div class="gallery-group">
-      <h3>Food for Thought</h3>
-      <div class="gallery-grid">
-        <button type="button" data-i="0" aria-label="Open photo"><img src="/events/gallery/seena-table-01.jpg" alt="Gultekin’s talk on the microbiome and fermentation" loading="lazy"></button>
-        <button type="button" data-i="1" aria-label="Open photo"><img src="/events/gallery/seena-table-02.jpg" alt="Gultekin’s talk on the microbiome and fermentation" loading="lazy"></button>
-        <button type="button" data-i="2" aria-label="Open photo"><img src="/events/gallery/seena-table-03.jpg" alt="Gultekin’s talk on the microbiome and fermentation" loading="lazy"></button>
-        <button type="button" data-i="3" aria-label="Open photo"><img src="/events/gallery/seena-table-04.jpg" alt="Gultekin’s talk on the microbiome and fermentation" loading="lazy"><span class="more">+4</span></button>
-        <button type="button" class="extra" data-i="4" aria-label="Open photo"><img src="/events/gallery/seena-table-05.jpg" alt="Gultekin’s talk on the microbiome and fermentation" loading="lazy"></button>
-        <button type="button" class="extra" data-i="5" aria-label="Open photo"><img src="/events/gallery/seena-table-06.jpg" alt="Gultekin’s talk on the microbiome and fermentation" loading="lazy"></button>
-        <button type="button" class="extra" data-i="6" aria-label="Open photo"><img src="/events/gallery/seena-table-07.jpg" alt="Gultekin’s talk on the microbiome and fermentation" loading="lazy"></button>
-        <button type="button" class="extra" data-i="7" aria-label="Open photo"><img src="/events/gallery/seena-table-08.jpg" alt="Gultekin’s talk on the microbiome and fermentation" loading="lazy"></button>
-      </div>
-    </div>
-    <div class="gallery-group">
-      <h3>Food for the Gut</h3>
-      <div class="gallery-grid">
-        <button type="button" data-i="8" aria-label="Open photo"><img src="/events/gallery/seena-table-09.jpg" alt="Guests preparing their own fermented vegetables" loading="lazy"></button>
-        <button type="button" data-i="9" aria-label="Open photo"><img src="/events/gallery/seena-table-10.jpg" alt="Guests preparing their own fermented vegetables" loading="lazy"></button>
-        <button type="button" data-i="10" aria-label="Open photo"><img src="/events/gallery/seena-table-11.jpg" alt="Guests preparing their own fermented vegetables" loading="lazy"></button>
-        <button type="button" data-i="11" aria-label="Open photo"><img src="/events/gallery/seena-table-12.jpg" alt="Guests preparing their own fermented vegetables" loading="lazy"><span class="more">+7</span></button>
-        <button type="button" class="extra" data-i="12" aria-label="Open photo"><img src="/events/gallery/seena-table-13.jpg" alt="Guests preparing their own fermented vegetables" loading="lazy"></button>
-        <button type="button" class="extra" data-i="13" aria-label="Open photo"><img src="/events/gallery/seena-table-14.jpg" alt="Guests preparing their own fermented vegetables" loading="lazy"></button>
-        <button type="button" class="extra" data-i="14" aria-label="Open photo"><img src="/events/gallery/seena-table-15.jpg" alt="Guests preparing their own fermented vegetables" loading="lazy"></button>
-        <button type="button" class="extra" data-i="15" aria-label="Open photo"><img src="/events/gallery/seena-table-16.jpg" alt="Guests preparing their own fermented vegetables" loading="lazy"></button>
-        <button type="button" class="extra" data-i="16" aria-label="Open photo"><img src="/events/gallery/seena-table-17.jpg" alt="Guests preparing their own fermented vegetables" loading="lazy"></button>
-        <button type="button" class="extra" data-i="17" aria-label="Open photo"><img src="/events/gallery/seena-table-18.jpg" alt="Guests preparing their own fermented vegetables" loading="lazy"></button>
-        <button type="button" class="extra" data-i="18" aria-label="Open photo"><img src="/events/gallery/seena-table-19.jpg" alt="Guests preparing their own fermented vegetables" loading="lazy"></button>
-      </div>
-    </div>
-    <div class="gallery-group">
-      <h3>Food for the Soul</h3>
-      <div class="gallery-grid">
-        <button type="button" data-i="19" aria-label="Open photo"><img src="/events/gallery/seena-table-20.jpg" alt="Guests sharing food memories around the table" loading="lazy"></button>
-        <button type="button" data-i="20" aria-label="Open photo"><img src="/events/gallery/seena-table-21.jpg" alt="Guests sharing food memories around the table" loading="lazy"></button>
-        <button type="button" data-i="21" aria-label="Open photo"><img src="/events/gallery/seena-table-22.jpg" alt="Guests sharing food memories around the table" loading="lazy"></button>
-        <button type="button" data-i="22" aria-label="Open photo"><img src="/events/gallery/seena-table-23.jpg" alt="Guests sharing food memories around the table" loading="lazy"><span class="more">+8</span></button>
-        <button type="button" class="extra" data-i="23" aria-label="Open photo"><img src="/events/gallery/seena-table-24.jpg" alt="Guests sharing food memories around the table" loading="lazy"></button>
-        <button type="button" class="extra" data-i="24" aria-label="Open photo"><img src="/events/gallery/seena-table-25.jpg" alt="Guests sharing food memories around the table" loading="lazy"></button>
-        <button type="button" class="extra" data-i="25" aria-label="Open photo"><img src="/events/gallery/seena-table-26.jpg" alt="Guests sharing food memories around the table" loading="lazy"></button>
-        <button type="button" class="extra" data-i="26" aria-label="Open photo"><img src="/events/gallery/seena-table-27.jpg" alt="Guests sharing food memories around the table" loading="lazy"></button>
-        <button type="button" class="extra" data-i="27" aria-label="Open photo"><img src="/events/gallery/seena-table-28.jpg" alt="Guests sharing food memories around the table" loading="lazy"></button>
-        <button type="button" class="extra" data-i="28" aria-label="Open photo"><img src="/events/gallery/seena-table-29.jpg" alt="Guests sharing food memories around the table" loading="lazy"></button>
-        <button type="button" class="extra" data-i="29" aria-label="Open photo"><img src="/events/gallery/seena-table-30.jpg" alt="Guests sharing food memories around the table" loading="lazy"></button>
-        <button type="button" class="extra" data-i="30" aria-label="Open photo"><img src="/events/gallery/seena-table-31.jpg" alt="Guests sharing food memories around the table" loading="lazy"></button>
+        <div class="card-photos">
+          <button type="button" data-i="19" aria-label="Open photo"><img src="/events/gallery/seena-table-20.jpg" alt="Guests sharing food memories at Seena Table" loading="lazy"></button>
+          <button type="button" data-i="20" aria-label="Open photo"><img src="/events/gallery/seena-table-21.jpg" alt="Guests sharing food memories at Seena Table" loading="lazy"></button>
+          <button type="button" data-i="21" aria-label="Open photo"><img src="/events/gallery/seena-table-22.jpg" alt="Guests sharing food memories at Seena Table" loading="lazy"></button>
+          <button type="button" data-i="22" aria-label="Open photo"><img src="/events/gallery/seena-table-23.jpg" alt="Guests sharing food memories at Seena Table" loading="lazy"><span class="more">+8</span></button>
+          <button type="button" class="extra" data-i="23" aria-label="Open photo"><img src="/events/gallery/seena-table-24.jpg" alt="Guests sharing food memories at Seena Table" loading="lazy"></button>
+          <button type="button" class="extra" data-i="24" aria-label="Open photo"><img src="/events/gallery/seena-table-25.jpg" alt="Guests sharing food memories at Seena Table" loading="lazy"></button>
+          <button type="button" class="extra" data-i="25" aria-label="Open photo"><img src="/events/gallery/seena-table-26.jpg" alt="Guests sharing food memories at Seena Table" loading="lazy"></button>
+          <button type="button" class="extra" data-i="26" aria-label="Open photo"><img src="/events/gallery/seena-table-27.jpg" alt="Guests sharing food memories at Seena Table" loading="lazy"></button>
+          <button type="button" class="extra" data-i="27" aria-label="Open photo"><img src="/events/gallery/seena-table-28.jpg" alt="Guests sharing food memories at Seena Table" loading="lazy"></button>
+          <button type="button" class="extra" data-i="28" aria-label="Open photo"><img src="/events/gallery/seena-table-29.jpg" alt="Guests sharing food memories at Seena Table" loading="lazy"></button>
+          <button type="button" class="extra" data-i="29" aria-label="Open photo"><img src="/events/gallery/seena-table-30.jpg" alt="Guests sharing food memories at Seena Table" loading="lazy"></button>
+          <button type="button" class="extra" data-i="30" aria-label="Open photo"><img src="/events/gallery/seena-table-31.jpg" alt="Guests sharing food memories at Seena Table" loading="lazy"></button>
+        </div>
       </div>
     </div>
 
     <h2>Your Experience</h2>
-    <p>Start time to be announced.</p>
+    <p>Start time TBD.</p>
     <div class="timeline">
       <div class="tl-item">
         <div class="tl-time">15 min</div>
@@ -354,32 +326,41 @@ footer{background:var(--sage-deep);padding:40px 48px 28px}
       <p>Through Seena Table, she brings together her professional knowledge and love for cooking, cultural traditions, and meaningful human connection.</p>
     </div>
 
-    <h2>There’s Always a Place at the Table</h2>
-    <p>The <span class="monthly">last Saturday of every month</span> we gather to explore something new, learn with our hands, and reconnect through food.</p>
-    <p>Come curious. Leave inspired, with something you’ve created yourself.</p>
-    <div class="cta-row">
-      <a href="https://wa.me/351924353219?text=Hi!%20I%27d%20like%20to%20reserve%20a%20seat%20at%20Seena%20Table%20on%2028%20November." target="_blank" rel="noopener" class="btn-primary">Join our next table</a>
-      <a href="https://www.instagram.com/seenacentre/" target="_blank" rel="noopener" class="btn-ghost"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r=".6"></circle></svg>Follow on Instagram</a>
+    <h2>Join Our Table</h2>
+    <p>The <span class="monthly">last Saturday of every month</span> we gather to explore something new, learn with our hands, and reconnect through food. Come curious. Leave inspired, with something you’ve created yourself.</p>
+    <div class="join-list">
+      <div class="join-item">
+        <div class="join-icon"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"></path></svg></div>
+        <div><h3>Share your feedback</h3><p>We ask participants to complete a short feedback form after the event to help us improve future experiences.</p></div>
+      </div>
+      <div class="join-item">
+        <div class="join-icon"><svg viewBox="0 0 24 24"><path d="M8 3h8M9 3v3M15 3v3M6 6h12v13a2 2 0 01-2 2H8a2 2 0 01-2-2z"></path><path d="M6 11h12"></path></svg></div>
+        <div><h3>Everything is provided</h3><p>Ingredients, equipment, drinks, tastings, and your own fermentation jar to take home.</p></div>
+      </div>
+      <div class="join-item">
+        <div class="join-icon"><svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"></path><circle cx="12" cy="13" r="4"></circle></svg></div>
+        <div><h3>Photos are optional</h3><p>We’ll also be capturing moments for Seena’s social media. Your permission to appear in identifiable photos or videos will be requested separately and is optional.</p></div>
+      </div>
+      <div class="join-item">
+        <div class="join-icon"><svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 016.5 17H20V3H6.5A2.5 2.5 0 004 5.5z"></path><path d="M4 19.5A2.5 2.5 0 006.5 22H20v-5"></path></svg></div>
+        <div><h3>Ongoing guidance</h3><p>Receive an illustrated fermentation care guide and personal support from Gultekin as your ferment develops.</p></div>
+      </div>
+      <div class="join-item">
+        <div class="join-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"></path></svg></div>
+        <div><h3>A community beyond the table</h3><p>Connect with like-minded people, join future gatherings, and become part of something meaningful.</p></div>
+      </div>
     </div>
-
-    <h3 class="included-title">What’s Included in Your Seena Table Experience</h3>
-    <div class="included-grid">
-      <div class="included-item"><h4>Everything Provided</h4><p>Fresh vegetables, jars, tools, and all materials. Just bring yourself!</p></div>
-      <div class="included-item"><h4>Food &amp; Drinks</h4><p>Enjoy delicious snacks and beverages throughout the gathering.</p></div>
-      <div class="included-item"><h4>Knowledge &amp; Skills</h4><p>Discover the science and traditions of fermentation and learn practical skills for your own kitchen.</p></div>
-      <div class="included-item"><h4>Your Own Fermentation Jar</h4><p>Create your own ferment and take it home!</p></div>
-      <div class="included-item"><h4>Ongoing Guidance</h4><p>Receive an illustrated fermentation care guide and personal support from Gultekin as your ferment develops.</p></div>
-      <div class="included-item"><h4>Meaningful Connections</h4><p>Go beyond small talk through childhood memories, handwritten stories, laughter, and shared reflections.</p></div>
-      <div class="included-item"><h4>A Community Beyond the Table</h4><p>Connect with like-minded people, join future gatherings, and become part of something meaningful.</p></div>
+    <div class="join-ctas">
+      <a href="https://wa.me/351924353219?text=Hi!%20I%27d%20like%20to%20reserve%20a%20seat%20at%20Seena%20Table%20on%2028%20November." target="_blank" rel="noopener" class="primary">Join our next table</a>
+      <a href="https://www.instagram.com/seenacentre/" target="_blank" rel="noopener" class="ghost"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r=".6"></circle></svg>Follow on Instagram</a>
     </div>
   </div>
 
   <div class="sidebar">
     <div class="booking-card">
             <div class="booking-title">Reserve your seat</div>
-      <div class="booking-detail"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"></rect><path d="M16 2v4M8 2v4M3 10h18"></path></svg><div><strong>28 November 2026</strong><br>Time to be announced</div></div>
-      <div class="booking-detail"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"></path><circle cx="12" cy="9" r="2.5"></circle></svg><div><strong>Location</strong><br>To be announced</div></div>
-      <div class="booking-detail"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><path d="M15 9.5c-.6-1-1.7-1.5-3-1.5-1.7 0-3 .9-3 2s1.3 1.7 3 2 3 .9 3 2-1.3 2-3 2c-1.3 0-2.4-.5-3-1.5M12 6v12"></path></svg><div><strong>Price</strong><br>To be announced</div></div>
+      <div class="booking-detail"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"></rect><path d="M16 2v4M8 2v4M3 10h18"></path></svg><div><strong>28 November 2026</strong><br>Start time TBD</div></div>
+      <div class="booking-detail"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"></path><circle cx="12" cy="9" r="2.5"></circle></svg><div><strong>Location TBD</strong><br>Exact location shared after registration.</div></div>
       <div class="booking-detail"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg><div><strong>Limited Seats</strong></div></div>
       <a href="https://wa.me/351924353219?text=Hi!%20I%27d%20like%20to%20reserve%20a%20seat%20at%20Seena%20Table%20on%2028%20November." target="_blank" rel="noopener" class="book-btn">Reserve via WhatsApp</a>
       <div class="book-note">+351 924 353 219</div>
@@ -428,7 +409,7 @@ function closeMobileNav(){var m=document.getElementById('navMobile');m.classList
 </div>
 <script>
 (function(){
-  var btns=[].slice.call(document.querySelectorAll('.gallery-grid button'));
+  var btns=[].slice.call(document.querySelectorAll('.card-photos button'));
   var srcs=btns.map(function(b){return b.querySelector('img').getAttribute('src')});
   var box=document.getElementById('lightbox'),img=document.getElementById('lbImg'),cnt=document.getElementById('lbCount'),cur=0;
   function show(i){cur=(i+srcs.length)%srcs.length;img.src=srcs[cur];cnt.textContent=(cur+1)+' / '+srcs.length}
