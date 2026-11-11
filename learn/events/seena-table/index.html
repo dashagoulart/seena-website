@@ -67,7 +67,7 @@ main{max-width:1100px;margin:0 auto;padding:56px 48px 96px;display:grid;grid-tem
 .pillars span{font-family:'Cormorant Garamond',serif;font-size:21px;font-style:italic;font-weight:400;color:var(--sage-deep);line-height:1.1;background:var(--sage-pale);border-radius:40px;padding:6px 20px 8px}
 @media(max-width:800px){.pillars{gap:8px}.pillars span{font-size:18px;padding:5px 15px 7px}}
 .food-grid{display:flex;flex-direction:column;gap:16px;margin-top:24px}
-.food-card{background:var(--white);border:1px solid var(--cream-dark);border-radius:16px;padding:28px 30px}
+.food-card{background:var(--white);border-radius:16px;padding:28px 30px}
 .food-num{font-family:'Cormorant Garamond',serif;font-size:14px;font-style:italic;color:var(--sage);margin-bottom:6px}
 .food-card h3{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:400;color:var(--text);margin-bottom:12px}
 .food-card p{font-size:14.5px}
@@ -87,10 +87,24 @@ main{max-width:1100px;margin:0 auto;padding:56px 48px 96px;display:grid;grid-tem
 .lb-prev{left:10px;top:50%;transform:translateY(-50%)}
 .lb-next{right:10px;top:50%;transform:translateY(-50%)}
 .lb-count{position:absolute;bottom:18px;left:0;right:0;text-align:center;font-size:12px;letter-spacing:.08em;color:rgba(255,255,255,.55)}
-.quotes{display:flex;flex-direction:column;gap:12px;margin-top:20px}
-.quote{border-left:2px solid var(--sage);padding:4px 0 4px 20px;margin:0}
-.quote p{font-family:'Cormorant Garamond',serif;font-size:19px;font-style:italic;line-height:1.55;color:var(--text);margin-bottom:6px}
-.quote cite{font-style:normal;font-size:12px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--sage)}
+.quotes-wrap{position:relative;margin-top:22px}
+.quotes{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none;padding-bottom:4px}
+.quotes::-webkit-scrollbar{display:none}
+.quote{flex:0 0 calc(50% - 7px);scroll-snap-align:start;background:var(--white);border-radius:16px;padding:26px 26px 22px;margin:0;display:flex;flex-direction:column}
+.quote-mark{font-family:'Cormorant Garamond',serif;font-size:46px;line-height:.6;color:var(--sage);height:22px;margin-bottom:8px}
+.event-content .quote p{font-size:14.5px;font-weight:300;line-height:1.75;color:var(--text-mid);margin-bottom:20px;flex:1}
+.quote-who{display:flex;align-items:center;gap:10px;padding-top:16px;border-top:1px solid var(--cream-dark)}
+.quote-avatar{width:34px;height:34px;border-radius:50%;background:var(--sage-pale);color:var(--sage-deep);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:18px}
+.quote-who cite{font-style:normal;font-size:14px;font-weight:500;color:var(--text)}
+.quotes-nav{display:flex;align-items:center;justify-content:space-between;margin-top:16px}
+.quotes-dots{display:flex;gap:8px}
+.quotes-dots button{width:8px;height:8px;border-radius:50%;border:none;padding:0;background:var(--stone);cursor:pointer;transition:background .2s,width .2s}
+.quotes-dots button.on{background:var(--sage-deep);width:22px;border-radius:4px}
+.quotes-arrows{display:flex;gap:8px}
+.quotes-arrows button{width:38px;height:38px;border-radius:50%;border:1px solid var(--stone);background:none;color:var(--sage-deep);font-size:18px;cursor:pointer;line-height:1}
+.quotes-arrows button:hover{background:var(--white)}
+.quotes-arrows button:disabled{opacity:.35;cursor:default}
+@media(max-width:640px){.quote{flex-basis:86%}}
 .monthly{font-weight:500;font-style:italic;color:var(--sage-deep)}
 .join-ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
 .join-ctas a{display:inline-flex;align-items:center;gap:8px;padding:13px 26px;border-radius:40px;font-size:13px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;text-decoration:none}
@@ -110,7 +124,7 @@ main{max-width:1100px;margin:0 auto;padding:56px 48px 96px;display:grid;grid-tem
 .tl-title{font-size:16px;font-weight:500;color:var(--text);margin-bottom:2px}
 .tl-desc{font-size:13px;font-weight:300;color:var(--text-soft);line-height:1.6}
 
-.speaker-card{background:var(--white);border:1px solid var(--cream-dark);border-radius:16px;padding:28px 30px;margin-top:24px}
+.speaker-card{background:var(--white);border-radius:16px;padding:28px 30px;margin-top:24px}
 .speaker-head{display:flex;align-items:center;gap:16px;margin-bottom:18px}
 .speaker-avatar{width:72px;height:72px;border-radius:50%;object-fit:cover;object-position:center top;background:var(--cream-dark);flex-shrink:0}
 .speaker-name{font-size:16px;font-weight:500;color:var(--text);margin-bottom:4px}
@@ -127,7 +141,7 @@ main{max-width:1100px;margin:0 auto;padding:56px 48px 96px;display:grid;grid-tem
 
 /* ── SIDEBAR ── */
 .sidebar{position:sticky;top:88px}
-.booking-card{background:var(--white);border:1px solid var(--cream-dark);border-radius:16px;padding:32px}
+.booking-card{background:var(--white);border-radius:16px;padding:32px}
 .booking-badge{display:inline-flex;align-items:center;gap:6px;font-size:10px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;padding:5px 11px;border-radius:20px;background:rgba(90,122,98,.1);color:var(--sage);margin-bottom:16px}
 .booking-badge::before{content:'';width:5px;height:5px;border-radius:50%;background:currentColor}
 .booking-title{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:400;color:var(--text);margin-bottom:22px}
@@ -307,10 +321,16 @@ footer{background:var(--sage-deep);padding:40px 48px 28px}
 
     <h2>Words From Our Guests</h2>
     <p>Every gathering is shaped by the people who join our table. Discover what participants shared about their Seena Table experience.</p>
-    <div class="quotes">
-      <blockquote class="quote"><p>“The vegetable fermentation workshop exceeded all my expectations. The host demonstrated incredible knowledge and a truly contagious passion for fermentation. The hands-on format allowed us to get stuck in, ask questions on the spot, and understand the science and tricks behind the process in a very simple way. Plus, sharing practical tips for daily life was a huge added value. A fantastic experience that I recommend without hesitation!”</p><cite>Armanda</cite></blockquote>
-      <blockquote class="quote"><p>“What I enjoyed most was the friendly atmosphere, the connections I made, and the feeling of being in a fun university class where everyone was curious and motivated to learn. Gultekin had thought of every detail, including the practical activities, reflection questions, and group sharing at the end.”</p><cite>Christina</cite></blockquote>
-      <blockquote class="quote"><p>“Thank you soo much for today, that was epic. Really great stuff!”</p><cite>Joe</cite></blockquote>
+    <div class="quotes-wrap">
+      <div class="quotes" id="quotes" tabindex="0" aria-label="Guest testimonials">
+        <figure class="quote"><div class="quote-mark" aria-hidden="true">“</div><p>The vegetable fermentation workshop exceeded all my expectations. The host demonstrated incredible knowledge and a truly contagious passion for fermentation. The hands-on format allowed us to get stuck in, ask questions on the spot, and understand the science and tricks behind the process in a very simple way. Plus, sharing practical tips for daily life was a huge added value. A fantastic experience that I recommend without hesitation!</p><figcaption class="quote-who"><span class="quote-avatar" aria-hidden="true">A</span><cite>Armanda</cite></figcaption></figure>
+        <figure class="quote"><div class="quote-mark" aria-hidden="true">“</div><p>What I enjoyed most was the friendly atmosphere, the connections I made, and the feeling of being in a fun university class where everyone was curious and motivated to learn. Gultekin had thought of every detail, including the practical activities, reflection questions, and group sharing at the end.</p><figcaption class="quote-who"><span class="quote-avatar" aria-hidden="true">C</span><cite>Christina</cite></figcaption></figure>
+        <figure class="quote"><div class="quote-mark" aria-hidden="true">“</div><p>Thank you soo much for today, that was epic. Really great stuff!</p><figcaption class="quote-who"><span class="quote-avatar" aria-hidden="true">J</span><cite>Joe</cite></figcaption></figure>
+      </div>
+      <div class="quotes-nav">
+        <div class="quotes-dots" id="quotesDots"></div>
+        <div class="quotes-arrows"><button type="button" id="qPrev" aria-label="Previous testimonial">&#8249;</button><button type="button" id="qNext" aria-label="Next testimonial">&#8250;</button></div>
+      </div>
     </div>
 
     <h2>Meet Your Host</h2>
@@ -423,6 +443,20 @@ function closeMobileNav(){var m=document.getElementById('navMobile');m.classList
   document.addEventListener('keydown',function(e){if(!box.classList.contains('open'))return;if(e.key==='Escape')close();if(e.key==='ArrowLeft')show(cur-1);if(e.key==='ArrowRight')show(cur+1)});
   var x0=null;box.addEventListener('touchstart',function(e){x0=e.touches[0].clientX},{passive:true});
   box.addEventListener('touchend',function(e){if(x0===null)return;var dx=e.changedTouches[0].clientX-x0;if(Math.abs(dx)>40)show(cur+(dx<0?1:-1));x0=null});
+})();
+</script>
+<script>
+(function(){
+  var track=document.getElementById('quotes');if(!track)return;
+  var cards=[].slice.call(track.querySelectorAll('.quote')),dots=document.getElementById('quotesDots');
+  var prev=document.getElementById('qPrev'),next=document.getElementById('qNext');
+  cards.forEach(function(c,i){var d=document.createElement('button');d.type='button';d.setAttribute('aria-label','Testimonial '+(i+1));d.onclick=function(){go(i)};dots.appendChild(d)});
+  function idx(){var x=track.scrollLeft,best=0,bd=1e9;cards.forEach(function(c,i){var d=Math.abs(c.offsetLeft-track.offsetLeft-x);if(d<bd){bd=d;best=i}});return best}
+  function go(i){i=Math.max(0,Math.min(cards.length-1,i));track.scrollTo({left:cards[i].offsetLeft-track.offsetLeft,behavior:'smooth'})}
+  function sync(){var i=idx(),max=track.scrollWidth-track.clientWidth;[].forEach.call(dots.children,function(d,k){d.classList.toggle('on',k===i)});prev.disabled=track.scrollLeft<4;next.disabled=track.scrollLeft>max-4}
+  prev.onclick=function(){go(idx()-1)};next.onclick=function(){var i=idx(),max=track.scrollWidth-track.clientWidth;go(track.scrollLeft>max-4?i:i+1)};
+  track.addEventListener('scroll',function(){window.requestAnimationFrame(sync)},{passive:true});
+  window.addEventListener('resize',sync);sync();
 })();
 </script>
 </body></html>
